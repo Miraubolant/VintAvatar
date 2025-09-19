@@ -16,6 +16,7 @@ import generationFr from '../locales/fr/generation.json';
 import blogFr from '../locales/fr/blog.json';
 import legalFr from '../locales/fr/legal.json';
 import avatarConfigFr from '../locales/fr/avatarConfig.json';
+import guideFr from '../locales/fr/guide.json';
 
 import commonEn from '../locales/en/common.json';
 import heroEn from '../locales/en/hero.json';
@@ -30,6 +31,7 @@ import generationEn from '../locales/en/generation.json';
 import blogEn from '../locales/en/blog.json';
 import legalEn from '../locales/en/legal.json';
 import avatarConfigEn from '../locales/en/avatarConfig.json';
+import guideEn from '../locales/en/guide.json';
 
 import commonEs from '../locales/es/common.json';
 import heroEs from '../locales/es/hero.json';
@@ -44,6 +46,7 @@ import generationEs from '../locales/es/generation.json';
 import blogEs from '../locales/es/blog.json';
 import legalEs from '../locales/es/legal.json';
 import avatarConfigEs from '../locales/es/avatarConfig.json';
+import guideEs from '../locales/es/guide.json';
 
 import commonIt from '../locales/it/common.json';
 import heroIt from '../locales/it/hero.json';
@@ -58,6 +61,7 @@ import generationIt from '../locales/it/generation.json';
 import blogIt from '../locales/it/blog.json';
 import legalIt from '../locales/it/legal.json';
 import avatarConfigIt from '../locales/it/avatarConfig.json';
+import guideIt from '../locales/it/guide.json';
 
 export const resources = {
   fr: {
@@ -74,6 +78,7 @@ export const resources = {
     blog: blogFr,
     legal: legalFr,
     avatarConfig: avatarConfigFr,
+    guide: guideFr,
   },
   en: {
     common: commonEn,
@@ -89,6 +94,7 @@ export const resources = {
     blog: blogEn,
     legal: legalEn,
     avatarConfig: avatarConfigEn,
+    guide: guideEn,
   },
   es: {
     common: commonEs,
@@ -104,6 +110,7 @@ export const resources = {
     blog: blogEs,
     legal: legalEs,
     avatarConfig: avatarConfigEs,
+    guide: guideEs,
   },
   it: {
     common: commonIt,
@@ -119,6 +126,7 @@ export const resources = {
     blog: blogIt,
     legal: legalIt,
     avatarConfig: avatarConfigIt,
+    guide: guideIt,
   },
 };
 
@@ -147,7 +155,7 @@ i18n
     },
 
     // Namespaces
-    ns: ['common', 'hero', 'header', 'pricing', 'beforeafter', 'howItWorks', 'testimonials', 'account', 'auth', 'generation', 'blog', 'legal', 'avatarConfig'],
+    ns: ['common', 'hero', 'header', 'pricing', 'beforeafter', 'howItWorks', 'testimonials', 'account', 'auth', 'generation', 'blog', 'legal', 'avatarConfig', 'guide'],
     defaultNS: 'common',
 
     interpolation: {
