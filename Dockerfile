@@ -5,8 +5,8 @@ WORKDIR /app
 # Copier les fichiers package
 COPY package*.json ./
 
-# Installer les dépendances
-RUN npm ci --only=production
+# Installer les dépendances (toutes les dépendances pour le build)
+RUN npm ci
 
 # Copier le code source
 COPY . .
