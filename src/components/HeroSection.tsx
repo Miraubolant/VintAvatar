@@ -764,7 +764,7 @@ export const HeroSection: React.FC = () => {
                     </button>
                     <button
                       onClick={() => {
-                        navigate('/account');
+                        navigate('/account?tab=history');
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
                       className="px-4 py-2 bg-pink-pastel text-black border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center gap-2"

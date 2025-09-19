@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getArticles } from '../articles';
@@ -8,6 +8,7 @@ import { generateArticleSchema } from '../utils/structuredData';
 
 export const ArticlePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation('blog');
 
   useEffect(() => {
@@ -47,13 +48,21 @@ export const ArticlePage: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Bouton retour */}
           <div className="mb-8">
-            <a
-              href="/#blog"
+            <button
+              onClick={() => {
+                navigate('/');
+                setTimeout(() => {
+                  const blogSection = document.getElementById('blog');
+                  if (blogSection) {
+                    blogSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }, 100);
+              }}
               className="inline-flex items-center gap-2 px-4 py-2 bg-mint border-3 border-black font-display font-bold text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform rotate-1"
             >
               <ArrowLeft className="w-4 h-4" />
               {t('buttons.backToBlog')}
-            </a>
+            </button>
           </div>
           
           {/* Métadonnées */}
