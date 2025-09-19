@@ -1,0 +1,58 @@
+{
+  "title": {
+    "line1": "TESTIMONIANZE",
+    "line2": "VENDITORI VINTED!"
+  },
+  "subtitle": "Scopri come i venditori trasformano le loro vendite con l'IA!",
+  "testimonials": [
+    {
+      "name": "Marie Laurent",
+      "location": "Paris",
+      "text": "Ho raddoppiato le mie vendite in una settimana! Le foto IA sono incredibili.",
+      "sales": "+340%",
+      "metric": "Visualizzazioni"
+    },
+    {
+      "name": "Thomas Dubois",
+      "location": "Lyon",
+      "text": "L'IA è straordinaria. In 30 secondi ho una foto ultra-realistica!",
+      "sales": "+280%",
+      "metric": "Vendite"
+    },
+    {
+      "name": "Sophie Martin",
+      "location": "Marseille",
+      "text": "Un vero game changer! I miei concorrenti chiedono il mio segreto.",
+      "sales": "+195%",
+      "metric": "Profitti"
+    },
+    {
+      "name": "Emma Leclerc",
+      "location": "Toulouse",
+      "text": "Mai più foto sbagliate! L'IA fa il lavoro perfettamente.",
+      "sales": "+225%",
+      "metric": "Coinvolgimento"
+    },
+    {
+      "name": "Lucas Bernard",
+      "location": "Nantes",
+      "text": "Rivoluzionario! I miei articoli si vendono 3 volte più velocemente.",
+      "sales": "+310%",
+      "metric": "Velocità"
+    }
+  ],
+  "common": {
+    "moreLabel": "in più!"
+  },
+  "cta": {
+    "title": "UNISCITI",
+    "line1": "+12.000 VENDITORI",
+    "line2": "SODDISFATTI!",
+    "stats": [
+      { "value": "12.487", "label": "Venditori attivi" },
+      { "value": "94.762", "label": "Foto generate" },
+      { "value": "4.9/5", "label": "Voto medio" }
+    ],
+    "button": "PROVA ORA"
+  }
+}

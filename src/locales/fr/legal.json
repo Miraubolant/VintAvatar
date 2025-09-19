@@ -1,0 +1,331 @@
+{
+  "title": "CONDITIONS GÉNÉRALES ET POLITIQUE DE CONFIDENTIALITÉ",
+  "lastUpdated": "Dernière mise à jour : 17 septembre 2025",
+  "introduction": "En utilisant Vinted Avatar, vous acceptez les présentes conditions d'utilisation et notre politique de confidentialité.",
+  "toc": {
+    "title": "SOMMAIRE",
+    "sections": [
+      { "href": "#service", "label": "Présentation du service" },
+      { "href": "#age", "label": "Âge minimum" },
+      { "href": "#compte", "label": "Vie privée et données personnelles" },
+      { "href": "#propriete", "label": "Propriété intellectuelle" },
+      { "href": "#paiements", "label": "Paiements, crédits et abonnements" },
+      { "href": "#retractation", "label": "Droit de rétractation et remboursements" },
+      { "href": "#suspension", "label": "Suspension et résiliation" },
+      { "href": "#usage", "label": "Usage du service" },
+      { "href": "#responsabilite", "label": "Responsabilité et limitation" },
+      { "href": "#hebergement", "label": "Hébergement et sous-traitance" },
+      { "href": "#cookies", "label": "Cookies et traceurs" },
+      { "href": "#droits", "label": "Vos droits RGPD" },
+      { "href": "#modifications", "label": "Modifications des conditions" },
+      { "href": "#contact", "label": "Contact" }
+    ]
+  },
+  "sections": {
+    "service": {
+      "title": "1. PRÉSENTATION DU SERVICE",
+      "content": {
+        "description": "Vinted Avatar est un outil en ligne permettant de générer, à partir d'un lien Vinted® ou d'une image uploadée, des photographies \"portées\" réalisées par un modèle d'intelligence artificielle (FLUX Kontext Pro fourni par Replicate).",
+        "operator": "Le service est exploité par : Miraubolant (SIREN 999 999 999) – 113 rue saint honoré, 75001 Paris.",
+        "features": [
+          "Analyse automatique des vêtements uploadés",
+          "Génération d'avatars IA portant les articles",
+          "Création de photos haute qualité pour plateformes de vente",
+          "Outils de personnalisation et d'optimisation"
+        ]
+      }
+    },
+    "age": {
+      "title": "2. ÂGE MINIMUM",
+      "content": {
+        "description": "Le service est réservé :",
+        "conditions": [
+          "aux personnes âgées d'au moins 18 ans, ou",
+          "aux personnes âgées de 13 à 17 ans disposant de l'accord d'un parent ou représentant légal qui assume la responsabilité de l'usage."
+        ]
+      }
+    },
+    "compte": {
+      "title": "3. VIE PRIVÉE ET DONNÉES PERSONNELLES",
+      "content": {
+        "userAccount": {
+          "title": "Compte utilisateur",
+          "description": "Création possible via Google ; Vinted Avatar collecte et conserve le nom, l'adresse e-mail et la date d'inscription."
+        },
+        "generations": {
+          "title": "Générations",
+          "description": "Pour chaque image, sont enregistrés l'identifiant utilisateur, le lien Vinted et l'image résultante."
+        },
+        "conservation": {
+          "title": "Conservation",
+          "description": "Données conservées jusqu'à six mois après la dernière activité, puis suppression automatique après notification par e-mail."
+        },
+        "deletion": {
+          "title": "Suppression de compte",
+          "description": "Un bouton dédié efface définitivement le compte et les données associées."
+        },
+        "marketing": {
+          "title": "Utilisation marketing croisée",
+          "description": "Miraubolant peut, avec votre consentement, utiliser vos coordonnées pour présenter ses autres projets. Opposition possible à tout moment."
+        },
+        "rights": {
+          "title": "Droits RGPD",
+          "description": "Accès, rectification, opposition, suppression ; contacter : contact@miraubolant.com."
+        },
+        "dataTypes": {
+          "identification": {
+            "title": "Données d'identification :",
+            "items": [
+              "Email (via Google Auth)",
+              "Nom et prénom (Google)",
+              "Photo de profil (optionnel)",
+              "Identifiant utilisateur unique"
+            ]
+          },
+          "usage": {
+            "title": "Données d'usage :",
+            "items": [
+              "Images uploadées pour traitement",
+              "Configurations d'avatar créées",
+              "Historique des générations",
+              "Données de facturation (Stripe)"
+            ]
+          },
+          "technical": {
+            "title": "Données techniques :",
+            "items": [
+              "Adresse IP et géolocalisation approximative",
+              "Type de navigateur et système d'exploitation",
+              "Pages visitées et temps de navigation",
+              "Logs d'erreurs pour améliorer le service"
+            ]
+          }
+        },
+        "security": {
+          "title": "Sécurité et stockage",
+          "measures": [
+            "Chiffrement SSL/TLS pour toutes les communications",
+            "Chiffrement des données au repos (AES-256)",
+            "Données hébergées en Europe (conformité RGPD)"
+          ]
+        }
+      }
+    },
+    "propriete": {
+      "title": "4. PROPRIÉTÉ INTELLECTUELLE",
+      "content": {
+        "sourceImages": {
+          "title": "Images sources",
+          "description": "L'utilisateur garantit détenir tous droits nécessaires sur chaque lien Vinted ou contenu soumis."
+        },
+        "generatedImages": {
+          "title": "Images générées",
+          "description": "Conformément aux conditions de Replicate, l'utilisateur détient, dans la mesure permise par le droit applicable, les droits sur les sorties du modèle. Vinted Avatar se réserve une licence non exclusive, mondiale et gratuite afin d'exécuter le service et, sauf opposition écrite, présenter publiquement les résultats à des fins de démonstration ou promotion."
+        },
+        "forbiddenContent": {
+          "title": "Contenus interdits",
+          "description": "Conformément aux politiques Replicate, il est interdit de soumettre ou de générer des contenus :",
+          "items": [
+            "à caractère sexuel explicite, provocant ou impliquant des mineurs,",
+            "mettant en scène des personnes identifiables (photos déjà \"portées\"),",
+            "incitant à la haine, à la violence ou diffamatoires."
+          ],
+          "moderation": "Vinted Avatar applique une modération automatique et manuelle ; tout compte contrevenant peut être suspendu ou bloqué."
+        }
+      }
+    },
+    "paiements": {
+      "title": "5. PAIEMENTS, CRÉDITS ET ABONNEMENTS",
+      "content": {
+        "processing": {
+          "title": "Traitement",
+          "description": "Tous les paiements sont traités par Stripe ; vous acceptez leurs conditions."
+        },
+        "credits": {
+          "title": "Crédits à l'unité",
+          "description": "Valables douze mois à compter de l'achat, non remboursables sauf dispositions légales."
+        },
+        "subscription": {
+          "title": "Abonnement mensuel",
+          "description": "Renouvelé automatiquement ; annulation à tout moment avec maintien des droits jusqu'à la fin de la période mensuelle."
+        },
+        "doubleGeneration": {
+          "title": "Double génération",
+          "description": "Une tentative de régénération sur un même article renvoie l'image existante sans débit de crédit."
+        },
+        "pricing": {
+          "pack10": "Pack 10 crédits : 3,99€",
+          "pack25": "Pack 25 crédits : 7,99€",
+          "subscription": "Abonnement mensuel : 11,99€"
+        }
+      }
+    },
+    "retractation": {
+      "title": "6. DROIT DE RÉTRACTATION ET POLITIQUE DE REMBOURSEMENT",
+      "content": {
+        "right": {
+          "title": "Droit de rétractation",
+          "description": "Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation de quatorze jours pour les contenus numériques fournis sans support matériel ne s'applique pas lorsque l'exécution a commencé après accord préalable exprès et renoncement à ce droit. En achetant des crédits et en lançant une génération, l'utilisateur reconnaît et accepte l'exécution immédiate et renonce à son droit de rétractation pour les crédits consommés."
+        },
+        "refunds": {
+          "title": "Remboursements",
+          "subscriptions": "Abonnements : aucun remboursement si des crédits ont été utilisés pendant la période en cours.",
+          "creditPacks": "Recharges de crédits : le premier achat de crédits peut être remboursé sur demande dans les quatorze jours si les crédits correspondants n'ont pas été utilisés ; les crédits sont alors débités (solde négatif possible)."
+        }
+      }
+    },
+    "suspension": {
+      "title": "7. SUSPENSION, RÉSILIATION ET COMPTES INACTIFS",
+      "content": {
+        "inactivity": {
+          "title": "Inactivité",
+          "description": "Après six mois sans connexion ni génération, le compte est considéré inactif. Un e-mail de préavis de 30 jours est envoyé ; sans réponse, le compte et les données sont supprimés."
+        },
+        "userDeletion": {
+          "title": "Suppression à l'initiative de l'utilisateur",
+          "consumed": "Si tous les crédits ont été consommés, la suppression prend effet après un préavis de 60 jours (temps nécessaire à la clôture comptable et à l'archivage légal)",
+          "remaining": "Si des crédits restent disponibles, l'utilisateur peut demander remboursement proportionnel au prix d'achat, déduction faite d'éventuelles promotions, avant la clôture effective."
+        },
+        "violation": {
+          "title": "Suspension pour non-respect des conditions",
+          "description": "Vinted Avatar peut suspendre immédiatement le compte ; les crédits non consommés sont alors remboursés, sauf en cas de violation grave ou intentionnelle."
+        }
+      }
+    },
+    "usage": {
+      "title": "8. USAGE DU SERVICE",
+      "content": {
+        "description": "L'utilisateur est seul responsable de l'usage qu'il fait des images générées. Toute utilisation commerciale, automatisée, ou intégration dans une plateforme tierce est interdite sans autorisation écrite. Les images ne garantissent aucune vente ; elles améliorent uniquement la présentation visuelle de l'annonce.",
+        "vinted": "Vinted Avatar n'est ni affilié, ni sponsorisé, ni approuvé par Vinted®. Le service fonctionne uniquement à l'initiative de l'utilisateur, sans interaction directe avec les serveurs de Vinted."
+      }
+    },
+    "responsabilite": {
+      "title": "9. RESPONSABILITÉ, LIMITATION ET FORCE MAJEURE",
+      "content": {
+        "service": "Le service est fourni « en l'état » sans garantie de disponibilité ou de performance.",
+        "technical": "En cas d'indisponibilité technique empêchant l'usage, les crédits inutilisés sont remboursés sur demande.",
+        "liability": "Vinted Avatar ne pourra être tenu responsable des pertes indirectes, commerciales ou immatérielles.",
+        "forceMajeure": "Force majeure : aucune partie ne pourra être tenue pour responsable d'un manquement résultant d'un événement imprévisible, irrésistible et extérieur (catastrophe naturelle, panne générale d'Internet, décision gouvernementale, etc.)."
+      }
+    },
+    "hebergement": {
+      "title": "10. HÉBERGEMENT ET SOUS-TRAITANCE",
+      "content": {
+        "description": "Les données et images sont hébergées chez Supabase ; les traitements relatifs à l'IA sont effectués via les services de Replicate, agissant en qualité de sous-traitant au sens du RGPD. Aucune donnée n'est transférée hors de l'Espace Économique Européen hors des garanties adéquates prévues par le RGPD."
+      }
+    },
+    "cookies": {
+      "title": "11. COOKIES ET TRACEURS",
+      "content": {
+        "types": {
+          "title": "Types de cookies",
+          "necessary": "Cookies nécessaires : authentification et maintien de session (obligatoires).",
+          "analytics": "Cookies d'analyse : mesure d'audience et amélioration du service (optionnels, soumis à consentement)."
+        },
+        "data": {
+          "title": "Données collectées",
+          "description": "Adresse IP, région géographique approximative, type d'appareil, pages consultées."
+        },
+        "purpose": {
+          "title": "Finalité",
+          "description": "Statistiques internes, aucune revente ni partage à des tiers à des fins publicitaires."
+        },
+        "management": {
+          "title": "Gestion du consentement",
+          "description": "Bandeau de consentement lors de la première visite ; modification possible à tout moment dans les paramètres du compte."
+        },
+        "categories": {
+          "essential": {
+            "title": "Cookies essentiels",
+            "description": "Nécessaires au fonctionnement",
+            "items": ["Authentification", "Sécurité", "Préférences"]
+          },
+          "analytics": {
+            "title": "Cookies analytiques",
+            "description": "Comprendre l'usage",
+            "items": ["Pages visitées", "Temps de navigation", "Erreurs rencontrées"]
+          },
+          "marketing": {
+            "title": "Cookies marketing",
+            "description": "Personnalisation (optionnel)",
+            "items": ["Recommandations", "Publicités ciblées", "Réseaux sociaux"]
+          }
+        }
+      }
+    },
+    "droits": {
+      "title": "12. VOS DROITS RGPD",
+      "content": {
+        "description": "Conformément au RGPD, vous disposez de droits importants sur vos données personnelles.",
+        "accessRights": {
+          "title": "Droits d'accès et de contrôle :",
+          "items": [
+            "Droit d'accès : Obtenir une copie de vos données",
+            "Droit de rectification : Corriger des informations inexactes",
+            "Droit à l'effacement : Supprimer vos données (\"droit à l'oubli\")",
+            "Droit à la portabilité : Récupérer vos données dans un format lisible"
+          ]
+        },
+        "limitationRights": {
+          "title": "Droits de limitation :",
+          "items": [
+            "Droit d'opposition : Refuser certains traitements",
+            "Droit de limitation : Restreindre l'usage de vos données",
+            "Retrait du consentement : Annuler votre accord à tout moment",
+            "Droit de réclamation : Saisir la CNIL en cas de litige"
+          ]
+        },
+        "exercise": {
+          "title": "Comment exercer vos droits ?",
+          "description": "Pour exercer l'un de ces droits, contactez-nous à contact@miraubolant.com en précisant :",
+          "requirements": [
+            "Votre demande précise",
+            "Une copie de votre pièce d'identité",
+            "L'adresse email de votre compte"
+          ],
+          "timeframe": "Nous vous répondrons sous 30 jours maximum."
+        }
+      }
+    },
+    "modifications": {
+      "title": "13. MODIFICATION DES CONDITIONS",
+      "content": {
+        "description": "Vinted Avatar peut modifier les présentes conditions à tout moment. La date de mise à jour fait foi. Toute utilisation du service après modification vaut acceptation des nouvelles conditions. Les versions antérieures restent disponibles sur demande.",
+        "notification": {
+          "title": "En cas de modification :",
+          "items": [
+            "Notification par email au moins 30 jours avant",
+            "Publication de la nouvelle version sur notre site",
+            "Indication claire des changements effectués",
+            "Possibilité de nous contacter pour toute question"
+          ]
+        }
+      }
+    },
+    "contact": {
+      "title": "14. CONTACT",
+      "content": {
+        "description": "Pour toute question ou demande, écrire à : contact@miraubolant.com",
+        "company": {
+          "name": "Miraubolant",
+          "address": "113 rue saint honoré",
+          "city": "75001 Paris, France",
+          "siren": "SIREN : 999 999 999"
+        },
+        "contacts": {
+          "general": "Questions générales : contact@miraubolant.com",
+          "support": "Support technique : support@miraubolant.com"
+        },
+        "law": "Les présentes conditions sont régies par le droit français. Les parties s'engagent à rechercher une solution amiable avant toute action judiciaire. À défaut, compétence exclusive est attribuée aux tribunaux de Paris (France)."
+      }
+    }
+  },
+  "cta": {
+    "title": "QUESTIONS ?",
+    "description": "Notre équipe support est là pour vous aider !",
+    "button": "NOUS CONTACTER"
+  },
+  "navigation": {
+    "backToHome": "RETOUR À L'ACCUEIL"
+  }
+}

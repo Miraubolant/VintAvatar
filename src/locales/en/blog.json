@@ -1,0 +1,35 @@
+{
+  "title": {
+    "line1": "TIPS",
+    "line2": "& TRICKS!"
+  },
+  "subtitle": "Stay up to date with our latest tips to maximize your sales!",
+  "badges": {
+    "featured": "FEATURED"
+  },
+  "buttons": {
+    "readArticle": "READ ARTICLE",
+    "readMore": "READ MORE",
+    "backToBlog": "BACK TO BLOG",
+    "startNow": "START NOW"
+  },
+  "metadata": {
+    "readTime": "read",
+    "by": "by"
+  },
+  "stats": {
+    "availableArticles": "{count} ARTICLES AVAILABLE",
+    "subtitle": "Discover all our tips to boost your sales!"
+  },
+  "cta": {
+    "section": {
+      "title": "STAY UPDATED!",
+      "button": "EXPLORE"
+    },
+    "article": {
+      "title": "READY TO OPTIMIZE YOUR VINTED PHOTOS?",
+      "subtitle": "Generate perfect worn photos in 30 seconds with our AI!",
+      "button": "START NOW"
+    }
+  }
+}

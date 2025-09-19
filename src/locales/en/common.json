@@ -1,0 +1,48 @@
+{
+  "buttons": {
+    "tryNow": "TRY NOW",
+    "startNow": "GET STARTED",
+    "download": "DOWNLOAD",
+    "loading": "LOADING...",
+    "close": "CLOSE",
+    "cancel": "CANCEL",
+    "confirm": "CONFIRM",
+    "save": "SAVE",
+    "back": "BACK",
+    "next": "NEXT"
+  },
+  "status": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Operation successful",
+    "processing": "Processing..."
+  },
+  "labels": {
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "optional": "Optional"
+  },
+  "footer": {
+    "brand": {
+      "title": "VINTED AVATAR",
+      "subtitle": "AI Pro Photos"
+    },
+    "navigation": {
+      "home": "Home",
+      "method": "Method",
+      "beforeAfter": "Before/After",
+      "pricing": "Pricing",
+      "reviews": "Reviews",
+      "blog": "Blog"
+    },
+    "copyright": {
+      "text": "© 2025 VINTED AVATAR",
+      "madeIn": "Made in France"
+    },
+    "links": {
+      "legal": "Legal",
+      "contact": "Contact"
+    }
+  }
+}

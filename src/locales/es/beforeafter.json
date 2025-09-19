@@ -1,0 +1,34 @@
+{
+  "title": {
+    "line1": "ANTES/DESPUÉS",
+    "line2": "MÁGICOS",
+    "line3": "¡CON IA!"
+  },
+  "loading": "CARGANDO TRANSFORMACIONES...",
+  "labels": {
+    "before": "ANTES",
+    "after": "DESPUÉS IA"
+  },
+  "stats": [
+    {
+      "value": "+85%",
+      "label": "Ventas más rápidas"
+    },
+    {
+      "value": "2X",
+      "label": "Más mensajes"
+    },
+    {
+      "value": "-90%",
+      "label": "Tiempo ahorrado"
+    },
+    {
+      "value": "0€",
+      "label": "Gastos de fotos"
+    }
+  ],
+  "cta": {
+    "title": "¿LISTO PARA TRANSFORMAR TUS FOTOS?",
+    "button": "PROBAR AHORA"
+  }
+}

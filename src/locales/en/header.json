@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "features": "Features",
+    "method": "Method",
+    "beforeAfter": "Before/After",
+    "pricing": "Pricing",
+    "reviews": "Reviews",
+    "blog": "Blog",
+    "account": "My Account"
+  },
+  "auth": {
+    "login": "LOGIN",
+    "logout": "LOGOUT",
+    "signUp": "SIGN UP"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "title": {
+    "line1": "CONSEILS",
+    "line2": "& ASTUCES !"
+  },
+  "subtitle": "Reste à jour avec nos derniers conseils pour maximiser tes ventes !",
+  "badges": {
+    "featured": "FEATURED"
+  },
+  "buttons": {
+    "readArticle": "LIRE L'ARTICLE",
+    "readMore": "LIRE LA SUITE",
+    "backToBlog": "RETOUR AU BLOG",
+    "startNow": "COMMENCER MAINTENANT"
+  },
+  "metadata": {
+    "readTime": "lecture",
+    "by": "par"
+  },
+  "stats": {
+    "availableArticles": "{count} ARTICLES DISPONIBLES",
+    "subtitle": "Découvre tous nos conseils pour booster tes ventes !"
+  },
+  "cta": {
+    "section": {
+      "title": "RESTE AU COURANT !",
+      "button": "EXPLORER"
+    },
+    "article": {
+      "title": "PRÊT À OPTIMISER TES PHOTOS VINTED ?",
+      "subtitle": "Génère des photos portées parfaites en 30 secondes avec notre IA !",
+      "button": "COMMENCER MAINTENANT"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "title": {
+    "line1": "PLANS AND PRICING",
+    "line2": "ADAPTED!"
+  },
+  "subtitle": "Choose the plan that fits your AI avatar generation needs!",
+  "plans": {
+    "test": {
+      "name": "10 CREDITS PACK",
+      "price": "€3.99",
+      "features": [
+        "10 generations usable at any time",
+        "Perfect for testing",
+        "No commitment",
+        "One-time payment"
+      ],
+      "button": "GET STARTED"
+    },
+    "popular": {
+      "name": "25 CREDITS PACK",
+      "price": "€7.99",
+      "badge": "MOST POPULAR",
+      "features": [
+        "25 credits for the price of 20",
+        "20% savings",
+        "No commitment",
+        "One-time payment"
+      ],
+      "button": "CHOOSE THIS PACK"
+    },
+    "unlimited": {
+      "name": "SUBSCRIPTION",
+      "price": "€11.99",
+      "features": [
+        "Up to 40 generations per month",
+        "Non-cumulative",
+        "Complete customization",
+        "Access to new features",
+        "Perfect for regular sellers"
+      ],
+      "button": "SUBSCRIBE"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "How does it work?",
+        "answer": "Upload your clothing photo, configure your avatar and our AI generates a model wearing your item in less than 30 seconds."
+      },
+      {
+        "question": "Are my photos secure?",
+        "answer": "Yes, all photos are encrypted and stored securely. You can delete them anytime from your account."
+      },
+      {
+        "question": "Can I cancel my subscription?",
+        "answer": "Yes, you can cancel your subscription anytime. It will remain active until the end of the paid period."
+      }
+    ]
+  },
+  "common": {
+    "oneTimePayment": "One-time payment",
+    "bestValue": "BEST VALUE"
+  },
+  "stats": [
+    {
+      "value": "INSTANT",
+      "label": "Delivery"
+    },
+    {
+      "value": "€0",
+      "label": "Hidden fees"
+    },
+    {
+      "value": "30s",
+      "label": "Fast generation"
+    },
+    {
+      "value": "24/7",
+      "label": "Support available"
+    }
+  ],
+  "cta": {
+    "title": "READY TO CHOOSE YOUR PLAN?",
+    "button": "TRY NOW"
+  }
+}

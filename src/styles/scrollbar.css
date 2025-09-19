@@ -1,0 +1,54 @@
+/* Neo-Brutalism Vinted Scrollbar Styles */
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 18px;
+  height: 18px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF8E7; /* cream */
+  border: 3px solid #000000;
+  margin: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #09B1BA; /* vinted blue */
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 1);
+  border-radius: 0;
+  min-height: 40px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #07969e; /* darker vinted on hover */
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  transform: translate(-1px, -1px);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #06777e; /* even darker when clicked */
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 1);
+}
+
+::-webkit-scrollbar-corner {
+  background: #FFF8E7; /* cream */
+  border: 3px solid #000000;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thick;
+  scrollbar-color: #09B1BA #FFF8E7; /* vinted blue on cream */
+}
+
+/* Additional neo-brutalism styling for all scrollable elements */
+* {
+  scrollbar-width: thick;
+  scrollbar-color: #09B1BA #FFF8E7; /* vinted blue on cream */
+}
+
+/* Make scrollbar more visible */
+body {
+  overflow-y: scroll; /* Force scrollbar to always show */
+}

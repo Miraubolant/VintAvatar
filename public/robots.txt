@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Blog articles
+Allow: /blog/
+
+# Main sections
+Allow: /#generateur
+Allow: /#avis
+Allow: /#tarifs
+Allow: /#blog
+
+Sitemap: https://vintedavatar.com/sitemap.xml

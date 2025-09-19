@@ -1,0 +1,134 @@
+{
+  "title": {
+    "line1": "CREARE FOTO",
+    "line2": "VINTED PERFETTE",
+    "line3": "CON L'IA!"
+  },
+  "subtitle": "Genera foto realistiche indossate in 30 secondi con l'IA.",
+  "description": "Niente modello, niente servizio fotografico - solo immagini che vendono!",
+  "uploadSection": {
+    "steps": {
+      "step1": {
+        "title": "1. AGGIUNGERE",
+        "subtitle": "Foto o link Vinted",
+        "mobileSubtitle": "Aggiungi foto o link Vinted"
+      },
+      "step2": {
+        "title": "2. CONFIGURARE",
+        "subtitle": "Impostazioni IA",
+        "mobileSubtitle": "Configura la tua IA"
+      },
+      "step3": {
+        "title": "3. GENERARE",
+        "subtitle": "Avatar professionale",
+        "mobileSubtitle": "Genera avatar professionale"
+      }
+    },
+    "uploadBox": {
+      "title": "CLICCA PER CARICARE",
+      "subtitle": "o trascina la tua immagine qui",
+      "formats": "JPG, PNG fino a 10MB"
+    },
+    "orText": "OPPURE",
+    "vintedUrl": {
+      "placeholder": "Incolla l'URL del tuo articolo Vinted qui...",
+      "button": "RECUPERA"
+    }
+  },
+  "configSection": {
+    "title": "CONFIGURAZIONE IA",
+    "configure": "CONFIGURA IL TUO AVATAR",
+    "generate": "GENERA LA TUA IMMAGINE",
+    "generating": "GENERANDO..."
+  },
+  "interface": {
+    "placeholder": "Incolla il tuo link Vinted qui...",
+    "photoButton": "FOTO",
+    "extractButton": "ESTRAI FOTO VINTED",
+    "deleteButton": "ELIMINA",
+    "imageReady": "IMMAGINE",
+    "imagesReady": "IMMAGINI",
+    "ready": "PRONTA",
+    "readyPlural": "PRONTE",
+    "uploadedLabel": "UP",
+    "generationSuccess": "AVATAR GENERATO CON SUCCESSO",
+    "viewLarge": "VEDI IN GRANDE",
+    "download": "SCARICA",
+    "viewHistory": "VEDI STORICO",
+    "generating": "GENERANDO..."
+  },
+  "requirements": {
+    "title": "FOTO PERFETTA?",
+    "items": [
+      "Abbigliamento ben visibile e illuminato",
+      "Sfondo neutro preferibile",
+      "Foto nitida e alta qualità",
+      "Articolo intero nell'inquadratura"
+    ]
+  },
+  "features": [
+    {
+      "icon": "Zap",
+      "title": "SUPER VELOCE",
+      "description": "Avatar generato in meno di 30 secondi"
+    },
+    {
+      "icon": "Star",
+      "title": "QUALITÀ PRO",
+      "description": "IA ultima generazione FLUX"
+    },
+    {
+      "icon": "Shield",
+      "title": "100% PRIVATO",
+      "description": "Volto mascherato per la tua sicurezza"
+    }
+  ],
+  "stats": [
+    {
+      "value": "+85%",
+      "label": "Vendite più veloci"
+    },
+    {
+      "value": "2X",
+      "label": "Più messaggi"
+    },
+    {
+      "value": "-90%",
+      "label": "Tempo risparmiato"
+    },
+    {
+      "value": "0€",
+      "label": "Costi shooting"
+    }
+  ],
+  "modals": {
+    "authRequired": {
+      "title": "ACCESSO RICHIESTO",
+      "description": "Devi essere connesso per usare il generatore di avatar IA.",
+      "loginButton": "ACCEDI"
+    },
+    "imageRequired": {
+      "title": "IMMAGINE RICHIESTA",
+      "description": "Per generare il tuo avatar, devi prima aggiungere un'immagine:",
+      "instructions": {
+        "vinted": "Incolla un link Vinted nel campo sopra",
+        "upload": "Carica la tua foto con il pulsante"
+      },
+      "closeButton": "CHIUDI",
+      "uploadButton": "CARICA"
+    },
+    "subscriptionRequired": {
+      "title": "ABBONAMENTO RICHIESTO",
+      "description": "Devi avere un abbonamento attivo per generare avatar IA.",
+      "laterButton": "PIÙ TARDI",
+      "viewPlans": "VEDI PREZZI"
+    }
+  },
+  "errors": {
+    "uploadFailed": "Errore nel caricamento. Riprova.",
+    "generationFailed": "Errore nella generazione. Riprova.",
+    "invalidFormat": "Formato non supportato. Usa JPG o PNG.",
+    "fileTooLarge": "File troppo grande. Max 10MB.",
+    "networkError": "Errore di rete. Controlla la tua connessione."
+  }
+}

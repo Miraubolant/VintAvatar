@@ -1,0 +1,129 @@
+{
+  "title": "CONFIGURE TON AVATAR IA",
+  "tabs": {
+    "modele": "MODÈLE",
+    "style": "STYLE",
+    "environnement": "ENVIRONNEMENT"
+  },
+  "modele": {
+    "genre": {
+      "title": "GENRE",
+      "options": {
+        "femme": "FEMME",
+        "homme": "HOMME",
+        "auto": "AUTO"
+      }
+    },
+    "carnation": {
+      "title": "CARNATION",
+      "options": {
+        "claire": "CLAIRE",
+        "medium": "MÉDIUM",
+        "mate": "MATE",
+        "foncee": "FONCÉE"
+      }
+    },
+    "morphology": {
+      "title": "MORPHOLOGIE",
+      "options": {
+        "s": "S",
+        "m": "M",
+        "l": "L"
+      }
+    },
+    "age": {
+      "title": "ÂGE",
+      "options": {
+        "auto": "AUTO",
+        "18-25": "18-25",
+        "26-35": "26-35",
+        "36-50": "36-50"
+      }
+    }
+  },
+  "style": {
+    "clothingType": {
+      "title": "TYPE DE VÊTEMENT",
+      "options": {
+        "auto": "AUTO-DÉTECTION",
+        "t-shirt": "T-SHIRT",
+        "chemise": "CHEMISE",
+        "pull": "PULL",
+        "veste": "VESTE",
+        "manteau": "MANTEAU",
+        "pantalon": "PANTALON",
+        "jupe": "JUPE",
+        "robe": "ROBE",
+        "short": "SHORT",
+        "chaussures": "CHAUSSURES"
+      }
+    },
+    "posture": {
+      "title": "POSTURE",
+      "options": {
+        "debout": "DEBOUT",
+        "cambre": "CAMBRÉ",
+        "accroupi": "ACCROUPI",
+        "assis": "ASSIS"
+      }
+    },
+    "angle": {
+      "title": "ANGLE DE VUE",
+      "options": {
+        "face": "FACE",
+        "3-4": "3/4",
+        "profil": "PROFIL",
+        "auto": "AUTO"
+      }
+    },
+    "framing": {
+      "title": "CADRAGE",
+      "options": {
+        "corps-entier": "CORPS ENTIER",
+        "mi-corps": "MI-CORPS",
+        "plan-rapproche": "PLAN RAPPROCHÉ"
+      }
+    }
+  },
+  "environnement": {
+    "decor": {
+      "title": "DÉCOR",
+      "options": {
+        "studio-pro": "STUDIO PRO",
+        "chambre": "CHAMBRE DÉCONTRACTÉE",
+        "cabine": "CABINE D'ESSAYAGE",
+        "exterieur": "EXTÉRIEUR NATUREL"
+      }
+    },
+    "lighting": {
+      "title": "ÉCLAIRAGE",
+      "options": {
+        "studio": "STUDIO",
+        "naturel": "NATUREL",
+        "dramatique": "DRAMATIQUE",
+        "doux": "DOUX"
+      }
+    },
+    "season": {
+      "title": "SAISON",
+      "options": {
+        "auto": "AUTO",
+        "printemps": "PRINTEMPS",
+        "ete": "ÉTÉ",
+        "automne": "AUTOMNE",
+        "hiver": "HIVER"
+      }
+    },
+    "cropHead": {
+      "title": "DÉCOUPAGE",
+      "options": {
+        "keep": "GARDER LA TÊTE",
+        "remove": "SUPPRIMER LA TÊTE"
+      }
+    }
+  },
+  "validation": {
+    "validate": "VALIDER ET SAUVEGARDER",
+    "validated": "PARAMÈTRES SAUVEGARDÉS !"
+  }
+}

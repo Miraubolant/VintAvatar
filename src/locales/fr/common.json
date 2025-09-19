@@ -1,0 +1,48 @@
+{
+  "buttons": {
+    "tryNow": "ESSAYER MAINTENANT",
+    "startNow": "COMMENCER MAINTENANT",
+    "download": "TÉLÉCHARGER",
+    "loading": "CHARGEMENT...",
+    "close": "FERMER",
+    "cancel": "ANNULER",
+    "confirm": "CONFIRMER",
+    "save": "SAUVEGARDER",
+    "back": "RETOUR",
+    "next": "SUIVANT"
+  },
+  "status": {
+    "loading": "Chargement en cours...",
+    "error": "Une erreur s'est produite",
+    "success": "Opération réussie",
+    "processing": "Traitement en cours..."
+  },
+  "labels": {
+    "email": "Email",
+    "password": "Mot de passe",
+    "name": "Nom",
+    "optional": "Optionnel"
+  },
+  "footer": {
+    "brand": {
+      "title": "VINTED AVATAR",
+      "subtitle": "Photos IA Pro"
+    },
+    "navigation": {
+      "home": "Accueil",
+      "method": "Méthode",
+      "beforeAfter": "Avant/Après",
+      "pricing": "Tarifs",
+      "reviews": "Avis",
+      "blog": "Blog"
+    },
+    "copyright": {
+      "text": "© 2025 VINTED AVATAR",
+      "madeIn": "Fait en France"
+    },
+    "links": {
+      "legal": "Mentions légales",
+      "contact": "Contact"
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "loading": {
+    "stats": "LOADING STATISTICS...",
+    "history": "LOADING HISTORY..."
+  },
+  "errors": {
+    "loading": "LOADING ERROR",
+    "historyError": "LOADING ERROR"
+  },
+  "navigation": {
+    "back": "BACK",
+    "title": "MY ACCOUNT"
+  },
+  "tabs": {
+    "stats": "STATISTICS",
+    "history": "PHOTO HISTORY",
+    "affiliate": "AFFILIATE"
+  },
+  "subscriptionTypes": {
+    "monthly": "MONTHLY SUBSCRIPTION",
+    "credits": "CREDIT PACK",
+    "unknown": "UNKNOWN PLAN"
+  },
+  "status": {
+    "active": "ACTIVE",
+    "canceled": "CANCELED",
+    "past_due": "PAST DUE"
+  },
+  "statsTab": {
+    "totalGenerations": {
+      "title": "GENERATIONS",
+      "description": "Total number of photos generated"
+    },
+    "lastGeneration": "LAST GENERATION",
+    "profile": {
+      "title": "PROFILE",
+      "email": "EMAIL:",
+      "name": "NAME:",
+      "memberSince": "MEMBER SINCE:"
+    },
+    "creditsAvailable": {
+      "title": "AVAILABLE CREDITS",
+      "total": "TOTAL:",
+      "activePacks": "ACTIVE PACKS:"
+    },
+    "subscriptions": {
+      "title": "MY SUBSCRIPTIONS",
+      "createdAt": "Created on",
+      "status": "Status",
+      "credits": "Credits",
+      "remaining": "remaining",
+      "unlimited": "Unlimited"
+    },
+    "monthlySubscription": {
+      "title": "MONTHLY SUBSCRIPTION",
+      "status": "STATUS",
+      "nextBilling": "NEXT BILLING",
+      "generationsUsed": "GENERATIONS USED",
+      "noSubscription": "No active monthly subscription",
+      "subscribeButton": "SUBSCRIBE"
+    },
+    "usageHistory": {
+      "title": "USAGE HISTORY",
+      "generatedOn": "Generated on",
+      "creditsUsed": "credit used",
+      "model": "Model",
+      "seeMore": "SEE MORE",
+      "seeLess": "SEE LESS",
+      "noHistory": "No history available",
+      "noGenerations": "You haven't generated any avatars yet!",
+      "remaining": "remaining",
+      "unlimited": "Unlimited",
+      "createdAt": "Created on"
+    }
+  },
+  "historyTab": {
+    "title": "YOUR GENERATIONS",
+    "titleWithCount": "YOUR AVATAR GENERATIONS",
+    "originalImage": "ORIGINAL IMAGE",
+    "generatedImage": "GENERATED IMAGE",
+    "viewImage": "VIEW IMAGE",
+    "downloadImage": "DOWNLOAD",
+    "generatedAt": "Generated on",
+    "model": "Model",
+    "settings": "Settings",
+    "noHistory": "No generations in your history",
+    "startGenerating": "Start generating your first photos!",
+    "goToGenerator": "GO TO GENERATOR",
+    "generation": "GENERATION",
+    "credit": "CREDIT",
+    "original": "ORIGINAL",
+    "generated": "GENERATED",
+    "configurationUsed": "CONFIGURATION USED",
+    "pagination": {
+      "previous": "PREVIOUS",
+      "next": "NEXT",
+      "page": "PAGE"
+    }
+  },
+  "affiliateTab": {
+    "referralCode": {
+      "title": "MY REFERRAL CODE",
+      "label": "UNIQUE CODE:",
+      "copyButton": "COPY LINK",
+      "copied": "COPIED!"
+    },
+    "myReferrals": {
+      "title": "MY REFERRALS",
+      "count": "successful referrals",
+      "earnings": "generations earned from referrals"
+    },
+    "bonusEarned": {
+      "title": "BONUS EARNED",
+      "unit": "FREE GENERATIONS"
+    },
+    "referralHistory": {
+      "title": "REFERRAL HISTORY",
+      "referredAt": "Referred on",
+      "status": "Status",
+      "bonus": "Bonus",
+      "completed": "Completed",
+      "pending": "Pending",
+      "generation": "generation",
+      "noReferrals": "No referrals yet"
+    },
+    "howItWorks": {
+      "title": "HOW IT WORKS?",
+      "step1": "Share your unique link with your friends",
+      "step2": "Your friend signs up via your link and buys credits or subscribes",
+      "step3": "You both get +1 free generation!",
+      "step1Description": "Share your link with your friends on social media, by email or message",
+      "step2Description": "Your friend signs up via your link and buys credits or subscribes",
+      "step3Description": "You both automatically get 1 free generation!"
+    }
+  },
+  "dangerZone": {
+    "title": "DANGER ZONE",
+    "cancelSubscription": {
+      "title": "CANCEL MY SUBSCRIPTION",
+      "description": "Cancels automatic renewal of your monthly subscription. You will keep access until the end of your current billing period.",
+      "button": "CANCEL SUBSCRIPTION",
+      "processing": "PROCESSING..."
+    },
+    "deleteAccount": {
+      "title": "DELETE MY ACCOUNT",
+      "description": "⚠️ Irreversible action - Permanently deletes your account, all your data, your images and cancels all your subscriptions.",
+      "button": "DELETE ACCOUNT",
+      "processing": "PROCESSING..."
+    }
+  },
+  "imageModal": {
+    "viewAndCrop": "VIEW + CROP HEAD",
+    "cropHead": "CROP HEAD",
+    "cropping": "CROPPING...",
+    "showOriginal": "SHOW ORIGINAL",
+    "showCropped": "SHOW CROPPED",
+    "downloadOriginal": "DOWNLOAD ORIGINAL",
+    "downloadCropped": "DOWNLOAD CROPPED",
+    "cropError": "Unable to crop the head from the image",
+    "close": "CLOSE"
+  },
+  "common": {
+    "total": "TOTAL",
+    "thisMonth": "THIS MONTH",
+    "created": "Created on",
+    "status": "Status",
+    "active": "ACTIVE",
+    "canceled": "CANCELED",
+    "noData": "No data available",
+    "seeMore": "SEE MORE",
+    "seeLess": "SEE LESS",
+    "processing": "PROCESSING...",
+    "close": "CLOSE",
+    "firstVisit": "FIRST VISIT?",
+    "originalClothingPhotoAlt": "Original clothing photo before AI avatar generation Vinted",
+    "downloadAlert": "Please right-click and \"Save as\" on this link: "
+  }
+}

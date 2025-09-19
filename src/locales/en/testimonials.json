@@ -1,0 +1,58 @@
+{
+  "title": {
+    "line1": "TESTIMONIALS",
+    "line2": "VINTED SELLERS!"
+  },
+  "subtitle": "Discover how sellers transform their sales with AI!",
+  "testimonials": [
+    {
+      "name": "Marie Laurent",
+      "location": "Paris",
+      "text": "I doubled my sales in a week! AI photos are incredible.",
+      "sales": "+340%",
+      "metric": "Views"
+    },
+    {
+      "name": "Thomas Dubois",
+      "location": "Lyon",
+      "text": "The AI is amazing. In 30 seconds I have an ultra-realistic photo!",
+      "sales": "+280%",
+      "metric": "Sales"
+    },
+    {
+      "name": "Sophie Martin",
+      "location": "Marseille",
+      "text": "Total game changer! My competitors are asking for my secret.",
+      "sales": "+195%",
+      "metric": "Profits"
+    },
+    {
+      "name": "Emma Leclerc",
+      "location": "Toulouse",
+      "text": "No more failed photos! AI does the job perfectly.",
+      "sales": "+225%",
+      "metric": "Engagement"
+    },
+    {
+      "name": "Lucas Bernard",
+      "location": "Nantes",
+      "text": "Revolutionary! My items sell 3x faster now.",
+      "sales": "+310%",
+      "metric": "Speed"
+    }
+  ],
+  "common": {
+    "moreLabel": "more!"
+  },
+  "cta": {
+    "title": "JOIN",
+    "line1": "+12,000 SATISFIED",
+    "line2": "SELLERS!",
+    "stats": [
+      { "value": "12,487", "label": "Active sellers" },
+      { "value": "94,762", "label": "Generated photos" },
+      { "value": "4.9/5", "label": "Average rating" }
+    ],
+    "button": "TRY NOW"
+  }
+}

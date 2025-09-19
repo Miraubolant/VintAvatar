@@ -1,0 +1,129 @@
+{
+  "title": "CONFIGURA IL TUO AVATAR IA",
+  "tabs": {
+    "modele": "MODELLO",
+    "style": "STILE",
+    "environnement": "AMBIENTE"
+  },
+  "modele": {
+    "genre": {
+      "title": "GENERE",
+      "options": {
+        "femme": "DONNA",
+        "homme": "UOMO",
+        "auto": "AUTO"
+      }
+    },
+    "carnation": {
+      "title": "TONALITÀ DELLA PELLE",
+      "options": {
+        "claire": "CHIARO",
+        "medium": "MEDIO",
+        "mate": "OLIVASTRO",
+        "foncee": "SCURO"
+      }
+    },
+    "morphology": {
+      "title": "TIPO DI CORPO",
+      "options": {
+        "s": "S",
+        "m": "M",
+        "l": "L"
+      }
+    },
+    "age": {
+      "title": "ETÀ",
+      "options": {
+        "auto": "AUTO",
+        "18-25": "18-25",
+        "26-35": "26-35",
+        "36-50": "36-50"
+      }
+    }
+  },
+  "style": {
+    "clothingType": {
+      "title": "TIPO DI ABBIGLIAMENTO",
+      "options": {
+        "auto": "AUTO-RILEVAMENTO",
+        "t-shirt": "T-SHIRT",
+        "chemise": "CAMICIA",
+        "pull": "MAGLIONE",
+        "veste": "GIACCA",
+        "manteau": "CAPPOTTO",
+        "pantalon": "PANTALONI",
+        "jupe": "GONNA",
+        "robe": "VESTITO",
+        "short": "SHORTS",
+        "chaussures": "SCARPE"
+      }
+    },
+    "posture": {
+      "title": "POSTURA",
+      "options": {
+        "debout": "IN PIEDI",
+        "cambre": "INARCATO",
+        "accroupi": "ACCOVACCIATO",
+        "assis": "SEDUTO"
+      }
+    },
+    "angle": {
+      "title": "ANGOLO DELLA FOTOCAMERA",
+      "options": {
+        "face": "FRONTALE",
+        "3-4": "3/4",
+        "profil": "PROFILO",
+        "auto": "AUTO"
+      }
+    },
+    "framing": {
+      "title": "INQUADRATURA",
+      "options": {
+        "corps-entier": "CORPO INTERO",
+        "mi-corps": "MEZZO BUSTO",
+        "plan-rapproche": "PRIMO PIANO"
+      }
+    }
+  },
+  "environnement": {
+    "decor": {
+      "title": "SFONDO",
+      "options": {
+        "studio-pro": "STUDIO PRO",
+        "chambre": "CAMERA CASUAL",
+        "cabine": "CAMERINO",
+        "exterieur": "ESTERNO NATURALE"
+      }
+    },
+    "lighting": {
+      "title": "ILLUMINAZIONE",
+      "options": {
+        "studio": "STUDIO",
+        "naturel": "NATURALE",
+        "dramatique": "DRAMMATICA",
+        "doux": "SOFFUSA"
+      }
+    },
+    "season": {
+      "title": "STAGIONE",
+      "options": {
+        "auto": "AUTO",
+        "printemps": "PRIMAVERA",
+        "ete": "ESTATE",
+        "automne": "AUTUNNO",
+        "hiver": "INVERNO"
+      }
+    },
+    "cropHead": {
+      "title": "RITAGLIO TESTA",
+      "options": {
+        "keep": "MANTIENI TESTA",
+        "remove": "RIMUOVI TESTA"
+      }
+    }
+  },
+  "validation": {
+    "validate": "VALIDA E SALVA",
+    "validated": "IMPOSTAZIONI SALVATE!"
+  }
+}

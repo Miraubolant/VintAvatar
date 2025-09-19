@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "features": "Funciones",
+    "method": "Método",
+    "beforeAfter": "Antes/Después",
+    "pricing": "Precios",
+    "reviews": "Reseñas",
+    "blog": "Blog",
+    "account": "Mi Cuenta"
+  },
+  "auth": {
+    "login": "INICIAR SESIÓN",
+    "logout": "CERRAR SESIÓN",
+    "signUp": "REGISTRARSE"
+  }
+}

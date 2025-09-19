@@ -1,0 +1,35 @@
+{
+  "title": {
+    "line1": "CONSIGLI",
+    "line2": "E TRUCCHI!"
+  },
+  "subtitle": "Rimani aggiornato con i nostri ultimi consigli per massimizzare le tue vendite!",
+  "badges": {
+    "featured": "IN EVIDENZA"
+  },
+  "buttons": {
+    "readArticle": "LEGGI ARTICOLO",
+    "readMore": "LEGGI DI PIÙ",
+    "backToBlog": "TORNA AL BLOG",
+    "startNow": "INIZIA ORA"
+  },
+  "metadata": {
+    "readTime": "lettura",
+    "by": "di"
+  },
+  "stats": {
+    "availableArticles": "{count} ARTICOLI DISPONIBILI",
+    "subtitle": "Scopri tutti i nostri consigli per aumentare le tue vendite!"
+  },
+  "cta": {
+    "section": {
+      "title": "RIMANI AGGIORNATO!",
+      "button": "ESPLORA"
+    },
+    "article": {
+      "title": "PRONTO A OTTIMIZZARE LE TUE FOTO VINTED?",
+      "subtitle": "Genera foto indossate perfette in 30 secondi con la nostra IA!",
+      "button": "INIZIA ORA"
+    }
+  }
+}

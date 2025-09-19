@@ -1,0 +1,87 @@
+{
+  "title": {
+    "line1": "PLANS ET TARIFS",
+    "line2": "ADAPTÉS !"
+  },
+  "subtitle": "Choisis le plan qui correspond à tes besoins de génération d'avatars IA !",
+  "plans": {
+    "test": {
+      "name": "PACK 10 CRÉDITS",
+      "price": "3,99€",
+      "features": [
+        "10 générations utilisables à tout moment",
+        "Parfait pour tester",
+        "Sans engagement",
+        "Paiement unique"
+      ],
+      "button": "COMMENCER"
+    },
+    "popular": {
+      "name": "PACK 25 CRÉDITS",
+      "price": "7,99€",
+      "badge": "PLUS POPULAIRE",
+      "features": [
+        "25 crédits pour le prix de 20",
+        "Économie de 20%",
+        "Sans engagement",
+        "Paiement unique"
+      ],
+      "button": "CHOISIR CE PACK"
+    },
+    "unlimited": {
+      "name": "ABONNEMENT",
+      "price": "11,99€",
+      "features": [
+        "Jusqu'à 40 générations par mois",
+        "Non cumulables",
+        "Personnalisation complète",
+        "Accès aux nouvelles fonctionnalités",
+        "Parfait pour vendeurs réguliers"
+      ],
+      "button": "S'ABONNER"
+    }
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "items": [
+      {
+        "question": "Comment ça marche ?",
+        "answer": "Upload ta photo de vêtement, configure ton avatar et notre IA génère un mannequin portant ton article en moins de 30 secondes."
+      },
+      {
+        "question": "Mes photos sont-elles sécurisées ?",
+        "answer": "Oui, toutes les photos sont chiffrées et stockées de manière sécurisée. Tu peux les supprimer à tout moment depuis ton compte."
+      },
+      {
+        "question": "Puis-je annuler mon abonnement ?",
+        "answer": "Oui, tu peux annuler ton abonnement à tout moment. Il restera actif jusqu'à la fin de la période payée."
+      }
+    ]
+  },
+  "common": {
+    "oneTimePayment": "Paiement unique",
+    "bestValue": "MEILLEURE VALEUR"
+  },
+  "stats": [
+    {
+      "value": "INSTANT",
+      "label": "Livraison"
+    },
+    {
+      "value": "0€",
+      "label": "Frais cachés"
+    },
+    {
+      "value": "30s",
+      "label": "Génération rapide"
+    },
+    {
+      "value": "24/7",
+      "label": "Support disponible"
+    }
+  ],
+  "cta": {
+    "title": "PRÊT À CHOISIR TON PLAN ?",
+    "button": "ESSAYER MAINTENANT"
+  }
+}
