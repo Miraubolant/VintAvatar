@@ -14,7 +14,6 @@ import './lib/i18n';
 
 // Lazy loading pour améliorer les performances
 const BeforeAfterSection = React.lazy(() => import('./components/BeforeAfterSection').then(module => ({ default: module.BeforeAfterSection })));
-const HowItWorksSection = React.lazy(() => import('./components/HowItWorksSection').then(module => ({ default: module.HowItWorksSection })));
 const TestimonialsSection = React.lazy(() => import('./components/TestimonialsSection').then(module => ({ default: module.TestimonialsSection })));
 const PricingSection = React.lazy(() => import('./components/PricingSection').then(module => ({ default: module.PricingSection })));
 const BlogSection = React.lazy(() => import('./components/BlogSection').then(module => ({ default: module.BlogSection })));
@@ -48,13 +47,10 @@ const LoadingComponent = () => {
 
 function HomePage() {
   useSEO(SEO_CONFIGS.home);
-  
+
   return (
     <>
       <HeroSection />
-      <Suspense fallback={<LoadingComponent />}>
-        <HowItWorksSection />
-      </Suspense>
       <Suspense fallback={<LoadingComponent />}>
         <BeforeAfterSection />
       </Suspense>
