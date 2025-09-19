@@ -342,24 +342,24 @@ export const HeroSection: React.FC = () => {
       <div className="hidden md:block absolute bottom-32 left-20 w-10 h-10 bg-vinted border-4 border-black transform rotate-45 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="hidden md:block absolute bottom-20 right-10 w-14 h-14 bg-pink-pastel border-4 border-black neo-shape-circle shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="text-center space-y-12">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="text-center space-y-8 sm:space-y-12">
           
           {/* Titre principal Neo-Brutalism */}
           <div className="space-y-8">
-            <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tight mb-8">
-              <div className="text-black transform -rotate-2 mb-4 relative">
-                <span className="inline-block bg-white border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <h1 className="font-display font-bold text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight mb-8">
+              <div className="text-black transform -rotate-2 mb-3 sm:mb-4 relative">
+                <span className="inline-block bg-white border-3 sm:border-4 border-black px-3 sm:px-6 py-2 sm:py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                   {t('title.line1')}
                 </span>
               </div>
-              <div className="text-white transform rotate-1 relative mb-4">
-                <span className="inline-block bg-vinted border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <div className="text-white transform rotate-1 relative mb-3 sm:mb-4">
+                <span className="inline-block bg-vinted border-3 sm:border-4 border-black px-3 sm:px-6 py-2 sm:py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                   {t('title.line2')}
                 </span>
               </div>
               <div className="text-black transform -rotate-1 relative">
-                <span className="inline-block bg-mint border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <span className="inline-block bg-mint border-3 sm:border-4 border-black px-3 sm:px-6 py-2 sm:py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                   {t('title.line3')}
                 </span>
               </div>
