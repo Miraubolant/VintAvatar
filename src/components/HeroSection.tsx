@@ -684,56 +684,40 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Call to action vers les tarifs - Version améliorée */}
-          <div className="max-w-4xl mx-auto mt-8">
-            <div className="bg-white border-4 border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 relative overflow-hidden">
+          {/* Call to action vers les tarifs - Version compacte */}
+          <div className="max-w-3xl mx-auto mt-16">
+            <div className="bg-white border-4 border-black p-4 sm:p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 relative overflow-hidden">
 
               {/* Éléments décoratifs améliorés */}
               <div className="absolute -top-3 -right-3 w-8 h-8 bg-pink-pastel border-3 border-black transform rotate-45 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
               <div className="absolute -bottom-3 -left-3 w-7 h-7 bg-mint border-3 border-black transform -rotate-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
               <div className="absolute top-1/2 -right-4 w-6 h-6 bg-vinted border-2 border-black neo-shape-circle transform -translate-y-1/2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"></div>
 
-              <div className="text-center space-y-6">
+              <div className="text-center space-y-4">
 
                 {/* Titre principal avec style BD */}
                 <div className="relative inline-block">
-                  <h3 className="font-display font-bold text-xl sm:text-2xl lg:text-3xl text-black mb-2 transform -rotate-1">
-                    <span className="inline-block bg-mint border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <h3 className="font-display font-bold text-lg sm:text-xl lg:text-2xl text-black mb-2 transform -rotate-1">
+                    <span className="inline-block bg-mint border-3 border-black px-3 py-1.5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
                       {t('cta.title', 'PRÊT À TRANSFORMER')}
                     </span>
                   </h3>
-                  <h3 className="font-display font-bold text-xl sm:text-2xl lg:text-3xl text-white mb-4 transform rotate-1">
-                    <span className="inline-block bg-vinted border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <h3 className="font-display font-bold text-lg sm:text-xl lg:text-2xl text-white mb-3 transform rotate-1">
+                    <span className="inline-block bg-vinted border-3 border-black px-3 py-1.5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
                       {t('cta.title2', 'VOS PHOTOS VINTED ?')}
                     </span>
                   </h3>
                 </div>
 
                 {/* Sous-titre */}
-                <div className="max-w-2xl mx-auto">
-                  <p className="font-body font-semibold text-base sm:text-lg text-gray-700 leading-relaxed">
+                <div className="max-w-xl mx-auto">
+                  <p className="font-body font-semibold text-sm sm:text-base text-gray-700 leading-relaxed">
                     {t('cta.subtitle', 'Générez des avatars IA professionnels en quelques clics. Augmentez vos ventes avec des photos qui se démarquent.')}
                   </p>
                 </div>
 
-                {/* Stats rapides */}
-                <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-                  <div className="text-center">
-                    <div className="font-display font-bold text-lg sm:text-xl text-vinted">2 min</div>
-                    <div className="font-body text-xs sm:text-sm text-gray-600">Génération</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="font-display font-bold text-lg sm:text-xl text-vinted">+300%</div>
-                    <div className="font-body text-xs sm:text-sm text-gray-600">Engagement</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="font-display font-bold text-lg sm:text-xl text-vinted">50k+</div>
-                    <div className="font-body text-xs sm:text-sm text-gray-600">Photos créées</div>
-                  </div>
-                </div>
-
-                {/* Boutons d'action */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                {/* Bouton d'action unique */}
+                <div className="pt-2">
                   <button
                     onClick={() => {
                       const pricingSection = document.getElementById('tarifs');
@@ -741,21 +725,9 @@ export const HeroSection: React.FC = () => {
                         pricingSection.scrollIntoView({ behavior: 'smooth' });
                       }
                     }}
-                    className="w-full sm:w-auto px-8 py-4 bg-vinted text-white border-4 border-black font-display font-bold text-base sm:text-lg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform rotate-1 hover:rotate-0"
+                    className="px-6 py-3 bg-vinted text-white border-3 border-black font-display font-bold text-sm sm:text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform rotate-1 hover:rotate-0"
                   >
                     DÉCOUVRIR LES TARIFS
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      const heroSection = document.getElementById('hero');
-                      if (heroSection) {
-                        heroSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                    className="w-full sm:w-auto px-6 py-3 bg-mint text-black border-3 border-black font-display font-bold text-sm sm:text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform -rotate-1 hover:rotate-0"
-                  >
-                    ESSAYER MAINTENANT
                   </button>
                 </div>
 
