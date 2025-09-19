@@ -12,7 +12,6 @@ export const Header: React.FC = () => {
 
   const navLinks = [
     { href: '#hero', label: t('navigation.features') },
-    { href: '#methode', label: t('navigation.method') },
     { href: '#avant-apres', label: t('navigation.beforeAfter') },
     { href: '#tarifs', label: t('navigation.pricing') },
     { href: '#avis', label: t('navigation.reviews') },
