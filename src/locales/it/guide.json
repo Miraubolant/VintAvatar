@@ -1,0 +1,34 @@
+{
+  "steps": {
+    "step1": {
+      "title": "Incolla il tuo URL Vinted",
+      "description": "Inserisci l'URL del tuo articolo Vinted in questo campo per estrarre automaticamente tutte le foto"
+    },
+    "step2": {
+      "title": "O carica una foto",
+      "description": "Clicca questo pulsante per caricare direttamente una foto dal tuo dispositivo"
+    },
+    "step3": {
+      "title": "Estrai le immagini",
+      "description": "Dopo aver incollato l'URL, clicca qui per recuperare tutte le foto dell'articolo Vinted"
+    },
+    "step4": {
+      "title": "Configura il tuo avatar IA",
+      "description": "Personalizza le caratteristiche del tuo modello virtuale (genere, morfologia, posa, ecc.)"
+    },
+    "step5": {
+      "title": "Genera la tua foto indossata",
+      "description": "Una volta configurato tutto, clicca qui per avviare la generazione della tua foto con l'IA"
+    }
+  },
+  "navigation": {
+    "previous": "Precedente",
+    "next": "Successivo",
+    "finish": "Termina",
+    "skip": "Salta",
+    "close": "Chiudi guida"
+  },
+  "button": {
+    "title": "Mostra guida d'uso"
+  }
+}

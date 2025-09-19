@@ -1,0 +1,35 @@
+{
+  "title": {
+    "line1": "CONSEJOS",
+    "line2": "Y TRUCOS!"
+  },
+  "subtitle": "¡Mantente al día con nuestros últimos consejos para maximizar tus ventas!",
+  "badges": {
+    "featured": "DESTACADO"
+  },
+  "buttons": {
+    "readArticle": "LEER ARTÍCULO",
+    "readMore": "LEER MÁS",
+    "backToBlog": "VOLVER AL BLOG",
+    "startNow": "EMPEZAR AHORA"
+  },
+  "metadata": {
+    "readTime": "lectura",
+    "by": "por"
+  },
+  "stats": {
+    "availableArticles": "{count} ARTÍCULOS DISPONIBLES",
+    "subtitle": "¡Descubre todos nuestros consejos para impulsar tus ventas!"
+  },
+  "cta": {
+    "section": {
+      "title": "¡MANTENTE ACTUALIZADO!",
+      "button": "EXPLORAR"
+    },
+    "article": {
+      "title": "¿LISTO PARA OPTIMIZAR TUS FOTOS DE VINTED?",
+      "subtitle": "¡Genera fotos portadas perfectas en 30 segundos con nuestra IA!",
+      "button": "EMPEZAR AHORA"
+    }
+  }
+}

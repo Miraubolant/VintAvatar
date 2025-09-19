@@ -1,0 +1,357 @@
+@import './styles/neo-brutalism.css';
+@import './styles/scrollbar.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Palette Vinted - Bleu + Blanc + Beige Crème */
+    --primary: 9 132 137; /* Bleu Vinted #09848C */
+    --primary-dark: 7 105 109; /* Bleu Vinted plus sombre */
+    --secondary: 222 207 195; /* Beige crème #DECFC3 */
+    --accent: 244 240 236; /* Beige très clair #F4F0EC */
+    --success: 76 175 80; /* Vert pour succès */
+    --warning: 255 193 7; /* Ambre pour avertissement */
+    --error: 220 53 69; /* Rouge pour erreur */
+    
+    --background: 255 255 255; /* Blanc pur */
+    --surface: 252 251 249; /* Blanc cassé #FCFBF9 */
+    --surface-variant: 247 245 242; /* Beige très pâle #F7F5F2 */
+    
+    --text-primary: 51 51 51; /* Gris foncé #333333 */
+    --text-secondary: 102 102 102; /* Gris moyen #666666 */
+    --text-disabled: 153 153 153; /* Gris clair #999999 */
+    
+    --border: 230 225 220; /* Bordure beige #E6E1DC */
+    --divider: 240 237 233; /* Diviseur beige clair #F0EDE9 */
+  }
+
+  .dark {
+    /* Mode sombre avec palette Vinted adaptée */
+    --primary: 13 168 174; /* Bleu Vinted plus clair pour contraste */
+    --primary-dark: 9 132 137; /* Bleu Vinted original */
+    --secondary: 180 165 150; /* Beige sombre #B4A596 */
+    --accent: 150 140 128; /* Beige foncé #968C80 */
+    --success: 129 199 132; /* Vert plus clair */
+    --warning: 255 213 79; /* Ambre plus clair */
+    --error: 239 83 80; /* Rouge plus clair */
+    
+    --background: 25 25 25; /* Fond sombre #191919 */
+    --surface: 40 40 40; /* Surface sombre #282828 */
+    --surface-variant: 50 50 50; /* Surface alternative #323232 */
+    
+    --text-primary: 245 245 245; /* Blanc cassé #F5F5F5 */
+    --text-secondary: 180 180 180; /* Gris clair #B4B4B4 */
+    --text-disabled: 120 120 120; /* Gris moyen #787878 */
+    
+    --border: 70 70 70; /* Bordure sombre #464646 */
+    --divider: 60 60 60; /* Diviseur sombre #3C3C3C */
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    line-height: 1.6;
+    @apply bg-background text-text-primary dark:text-text-primary;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Utilitaires Brutalist pour Vinted Avatar */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .border-3 {
+    border-width: 3px;
+  }
+
+  /* Ombres brutalist standardisées */
+  .shadow-brutalist-sm {
+    box-shadow: 2px 2px 0px 0px rgba(15, 23, 42, 1);
+  }
+  
+  .shadow-brutalist {
+    box-shadow: 4px 4px 0px 0px rgba(15, 23, 42, 1);
+  }
+  
+  .shadow-brutalist-lg {
+    box-shadow: 6px 6px 0px 0px rgba(15, 23, 42, 1);
+  }
+  
+  .shadow-brutalist-xl {
+    box-shadow: 8px 8px 0px 0px rgba(15, 23, 42, 1);
+  }
+
+  /* Ombres colorées pour éléments décoratifs */
+  .shadow-brutalist-blue {
+    box-shadow: 4px 4px 0px 0px rgba(59, 130, 246, 1);
+  }
+  
+  .shadow-brutalist-green {
+    box-shadow: 4px 4px 0px 0px rgba(34, 197, 94, 1);
+  }
+  
+  .shadow-brutalist-pink {
+    box-shadow: 4px 4px 0px 0px rgba(236, 72, 153, 1);
+  }
+  
+  .shadow-brutalist-yellow {
+    box-shadow: 4px 4px 0px 0px rgba(234, 179, 8, 1);
+  }
+
+  @keyframes fadeIn {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px) rotate(-3deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px) rotate(3deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+
+  /* Hover effects brutalist */
+  .hover-brutalist:hover {
+    transform: translateY(-2px) rotate(1deg) scale(1.02);
+    box-shadow: 6px 6px 0px 0px rgba(15, 23, 42, 1);
+    transition: all 0.2s ease;
+  }
+
+  .hover-brutalist-lift:hover {
+    transform: translateY(-4px) scale(1.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+#root {
+  flex: 1;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Brutalist Animations pour Vinted Avatar */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+}
+
+@keyframes brutalist-pulse {
+  0%, 100% {
+    box-shadow: 4px 4px 0px 0px rgba(15, 23, 42, 1);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 6px 6px 0px 0px rgba(15, 23, 42, 1);
+    transform: scale(1.02);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.animate-brutalist-pulse {
+  animation: brutalist-pulse 2s ease-in-out infinite;
+}
+
+/* Grid pattern for background */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dark mode adjustments */
+.dark .bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Scrollbar styles moved to scrollbar.css */
+
+/* Improved focus states */
+button:focus-visible,
+a:focus-visible {
+  @apply outline-2 outline-offset-2 outline-teal-500;
+}
+
+/* Loading animation for images */
+img {
+  @apply transition-opacity duration-300;
+}
+
+img[data-loading="true"] {
+  @apply opacity-0;
+}
+
+/* Improved button hover effects */
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient text selection */
+::selection {
+  @apply bg-blue-200 text-slate-900;
+}
+
+/* Responsive Brutalist Adaptations */
+@media (max-width: 768px) {
+  /* Prevention des débordements horizontaux */
+  * {
+    max-width: 100%;
+  }
+  
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Réductions des ombres sur mobile pour performance */
+  .shadow-brutalist-xl {
+    box-shadow: 4px 4px 0px 0px rgba(15, 23, 42, 1);
+  }
+  
+  .shadow-brutalist-lg {
+    box-shadow: 3px 3px 0px 0px rgba(15, 23, 42, 1);
+  }
+  
+  .shadow-brutalist {
+    box-shadow: 2px 2px 0px 0px rgba(15, 23, 42, 1);
+  }
+
+  /* Animations plus douces sur mobile */
+  .hover-brutalist:hover {
+    transform: translateY(-1px) scale(1.02);
+    transition: all 0.2s ease;
+  }
+
+  /* Réduction des rotations sur petit écran */
+  .animate-wiggle {
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Simplification maximum sur très petit écran */
+  .shadow-brutalist-xl,
+  .shadow-brutalist-lg,
+  .shadow-brutalist {
+    box-shadow: 2px 2px 0px 0px rgba(15, 23, 42, 1);
+  }
+
+  /* Désactivation de certaines animations coûteuses */
+  .animate-float,
+  .animate-bounce-gentle {
+    animation: none;
+  }
+}
+
+/* Préférence pour mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .shadow-brutalist,
+  .shadow-brutalist-sm,
+  .shadow-brutalist-lg,
+  .shadow-brutalist-xl {
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  }
+  
+  .border-slate-900 {
+    border-color: #000000;
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "title": {
+    "line1": "BEFORE/AFTER",
+    "line2": "MAGICAL",
+    "line3": "WITH AI!"
+  },
+  "loading": "LOADING TRANSFORMATIONS...",
+  "labels": {
+    "before": "BEFORE",
+    "after": "AFTER AI"
+  },
+  "stats": [
+    {
+      "value": "+85%",
+      "label": "Faster sales"
+    },
+    {
+      "value": "2X",
+      "label": "More messages"
+    },
+    {
+      "value": "-90%",
+      "label": "Time saved"
+    },
+    {
+      "value": "0€",
+      "label": "Shooting fees"
+    }
+  ],
+  "cta": {
+    "title": "READY TO TRANSFORM YOUR PHOTOS?",
+    "button": "TRY NOW"
+  }
+}

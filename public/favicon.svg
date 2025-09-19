@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background avec rotation -->
+  <g transform="rotate(-2 32 32)">
+    <!-- Fond bleu Vinted -->
+    <rect x="8" y="8" width="48" height="48" fill="#09B1BA" stroke="#000000" stroke-width="3"/>
+    
+    <!-- Ombre portée -->
+    <rect x="11" y="11" width="48" height="48" fill="#000000" opacity="0.3"/>
+  </g>
+  
+  <!-- Icône Sparkles au centre -->
+  <g transform="translate(32, 32)">
+    <!-- Étoile principale -->
+    <path d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="white"/>
+    
+    <!-- Petites étoiles -->
+    <path d="M-12 -12 L-10 -10 L-8 -12 L-10 -14 Z" fill="white"/>
+    <path d="M12 -8 L14 -6 L16 -8 L14 -10 Z" fill="white"/>
+    <path d="M-10 12 L-8 14 L-6 12 L-8 10 Z" fill="white"/>
+    <path d="M14 10 L16 12 L18 10 L16 8 Z" fill="white"/>
+    
+    <!-- Points scintillants -->
+    <circle cx="-6" cy="-6" r="1.5" fill="white"/>
+    <circle cx="8" cy="-4" r="1" fill="white"/>
+    <circle cx="-4" cy="6" r="1" fill="white"/>
+    <circle cx="6" cy="8" r="1.5" fill="white"/>
+  </g>
+</svg>

@@ -1,0 +1,331 @@
+{
+  "title": "TERMS OF SERVICE AND PRIVACY POLICY",
+  "lastUpdated": "Last updated: September 17, 2025",
+  "introduction": "By using Vinted Avatar, you accept these terms of service and our privacy policy.",
+  "toc": {
+    "title": "TABLE OF CONTENTS",
+    "sections": [
+      { "href": "#service", "label": "Service presentation" },
+      { "href": "#age", "label": "Minimum age" },
+      { "href": "#compte", "label": "Privacy and personal data" },
+      { "href": "#propriete", "label": "Intellectual property" },
+      { "href": "#paiements", "label": "Payments, credits and subscriptions" },
+      { "href": "#retractation", "label": "Right of withdrawal and refunds" },
+      { "href": "#suspension", "label": "Suspension and termination" },
+      { "href": "#usage", "label": "Service usage" },
+      { "href": "#responsabilite", "label": "Responsibility and limitation" },
+      { "href": "#hebergement", "label": "Hosting and subcontracting" },
+      { "href": "#cookies", "label": "Cookies and trackers" },
+      { "href": "#droits", "label": "Your GDPR rights" },
+      { "href": "#modifications", "label": "Terms modifications" },
+      { "href": "#contact", "label": "Contact" }
+    ]
+  },
+  "sections": {
+    "service": {
+      "title": "1. SERVICE PRESENTATION",
+      "content": {
+        "description": "Vinted Avatar is an online tool that generates \"worn\" photographs from a Vinted® link or uploaded image, created by an artificial intelligence model (FLUX Kontext Pro provided by Replicate).",
+        "operator": "The service is operated by: Miraubolant (SIREN 999 999 999) – 113 rue saint honoré, 75001 Paris.",
+        "features": [
+          "Automatic analysis of uploaded clothing",
+          "Generation of AI avatars wearing items",
+          "Creation of high-quality photos for sales platforms",
+          "Personalization and optimization tools"
+        ]
+      }
+    },
+    "age": {
+      "title": "2. MINIMUM AGE",
+      "content": {
+        "description": "The service is reserved for:",
+        "conditions": [
+          "persons aged 18 or older, or",
+          "persons aged 13 to 17 with the consent of a parent or legal representative who assumes responsibility for usage."
+        ]
+      }
+    },
+    "compte": {
+      "title": "3. PRIVACY AND PERSONAL DATA",
+      "content": {
+        "userAccount": {
+          "title": "User account",
+          "description": "Account creation possible via Google; Vinted Avatar collects and stores name, email address and registration date."
+        },
+        "generations": {
+          "title": "Generations",
+          "description": "For each image, the user ID, Vinted link and resulting image are recorded."
+        },
+        "conservation": {
+          "title": "Storage",
+          "description": "Data stored until six months after last activity, then automatic deletion after email notification."
+        },
+        "deletion": {
+          "title": "Account deletion",
+          "description": "A dedicated button permanently deletes the account and associated data."
+        },
+        "marketing": {
+          "title": "Cross-marketing usage",
+          "description": "Miraubolant may, with your consent, use your contact details to present its other projects. Opposition possible at any time."
+        },
+        "rights": {
+          "title": "GDPR rights",
+          "description": "Access, rectification, opposition, deletion; contact: contact@miraubolant.com."
+        },
+        "dataTypes": {
+          "identification": {
+            "title": "Identification data:",
+            "items": [
+              "Email (via Google Auth)",
+              "First and last name (Google)",
+              "Profile photo (optional)",
+              "Unique user identifier"
+            ]
+          },
+          "usage": {
+            "title": "Usage data:",
+            "items": [
+              "Images uploaded for processing",
+              "Avatar configurations created",
+              "Generation history",
+              "Billing data (Stripe)"
+            ]
+          },
+          "technical": {
+            "title": "Technical data:",
+            "items": [
+              "IP address and approximate geolocation",
+              "Browser type and operating system",
+              "Pages visited and browsing time",
+              "Error logs to improve the service"
+            ]
+          }
+        },
+        "security": {
+          "title": "Security and storage",
+          "measures": [
+            "SSL/TLS encryption for all communications",
+            "Data encryption at rest (AES-256)",
+            "Data hosted in Europe (GDPR compliance)"
+          ]
+        }
+      }
+    },
+    "propriete": {
+      "title": "4. INTELLECTUAL PROPERTY",
+      "content": {
+        "sourceImages": {
+          "title": "Source images",
+          "description": "The user guarantees holding all necessary rights to each Vinted link or submitted content."
+        },
+        "generatedImages": {
+          "title": "Generated images",
+          "description": "In accordance with Replicate's terms, the user holds, to the extent permitted by applicable law, the rights to the model outputs. Vinted Avatar reserves a non-exclusive, worldwide and free license to execute the service and, unless written opposition, publicly present results for demonstration or promotion purposes."
+        },
+        "forbiddenContent": {
+          "title": "Forbidden content",
+          "description": "In accordance with Replicate's policies, it is forbidden to submit or generate content:",
+          "items": [
+            "of explicit sexual nature, provocative or involving minors,",
+            "featuring identifiable persons (already \"worn\" photos),",
+            "inciting hatred, violence or defamatory."
+          ],
+          "moderation": "Vinted Avatar applies automatic and manual moderation; any violating account may be suspended or blocked."
+        }
+      }
+    },
+    "paiements": {
+      "title": "5. PAYMENTS, CREDITS AND SUBSCRIPTIONS",
+      "content": {
+        "processing": {
+          "title": "Processing",
+          "description": "All payments are processed by Stripe; you accept their terms."
+        },
+        "credits": {
+          "title": "Individual credits",
+          "description": "Valid for twelve months from purchase, non-refundable except legal provisions."
+        },
+        "subscription": {
+          "title": "Monthly subscription",
+          "description": "Automatically renewed; cancellation at any time with rights maintained until end of monthly period."
+        },
+        "doubleGeneration": {
+          "title": "Double generation",
+          "description": "A regeneration attempt on the same item returns the existing image without credit debit."
+        },
+        "pricing": {
+          "pack10": "10 credits pack: €3.99",
+          "pack25": "25 credits pack: €7.99",
+          "subscription": "Monthly subscription: €11.99"
+        }
+      }
+    },
+    "retractation": {
+      "title": "6. RIGHT OF WITHDRAWAL AND REFUND POLICY",
+      "content": {
+        "right": {
+          "title": "Right of withdrawal",
+          "description": "In accordance with article L221-28 of the Consumer Code, the fourteen-day right of withdrawal for digital content provided without physical medium does not apply when execution has begun after express prior agreement and waiver of this right. By purchasing credits and launching a generation, the user acknowledges and accepts immediate execution and waives their right of withdrawal for consumed credits."
+        },
+        "refunds": {
+          "title": "Refunds",
+          "subscriptions": "Subscriptions: no refund if credits have been used during the current period.",
+          "creditPacks": "Credit recharges: the first credit purchase can be refunded on request within fourteen days if the corresponding credits have not been used; credits are then debited (negative balance possible)."
+        }
+      }
+    },
+    "suspension": {
+      "title": "7. SUSPENSION, TERMINATION AND INACTIVE ACCOUNTS",
+      "content": {
+        "inactivity": {
+          "title": "Inactivity",
+          "description": "After six months without connection or generation, the account is considered inactive. A 30-day notice email is sent; without response, the account and data are deleted."
+        },
+        "userDeletion": {
+          "title": "User-initiated deletion",
+          "consumed": "If all credits have been consumed, deletion takes effect after a 60-day notice (time necessary for accounting closure and legal archiving)",
+          "remaining": "If credits remain available, the user can request proportional refund to the purchase price, minus any promotions, before effective closure."
+        },
+        "violation": {
+          "title": "Suspension for non-compliance with terms",
+          "description": "Vinted Avatar may immediately suspend the account; unused credits are then refunded, except in case of serious or intentional violation."
+        }
+      }
+    },
+    "usage": {
+      "title": "8. SERVICE USAGE",
+      "content": {
+        "description": "The user is solely responsible for the use of generated images. Any commercial, automated use, or integration into a third-party platform is prohibited without written authorization. Images do not guarantee any sale; they only improve the visual presentation of the listing.",
+        "vinted": "Vinted Avatar is neither affiliated with, sponsored by, nor endorsed by Vinted®. The service operates solely at the user's initiative, without direct interaction with Vinted's servers."
+      }
+    },
+    "responsabilite": {
+      "title": "9. RESPONSIBILITY, LIMITATION AND FORCE MAJEURE",
+      "content": {
+        "service": "The service is provided \"as is\" without guarantee of availability or performance.",
+        "technical": "In case of technical unavailability preventing usage, unused credits are refunded on request.",
+        "liability": "Vinted Avatar cannot be held responsible for indirect, commercial or intangible losses.",
+        "forceMajeure": "Force majeure: no party can be held responsible for a failure resulting from an unforeseeable, irresistible and external event (natural disaster, general Internet outage, government decision, etc.)."
+      }
+    },
+    "hebergement": {
+      "title": "10. HOSTING AND SUBCONTRACTING",
+      "content": {
+        "description": "Data and images are hosted at Supabase; AI-related processing is performed via Replicate services, acting as a processor under the GDPR. No data is transferred outside the European Economic Area without adequate guarantees provided by the GDPR."
+      }
+    },
+    "cookies": {
+      "title": "11. COOKIES AND TRACKERS",
+      "content": {
+        "types": {
+          "title": "Types of cookies",
+          "necessary": "Necessary cookies: authentication and session maintenance (mandatory).",
+          "analytics": "Analytics cookies: audience measurement and service improvement (optional, subject to consent)."
+        },
+        "data": {
+          "title": "Data collected",
+          "description": "IP address, approximate geographic region, device type, pages viewed."
+        },
+        "purpose": {
+          "title": "Purpose",
+          "description": "Internal statistics, no resale or sharing with third parties for advertising purposes."
+        },
+        "management": {
+          "title": "Consent management",
+          "description": "Consent banner on first visit; modification possible at any time in account settings."
+        },
+        "categories": {
+          "essential": {
+            "title": "Essential cookies",
+            "description": "Necessary for operation",
+            "items": ["Authentication", "Security", "Preferences"]
+          },
+          "analytics": {
+            "title": "Analytics cookies",
+            "description": "Understand usage",
+            "items": ["Pages visited", "Browsing time", "Errors encountered"]
+          },
+          "marketing": {
+            "title": "Marketing cookies",
+            "description": "Personalization (optional)",
+            "items": ["Recommendations", "Targeted ads", "Social networks"]
+          }
+        }
+      }
+    },
+    "droits": {
+      "title": "12. YOUR GDPR RIGHTS",
+      "content": {
+        "description": "In accordance with GDPR, you have important rights over your personal data.",
+        "accessRights": {
+          "title": "Access and control rights:",
+          "items": [
+            "Right of access: Obtain a copy of your data",
+            "Right of rectification: Correct inaccurate information",
+            "Right to erasure: Delete your data (\"right to be forgotten\")",
+            "Right to portability: Retrieve your data in a readable format"
+          ]
+        },
+        "limitationRights": {
+          "title": "Limitation rights:",
+          "items": [
+            "Right of objection: Refuse certain processing",
+            "Right of limitation: Restrict the use of your data",
+            "Consent withdrawal: Cancel your agreement at any time",
+            "Right of complaint: Contact the CNIL in case of dispute"
+          ]
+        },
+        "exercise": {
+          "title": "How to exercise your rights?",
+          "description": "To exercise any of these rights, contact us at contact@miraubolant.com specifying:",
+          "requirements": [
+            "Your precise request",
+            "A copy of your identity document",
+            "Your account email address"
+          ],
+          "timeframe": "We will respond within 30 days maximum."
+        }
+      }
+    },
+    "modifications": {
+      "title": "13. TERMS MODIFICATIONS",
+      "content": {
+        "description": "Vinted Avatar may modify these terms at any time. The update date is authoritative. Any use of the service after modification constitutes acceptance of the new terms. Previous versions remain available on request.",
+        "notification": {
+          "title": "In case of modification:",
+          "items": [
+            "Email notification at least 30 days before",
+            "Publication of the new version on our site",
+            "Clear indication of changes made",
+            "Possibility to contact us for any question"
+          ]
+        }
+      }
+    },
+    "contact": {
+      "title": "14. CONTACT",
+      "content": {
+        "description": "For any question or request, write to: contact@miraubolant.com",
+        "company": {
+          "name": "Miraubolant",
+          "address": "113 rue saint honoré",
+          "city": "75001 Paris, France",
+          "siren": "SIREN: 999 999 999"
+        },
+        "contacts": {
+          "general": "General questions: contact@miraubolant.com",
+          "support": "Technical support: support@miraubolant.com"
+        },
+        "law": "These terms are governed by French law. The parties undertake to seek an amicable solution before any legal action. Failing this, exclusive jurisdiction is attributed to the courts of Paris (France)."
+      }
+    }
+  },
+  "cta": {
+    "title": "QUESTIONS?",
+    "description": "Our support team is here to help!",
+    "button": "CONTACT US"
+  },
+  "navigation": {
+    "backToHome": "BACK TO HOME"
+  }
+}

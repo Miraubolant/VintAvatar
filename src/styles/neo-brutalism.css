@@ -1,0 +1,184 @@
+/* Neo-Brutalism Pastel Design System */
+
+:root {
+  /* Palette de 4 couleurs */
+  --color-vinted: #09B1BA;      /* Bleu turquoise Vinted */
+  --color-cream: #FFF8E7;        /* Crème/Beige fond */
+  --color-pink: #FFB3BA;         /* Rose pastel */
+  --color-mint: #B3F2DD;         /* Vert menthe pastel */
+  
+  /* Couleurs système */
+  --color-black: #000000;        /* Noir pour bordures */
+  --color-white: #FFFFFF;        /* Blanc pur */
+  --color-gray: #E5E5E5;         /* Gris très clair */
+  
+  /* Bordures */
+  --border-thin: 2px solid var(--color-black);
+  --border-medium: 3px solid var(--color-black);
+  --border-thick: 4px solid var(--color-black);
+  --border-extra: 6px solid var(--color-black);
+  
+  /* Ombres décalées */
+  --shadow-small: 2px 2px 0px 0px rgba(0,0,0,1);
+  --shadow-medium: 3px 3px 0px 0px rgba(0,0,0,1);
+  --shadow-large: 4px 4px 0px 0px rgba(0,0,0,1);
+  --shadow-extra: 6px 6px 0px 0px rgba(0,0,0,1);
+  
+  /* Hover shadows */
+  --shadow-hover-small: 3px 3px 0px 0px rgba(0,0,0,1);
+  --shadow-hover-medium: 4px 4px 0px 0px rgba(0,0,0,1);
+  --shadow-hover-large: 5px 5px 0px 0px rgba(0,0,0,1);
+  --shadow-hover-extra: 8px 8px 0px 0px rgba(0,0,0,1);
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  
+  /* Typography */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  
+  /* Rotations */
+  --rotate-subtle: 1deg;
+  --rotate-small: 2deg;
+  --rotate-medium: 3deg;
+  
+  /* Border radius (minimal) */
+  --radius-small: 0px;
+  --radius-medium: 4px;
+  --radius-large: 8px;
+  
+  /* Transitions */
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile-first responsive breakpoints */
+@media (max-width: 640px) {
+  :root {
+    --border-medium: 2px solid var(--color-black);
+    --border-thick: 3px solid var(--color-black);
+    --border-extra: 4px solid var(--color-black);
+    
+    --shadow-medium: 2px 2px 0px 0px rgba(0,0,0,1);
+    --shadow-large: 3px 3px 0px 0px rgba(0,0,0,1);
+    --shadow-extra: 4px 4px 0px 0px rgba(0,0,0,1);
+  }
+}
+
+/* Utility classes */
+.neo-card {
+  background: var(--color-white);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-large);
+  transition: var(--transition-medium);
+}
+
+.neo-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover-large);
+}
+
+.neo-button {
+  border: var(--border-thick);
+  box-shadow: var(--shadow-medium);
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.neo-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-hover-medium);
+}
+
+.neo-button:active {
+  transform: translate(0, 0);
+  box-shadow: var(--shadow-small);
+}
+
+/* Comic bubble */
+.neo-bubble {
+  position: relative;
+  background: var(--color-white);
+  border: var(--border-medium);
+  box-shadow: var(--shadow-medium);
+}
+
+.neo-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--color-black);
+}
+
+.neo-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--color-white);
+  z-index: 1;
+}
+
+/* Decorative shapes */
+.neo-shape {
+  position: absolute;
+  border: var(--border-medium);
+  box-shadow: var(--shadow-small);
+}
+
+.neo-shape-circle {
+  border-radius: 50%;
+}
+
+.neo-shape-star {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* Animations pour Cookie Consent */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.animate-fade-out {
+  animation: fade-out 0.3s ease-out forwards;
+}

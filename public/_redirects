@@ -1,0 +1,14 @@
+# Redirect /articles/* to /blog/* for SEO
+/articles/* /blog/:splat 301
+
+# Legacy article redirects - specific articles
+/articles/guide-complet-photos-vinted-2025 /blog/guide-complet-photos-vinted-2025 301
+/articles/strategie-vente-vinted-2025 /blog/strategie-vente-vinted-2025 301
+/articles/tendances-mode-2025 /blog/tendances-mode-2025 301
+/articles/success-story-marie-2025 /blog/success-story-marie-2025 301
+/articles/5-astuces-pour-vendre-plus-vite-sur-vinted /blog/5-astuces-pour-vendre-plus-vite-sur-vinted 301
+/articles/ia-au-service-de-la-mode-notre-revolution /blog/ia-au-service-de-la-mode-notre-revolution 301
+/articles/temoignage-300-pourcent-vues-une-semaine /blog/temoignage-300-pourcent-vues-une-semaine 301
+
+# SPA fallback for client-side routing
+/* /index.html 200

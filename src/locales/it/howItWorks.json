@@ -1,0 +1,35 @@
+{
+  "title": {
+    "line1": "COME GENERARE",
+    "line2": "I TUOI AVATAR IA",
+    "line3": "IN 5 PASSAGGI!"
+  },
+  "subtitle": "La nostra tecnologia IA rivoluzionaria trasforma le tue foto!",
+  "steps": [
+    {
+      "title": "CARICA LA TUA FOTO",
+      "description": "Trascina e rilascia la tua immagine di abbigliamento o usa la nostra interfaccia semplice"
+    },
+    {
+      "title": "L'IA ANALIZZA LO STILE",
+      "description": "La nostra intelligenza artificiale analizza colori, texture e forme"
+    },
+    {
+      "title": "PERSONALIZZA L'AVATAR",
+      "description": "Scegli il genere, la carnagione, la morfologia e lo sfondo del tuo manichino"
+    },
+    {
+      "title": "GENERAZIONE ISTANTANEA",
+      "description": "In 30 secondi, ottieni il tuo avatar ultra-realistico"
+    },
+    {
+      "title": "SCARICA E CONDIVIDI",
+      "description": "Recupera la tua immagine HD e aumenta le tue vendite su Vinted"
+    }
+  ],
+  "cta": {
+    "title": "PRONTO A TRASFORMARE LE TUE FOTO?",
+    "subtitle": "Unisciti alle migliaia di venditori che hanno già potenziato le loro vendite con la nostra IA!",
+    "button": "PROVA ORA"
+  }
+}

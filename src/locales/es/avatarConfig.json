@@ -1,0 +1,129 @@
+{
+  "title": "CONFIGURA TU AVATAR IA",
+  "tabs": {
+    "modele": "MODELO",
+    "style": "ESTILO",
+    "environnement": "ENTORNO"
+  },
+  "modele": {
+    "genre": {
+      "title": "GÉNERO",
+      "options": {
+        "femme": "MUJER",
+        "homme": "HOMBRE",
+        "auto": "AUTO"
+      }
+    },
+    "carnation": {
+      "title": "TONO DE PIEL",
+      "options": {
+        "claire": "CLARO",
+        "medium": "MEDIO",
+        "mate": "OLIVA",
+        "foncee": "OSCURO"
+      }
+    },
+    "morphology": {
+      "title": "TIPO DE CUERPO",
+      "options": {
+        "s": "S",
+        "m": "M",
+        "l": "L"
+      }
+    },
+    "age": {
+      "title": "EDAD",
+      "options": {
+        "auto": "AUTO",
+        "18-25": "18-25",
+        "26-35": "26-35",
+        "36-50": "36-50"
+      }
+    }
+  },
+  "style": {
+    "clothingType": {
+      "title": "TIPO DE PRENDA",
+      "options": {
+        "auto": "AUTO-DETECCIÓN",
+        "t-shirt": "CAMISETA",
+        "chemise": "CAMISA",
+        "pull": "SUÉTER",
+        "veste": "CHAQUETA",
+        "manteau": "ABRIGO",
+        "pantalon": "PANTALÓN",
+        "jupe": "FALDA",
+        "robe": "VESTIDO",
+        "short": "SHORT",
+        "chaussures": "ZAPATOS"
+      }
+    },
+    "posture": {
+      "title": "POSTURA",
+      "options": {
+        "debout": "DE PIE",
+        "cambre": "ARQUEADO",
+        "accroupi": "AGACHADO",
+        "assis": "SENTADO"
+      }
+    },
+    "angle": {
+      "title": "ÁNGULO DE CÁMARA",
+      "options": {
+        "face": "FRONTAL",
+        "3-4": "3/4",
+        "profil": "PERFIL",
+        "auto": "AUTO"
+      }
+    },
+    "framing": {
+      "title": "ENCUADRE",
+      "options": {
+        "corps-entier": "CUERPO ENTERO",
+        "mi-corps": "MEDIO CUERPO",
+        "plan-rapproche": "PRIMER PLANO"
+      }
+    }
+  },
+  "environnement": {
+    "decor": {
+      "title": "FONDO",
+      "options": {
+        "studio-pro": "ESTUDIO PRO",
+        "chambre": "DORMITORIO CASUAL",
+        "cabine": "PROBADOR",
+        "exterieur": "EXTERIOR NATURAL"
+      }
+    },
+    "lighting": {
+      "title": "ILUMINACIÓN",
+      "options": {
+        "studio": "ESTUDIO",
+        "naturel": "NATURAL",
+        "dramatique": "DRAMÁTICA",
+        "doux": "SUAVE"
+      }
+    },
+    "season": {
+      "title": "TEMPORADA",
+      "options": {
+        "auto": "AUTO",
+        "printemps": "PRIMAVERA",
+        "ete": "VERANO",
+        "automne": "OTOÑO",
+        "hiver": "INVIERNO"
+      }
+    },
+    "cropHead": {
+      "title": "RECORTE DE CABEZA",
+      "options": {
+        "keep": "MANTENER CABEZA",
+        "remove": "QUITAR CABEZA"
+      }
+    }
+  },
+  "validation": {
+    "validate": "VALIDAR Y GUARDAR",
+    "validated": "¡CONFIGURACIÓN GUARDADA!"
+  }
+}

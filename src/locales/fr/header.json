@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "features": "Fonctionnalités",
+    "method": "Méthode",
+    "beforeAfter": "Avant/Après",
+    "pricing": "Tarifs",
+    "reviews": "Avis",
+    "blog": "Blog",
+    "account": "Mon Compte"
+  },
+  "auth": {
+    "login": "SE CONNECTER",
+    "logout": "SE DÉCONNECTER",
+    "signUp": "S'INSCRIRE"
+  }
+}

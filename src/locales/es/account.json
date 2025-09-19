@@ -1,0 +1,178 @@
+{
+  "loading": {
+    "stats": "CARGANDO ESTADÍSTICAS...",
+    "history": "CARGANDO HISTORIAL..."
+  },
+  "errors": {
+    "loading": "ERROR DE CARGA",
+    "historyError": "ERROR DE CARGA"
+  },
+  "navigation": {
+    "back": "ATRÁS",
+    "title": "MI CUENTA"
+  },
+  "tabs": {
+    "stats": "ESTADÍSTICAS",
+    "history": "HISTORIAL DE FOTOS",
+    "affiliate": "AFILIACIÓN"
+  },
+  "subscriptionTypes": {
+    "monthly": "SUSCRIPCIÓN MENSUAL",
+    "credits": "PACK DE CRÉDITOS",
+    "unknown": "PLAN DESCONOCIDO"
+  },
+  "status": {
+    "active": "ACTIVO",
+    "canceled": "CANCELADO",
+    "past_due": "VENCIDO"
+  },
+  "statsTab": {
+    "totalGenerations": {
+      "title": "GENERACIONES",
+      "description": "Número total de fotos generadas"
+    },
+    "lastGeneration": "ÚLTIMA GENERACIÓN",
+    "profile": {
+      "title": "PERFIL",
+      "email": "EMAIL:",
+      "name": "NOMBRE:",
+      "memberSince": "MIEMBRO DESDE:"
+    },
+    "creditsAvailable": {
+      "title": "CRÉDITOS DISPONIBLES",
+      "total": "TOTAL:",
+      "activePacks": "PACKS ACTIVOS:"
+    },
+    "subscriptions": {
+      "title": "MIS SUSCRIPCIONES",
+      "createdAt": "Creado el",
+      "status": "Estado",
+      "credits": "Créditos",
+      "remaining": "restantes",
+      "unlimited": "Ilimitado"
+    },
+    "monthlySubscription": {
+      "title": "SUSCRIPCIÓN MENSUAL",
+      "status": "ESTADO",
+      "nextBilling": "PRÓXIMA FACTURA",
+      "generationsUsed": "GENERACIONES UTILIZADAS",
+      "noSubscription": "No hay suscripción mensual activa",
+      "subscribeButton": "SUSCRIBIRSE"
+    },
+    "usageHistory": {
+      "title": "HISTORIAL DE USO",
+      "generatedOn": "Generado el",
+      "creditsUsed": "crédito utilizado",
+      "model": "Modelo",
+      "seeMore": "VER MÁS",
+      "seeLess": "VER MENOS",
+      "noHistory": "No hay historial disponible",
+      "noGenerations": "¡Aún no has generado ningún avatar!",
+      "remaining": "restantes",
+      "unlimited": "Ilimitado",
+      "createdAt": "Creado el"
+    }
+  },
+  "historyTab": {
+    "title": "TUS GENERACIONES",
+    "titleWithCount": "TUS GENERACIONES DE AVATARES",
+    "originalImage": "IMAGEN ORIGINAL",
+    "generatedImage": "IMAGEN GENERADA",
+    "viewImage": "VER IMAGEN",
+    "downloadImage": "DESCARGAR",
+    "generatedAt": "Generado el",
+    "model": "Modelo",
+    "settings": "Configuración",
+    "noHistory": "No hay generaciones en tu historial",
+    "startGenerating": "¡Comienza a generar tus primeras fotos!",
+    "goToGenerator": "IR AL GENERADOR",
+    "generation": "GENERACIÓN",
+    "credit": "CRÉDITO",
+    "original": "ORIGINAL",
+    "generated": "GENERADO",
+    "configurationUsed": "CONFIGURACIÓN UTILIZADA",
+    "pagination": {
+      "previous": "ANTERIOR",
+      "next": "SIGUIENTE",
+      "page": "PÁGINA"
+    }
+  },
+  "affiliateTab": {
+    "referralCode": {
+      "title": "MI CÓDIGO DE REFERIDO",
+      "label": "CÓDIGO ÚNICO:",
+      "copyButton": "COPIAR ENLACE",
+      "copied": "¡COPIADO!"
+    },
+    "myReferrals": {
+      "title": "MIS REFERIDOS",
+      "count": "referidos exitosos",
+      "earnings": "generaciones ganadas por referidos"
+    },
+    "bonusEarned": {
+      "title": "BONUS GANADOS",
+      "unit": "GENERACIONES GRATIS"
+    },
+    "referralHistory": {
+      "title": "HISTORIAL DE REFERIDOS",
+      "referredAt": "Referido el",
+      "status": "Estado",
+      "bonus": "Bonus",
+      "completed": "Completado",
+      "pending": "Pendiente",
+      "generation": "generación",
+      "noReferrals": "Aún no hay referidos"
+    },
+    "howItWorks": {
+      "title": "¿CÓMO FUNCIONA?",
+      "step1": "Comparte tu enlace único con tus amigos",
+      "step2": "Tu amigo se registra via tu enlace y compra créditos o se suscribe",
+      "step3": "¡Ambos reciben +1 generación gratis!",
+      "step1Description": "Comparte tu enlace con tus amigos en redes sociales, por email o mensaje",
+      "step2Description": "Tu amigo se registra vía tu enlace y compra créditos o se suscribe",
+      "step3Description": "¡Ambos ganan automáticamente 1 generación gratuita!"
+    }
+  },
+  "dangerZone": {
+    "title": "ZONA DE PELIGRO",
+    "cancelSubscription": {
+      "title": "CANCELAR MI SUSCRIPCIÓN",
+      "description": "Cancela la renovación automática de tu suscripción mensual. Mantendrás el acceso hasta el final de tu período de facturación actual.",
+      "button": "CANCELAR SUSCRIPCIÓN",
+      "processing": "PROCESANDO..."
+    },
+    "deleteAccount": {
+      "title": "ELIMINAR MI CUENTA",
+      "description": "⚠️ Acción irreversible - Elimina permanentemente tu cuenta, todos tus datos, tus imágenes y cancela todas tus suscripciones.",
+      "button": "ELIMINAR CUENTA",
+      "processing": "PROCESANDO..."
+    }
+  },
+  "imageModal": {
+    "viewAndCrop": "VER + RECORTAR CABEZA",
+    "cropHead": "RECORTAR CABEZA",
+    "cropping": "RECORTANDO...",
+    "showOriginal": "VER ORIGINAL",
+    "showCropped": "VER RECORTADO",
+    "downloadOriginal": "DESCARGAR ORIGINAL",
+    "downloadCropped": "DESCARGAR RECORTADO",
+    "cropError": "No se puede recortar la cabeza de la imagen",
+    "close": "CERRAR"
+  },
+  "common": {
+    "total": "TOTAL",
+    "thisMonth": "ESTE MES",
+    "created": "Creado el",
+    "status": "Estado",
+    "active": "ACTIVO",
+    "canceled": "CANCELADO",
+    "noData": "No hay datos disponibles",
+    "seeMore": "VER MÁS",
+    "seeLess": "VER MENOS",
+    "processing": "PROCESANDO...",
+    "close": "CERRAR",
+    "firstVisit": "¿PRIMERA VISITA?",
+    "originalClothingPhotoAlt": "Foto original de ropa antes de la generación de avatar IA Vinted",
+    "downloadAlert": "Por favor haz clic derecho y \"Guardar como\" en este enlace: "
+  }
+}

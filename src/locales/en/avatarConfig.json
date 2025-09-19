@@ -1,0 +1,129 @@
+{
+  "title": "CONFIGURE YOUR AI AVATAR",
+  "tabs": {
+    "modele": "MODEL",
+    "style": "STYLE",
+    "environnement": "ENVIRONMENT"
+  },
+  "modele": {
+    "genre": {
+      "title": "GENDER",
+      "options": {
+        "femme": "WOMAN",
+        "homme": "MAN",
+        "auto": "AUTO"
+      }
+    },
+    "carnation": {
+      "title": "SKIN TONE",
+      "options": {
+        "claire": "LIGHT",
+        "medium": "MEDIUM",
+        "mate": "OLIVE",
+        "foncee": "DARK"
+      }
+    },
+    "morphology": {
+      "title": "BODY TYPE",
+      "options": {
+        "s": "S",
+        "m": "M",
+        "l": "L"
+      }
+    },
+    "age": {
+      "title": "AGE",
+      "options": {
+        "auto": "AUTO",
+        "18-25": "18-25",
+        "26-35": "26-35",
+        "36-50": "36-50"
+      }
+    }
+  },
+  "style": {
+    "clothingType": {
+      "title": "CLOTHING TYPE",
+      "options": {
+        "auto": "AUTO-DETECTION",
+        "t-shirt": "T-SHIRT",
+        "chemise": "SHIRT",
+        "pull": "SWEATER",
+        "veste": "JACKET",
+        "manteau": "COAT",
+        "pantalon": "PANTS",
+        "jupe": "SKIRT",
+        "robe": "DRESS",
+        "short": "SHORTS",
+        "chaussures": "SHOES"
+      }
+    },
+    "posture": {
+      "title": "POSTURE",
+      "options": {
+        "debout": "STANDING",
+        "cambre": "ARCHED",
+        "accroupi": "CROUCHING",
+        "assis": "SITTING"
+      }
+    },
+    "angle": {
+      "title": "CAMERA ANGLE",
+      "options": {
+        "face": "FRONT",
+        "3-4": "3/4",
+        "profil": "PROFILE",
+        "auto": "AUTO"
+      }
+    },
+    "framing": {
+      "title": "FRAMING",
+      "options": {
+        "corps-entier": "FULL BODY",
+        "mi-corps": "HALF BODY",
+        "plan-rapproche": "CLOSE-UP"
+      }
+    }
+  },
+  "environnement": {
+    "decor": {
+      "title": "BACKGROUND",
+      "options": {
+        "studio-pro": "PRO STUDIO",
+        "chambre": "CASUAL BEDROOM",
+        "cabine": "FITTING ROOM",
+        "exterieur": "NATURAL OUTDOOR"
+      }
+    },
+    "lighting": {
+      "title": "LIGHTING",
+      "options": {
+        "studio": "STUDIO",
+        "naturel": "NATURAL",
+        "dramatique": "DRAMATIC",
+        "doux": "SOFT"
+      }
+    },
+    "season": {
+      "title": "SEASON",
+      "options": {
+        "auto": "AUTO",
+        "printemps": "SPRING",
+        "ete": "SUMMER",
+        "automne": "AUTUMN",
+        "hiver": "WINTER"
+      }
+    },
+    "cropHead": {
+      "title": "HEAD CROPPING",
+      "options": {
+        "keep": "KEEP HEAD",
+        "remove": "REMOVE HEAD"
+      }
+    }
+  },
+  "validation": {
+    "validate": "VALIDATE AND SAVE",
+    "validated": "SETTINGS SAVED!"
+  }
+}

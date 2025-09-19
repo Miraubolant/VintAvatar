@@ -1,0 +1,178 @@
+{
+  "loading": {
+    "stats": "CARICAMENTO STATISTICHE...",
+    "history": "CARICAMENTO STORICO..."
+  },
+  "errors": {
+    "loading": "ERRORE DI CARICAMENTO",
+    "historyError": "ERRORE DI CARICAMENTO"
+  },
+  "navigation": {
+    "back": "INDIETRO",
+    "title": "IL MIO ACCOUNT"
+  },
+  "tabs": {
+    "stats": "STATISTICHE",
+    "history": "STORICO FOTO",
+    "affiliate": "AFFILIAZIONE"
+  },
+  "subscriptionTypes": {
+    "monthly": "ABBONAMENTO MENSILE",
+    "credits": "PACCHETTO CREDITI",
+    "unknown": "PIANO SCONOSCIUTO"
+  },
+  "status": {
+    "active": "ATTIVO",
+    "canceled": "CANCELLATO",
+    "past_due": "SCADUTO"
+  },
+  "statsTab": {
+    "totalGenerations": {
+      "title": "GENERAZIONI",
+      "description": "Numero totale di foto generate"
+    },
+    "lastGeneration": "ULTIMA GENERAZIONE",
+    "profile": {
+      "title": "PROFILO",
+      "email": "EMAIL:",
+      "name": "NOME:",
+      "memberSince": "MEMBRO DAL:"
+    },
+    "creditsAvailable": {
+      "title": "CREDITI DISPONIBILI",
+      "total": "TOTALE:",
+      "activePacks": "PACCHETTI ATTIVI:"
+    },
+    "subscriptions": {
+      "title": "I MIEI ABBONAMENTI",
+      "createdAt": "Creato il",
+      "status": "Stato",
+      "credits": "Crediti",
+      "remaining": "rimanenti",
+      "unlimited": "Illimitato"
+    },
+    "monthlySubscription": {
+      "title": "ABBONAMENTO MENSILE",
+      "status": "STATO",
+      "nextBilling": "PROSSIMA FATTURA",
+      "generationsUsed": "GENERAZIONI UTILIZZATE",
+      "noSubscription": "Nessun abbonamento mensile attivo",
+      "subscribeButton": "ABBONATI"
+    },
+    "usageHistory": {
+      "title": "STORICO UTILIZZO",
+      "generatedOn": "Generato il",
+      "creditsUsed": "credito utilizzato",
+      "model": "Modello",
+      "seeMore": "VEDI DI PIÙ",
+      "seeLess": "VEDI DI MENO",
+      "noHistory": "Nessuno storico disponibile",
+      "noGenerations": "Non hai ancora generato nessun avatar!",
+      "remaining": "rimanenti",
+      "unlimited": "Illimitato",
+      "createdAt": "Creato il"
+    }
+  },
+  "historyTab": {
+    "title": "LE TUE GENERAZIONI",
+    "titleWithCount": "LE TUE GENERAZIONI DI AVATAR",
+    "originalImage": "IMMAGINE ORIGINALE",
+    "generatedImage": "IMMAGINE GENERATA",
+    "viewImage": "VEDI IMMAGINE",
+    "downloadImage": "SCARICA",
+    "generatedAt": "Generato il",
+    "model": "Modello",
+    "settings": "Impostazioni",
+    "noHistory": "Nessuna generazione nel tuo storico",
+    "startGenerating": "Inizia a generare le tue prime foto!",
+    "goToGenerator": "VAI AL GENERATORE",
+    "generation": "GENERAZIONE",
+    "credit": "CREDITO",
+    "original": "ORIGINALE",
+    "generated": "GENERATO",
+    "configurationUsed": "CONFIGURAZIONE UTILIZZATA",
+    "pagination": {
+      "previous": "PRECEDENTE",
+      "next": "SUCCESSIVO",
+      "page": "PAGINA"
+    }
+  },
+  "affiliateTab": {
+    "referralCode": {
+      "title": "IL MIO CODICE REFERRAL",
+      "label": "CODICE UNICO:",
+      "copyButton": "COPIA LINK",
+      "copied": "COPIATO!"
+    },
+    "myReferrals": {
+      "title": "I MIEI REFERRAL",
+      "count": "referral riusciti",
+      "earnings": "generazioni guadagnate dai referral"
+    },
+    "bonusEarned": {
+      "title": "BONUS GUADAGNATI",
+      "unit": "GENERAZIONI GRATUITE"
+    },
+    "referralHistory": {
+      "title": "STORICO REFERRAL",
+      "referredAt": "Referral il",
+      "status": "Stato",
+      "bonus": "Bonus",
+      "completed": "Completato",
+      "pending": "In attesa",
+      "generation": "generazione",
+      "noReferrals": "Ancora nessun referral"
+    },
+    "howItWorks": {
+      "title": "COME FUNZIONA?",
+      "step1": "Condividi il tuo link unico con i tuoi amici",
+      "step2": "Il tuo amico si iscrive tramite il tuo link e acquista crediti o si abbona",
+      "step3": "Ricevete entrambi +1 generazione gratuita!",
+      "step1Description": "Condividi il tuo link con i tuoi amici sui social media, via email o messaggio",
+      "step2Description": "Il tuo amico si iscrive tramite il tuo link e acquista crediti o si abbona",
+      "step3Description": "Entrambi ottenete automaticamente 1 generazione gratuita!"
+    }
+  },
+  "dangerZone": {
+    "title": "ZONA PERICOLOSA",
+    "cancelSubscription": {
+      "title": "CANCELLA IL MIO ABBONAMENTO",
+      "description": "Cancella il rinnovo automatico del tuo abbonamento mensile. Manterrai l'accesso fino alla fine del tuo periodo di fatturazione attuale.",
+      "button": "CANCELLA ABBONAMENTO",
+      "processing": "ELABORAZIONE..."
+    },
+    "deleteAccount": {
+      "title": "ELIMINA IL MIO ACCOUNT",
+      "description": "⚠️ Azione irreversibile - Elimina permanentemente il tuo account, tutti i tuoi dati, le tue immagini e cancella tutti i tuoi abbonamenti.",
+      "button": "ELIMINA ACCOUNT",
+      "processing": "ELABORAZIONE..."
+    }
+  },
+  "imageModal": {
+    "viewAndCrop": "VEDI + RITAGLIA TESTA",
+    "cropHead": "RITAGLIA TESTA",
+    "cropping": "RITAGLIO...",
+    "showOriginal": "MOSTRA ORIGINALE",
+    "showCropped": "MOSTRA RITAGLIATO",
+    "downloadOriginal": "SCARICA ORIGINALE",
+    "downloadCropped": "SCARICA RITAGLIATO",
+    "cropError": "Impossibile ritagliare la testa dall'immagine",
+    "close": "CHIUDI"
+  },
+  "common": {
+    "total": "TOTALE",
+    "thisMonth": "QUESTO MESE",
+    "created": "Creato il",
+    "status": "Stato",
+    "active": "ATTIVO",
+    "canceled": "CANCELLATO",
+    "noData": "Nessun dato disponibile",
+    "seeMore": "VEDI DI PIÙ",
+    "seeLess": "VEDI DI MENO",
+    "processing": "ELABORAZIONE...",
+    "close": "CHIUDI",
+    "firstVisit": "PRIMA VISITA?",
+    "originalClothingPhotoAlt": "Foto originale dell'abbigliamento prima della generazione avatar IA Vinted",
+    "downloadAlert": "Per favore fai clic destro e \"Salva con nome\" su questo link: "
+  }
+}

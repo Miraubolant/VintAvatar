@@ -1,0 +1,35 @@
+{
+  "title": {
+    "line1": "HOW TO GENERATE",
+    "line2": "YOUR AI AVATARS",
+    "line3": "IN 5 STEPS!"
+  },
+  "subtitle": "Our revolutionary AI technology transforms your photos!",
+  "steps": [
+    {
+      "title": "UPLOAD YOUR PHOTO",
+      "description": "Drag and drop your clothing image or use our simple interface"
+    },
+    {
+      "title": "AI ANALYZES STYLE",
+      "description": "Our artificial intelligence analyzes colors, textures and shapes"
+    },
+    {
+      "title": "CUSTOMIZE THE AVATAR",
+      "description": "Choose the gender, skin tone, body type and background of your model"
+    },
+    {
+      "title": "INSTANT GENERATION",
+      "description": "In 30 seconds, get your ultra-realistic avatar"
+    },
+    {
+      "title": "DOWNLOAD & SHARE",
+      "description": "Get your HD image and boost your sales on Vinted"
+    }
+  ],
+  "cta": {
+    "title": "READY TO TRANSFORM YOUR PHOTOS?",
+    "subtitle": "Join the thousands of sellers who have already boosted their sales with our AI!",
+    "button": "TRY NOW"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "stages": {
+    "analyzing": {
+      "title": "ANALYSIS",
+      "message": "Analyzing your clothing in progress"
+    },
+    "generating": {
+      "title": "GENERATION",
+      "message": "Generating your avatar in progress"
+    },
+    "saving": {
+      "title": "FINALIZING",
+      "message": "Finalizing and saving"
+    },
+    "complete": {
+      "title": "COMPLETE",
+      "message": "Generation completed successfully"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "features": "Funzioni",
+    "method": "Metodo",
+    "beforeAfter": "Prima/Dopo",
+    "pricing": "Prezzi",
+    "reviews": "Recensioni",
+    "blog": "Blog",
+    "account": "Il Mio Account"
+  },
+  "auth": {
+    "login": "ACCEDI",
+    "logout": "DISCONNETTI",
+    "signUp": "REGISTRATI"
+  }
+}
