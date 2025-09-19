@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useSEO, SEO_CONFIGS } from '../hooks/useSEO';
 import { 
   User, 
@@ -34,8 +34,13 @@ type TabType = 'stats' | 'history' | 'affiliate';
 
 export const AccountPage: React.FC = () => {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { t } = useTranslation('account');
-  const [activeTab, setActiveTab] = useState<TabType>('stats');
+
+  // Get tab from URL params, default to 'stats'
+  const tabFromUrl = searchParams.get('tab') as TabType;
+  const initialTab = tabFromUrl && ['stats', 'history', 'affiliate'].includes(tabFromUrl) ? tabFromUrl : 'stats';
+  const [activeTab, setActiveTab] = useState<TabType>(initialTab);
   const [isDangerModalOpen, setIsDangerModalOpen] = useState(false);
   const [dangerAction, setDangerAction] = useState<'cancel_subscription' | 'delete_account' | null>(null);
   const [isActionLoading, setIsActionLoading] = useState(false);
@@ -272,7 +277,10 @@ export const AccountPage: React.FC = () => {
         {/* Tabs Navigation */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8">
           <button
-            onClick={() => setActiveTab('stats')}
+            onClick={() => {
+              setActiveTab('stats');
+              setSearchParams({}); // Remove query params for stats tab
+            }}
             className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-3 font-display font-bold text-sm sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
               activeTab === 'stats'
                 ? 'bg-vinted text-white transform -rotate-1'
@@ -283,7 +291,10 @@ export const AccountPage: React.FC = () => {
             {t('tabs.stats')}
           </button>
           <button
-            onClick={() => setActiveTab('history')}
+            onClick={() => {
+              setActiveTab('history');
+              setSearchParams({ tab: 'history' });
+            }}
             className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-3 font-display font-bold text-sm sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
               activeTab === 'history'
                 ? 'bg-vinted text-white transform -rotate-1'
@@ -294,7 +305,10 @@ export const AccountPage: React.FC = () => {
             {t('tabs.history')}
           </button>
           <button
-            onClick={() => setActiveTab('affiliate')}
+            onClick={() => {
+              setActiveTab('affiliate');
+              setSearchParams({ tab: 'affiliate' });
+            }}
             className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-3 font-display font-bold text-sm sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
               activeTab === 'affiliate'
                 ? 'bg-vinted text-white transform -rotate-1'
