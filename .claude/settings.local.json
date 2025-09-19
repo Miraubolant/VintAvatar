@@ -53,7 +53,11 @@
       "Bash(del \"supabase\\migrations\\20250915134500_fix_email_auth.sql\")",
       "Bash(npm uninstall:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
