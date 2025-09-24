@@ -46,11 +46,10 @@ export const Header: React.FC = () => {
               <Sparkles className="text-white w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
             </div>
             
-            {/* Titre unifié avec style bicolore */}
-            <div className="bg-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform rotate-1 group-hover:rotate-0 transition-transform duration-300 overflow-hidden">
-              <span className="font-display font-bold text-sm sm:text-base lg:text-lg flex">
-                <span className="bg-white text-black px-2 sm:px-2.5 py-1">VINT</span>
-                <span className="bg-vinted text-white px-2 sm:px-2.5 py-1">DRESS</span>
+            {/* Titre unifié VintDress */}
+            <div className="bg-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform rotate-1 group-hover:rotate-0 transition-transform duration-300 px-3 sm:px-4 py-1">
+              <span className="font-display font-bold text-sm sm:text-base lg:text-lg">
+                <span className="text-black">Vint</span><span className="text-vinted">Dress</span>
               </span>
             </div>
           </button>
