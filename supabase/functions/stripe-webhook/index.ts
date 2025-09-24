@@ -82,15 +82,15 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
     }
 
     // Handle different pricing tiers
-    if (priceId === 'price_1S7FekKHJNJEt6GqWfZZS2e7') {
+    if (priceId === 'price_1S5QtXKHJNJEt6Gq1bTo24UC') {
       // Pack 10 crédits
       subscriptionUpdate.plan_type = 'credits'
       subscriptionUpdate.credits_remaining = 10
-    } else if (priceId === 'price_1S7FfWKHJNJEt6GqQ5EnxyOy') {
+    } else if (priceId === 'price_1SAqbcKHJNJEt6Gqn4vj2WGy') {
       // Pack 25 crédits
       subscriptionUpdate.plan_type = 'credits'
       subscriptionUpdate.credits_remaining = 25
-    } else if (priceId === 'price_1S7FgLKHJNJEt6GqNUJvmOZo') {
+    } else if (priceId === 'price_1S5QupKHJNJEt6GqequoQQf7') {
       // Abonnement mensuel
       subscriptionUpdate.plan_type = 'monthly'
       subscriptionUpdate.monthly_limit = 40
