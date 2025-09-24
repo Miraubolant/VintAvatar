@@ -50,7 +50,7 @@ serve(async (req) => {
           quantity: 1,
         },
       ],
-      mode: priceId === 'price_1S7FgLKHJNJEt6GqNUJvmOZo' ? 'subscription' : 'payment',
+      mode: priceId === 'price_1S5QupKHJNJEt6GqequoQQf7' ? 'subscription' : 'payment',
       success_url: `${req.headers.get('origin')}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.get('origin')}/cancel`,
       metadata: {
