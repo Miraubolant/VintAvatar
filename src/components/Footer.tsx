@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
                   {t('footer.links.legal')}
                 </Link>
                 <a
-                  href="mailto:contact@vintedavatar.com"
+                  href="mailto:contact@vintdress.com"
                   className="bg-vinted text-white font-body font-semibold px-3 py-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                 >
                   {t('footer.links.contact')}

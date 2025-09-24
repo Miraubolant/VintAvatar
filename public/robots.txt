@@ -10,4 +10,4 @@ Allow: /#avis
 Allow: /#tarifs
 Allow: /#blog
 
-Sitemap: https://vintedavatar.com/sitemap.xml
+Sitemap: https://vintdress.com/sitemap.xml

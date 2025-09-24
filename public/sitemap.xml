@@ -4,26 +4,26 @@
   
   <!-- Page principale -->
   <url>
-    <loc>https://vintedavatar.com/</loc>
+    <loc>https://vintdress.com/</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://vintedavatar.com/og-image.jpg</image:loc>
-      <image:title>VintedAvatar - Générateur IA de Photos Portées</image:title>
+      <image:loc>https://vintdress.com/og-image.jpg</image:loc>
+      <image:title>VintDress - Générateur IA de Photos Portées</image:title>
       <image:caption>Créez des photos portées réalistes pour Vinted en 30 secondes avec l'IA</image:caption>
     </image:image>
   </url>
 
   <!-- Pages légales -->
   <url>
-    <loc>https://vintedavatar.com/cgu</loc>
+    <loc>https://vintdress.com/cgu</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://vintedavatar.com/confidentialite</loc>
+    <loc>https://vintdress.com/confidentialite</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -31,43 +31,43 @@
 
   <!-- Articles de blog - URLs SEO-friendly avec /blog/ -->
   <url>
-    <loc>https://vintedavatar.com/blog/guide-complet-photos-vinted-2025</loc>
+    <loc>https://vintdress.com/blog/guide-complet-photos-vinted-2025</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vintedavatar.com/blog/strategie-vente-vinted-2025</loc>
+    <loc>https://vintdress.com/blog/strategie-vente-vinted-2025</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vintedavatar.com/blog/tendances-mode-2025</loc>
+    <loc>https://vintdress.com/blog/tendances-mode-2025</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vintedavatar.com/blog/success-story-marie-2025</loc>
+    <loc>https://vintdress.com/blog/success-story-marie-2025</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vintedavatar.com/blog/5-astuces-pour-vendre-plus-vite-sur-vinted</loc>
+    <loc>https://vintdress.com/blog/5-astuces-pour-vendre-plus-vite-sur-vinted</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vintedavatar.com/blog/ia-au-service-de-la-mode-notre-revolution</loc>
+    <loc>https://vintdress.com/blog/ia-au-service-de-la-mode-notre-revolution</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vintedavatar.com/blog/temoignage-300-pourcent-vues-une-semaine</loc>
+    <loc>https://vintdress.com/blog/temoignage-300-pourcent-vues-une-semaine</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -75,25 +75,25 @@
 
   <!-- Sections principales avec ancres -->
   <url>
-    <loc>https://vintedavatar.com/#generateur</loc>
+    <loc>https://vintdress.com/#generateur</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vintedavatar.com/#avis</loc>
+    <loc>https://vintdress.com/#avis</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vintedavatar.com/#tarifs</loc>
+    <loc>https://vintdress.com/#tarifs</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vintedavatar.com/#blog</loc>
+    <loc>https://vintdress.com/#blog</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>

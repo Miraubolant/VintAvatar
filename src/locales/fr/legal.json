@@ -1,7 +1,7 @@
 {
   "title": "CONDITIONS GÉNÉRALES ET POLITIQUE DE CONFIDENTIALITÉ",
   "lastUpdated": "Dernière mise à jour : 17 septembre 2025",
-  "introduction": "En utilisant Vinted Avatar, vous acceptez les présentes conditions d'utilisation et notre politique de confidentialité.",
+  "introduction": "En utilisant VintDress, vous acceptez les présentes conditions d'utilisation et notre politique de confidentialité.",
   "toc": {
     "title": "SOMMAIRE",
     "sections": [
@@ -25,7 +25,7 @@
     "service": {
       "title": "1. PRÉSENTATION DU SERVICE",
       "content": {
-        "description": "Vinted Avatar est un outil en ligne permettant de générer, à partir d'un lien Vinted® ou d'une image uploadée, des photographies \"portées\" réalisées par un modèle d'intelligence artificielle (FLUX Kontext Pro fourni par Replicate).",
+        "description": "VintDress est un outil en ligne permettant de générer, à partir d'un lien Vinted® ou d'une image uploadée, des photographies \"portées\" réalisées par un modèle d'intelligence artificielle (FLUX Kontext Pro fourni par Replicate).",
         "operator": "Le service est exploité par : Miraubolant (SIREN 999 999 999) – 113 rue saint honoré, 75001 Paris.",
         "features": [
           "Analyse automatique des vêtements uploadés",
@@ -50,7 +50,7 @@
       "content": {
         "userAccount": {
           "title": "Compte utilisateur",
-          "description": "Création possible via Google ; Vinted Avatar collecte et conserve le nom, l'adresse e-mail et la date d'inscription."
+          "description": "Création possible via Google ; VintDress collecte et conserve le nom, l'adresse e-mail et la date d'inscription."
         },
         "generations": {
           "title": "Générations",
@@ -120,7 +120,7 @@
         },
         "generatedImages": {
           "title": "Images générées",
-          "description": "Conformément aux conditions de Replicate, l'utilisateur détient, dans la mesure permise par le droit applicable, les droits sur les sorties du modèle. Vinted Avatar se réserve une licence non exclusive, mondiale et gratuite afin d'exécuter le service et, sauf opposition écrite, présenter publiquement les résultats à des fins de démonstration ou promotion."
+          "description": "Conformément aux conditions de Replicate, l'utilisateur détient, dans la mesure permise par le droit applicable, les droits sur les sorties du modèle. VintDress se réserve une licence non exclusive, mondiale et gratuite afin d'exécuter le service et, sauf opposition écrite, présenter publiquement les résultats à des fins de démonstration ou promotion."
         },
         "forbiddenContent": {
           "title": "Contenus interdits",
@@ -130,7 +130,7 @@
             "mettant en scène des personnes identifiables (photos déjà \"portées\"),",
             "incitant à la haine, à la violence ou diffamatoires."
           ],
-          "moderation": "Vinted Avatar applique une modération automatique et manuelle ; tout compte contrevenant peut être suspendu ou bloqué."
+          "moderation": "VintDress applique une modération automatique et manuelle ; tout compte contrevenant peut être suspendu ou bloqué."
         }
       }
     },
@@ -188,7 +188,7 @@
         },
         "violation": {
           "title": "Suspension pour non-respect des conditions",
-          "description": "Vinted Avatar peut suspendre immédiatement le compte ; les crédits non consommés sont alors remboursés, sauf en cas de violation grave ou intentionnelle."
+          "description": "VintDress peut suspendre immédiatement le compte ; les crédits non consommés sont alors remboursés, sauf en cas de violation grave ou intentionnelle."
         }
       }
     },
@@ -196,7 +196,7 @@
       "title": "8. USAGE DU SERVICE",
       "content": {
         "description": "L'utilisateur est seul responsable de l'usage qu'il fait des images générées. Toute utilisation commerciale, automatisée, ou intégration dans une plateforme tierce est interdite sans autorisation écrite. Les images ne garantissent aucune vente ; elles améliorent uniquement la présentation visuelle de l'annonce.",
-        "vinted": "Vinted Avatar n'est ni affilié, ni sponsorisé, ni approuvé par Vinted®. Le service fonctionne uniquement à l'initiative de l'utilisateur, sans interaction directe avec les serveurs de Vinted."
+        "vinted": "VintDress n'est ni affilié, ni sponsorisé, ni approuvé par Vinted®. Le service fonctionne uniquement à l'initiative de l'utilisateur, sans interaction directe avec les serveurs de Vinted."
       }
     },
     "responsabilite": {
@@ -204,7 +204,7 @@
       "content": {
         "service": "Le service est fourni « en l'état » sans garantie de disponibilité ou de performance.",
         "technical": "En cas d'indisponibilité technique empêchant l'usage, les crédits inutilisés sont remboursés sur demande.",
-        "liability": "Vinted Avatar ne pourra être tenu responsable des pertes indirectes, commerciales ou immatérielles.",
+        "liability": "VintDress ne pourra être tenu responsable des pertes indirectes, commerciales ou immatérielles.",
         "forceMajeure": "Force majeure : aucune partie ne pourra être tenue pour responsable d'un manquement résultant d'un événement imprévisible, irrésistible et extérieur (catastrophe naturelle, panne générale d'Internet, décision gouvernementale, etc.)."
       }
     },
@@ -290,7 +290,7 @@
     "modifications": {
       "title": "13. MODIFICATION DES CONDITIONS",
       "content": {
-        "description": "Vinted Avatar peut modifier les présentes conditions à tout moment. La date de mise à jour fait foi. Toute utilisation du service après modification vaut acceptation des nouvelles conditions. Les versions antérieures restent disponibles sur demande.",
+        "description": "VintDress peut modifier les présentes conditions à tout moment. La date de mise à jour fait foi. Toute utilisation du service après modification vaut acceptation des nouvelles conditions. Les versions antérieures restent disponibles sur demande.",
         "notification": {
           "title": "En cas de modification :",
           "items": [

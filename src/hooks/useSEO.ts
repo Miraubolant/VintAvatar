@@ -108,46 +108,46 @@ export const useSEO = (seoData: SEOData) => {
 // Predefined SEO configurations for common pages
 export const SEO_CONFIGS = {
   home: {
-    title: 'VintedAvatar - Générateur IA de Photos Portées pour Vinted | +300% de Ventes',
+    title: 'VintDress - Générateur IA de Photos Portées pour Vinted | +300% de Ventes',
     description: 'Créez des photos portées réalistes pour Vinted en 30 secondes avec l\'IA. Pas de mannequin nécessaire. +300% de vues, +250% de ventes. Essai gratuit.',
     keywords: 'vinted, photo portée, IA, générateur photo, mannequin virtuel, vente vêtements, avatar IA, photo produit',
-    canonical: 'https://vintedavatar.com',
-    ogImage: 'https://vintedavatar.com/og-image.jpg',
+    canonical: 'https://vintdress.com',
+    ogImage: 'https://vintdress.com/og-image.jpg',
     ogType: 'website'
   },
   
   account: {
-    title: 'Mon Compte VintedAvatar - Gestion des Crédits et Historique',
-    description: 'Gérez vos crédits VintedAvatar, consultez votre historique de générations et accédez à votre système de parrainage.',
-    canonical: 'https://vintedavatar.com/account',
+    title: 'Mon Compte VintDress - Gestion des Crédits et Historique',
+    description: 'Gérez vos crédits VintDress, consultez votre historique de générations et accédez à votre système de parrainage.',
+    canonical: 'https://vintdress.com/account',
     ogType: 'website'
   },
 
   success: {
-    title: 'Paiement Réussi - VintedAvatar',
+    title: 'Paiement Réussi - VintDress',
     description: 'Votre paiement a été traité avec succès. Vos crédits sont maintenant disponibles pour générer des avatars IA.',
-    canonical: 'https://vintedavatar.com/success',
+    canonical: 'https://vintdress.com/success',
     ogType: 'website'
   },
 
   cancel: {
-    title: 'Paiement Annulé - VintedAvatar',
+    title: 'Paiement Annulé - VintDress',
     description: 'Votre paiement a été annulé. Vous pouvez réessayer ou nous contacter si vous rencontrez des difficultés.',
-    canonical: 'https://vintedavatar.com/cancel',
+    canonical: 'https://vintdress.com/cancel',
     ogType: 'website'
   },
 
   cgu: {
-    title: 'Conditions Générales d\'Utilisation - VintedAvatar',
-    description: 'Consultez les conditions générales d\'utilisation du service VintedAvatar pour la génération d\'avatars IA.',
-    canonical: 'https://vintedavatar.com/cgu',
+    title: 'Conditions Générales d\'Utilisation - VintDress',
+    description: 'Consultez les conditions générales d\'utilisation du service VintDress pour la génération d\'avatars IA.',
+    canonical: 'https://vintdress.com/cgu',
     ogType: 'website'
   },
 
   confidentialite: {
-    title: 'Politique de Confidentialité - VintedAvatar',
-    description: 'Découvrez comment VintedAvatar protège vos données personnelles et respecte votre vie privée.',
-    canonical: 'https://vintedavatar.com/confidentialite',
+    title: 'Politique de Confidentialité - VintDress',
+    description: 'Découvrez comment VintDress protège vos données personnelles et respecte votre vie privée.',
+    canonical: 'https://vintdress.com/confidentialite',
     ogType: 'website'
   }
 };
@@ -155,16 +155,16 @@ export const SEO_CONFIGS = {
 // Helper function to generate article SEO data
 export const generateArticleSEO = (article: any): SEOData => {
   return {
-    title: `${article.title} - Blog VintedAvatar`,
+    title: `${article.title} - Blog VintDress`,
     description: article.excerpt || `Découvrez nos conseils d'experts pour optimiser vos ventes sur Vinted avec ${article.title}`,
-    keywords: `${article.title}, vinted, conseils vente, ${article.category}, blog vintedavatar`,
-    canonical: `https://vintedavatar.com/blog/${article.slug}`,
+    keywords: `${article.title}, vinted, conseils vente, ${article.category}, blog vintdress`,
+    canonical: `https://vintdress.com/blog/${article.slug}`,
     ogTitle: article.title,
     ogDescription: article.excerpt,
-    ogImage: article.image || 'https://vintedavatar.com/og-image.jpg',
+    ogImage: article.image || 'https://vintdress.com/og-image.jpg',
     ogType: 'article',
     twitterTitle: article.title,
     twitterDescription: article.excerpt,
-    twitterImage: article.image || 'https://vintedavatar.com/og-image.jpg'
+    twitterImage: article.image || 'https://vintdress.com/og-image.jpg'
   };
 };

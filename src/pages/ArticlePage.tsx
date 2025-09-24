@@ -32,7 +32,7 @@ export const ArticlePage: React.FC = () => {
     author: article.author,
     datePublished: article.date,
     dateModified: article.date,
-    url: `https://vintedavatar.com/blog/${slug}`,
+    url: `https://vintdress.com/blog/${slug}`,
     image: article.image
   });
   
