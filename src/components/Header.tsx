@@ -49,10 +49,10 @@ export const Header: React.FC = () => {
             {/* Titre côte à côte - Taille réduite */}
             <div className="flex items-center gap-1">
               <span className="font-display font-bold text-sm sm:text-base lg:text-lg bg-white border-2 border-black px-2 sm:px-2.5 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-                VINTED
+                VINT
               </span>
               <span className="font-display font-bold text-sm sm:text-base lg:text-lg text-white bg-vinted border-2 border-black px-2 sm:px-2.5 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
-                AVATAR
+                DRESS
               </span>
             </div>
           </button>
