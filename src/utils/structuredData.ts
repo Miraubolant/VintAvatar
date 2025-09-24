@@ -63,10 +63,10 @@ export const generateArticleSchema = (article: ArticleSchema) => {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "VintedAvatar",
+      "name": "VintDress",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://vintedavatar.com/logo.png"
+        "url": "https://vintdress.com/logo.png"
       }
     },
     "datePublished": article.datePublished,
@@ -90,9 +90,9 @@ export const generateOrganizationSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "VintedAvatar",
-    "url": "https://vintedavatar.com",
-    "logo": "https://vintedavatar.com/logo.png",
+    "name": "VintDress",
+    "url": "https://vintdress.com",
+    "logo": "https://vintdress.com/logo.png",
     "description": "Générateur IA de photos portées pour optimiser vos ventes sur Vinted",
     "foundingDate": "2024",
     "contactPoint": {
@@ -101,8 +101,8 @@ export const generateOrganizationSchema = () => {
       "availableLanguage": "French"
     },
     "sameAs": [
-      "https://twitter.com/vintedavatar",
-      "https://facebook.com/vintedavatar"
+      "https://twitter.com/vintdress",
+      "https://facebook.com/vintdress"
     ]
   };
 };
@@ -112,7 +112,7 @@ export const generateProductSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "VintedAvatar - Générateur IA Photos Vinted",
+    "name": "VintDress - Générateur IA Photos Vinted",
     "description": "Service de génération d'avatars IA pour créer des photos portées réalistes pour vos ventes Vinted",
     "brand": {
       "@type": "Brand",
@@ -125,7 +125,7 @@ export const generateProductSchema = () => {
         "price": "3.49",
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock",
-        "url": "https://vintedavatar.com/#tarifs",
+        "url": "https://vintdress.com/#tarifs",
         "seller": {
           "@type": "Organization",
           "name": "VintedAvatar"
@@ -137,7 +137,7 @@ export const generateProductSchema = () => {
         "price": "6.99",
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock",
-        "url": "https://vintedavatar.com/#tarifs",
+        "url": "https://vintdress.com/#tarifs",
         "seller": {
           "@type": "Organization",
           "name": "VintedAvatar"
@@ -149,7 +149,7 @@ export const generateProductSchema = () => {
         "price": "11.99",
         "priceCurrency": "EUR", 
         "availability": "https://schema.org/InStock",
-        "url": "https://vintedavatar.com/#tarifs",
+        "url": "https://vintdress.com/#tarifs",
         "seller": {
           "@type": "Organization",
           "name": "VintedAvatar"

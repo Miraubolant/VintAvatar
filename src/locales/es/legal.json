@@ -1,7 +1,7 @@
 {
   "title": "TÉRMINOS DE SERVICIO Y POLÍTICA DE PRIVACIDAD",
   "lastUpdated": "Última actualización: 17 de septiembre de 2025",
-  "introduction": "Al usar Vinted Avatar, aceptas estos términos de servicio y nuestra política de privacidad.",
+  "introduction": "Al usar VintDress, aceptas estos términos de servicio y nuestra política de privacidad.",
   "toc": {
     "title": "ÍNDICE",
     "sections": [
@@ -25,7 +25,7 @@
     "service": {
       "title": "1. PRESENTACIÓN DEL SERVICIO",
       "content": {
-        "description": "Vinted Avatar es una herramienta en línea que genera fotografías \"llevadas\" a partir de un enlace de Vinted® o imagen cargada, creadas por un modelo de inteligencia artificial (FLUX Kontext Pro proporcionado por Replicate).",
+        "description": "VintDress es una herramienta en línea que genera fotografías \"llevadas\" a partir de un enlace de Vinted® o imagen cargada, creadas por un modelo de inteligencia artificial (FLUX Kontext Pro proporcionado por Replicate).",
         "operator": "El servicio es operado por: Miraubolant (SIREN 999 999 999) – 113 rue saint honoré, 75001 París.",
         "features": [
           "Análisis automático de ropa cargada",
@@ -50,7 +50,7 @@
       "content": {
         "userAccount": {
           "title": "Cuenta de usuario",
-          "description": "Creación de cuenta posible vía Google; Vinted Avatar recopila y almacena nombre, dirección de correo electrónico y fecha de registro."
+          "description": "Creación de cuenta posible vía Google; VintDress recopila y almacena nombre, dirección de correo electrónico y fecha de registro."
         },
         "generations": {
           "title": "Generaciones",
@@ -120,7 +120,7 @@
         },
         "generatedImages": {
           "title": "Imágenes generadas",
-          "description": "De acuerdo con los términos de Replicate, el usuario posee, en la medida permitida por la ley aplicable, los derechos sobre las salidas del modelo. Vinted Avatar se reserva una licencia no exclusiva, mundial y gratuita para ejecutar el servicio y, salvo oposición por escrito, presentar públicamente los resultados con fines de demostración o promoción."
+          "description": "De acuerdo con los términos de Replicate, el usuario posee, en la medida permitida por la ley aplicable, los derechos sobre las salidas del modelo. VintDress se reserva una licencia no exclusiva, mundial y gratuita para ejecutar el servicio y, salvo oposición por escrito, presentar públicamente los resultados con fines de demostración o promoción."
         },
         "forbiddenContent": {
           "title": "Contenido prohibido",
@@ -130,7 +130,7 @@
             "que presente personas identificables (fotos ya \"llevadas\"),",
             "que incite al odio, violencia o difamatorio."
           ],
-          "moderation": "Vinted Avatar aplica moderación automática y manual; cualquier cuenta que viole puede ser suspendida o bloqueada."
+          "moderation": "VintDress aplica moderación automática y manual; cualquier cuenta que viole puede ser suspendida o bloqueada."
         }
       }
     },
@@ -188,7 +188,7 @@
         },
         "violation": {
           "title": "Suspensión por incumplimiento de términos",
-          "description": "Vinted Avatar puede suspender inmediatamente la cuenta; los créditos no usados son entonces reembolsados, excepto en caso de violación grave o intencional."
+          "description": "VintDress puede suspender inmediatamente la cuenta; los créditos no usados son entonces reembolsados, excepto en caso de violación grave o intencional."
         }
       }
     },
@@ -196,7 +196,7 @@
       "title": "8. USO DEL SERVICIO",
       "content": {
         "description": "El usuario es únicamente responsable del uso de las imágenes generadas. Cualquier uso comercial, automatizado, o integración en una plataforma de terceros está prohibido sin autorización escrita. Las imágenes no garantizan ninguna venta; solo mejoran la presentación visual del anuncio.",
-        "vinted": "Vinted Avatar no está afiliado, patrocinado, ni respaldado por Vinted®. El servicio opera únicamente a iniciativa del usuario, sin interacción directa con los servidores de Vinted."
+        "vinted": "VintDress no está afiliado, patrocinado, ni respaldado por Vinted®. El servicio opera únicamente a iniciativa del usuario, sin interacción directa con los servidores de Vinted."
       }
     },
     "responsabilite": {
@@ -204,7 +204,7 @@
       "content": {
         "service": "El servicio se proporciona \"tal como es\" sin garantía de disponibilidad o rendimiento.",
         "technical": "En caso de indisponibilidad técnica que impida el uso, los créditos no usados son reembolsados bajo solicitud.",
-        "liability": "Vinted Avatar no puede ser responsabilizado por pérdidas indirectas, comerciales o intangibles.",
+        "liability": "VintDress no puede ser responsabilizado por pérdidas indirectas, comerciales o intangibles.",
         "forceMajeure": "Fuerza mayor: ninguna parte puede ser responsabilizada por un fallo resultante de un evento imprevisible, irresistible y externo (desastre natural, caída general de Internet, decisión gubernamental, etc.)."
       }
     },
@@ -290,7 +290,7 @@
     "modifications": {
       "title": "13. MODIFICACIONES DE TÉRMINOS",
       "content": {
-        "description": "Vinted Avatar puede modificar estos términos en cualquier momento. La fecha de actualización es autorizada. Cualquier uso del servicio después de la modificación constituye aceptación de los nuevos términos. Las versiones anteriores permanecen disponibles bajo solicitud.",
+        "description": "VintDress puede modificar estos términos en cualquier momento. La fecha de actualización es autorizada. Cualquier uso del servicio después de la modificación constituye aceptación de los nuevos términos. Las versiones anteriores permanecen disponibles bajo solicitud.",
         "notification": {
           "title": "En caso de modificación:",
           "items": [

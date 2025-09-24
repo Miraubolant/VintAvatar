@@ -20,7 +20,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ customItems }) => {
 
     const pathSegments = location.pathname.split('/').filter(segment => segment);
     const breadcrumbs: BreadcrumbItem[] = [
-      { name: 'Accueil', url: 'https://vintedavatar.com' }
+      { name: 'Accueil', url: 'https://vintdress.com' }
     ];
 
     // Handle different routes
@@ -34,42 +34,42 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ customItems }) => {
       case 'account':
         breadcrumbs.push({
           name: 'Mon Compte',
-          url: 'https://vintedavatar.com/account'
+          url: 'https://vintdress.com/account'
         });
         break;
 
       case 'success':
         breadcrumbs.push({
           name: 'Paiement Réussi',
-          url: 'https://vintedavatar.com/success'
+          url: 'https://vintdress.com/success'
         });
         break;
 
       case 'cancel':
         breadcrumbs.push({
           name: 'Paiement Annulé',
-          url: 'https://vintedavatar.com/cancel'
+          url: 'https://vintdress.com/cancel'
         });
         break;
 
       case 'cgu':
         breadcrumbs.push({
           name: 'Conditions Générales',
-          url: 'https://vintedavatar.com/cgu'
+          url: 'https://vintdress.com/cgu'
         });
         break;
 
       case 'confidentialite':
         breadcrumbs.push({
           name: 'Politique de Confidentialité',
-          url: 'https://vintedavatar.com/confidentialite'
+          url: 'https://vintdress.com/confidentialite'
         });
         break;
 
       case 'blog':
         breadcrumbs.push({
           name: 'Blog',
-          url: 'https://vintedavatar.com/#blog'
+          url: 'https://vintdress.com/#blog'
         });
         
         // Handle specific blog article
@@ -79,7 +79,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ customItems }) => {
           if (article) {
             breadcrumbs.push({
               name: article.title,
-              url: `https://vintedavatar.com/blog/${articleSlug}`
+              url: `https://vintdress.com/blog/${articleSlug}`
             });
           }
         }
@@ -89,7 +89,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ customItems }) => {
         // Legacy article URLs - redirect to blog
         breadcrumbs.push({
           name: 'Blog',
-          url: 'https://vintedavatar.com/#blog'
+          url: 'https://vintdress.com/#blog'
         });
         
         if (pathSegments[1]) {
@@ -98,7 +98,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ customItems }) => {
           if (article) {
             breadcrumbs.push({
               name: article.title,
-              url: `https://vintedavatar.com/blog/${articleSlug}`
+              url: `https://vintdress.com/blog/${articleSlug}`
             });
           }
         }
@@ -107,7 +107,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ customItems }) => {
       default:
         // Generic handling for unknown routes
         pathSegments.forEach((segment, index) => {
-          const url = `https://vintedavatar.com/${pathSegments.slice(0, index + 1).join('/')}`;
+          const url = `https://vintdress.com/${pathSegments.slice(0, index + 1).join('/')}`;
           const name = segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ');
           breadcrumbs.push({ name, url });
         });
@@ -166,7 +166,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ customItems }) => {
                   </span>
                 ) : (
                   <Link
-                    to={crumb.url.replace('https://vintedavatar.com', '')}
+                    to={crumb.url.replace('https://vintdress.com', '')}
                     className="text-gray-600 hover:text-vinted transition-colors flex items-center gap-1 hover:underline"
                   >
                     {isHome && <Home className="w-4 h-4" />}
