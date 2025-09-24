@@ -46,11 +46,15 @@ export const Header: React.FC = () => {
               <Sparkles className="text-white w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
             </div>
             
-            {/* Titre unifié VintDress */}
-            <div className="bg-vinted border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform rotate-1 group-hover:rotate-0 transition-transform duration-300 px-3 sm:px-4 py-2">
-              <span className="font-display font-bold text-lg sm:text-xl lg:text-2xl xl:text-3xl text-white">
+            {/* Titre amélioré VintDress */}
+            <div className="relative bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1 group-hover:rotate-0 group-hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 px-4 sm:px-5 py-3 overflow-hidden">
+              {/* Élément décoratif */}
+              <div className="absolute top-0 right-0 w-3 h-3 bg-vinted transform rotate-45 translate-x-1 -translate-y-1"></div>
+              <span className="font-display font-bold text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-vinted tracking-tight">
                 VintDress
               </span>
+              {/* Petit accent décoratif */}
+              <div className="absolute bottom-1 left-4 w-6 h-1 bg-mint transform -rotate-12"></div>
             </div>
           </button>
 
