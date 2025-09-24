@@ -47,9 +47,9 @@ export const Header: React.FC = () => {
             </div>
             
             {/* Titre unifié VintDress */}
-            <div className="bg-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform rotate-1 group-hover:rotate-0 transition-transform duration-300 px-3 sm:px-4 py-2">
-              <span className="font-display font-bold text-lg sm:text-xl lg:text-2xl xl:text-3xl">
-                <span className="text-black">Vint</span><span className="text-vinted">Dress</span>
+            <div className="bg-vinted border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform rotate-1 group-hover:rotate-0 transition-transform duration-300 px-3 sm:px-4 py-2">
+              <span className="font-display font-bold text-lg sm:text-xl lg:text-2xl xl:text-3xl text-white">
+                VintDress
               </span>
             </div>
           </button>
