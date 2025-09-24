@@ -114,7 +114,51 @@ Deno.serve(async (req) => {
   }
 })
 
+async function cleanupOldImages(supabase: any, userId: string) {
+  const MAX_IMAGES_PER_USER = 100;
+
+  try {
+    // Lister tous les fichiers de l'utilisateur
+    const { data: files, error: listError } = await supabase.storage
+      .from('original-images')
+      .list(userId, {
+        sortBy: { column: 'created_at', order: 'asc' }
+      });
+
+    if (listError) {
+      console.error('Error listing files:', listError);
+      return;
+    }
+
+    if (files && files.length >= MAX_IMAGES_PER_USER) {
+      // Calculer combien de fichiers supprimer
+      const filesToDeleteCount = files.length - MAX_IMAGES_PER_USER + 1;
+
+      // Prendre les plus anciens fichiers
+      const filesToDelete = files.slice(0, filesToDeleteCount);
+
+      // Supprimer les fichiers un par un
+      for (const file of filesToDelete) {
+        const { error: deleteError } = await supabase.storage
+          .from('original-images')
+          .remove([`${userId}/${file.name}`]);
+
+        if (deleteError) {
+          console.error('Error deleting file:', deleteError);
+        }
+      }
+
+      console.log(`Cleaned up ${filesToDelete.length} old images for user ${userId}`);
+    }
+  } catch (error) {
+    console.error('Error in cleanupOldImages:', error);
+  }
+}
+
 async function uploadOriginalImage(supabase: any, imageData: string, userId: string): Promise<string> {
+  // Nettoyer les anciennes images avant l'upload
+  await cleanupOldImages(supabase, userId);
+
   // Convert base64 to blob
   const base64Data = imageData.split(',')[1]
   const byteCharacters = atob(base64Data)
