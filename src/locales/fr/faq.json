@@ -25,7 +25,7 @@
         },
         {
           "question": "Comment fonctionne VintDress ?",
-          "answer": "Le processus est ultra-simple en 3 étapes : 1) Importez votre vêtement via une URL Vinted ou en uploadant une photo, 2) Configurez votre mannequin virtuel (genre, carnation, morphologie, pose, décor, type de vêtement), 3) Notre IA génère automatiquement une photo professionnelle en 15-30 secondes. Le visage du mannequin est systématiquement masqué (généralement avec un smartphone) pour respecter la confidentialité et éviter tout problème de droits à l'image."
+          "answer": "Le processus est ultra-simple en 3 étapes : 1) Importez votre vêtement via une URL Vinted ou en uploadant une photo, 2) Configurez votre mannequin virtuel (genre, carnation, morphologie, pose, décor, type de vêtement, option masquage du visage), 3) Notre IA génère automatiquement une photo professionnelle en 15-30 secondes selon vos paramètres. Vous pouvez choisir de masquer ou non le visage du mannequin selon vos préférences."
         },
         {
           "question": "Quels types de vêtements puis-je transformer ?",
@@ -46,7 +46,7 @@
         },
         {
           "question": "Quelles options de personnalisation sont disponibles ?",
-          "answer": "VintDress offre une personnalisation complète du mannequin : Genre (femme/homme), carnation de peau (claire, mate, foncée), morphologie (mince, normale, ronde), posture (debout, assise, décontractée), décor de fond (neutre, urbain, naturel), et type de vêtement spécifique. Vous pouvez aussi choisir d'activer le masquage automatique du visage avec smartphone. Ces options garantissent un rendu parfaitement adapté à votre audience cible."
+          "answer": "VintDress offre une personnalisation complète du mannequin : Genre (femme/homme), carnation de peau (claire, mate, foncée), morphologie (mince, normale, ronde), posture (debout, assise, décontractée), décor de fond (neutre, urbain, naturel), type de vêtement spécifique, et option pour masquer ou afficher le visage du mannequin. Cette flexibilité vous permet de créer l'image parfaite adaptée à votre audience cible et votre stratégie de vente."
         },
         {
           "question": "Combien de temps prend la génération et comment ça marche ?",
@@ -104,8 +104,8 @@
           "answer": "VintDress garantit une sécurité maximale : stockage sur serveurs européens certifiés, chiffrement de bout en bout de toutes les données, conformité RGPD stricte, accès limité à vous seul (aucun partage), sauvegarde automatique sécurisée, protection contre les piratages. Vos photos originales et générées restent privées. Nous ne les utilisons jamais pour entraîner notre IA ou à des fins commerciales. Votre confidentialité est notre priorité absolue."
         },
         {
-          "question": "Pourquoi le visage du mannequin est-il masqué ?",
-          "answer": "Par respect de la confidentialité et pour éviter tout problème légal de droits à l'image, notre IA VintDress masque SYSTÉMATIQUEMENT le visage des mannequins virtuels. Le masquage se fait généralement avec un smartphone, créant un effet naturel et moderne. Cette approche protège votre annonce de tout conflit de droits d'auteur tout en gardant l'focus sur le vêtement. C'est aussi plus professionnel et respectueux."
+          "question": "Puis-je choisir de masquer le visage du mannequin ou non ?",
+          "answer": "Oui, vous avez le choix ! VintDress vous propose une option 'Masquer le visage' dans la configuration du mannequin. Si activée, le visage sera masqué (généralement avec un smartphone) pour respecter la confidentialité et éviter les problèmes de droits à l'image. Si désactivée, le visage du mannequin virtuel sera visible. Cette flexibilité vous permet d'adapter le rendu selon vos préférences et votre stratégie de vente."
         },
         {
           "question": "Comment supprimer mes données personnelles ?",
