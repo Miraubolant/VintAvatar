@@ -17,6 +17,7 @@ import blogFr from '../locales/fr/blog.json';
 import legalFr from '../locales/fr/legal.json';
 import avatarConfigFr from '../locales/fr/avatarConfig.json';
 import guideFr from '../locales/fr/guide.json';
+import faqFr from '../locales/fr/faq.json';
 
 import commonEn from '../locales/en/common.json';
 import heroEn from '../locales/en/hero.json';
@@ -32,6 +33,7 @@ import blogEn from '../locales/en/blog.json';
 import legalEn from '../locales/en/legal.json';
 import avatarConfigEn from '../locales/en/avatarConfig.json';
 import guideEn from '../locales/en/guide.json';
+import faqEn from '../locales/en/faq.json';
 
 import commonEs from '../locales/es/common.json';
 import heroEs from '../locales/es/hero.json';
@@ -47,6 +49,7 @@ import blogEs from '../locales/es/blog.json';
 import legalEs from '../locales/es/legal.json';
 import avatarConfigEs from '../locales/es/avatarConfig.json';
 import guideEs from '../locales/es/guide.json';
+import faqEs from '../locales/es/faq.json';
 
 import commonIt from '../locales/it/common.json';
 import heroIt from '../locales/it/hero.json';
@@ -62,6 +65,7 @@ import blogIt from '../locales/it/blog.json';
 import legalIt from '../locales/it/legal.json';
 import avatarConfigIt from '../locales/it/avatarConfig.json';
 import guideIt from '../locales/it/guide.json';
+import faqIt from '../locales/it/faq.json';
 
 export const resources = {
   fr: {
@@ -79,6 +83,7 @@ export const resources = {
     legal: legalFr,
     avatarConfig: avatarConfigFr,
     guide: guideFr,
+    faq: faqFr,
   },
   en: {
     common: commonEn,
@@ -95,6 +100,7 @@ export const resources = {
     legal: legalEn,
     avatarConfig: avatarConfigEn,
     guide: guideEn,
+    faq: faqEn,
   },
   es: {
     common: commonEs,
@@ -111,6 +117,7 @@ export const resources = {
     legal: legalEs,
     avatarConfig: avatarConfigEs,
     guide: guideEs,
+    faq: faqEs,
   },
   it: {
     common: commonIt,
@@ -127,6 +134,7 @@ export const resources = {
     legal: legalIt,
     avatarConfig: avatarConfigIt,
     guide: guideIt,
+    faq: faqIt,
   },
 };
 
@@ -155,7 +163,7 @@ i18n
     },
 
     // Namespaces
-    ns: ['common', 'hero', 'header', 'pricing', 'beforeafter', 'howItWorks', 'testimonials', 'account', 'auth', 'generation', 'blog', 'legal', 'avatarConfig', 'guide'],
+    ns: ['common', 'hero', 'header', 'pricing', 'beforeafter', 'howItWorks', 'testimonials', 'account', 'auth', 'generation', 'blog', 'legal', 'avatarConfig', 'guide', 'faq'],
     defaultNS: 'common',
 
     interpolation: {
