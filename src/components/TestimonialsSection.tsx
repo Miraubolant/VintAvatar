@@ -17,8 +17,6 @@ export const TestimonialsSection: React.FC = () => {
     name: string;
     location: string;
     text: string;
-    sales: string;
-    metric: string;
   }>;
 
   return (
@@ -83,18 +81,6 @@ export const TestimonialsSection: React.FC = () => {
               <blockquote className="font-body font-semibold text-sm sm:text-base lg:text-lg leading-relaxed mb-3 sm:mb-4 lg:mb-6">
                 "{testimonial.text}"
               </blockquote>
-
-              {/* Results */}
-              <div className="mb-3 sm:mb-4 lg:mb-6 p-2 sm:p-3 lg:p-4 bg-mint border-2 sm:border-3 border-black transform -rotate-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                <div className="text-center">
-                  <div className="font-display font-bold text-lg sm:text-xl lg:text-2xl text-black mb-0.5 sm:mb-1">
-                    {testimonial.sales}
-                  </div>
-                  <div className="font-body font-semibold text-xs sm:text-sm text-black">
-                    {testimonial.metric} {t('common.moreLabel')}
-                  </div>
-                </div>
-              </div>
 
               {/* Profile */}
               <div className="flex items-center gap-2 sm:gap-3">
