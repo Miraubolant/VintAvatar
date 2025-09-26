@@ -15,12 +15,14 @@ import './lib/i18n';
 // Lazy loading pour améliorer les performances
 const BeforeAfterSection = React.lazy(() => import('./components/BeforeAfterSection').then(module => ({ default: module.BeforeAfterSection })));
 const TestimonialsSection = React.lazy(() => import('./components/TestimonialsSection').then(module => ({ default: module.TestimonialsSection })));
+const FAQSection = React.lazy(() => import('./components/FAQSection').then(module => ({ default: module.FAQSection })));
 const PricingSection = React.lazy(() => import('./components/PricingSection').then(module => ({ default: module.PricingSection })));
 const BlogSection = React.lazy(() => import('./components/BlogSection').then(module => ({ default: module.BlogSection })));
 const AuthCallback = React.lazy(() => import('./pages/AuthCallback').then(module => ({ default: module.AuthCallback })));
 const SuccessPage = React.lazy(() => import('./pages/SuccessPage').then(module => ({ default: module.SuccessPage })));
 const CancelPage = React.lazy(() => import('./pages/CancelPage').then(module => ({ default: module.CancelPage })));
 const AccountPage = React.lazy(() => import('./pages/AccountPage').then(module => ({ default: module.AccountPage })));
+const FAQPage = React.lazy(() => import('./pages/FAQPage').then(module => ({ default: module.FAQPage })));
 const ArticlePage = React.lazy(() => import('./pages/ArticlePage').then(module => ({ default: module.ArticlePage })));
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 
@@ -59,6 +61,9 @@ function HomePage() {
       </Suspense>
       <Suspense fallback={<LoadingComponent />}>
         <TestimonialsSection />
+      </Suspense>
+      <Suspense fallback={<LoadingComponent />}>
+        <FAQSection />
       </Suspense>
       <Suspense fallback={<LoadingComponent />}>
         <BlogSection />
@@ -116,6 +121,11 @@ function App() {
               <Route path="/confidentialite" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <LegalPage />
+                </Suspense>
+              } />
+              <Route path="/faq" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <FAQPage />
                 </Suspense>
               } />
               </Routes>

@@ -1,0 +1,139 @@
+{
+  "seo": {
+    "title": "FAQ - Questions fréquentes | VintDress",
+    "description": "Trouvez toutes les réponses à vos questions sur VintDress : génération d'avatars IA, tarifs, utilisation, ventes Vinted et plus",
+    "keywords": "FAQ, questions fréquentes, VintDress, avatar IA, Vinted, aide, support"
+  },
+  "title": "Questions fréquentes",
+  "subtitle": "Tout ce que vous devez savoir pour booster vos ventes Vinted",
+  "section": {
+    "title": "Des questions ?",
+    "subtitle": "Consultez notre FAQ complète pour tout savoir sur VintDress",
+    "point1": "Comment utiliser l'outil",
+    "point2": "Tarifs et abonnements",
+    "point3": "Optimisation des ventes",
+    "point4": "Protection et confidentialité",
+    "button": "Consulter la FAQ"
+  },
+  "categories": {
+    "general": {
+      "title": "Questions générales",
+      "questions": [
+        {
+          "question": "Qu'est-ce que VintDress ?",
+          "answer": "VintDress est un outil révolutionnaire utilisant l'intelligence artificielle pour transformer vos photos de vêtements en photos professionnelles avec mannequin virtuel. Notre technologie améliore significativement l'attractivité de vos annonces Vinted, augmentant vos ventes jusqu'à 5x."
+        },
+        {
+          "question": "Comment fonctionne VintDress ?",
+          "answer": "C'est très simple ! Prenez une photo de votre vêtement, choisissez les caractéristiques du mannequin virtuel (genre, carnation, morphologie, pose, décor), et notre IA génère une photo professionnelle en quelques secondes. Le visage est automatiquement masqué pour préserver la confidentialité."
+        },
+        {
+          "question": "Quels types de vêtements puis-je transformer ?",
+          "answer": "VintDress fonctionne avec tous types de vêtements : robes, hauts, pantalons, vestes, manteaux, et plus encore. Notre IA s'adapte automatiquement au type de vêtement pour créer le rendu le plus réaliste possible."
+        }
+      ]
+    },
+    "usage": {
+      "title": "Utilisation de l'outil",
+      "questions": [
+        {
+          "question": "Comment prendre la meilleure photo de mon vêtement ?",
+          "answer": "Pour de meilleurs résultats : 1) Photographiez le vêtement sur un fond neutre, 2) Assurez-vous qu'il soit bien visible et éclairé, 3) Évitez les plis excessifs, 4) Cadrez le vêtement en entier. Notre IA fera le reste !"
+        },
+        {
+          "question": "Puis-je personnaliser le mannequin virtuel ?",
+          "answer": "Oui ! Vous pouvez choisir : le genre (femme/homme), la carnation de peau, la morphologie, la posture, et le décor de fond. Ces options vous permettent de créer l'image parfaite pour votre audience cible."
+        },
+        {
+          "question": "Combien de temps prend la génération ?",
+          "answer": "La génération prend généralement entre 15 et 30 secondes. Vous pouvez suivre la progression en temps réel grâce à notre animation de chargement. Une fois terminé, votre image est automatiquement sauvegardée dans votre compte."
+        },
+        {
+          "question": "Puis-je télécharger mes images générées ?",
+          "answer": "Absolument ! Toutes vos images sont sauvegardées dans votre compte. Vous pouvez les télécharger à tout moment depuis l'onglet 'Historique' de votre espace personnel, avec comparaison avant/après."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Tarifs et crédits",
+      "questions": [
+        {
+          "question": "Quels sont les tarifs proposés ?",
+          "answer": "Nous proposons 3 options : Pack Starter à 3,49€ (10 générations), Pack Pro à 6,99€ (25 générations), et Abonnement Premium à 11,99€/mois (40 générations mensuelles). Choisissez selon vos besoins !"
+        },
+        {
+          "question": "Comment fonctionnent les crédits ?",
+          "answer": "1 crédit = 1 génération d'image. Les crédits des packs n'expirent jamais. Pour l'abonnement mensuel, vous recevez 40 crédits qui se renouvellent automatiquement chaque mois."
+        },
+        {
+          "question": "Puis-je cumuler plusieurs packs ?",
+          "answer": "Oui ! Vous pouvez acheter plusieurs packs de crédits qui s'additionnent. Vous pouvez également avoir un abonnement mensuel ET des packs de crédits en même temps."
+        },
+        {
+          "question": "Comment annuler mon abonnement ?",
+          "answer": "Vous pouvez annuler votre abonnement à tout moment depuis votre espace compte. L'annulation prend effet à la fin de votre période de facturation actuelle, et vous conservez vos crédits jusqu'à cette date."
+        }
+      ]
+    },
+    "sales": {
+      "title": "Impact sur les ventes",
+      "questions": [
+        {
+          "question": "VintDress améliore-t-il vraiment les ventes ?",
+          "answer": "Oui ! Nos utilisateurs constatent en moyenne une augmentation de 3 à 5x de leurs ventes. Les photos avec mannequin virtuel génèrent plus de vues, plus de likes, et se vendent plus rapidement et à meilleur prix."
+        },
+        {
+          "question": "Pourquoi les photos avec mannequin se vendent mieux ?",
+          "answer": "Les acheteurs peuvent mieux visualiser le vêtement porté, évaluer la coupe et le tombé. Cela crée de la confiance et réduit l'incertitude, conduisant à des achats plus rapides et à des prix plus élevés."
+        },
+        {
+          "question": "Puis-je utiliser les images sur d'autres plateformes ?",
+          "answer": "Absolument ! Les images générées vous appartiennent. Vous pouvez les utiliser sur Vinted, Leboncoin, Depop, ou toute autre plateforme de vente. Elles sont parfaites partout !"
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Confidentialité et sécurité",
+      "questions": [
+        {
+          "question": "Mes photos sont-elles sécurisées ?",
+          "answer": "Oui, totalement. Vos photos sont stockées de manière sécurisée sur des serveurs européens. Elles ne sont accessibles que par vous et ne sont jamais partagées ou utilisées à d'autres fins."
+        },
+        {
+          "question": "Le visage du mannequin est-il visible ?",
+          "answer": "Non, notre IA masque automatiquement le visage du mannequin virtuel (généralement avec un smartphone) pour préserver la confidentialité et éviter tout problème de droit à l'image."
+        },
+        {
+          "question": "Puis-je supprimer mes données ?",
+          "answer": "Oui, vous avez le contrôle total. Vous pouvez supprimer vos images générées à tout moment depuis votre compte. En cas de suppression de compte, toutes vos données sont définitivement effacées."
+        }
+      ]
+    },
+    "affiliate": {
+      "title": "Programme d'affiliation",
+      "questions": [
+        {
+          "question": "Comment fonctionne le programme d'affiliation ?",
+          "answer": "C'est simple ! Partagez votre code parrain unique avec vos amis. Quand ils effectuent leur premier achat, vous recevez tous les deux 1 génération gratuite. C'est gagnant-gagnant !"
+        },
+        {
+          "question": "Où trouver mon code parrain ?",
+          "answer": "Votre code parrain unique se trouve dans l'onglet 'Affiliation' de votre espace compte. Vous pouvez le copier directement ou partager le lien pré-rempli."
+        },
+        {
+          "question": "Combien de personnes puis-je parrainer ?",
+          "answer": "Il n'y a pas de limite ! Vous pouvez parrainer autant de personnes que vous le souhaitez. Chaque nouveau client parrainé vous rapporte 1 génération gratuite."
+        },
+        {
+          "question": "Quand reçois-je mes générations gratuites ?",
+          "answer": "Les générations gratuites sont créditées automatiquement dès que votre filleul effectue son premier achat, quelle que soit l'offre choisie (pack ou abonnement)."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Vous ne trouvez pas votre réponse ?",
+    "description": "Notre équipe support est là pour vous aider. Contactez-nous et nous vous répondrons dans les plus brefs délais.",
+    "button": "Contacter le support"
+  }
+}

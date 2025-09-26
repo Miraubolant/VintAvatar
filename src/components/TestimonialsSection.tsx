@@ -55,57 +55,57 @@ export const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 mb-16">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+              className={`bg-white border-3 sm:border-4 border-black p-4 sm:p-6 lg:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                 index % 5 === 0 ? 'rotate-1' : index % 5 === 1 ? '-rotate-1' : index % 5 === 2 ? 'rotate-0.5' : index % 5 === 3 ? '-rotate-0.5' : 'rotate-2'
               }`}
             >
               {/* Quote Icon */}
-              <div className="mb-6">
-                <div className={`w-14 h-14 border-4 border-black flex items-center justify-center transform rotate-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] ${
+              <div className="mb-3 sm:mb-4 lg:mb-6">
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 border-3 sm:border-4 border-black flex items-center justify-center transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] ${
                   index % 5 === 0 ? 'bg-pink-pastel' : index % 5 === 1 ? 'bg-mint' : index % 5 === 2 ? 'bg-vinted' : index % 5 === 3 ? 'bg-yellow-300' : 'bg-white'
                 }`}>
-                  <Quote className={`w-7 h-7 ${index % 5 === 2 ? 'text-white' : 'text-black'}`} />
+                  <Quote className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 ${index % 5 === 2 ? 'text-white' : 'text-black'}`} />
                 </div>
               </div>
 
               {/* Rating */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-0.5 sm:gap-1 mb-3 sm:mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-vinted fill-vinted" />
+                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-vinted fill-vinted" />
                 ))}
               </div>
 
               {/* Quote */}
-              <blockquote className="font-body font-semibold text-lg leading-relaxed mb-6">
+              <blockquote className="font-body font-semibold text-sm sm:text-base lg:text-lg leading-relaxed mb-3 sm:mb-4 lg:mb-6">
                 "{testimonial.text}"
               </blockquote>
 
               {/* Results */}
-              <div className="mb-6 p-4 bg-mint border-3 border-black transform -rotate-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+              <div className="mb-3 sm:mb-4 lg:mb-6 p-2 sm:p-3 lg:p-4 bg-mint border-2 sm:border-3 border-black transform -rotate-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
                 <div className="text-center">
-                  <div className="font-display font-bold text-2xl text-black mb-1">
+                  <div className="font-display font-bold text-lg sm:text-xl lg:text-2xl text-black mb-0.5 sm:mb-1">
                     {testimonial.sales}
                   </div>
-                  <div className="font-body font-semibold text-sm text-black">
+                  <div className="font-body font-semibold text-xs sm:text-sm text-black">
                     {testimonial.metric} {t('common.moreLabel')}
                   </div>
                 </div>
               </div>
 
               {/* Profile */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <img
                   src={avatarImages[index]}
                   alt={`Photo de ${testimonial.name}, utilisateur satisfait de génération avatar IA Vinted`}
-                  className="w-12 h-12 object-cover border-3 border-black transform rotate-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-cover border-2 sm:border-3 border-black transform rotate-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
                 />
                 <div>
-                  <div className="font-display font-bold text-black">{testimonial.name}</div>
-                  <div className="font-body text-sm text-gray-600">{testimonial.location}</div>
+                  <div className="font-display font-bold text-sm sm:text-base text-black">{testimonial.name}</div>
+                  <div className="font-body text-xs sm:text-sm text-gray-600">{testimonial.location}</div>
                 </div>
               </div>
             </div>
