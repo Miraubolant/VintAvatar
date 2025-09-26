@@ -21,15 +21,15 @@
       "questions": [
         {
           "question": "What is VintDress?",
-          "answer": "VintDress is a revolutionary tool using artificial intelligence to transform your clothing photos into professional photos with virtual models. Our technology significantly improves the attractiveness of your Vinted listings, increasing your sales up to 5x."
+          "answer": "VintDress is a revolutionary platform that uses Replicate FLUX Kontext Pro artificial intelligence to transform your clothing photos into professional images with realistic virtual models. Our service integrates perfectly with Vinted: simply paste your listing URL or upload a photo, configure your ideal model, and get a photo that boosts your sales up to 5x in 30 seconds."
         },
         {
           "question": "How does VintDress work?",
-          "answer": "It's very simple! Take a photo of your clothing, choose the virtual model characteristics (gender, skin tone, body type, pose, background), and our AI generates a professional photo in seconds. The face is automatically masked to preserve privacy."
+          "answer": "The process is ultra-simple in 3 steps: 1) Import your garment via a Vinted URL or by uploading a photo, 2) Configure your virtual model (gender, skin tone, body type, pose, background, clothing type), 3) Our AI automatically generates a professional photo in 15-30 seconds. The model's face is systematically masked (usually with a smartphone) to respect privacy and avoid image rights issues."
         },
         {
           "question": "What types of clothing can I transform?",
-          "answer": "VintDress works with all types of clothing: dresses, tops, pants, jackets, coats, and more. Our AI automatically adapts to the type of clothing to create the most realistic rendering possible."
+          "answer": "VintDress works with all types of clothing: dresses, tops, pants, jeans, jackets, coats, shoes, accessories, etc. Our advanced configuration allows you to specify the exact type of garment (dress, shirt, pants, etc.) to optimize rendering. The AI automatically adapts to each piece to create the most realistic virtual model possible according to your preferences."
         }
       ]
     },
