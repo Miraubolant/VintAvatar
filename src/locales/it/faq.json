@@ -25,7 +25,7 @@
         },
         {
           "question": "Come funziona VintDress?",
-          "answer": "Il processo è ultra-semplice in 3 passaggi: 1) Importa il tuo capo tramite URL Vinted o caricando una foto, 2) Configura il tuo modello virtuale (genere, tonalità della pelle, tipo di corpo, posa, sfondo, tipo di abbigliamento), 3) La nostra IA genera automaticamente una foto professionale in 15-30 secondi. Il viso del modello viene sistematicamente mascherato (di solito con uno smartphone) per rispettare la privacy ed evitare problemi di diritti d'immagine."
+          "answer": "Il processo è ultra-semplice in 3 passaggi: 1) Importa il tuo capo tramite URL Vinted o caricando una foto, 2) Configura il tuo modello virtuale (genere, tonalità della pelle, tipo di corpo, posa, sfondo, tipo di abbigliamento, opzione mascheramento viso), 3) La nostra IA genera automaticamente una foto professionale in 15-30 secondi secondo le tue impostazioni. Puoi scegliere se mascherare o meno il viso del modello secondo le tue preferenze."
         },
         {
           "question": "Quali tipi di abbigliamento posso trasformare?",
@@ -100,8 +100,8 @@
           "answer": "Sì, completamente. Le tue foto sono archiviate in modo sicuro su server europei. Sono accessibili solo da te e non vengono mai condivise o utilizzate per altri scopi."
         },
         {
-          "question": "Il viso del modello è visibile?",
-          "answer": "No, la nostra IA nasconde automaticamente il viso del modello virtuale (di solito con uno smartphone) per preservare la privacy ed evitare problemi di diritti d'immagine."
+          "question": "Posso scegliere di mascherare il viso del modello o no?",
+          "answer": "Sì, hai la scelta! VintDress offre un'opzione 'Maschera viso' nella configurazione del modello. Se attivata, il viso sarà mascherato (di solito con uno smartphone) per rispettare la privacy ed evitare problemi di diritti d'immagine. Se disattivata, il viso del modello virtuale sarà visibile. Questa flessibilità ti permette di adattare il risultato secondo le tue preferenze e strategia di vendita."
         },
         {
           "question": "Posso eliminare i miei dati?",

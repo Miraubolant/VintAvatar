@@ -25,7 +25,7 @@
         },
         {
           "question": "¿Cómo funciona VintDress?",
-          "answer": "El proceso es ultra-simple en 3 pasos: 1) Importa tu prenda vía URL de Vinted o subiendo una foto, 2) Configura tu modelo virtual (género, tono de piel, tipo de cuerpo, pose, fondo, tipo de ropa), 3) Nuestra IA genera automáticamente una foto profesional en 15-30 segundos. La cara del modelo se enmascara sistemáticamente (generalmente con un smartphone) para respetar la privacidad y evitar problemas de derechos de imagen."
+          "answer": "El proceso es ultra-simple en 3 pasos: 1) Importa tu prenda vía URL de Vinted o subiendo una foto, 2) Configura tu modelo virtual (género, tono de piel, tipo de cuerpo, pose, fondo, tipo de ropa, opción de enmascarar cara), 3) Nuestra IA genera automáticamente una foto profesional en 15-30 segundos según tus configuraciones. Puedes elegir si enmascarar o no la cara del modelo según tus preferencias."
         },
         {
           "question": "¿Qué tipos de ropa puedo transformar?",
@@ -100,8 +100,8 @@
           "answer": "Sí, completamente. Tus fotos se almacenan de forma segura en servidores europeos. Solo tú puedes acceder a ellas y nunca se comparten o utilizan para otros fines."
         },
         {
-          "question": "¿Se ve la cara del modelo?",
-          "answer": "No, nuestra IA oculta automáticamente la cara del modelo virtual (generalmente con un smartphone) para preservar la privacidad y evitar cualquier problema de derechos de imagen."
+          "question": "¿Puedo elegir enmascarar la cara del modelo o no?",
+          "answer": "Sí, ¡tienes la elección! VintDress ofrece una opción 'Enmascarar cara' en la configuración del modelo. Si está activada, la cara será enmascarada (generalmente con un smartphone) para respetar la privacidad y evitar problemas de derechos de imagen. Si está desactivada, la cara del modelo virtual será visible. Esta flexibilidad te permite adaptar el resultado según tus preferencias y estrategia de ventas."
         },
         {
           "question": "¿Puedo eliminar mis datos?",

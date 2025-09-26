@@ -25,7 +25,7 @@
         },
         {
           "question": "How does VintDress work?",
-          "answer": "The process is ultra-simple in 3 steps: 1) Import your garment via a Vinted URL or by uploading a photo, 2) Configure your virtual model (gender, skin tone, body type, pose, background, clothing type), 3) Our AI automatically generates a professional photo in 15-30 seconds. The model's face is systematically masked (usually with a smartphone) to respect privacy and avoid image rights issues."
+          "answer": "The process is ultra-simple in 3 steps: 1) Import your garment via a Vinted URL or by uploading a photo, 2) Configure your virtual model (gender, skin tone, body type, pose, background, clothing type, face masking option), 3) Our AI automatically generates a professional photo in 15-30 seconds according to your settings. You can choose whether to mask the model's face or not according to your preferences."
         },
         {
           "question": "What types of clothing can I transform?",
@@ -100,8 +100,8 @@
           "answer": "Yes, completely. Your photos are securely stored on European servers. They are only accessible by you and are never shared or used for other purposes."
         },
         {
-          "question": "Is the model's face visible?",
-          "answer": "No, our AI automatically masks the virtual model's face (usually with a smartphone) to preserve privacy and avoid any image rights issues."
+          "question": "Can I choose to mask the model's face or not?",
+          "answer": "Yes, you have the choice! VintDress offers a 'Mask face' option in the model configuration. If enabled, the face will be masked (usually with a smartphone) to respect privacy and avoid image rights issues. If disabled, the virtual model's face will be visible. This flexibility allows you to adapt the rendering according to your preferences and sales strategy."
         },
         {
           "question": "Can I delete my data?",
