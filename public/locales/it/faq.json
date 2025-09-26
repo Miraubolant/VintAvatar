@@ -1,0 +1,139 @@
+{
+  "seo": {
+    "title": "FAQ - Domande frequenti | VintDress",
+    "description": "Trova tutte le risposte alle tue domande su VintDress: generazione avatar IA, prezzi, utilizzo, vendite Vinted e altro",
+    "keywords": "FAQ, domande frequenti, VintDress, avatar IA, Vinted, aiuto, supporto"
+  },
+  "title": "Domande frequenti",
+  "subtitle": "Tutto ciò che devi sapere per aumentare le tue vendite su Vinted",
+  "section": {
+    "title": "Hai domande?",
+    "subtitle": "Consulta le nostre FAQ complete per imparare tutto su VintDress",
+    "point1": "Come usare lo strumento",
+    "point2": "Prezzi e abbonamenti",
+    "point3": "Ottimizzazione delle vendite",
+    "point4": "Protezione e privacy",
+    "button": "Vedi FAQ"
+  },
+  "categories": {
+    "general": {
+      "title": "Domande generali",
+      "questions": [
+        {
+          "question": "Cos'è VintDress?",
+          "answer": "VintDress è uno strumento rivoluzionario che utilizza l'intelligenza artificiale per trasformare le tue foto di abbigliamento in foto professionali con modelli virtuali. La nostra tecnologia migliora significativamente l'attrattiva dei tuoi annunci Vinted, aumentando le vendite fino a 5 volte."
+        },
+        {
+          "question": "Come funziona VintDress?",
+          "answer": "È molto semplice! Scatta una foto del tuo capo, scegli le caratteristiche del modello virtuale (genere, tonalità della pelle, tipo di corpo, posa, sfondo) e la nostra IA genera una foto professionale in pochi secondi. Il viso viene automaticamente nascosto per preservare la privacy."
+        },
+        {
+          "question": "Quali tipi di abbigliamento posso trasformare?",
+          "answer": "VintDress funziona con tutti i tipi di abbigliamento: vestiti, top, pantaloni, giacche, cappotti e altro ancora. La nostra IA si adatta automaticamente al tipo di capo per creare il rendering più realistico possibile."
+        }
+      ]
+    },
+    "usage": {
+      "title": "Utilizzo dello strumento",
+      "questions": [
+        {
+          "question": "Come scattare la migliore foto del mio abbigliamento?",
+          "answer": "Per ottenere i migliori risultati: 1) Fotografa il capo su uno sfondo neutro, 2) Assicurati che sia chiaramente visibile e ben illuminato, 3) Evita pieghe eccessive, 4) Inquadra l'intero capo. La nostra IA farà il resto!"
+        },
+        {
+          "question": "Posso personalizzare il modello virtuale?",
+          "answer": "Sì! Puoi scegliere: genere (donna/uomo), tonalità della pelle, tipo di corpo, postura e sfondo. Queste opzioni ti permettono di creare l'immagine perfetta per il tuo pubblico target."
+        },
+        {
+          "question": "Quanto tempo richiede la generazione?",
+          "answer": "La generazione richiede generalmente tra 15 e 30 secondi. Puoi seguire il progresso in tempo reale grazie alla nostra animazione di caricamento. Una volta completata, l'immagine viene salvata automaticamente nel tuo account."
+        },
+        {
+          "question": "Posso scaricare le mie immagini generate?",
+          "answer": "Assolutamente! Tutte le tue immagini sono salvate nel tuo account. Puoi scaricarle in qualsiasi momento dalla scheda 'Cronologia' del tuo spazio personale, con confronto prima/dopo."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Prezzi e crediti",
+      "questions": [
+        {
+          "question": "Quali sono le opzioni di prezzo?",
+          "answer": "Offriamo 3 opzioni: Pack Starter a 3,49€ (10 generazioni), Pack Pro a 6,99€ (25 generazioni) e Abbonamento Premium a 11,99€/mese (40 generazioni mensili). Scegli secondo le tue esigenze!"
+        },
+        {
+          "question": "Come funzionano i crediti?",
+          "answer": "1 credito = 1 generazione di immagine. I crediti dei pacchetti non scadono mai. Per l'abbonamento mensile, ricevi 40 crediti che si rinnovano automaticamente ogni mese."
+        },
+        {
+          "question": "Posso combinare più pacchetti?",
+          "answer": "Sì! Puoi acquistare più pacchetti di crediti che si sommano. Puoi anche avere un abbonamento mensile E pacchetti di crediti contemporaneamente."
+        },
+        {
+          "question": "Come cancello il mio abbonamento?",
+          "answer": "Puoi cancellare il tuo abbonamento in qualsiasi momento dal tuo spazio account. La cancellazione ha effetto alla fine del tuo periodo di fatturazione corrente e mantieni i tuoi crediti fino a quella data."
+        }
+      ]
+    },
+    "sales": {
+      "title": "Impatto sulle vendite",
+      "questions": [
+        {
+          "question": "VintDress migliora davvero le vendite?",
+          "answer": "Sì! I nostri utenti vedono un aumento medio di 3-5 volte nelle loro vendite. Le foto con modelli virtuali generano più visualizzazioni, più mi piace e vendono più velocemente a prezzi migliori."
+        },
+        {
+          "question": "Perché le foto con modello si vendono meglio?",
+          "answer": "Gli acquirenti possono visualizzare meglio il capo indossato, valutare la vestibilità e la caduta. Questo crea fiducia e riduce l'incertezza, portando ad acquisti più rapidi a prezzi più alti."
+        },
+        {
+          "question": "Posso usare le immagini su altre piattaforme?",
+          "answer": "Assolutamente! Le immagini generate ti appartengono. Puoi usarle su Vinted, Subito, Depop o qualsiasi altra piattaforma di vendita. Sono perfette ovunque!"
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy e sicurezza",
+      "questions": [
+        {
+          "question": "Le mie foto sono al sicuro?",
+          "answer": "Sì, completamente. Le tue foto sono archiviate in modo sicuro su server europei. Sono accessibili solo da te e non vengono mai condivise o utilizzate per altri scopi."
+        },
+        {
+          "question": "Il viso del modello è visibile?",
+          "answer": "No, la nostra IA nasconde automaticamente il viso del modello virtuale (di solito con uno smartphone) per preservare la privacy ed evitare problemi di diritti d'immagine."
+        },
+        {
+          "question": "Posso eliminare i miei dati?",
+          "answer": "Sì, hai il controllo totale. Puoi eliminare le tue immagini generate in qualsiasi momento dal tuo account. Se elimini il tuo account, tutti i tuoi dati vengono cancellati permanentemente."
+        }
+      ]
+    },
+    "affiliate": {
+      "title": "Programma di affiliazione",
+      "questions": [
+        {
+          "question": "Come funziona il programma di affiliazione?",
+          "answer": "È semplice! Condividi il tuo codice di riferimento unico con gli amici. Quando fanno il loro primo acquisto, entrambi ricevete 1 generazione gratuita. È vantaggioso per tutti!"
+        },
+        {
+          "question": "Dove trovo il mio codice di riferimento?",
+          "answer": "Il tuo codice di riferimento unico si trova nella scheda 'Affiliazione' del tuo spazio account. Puoi copiarlo direttamente o condividere il link precompilato."
+        },
+        {
+          "question": "Quante persone posso invitare?",
+          "answer": "Non c'è limite! Puoi invitare tutte le persone che vuoi. Ogni nuovo cliente invitato ti fa guadagnare 1 generazione gratuita."
+        },
+        {
+          "question": "Quando ricevo le mie generazioni gratuite?",
+          "answer": "Le generazioni gratuite vengono accreditate automaticamente non appena il tuo invitato effettua il primo acquisto, indipendentemente dall'offerta scelta (pacchetto o abbonamento)."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Non trovi la tua risposta?",
+    "description": "Il nostro team di supporto è qui per aiutarti. Contattaci e ti risponderemo il prima possibile.",
+    "button": "Contatta il supporto"
+  }
+}

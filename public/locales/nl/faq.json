@@ -1,0 +1,139 @@
+{
+  "seo": {
+    "title": "FAQ - Veelgestelde vragen | VintDress",
+    "description": "Vind alle antwoorden op je vragen over VintDress: AI avatar generatie, prijzen, gebruik, Vinted verkopen en meer",
+    "keywords": "FAQ, veelgestelde vragen, VintDress, AI avatar, Vinted, hulp, ondersteuning"
+  },
+  "title": "Veelgestelde vragen",
+  "subtitle": "Alles wat je moet weten om je Vinted verkopen te stimuleren",
+  "section": {
+    "title": "Heb je vragen?",
+    "subtitle": "Bekijk onze uitgebreide FAQ om alles over VintDress te leren",
+    "point1": "Hoe de tool te gebruiken",
+    "point2": "Prijzen en abonnementen",
+    "point3": "Verkoopoptimalisatie",
+    "point4": "Bescherming en privacy",
+    "button": "Bekijk FAQ"
+  },
+  "categories": {
+    "general": {
+      "title": "Algemene vragen",
+      "questions": [
+        {
+          "question": "Wat is VintDress?",
+          "answer": "VintDress is een revolutionaire tool die kunstmatige intelligentie gebruikt om je kledingfoto's te transformeren in professionele foto's met virtuele modellen. Onze technologie verbetert de aantrekkelijkheid van je Vinted advertenties aanzienlijk en verhoogt je verkopen tot 5x."
+        },
+        {
+          "question": "Hoe werkt VintDress?",
+          "answer": "Het is heel eenvoudig! Maak een foto van je kledingstuk, kies de kenmerken van het virtuele model (geslacht, huidskleur, lichaamstype, pose, achtergrond), en onze AI genereert in seconden een professionele foto. Het gezicht wordt automatisch verborgen om de privacy te bewaren."
+        },
+        {
+          "question": "Welke soorten kleding kan ik transformeren?",
+          "answer": "VintDress werkt met alle soorten kleding: jurken, tops, broeken, jassen, mantels en meer. Onze AI past zich automatisch aan het type kledingstuk aan om de meest realistische weergave te creëren."
+        }
+      ]
+    },
+    "usage": {
+      "title": "Gebruik van de tool",
+      "questions": [
+        {
+          "question": "Hoe maak ik de beste foto van mijn kleding?",
+          "answer": "Voor de beste resultaten: 1) Fotografeer het kledingstuk op een neutrale achtergrond, 2) Zorg dat het duidelijk zichtbaar en goed verlicht is, 3) Vermijd overtollige kreuken, 4) Fotografeer het hele kledingstuk. Onze AI doet de rest!"
+        },
+        {
+          "question": "Kan ik het virtuele model aanpassen?",
+          "answer": "Ja! Je kunt kiezen: geslacht (vrouw/man), huidskleur, lichaamstype, houding en achtergrond. Deze opties stellen je in staat het perfecte beeld voor je doelgroep te creëren."
+        },
+        {
+          "question": "Hoe lang duurt de generatie?",
+          "answer": "Generatie duurt gewoonlijk tussen 15 en 30 seconden. Je kunt de voortgang in realtime volgen dankzij onze laadanimatie. Eenmaal voltooid wordt je afbeelding automatisch opgeslagen in je account."
+        },
+        {
+          "question": "Kan ik mijn gegenereerde afbeeldingen downloaden?",
+          "answer": "Absoluut! Al je afbeeldingen worden opgeslagen in je account. Je kunt ze op elk moment downloaden vanuit het 'Geschiedenis' tabblad van je persoonlijke ruimte, met voor/na vergelijking."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Prijzen en credits",
+      "questions": [
+        {
+          "question": "Wat zijn de prijsopties?",
+          "answer": "We bieden 3 opties: Starter Pakket voor €3,49 (10 generaties), Pro Pakket voor €6,99 (25 generaties) en Premium Abonnement voor €11,99/maand (40 maandelijkse generaties). Kies volgens je behoeften!"
+        },
+        {
+          "question": "Hoe werken credits?",
+          "answer": "1 credit = 1 afbeeldinggeneratie. Pakket credits vervallen nooit. Voor het maandabonnement ontvang je 40 credits die elke maand automatisch vernieuwd worden."
+        },
+        {
+          "question": "Kan ik meerdere pakketten combineren?",
+          "answer": "Ja! Je kunt meerdere credit pakketten kopen die bij elkaar opgeteld worden. Je kunt ook een maandabonnement EN credit pakketten tegelijkertijd hebben."
+        },
+        {
+          "question": "Hoe annuleer ik mijn abonnement?",
+          "answer": "Je kunt je abonnement op elk moment annuleren vanuit je accountruimte. De annulering gaat in aan het einde van je huidige factureringsperiode, en je behoudt je credits tot die datum."
+        }
+      ]
+    },
+    "sales": {
+      "title": "Impact op verkopen",
+      "questions": [
+        {
+          "question": "Verbetert VintDress echt de verkopen?",
+          "answer": "Ja! Onze gebruikers zien gemiddeld een 3 tot 5x toename van hun verkopen. Foto's met virtuele modellen genereren meer weergaven, meer likes, en verkopen sneller tegen betere prijzen."
+        },
+        {
+          "question": "Waarom verkopen foto's met model beter?",
+          "answer": "Kopers kunnen het gedragen kledingstuk beter visualiseren, de pasvorm en val beoordelen. Dit creëert vertrouwen en vermindert onzekerheid, wat leidt tot snellere aankopen tegen hogere prijzen."
+        },
+        {
+          "question": "Kan ik de afbeeldingen op andere platforms gebruiken?",
+          "answer": "Absoluut! De gegenereerde afbeeldingen zijn van jou. Je kunt ze gebruiken op Vinted, Marktplaats, Depop of elk ander verkoopplatform. Ze zijn overal perfect!"
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy en veiligheid",
+      "questions": [
+        {
+          "question": "Zijn mijn foto's veilig?",
+          "answer": "Ja, volledig. Je foto's worden veilig opgeslagen op Europese servers. Ze zijn alleen toegankelijk voor jou en worden nooit gedeeld of gebruikt voor andere doeleinden."
+        },
+        {
+          "question": "Is het gezicht van het model zichtbaar?",
+          "answer": "Nee, onze AI verbergt automatisch het gezicht van het virtuele model (meestal met een smartphone) om privacy te bewaren en beeldrechtproblemen te vermijden."
+        },
+        {
+          "question": "Kan ik mijn gegevens verwijderen?",
+          "answer": "Ja, je hebt volledige controle. Je kunt je gegenereerde afbeeldingen op elk moment uit je account verwijderen. Als je je account verwijdert, worden al je gegevens permanent gewist."
+        }
+      ]
+    },
+    "affiliate": {
+      "title": "Affiliate programma",
+      "questions": [
+        {
+          "question": "Hoe werkt het affiliate programma?",
+          "answer": "Het is eenvoudig! Deel je unieke verwijzingscode met vrienden. Wanneer zij hun eerste aankoop doen, ontvangen jullie beiden 1 gratis generatie. Win-win!"
+        },
+        {
+          "question": "Waar vind ik mijn verwijzingscode?",
+          "answer": "Je unieke verwijzingscode staat in het 'Affiliate' tabblad van je accountruimte. Je kunt het direct kopiëren of de vooringevulde link delen."
+        },
+        {
+          "question": "Hoeveel mensen kan ik verwijzen?",
+          "answer": "Er is geen limiet! Je kunt zoveel mensen verwijzen als je wilt. Elke nieuwe verwezen klant levert je 1 gratis generatie op."
+        },
+        {
+          "question": "Wanneer ontvang ik mijn gratis generaties?",
+          "answer": "Gratis generaties worden automatisch bijgeschreven zodra je verwijzing hun eerste aankoop doet, ongeacht de gekozen aanbieding (pakket of abonnement)."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Vind je je antwoord niet?",
+    "description": "Ons ondersteuningsteam is er om te helpen. Neem contact met ons op en we reageren zo snel mogelijk.",
+    "button": "Contact ondersteuning"
+  }
+}
