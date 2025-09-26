@@ -21,47 +21,57 @@ export const FAQPage: React.FC = () => {
   const [expandedQuestions, setExpandedQuestions] = useState<string[]>([]);
 
   useSEO({
-    title: t('seo.title'),
-    description: t('seo.description'),
-    keywords: t('seo.keywords')
+    title: t('seo.title', 'FAQ - Questions fréquentes | VintDress'),
+    description: t('seo.description', 'Trouvez toutes les réponses à vos questions sur VintDress'),
+    keywords: t('seo.keywords', 'FAQ, questions fréquentes, VintDress, avatar IA, Vinted')
   });
+
+  const getCategoryQuestions = (categoryKey: string): FAQItem[] => {
+    try {
+      const questions = t(`categories.${categoryKey}.questions`, { returnObjects: true });
+      return Array.isArray(questions) ? questions : [];
+    } catch (error) {
+      console.warn(`Missing translations for categories.${categoryKey}.questions`);
+      return [];
+    }
+  };
 
   const categories: FAQCategory[] = [
     {
-      title: t('categories.general.title'),
+      title: t('categories.general.title', 'Questions générales'),
       icon: <HelpCircle className="w-6 h-6" />,
       color: 'bg-pink-pastel',
-      questions: t('categories.general.questions', { returnObjects: true }) as FAQItem[]
+      questions: getCategoryQuestions('general')
     },
     {
-      title: t('categories.usage.title'),
+      title: t('categories.usage.title', 'Utilisation de l\'outil'),
       icon: <Camera className="w-6 h-6" />,
       color: 'bg-vinted',
-      questions: t('categories.usage.questions', { returnObjects: true }) as FAQItem[]
+      questions: getCategoryQuestions('usage')
     },
     {
-      title: t('categories.pricing.title'),
+      title: t('categories.pricing.title', 'Tarifs et crédits'),
       icon: <CreditCard className="w-6 h-6" />,
       color: 'bg-mint',
-      questions: t('categories.pricing.questions', { returnObjects: true }) as FAQItem[]
+      questions: getCategoryQuestions('pricing')
     },
     {
-      title: t('categories.sales.title'),
+      title: t('categories.sales.title', 'Impact sur les ventes'),
       icon: <ShoppingBag className="w-6 h-6" />,
       color: 'bg-yellow-300',
-      questions: t('categories.sales.questions', { returnObjects: true }) as FAQItem[]
+      questions: getCategoryQuestions('sales')
     },
     {
-      title: t('categories.privacy.title'),
+      title: t('categories.privacy.title', 'Confidentialité et sécurité'),
       icon: <Shield className="w-6 h-6" />,
       color: 'bg-pink-pastel',
-      questions: t('categories.privacy.questions', { returnObjects: true }) as FAQItem[]
+      questions: getCategoryQuestions('privacy')
     },
     {
-      title: t('categories.affiliate.title'),
+      title: t('categories.affiliate.title', 'Programme d\'affiliation'),
       icon: <Users className="w-6 h-6" />,
       color: 'bg-vinted',
-      questions: t('categories.affiliate.questions', { returnObjects: true }) as FAQItem[]
+      questions: getCategoryQuestions('affiliate')
     }
   ];
 
@@ -95,13 +105,13 @@ export const FAQPage: React.FC = () => {
           <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight mb-6">
             <div className="text-black transform -rotate-2 mb-4 relative">
               <span className="inline-block bg-mint border-3 sm:border-4 border-black px-4 sm:px-6 py-2 sm:py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                {t('title')}
+                {t('title', 'Questions fréquentes')}
               </span>
             </div>
           </h1>
           <div className="max-w-2xl mx-auto">
             <p className="font-body font-semibold text-base sm:text-lg bg-white border-3 border-black p-3 sm:p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1 inline-block">
-              {t('subtitle')}
+              {t('subtitle', 'Tout ce que vous devez savoir pour booster vos ventes Vinted')}
             </p>
           </div>
         </div>
@@ -179,16 +189,16 @@ export const FAQPage: React.FC = () => {
         <div className="mt-12 sm:mt-16 text-center">
           <div className="bg-white border-3 sm:border-4 border-black p-6 sm:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
             <h2 className="font-display font-bold text-xl sm:text-2xl mb-3 sm:mb-4 text-black">
-              {t('contact.title')}
+              {t('contact.title', 'Vous ne trouvez pas votre réponse ?')}
             </h2>
             <p className="font-body text-base sm:text-lg mb-4 sm:mb-6 text-gray-700">
-              {t('contact.description')}
+              {t('contact.description', 'Notre équipe support est là pour vous aider. Contactez-nous et nous vous répondrons dans les plus brefs délais.')}
             </p>
             <a
               href="mailto:support@vintdress.com"
               className="inline-block bg-vinted text-white font-display font-bold text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 border-3 sm:border-4 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
-              {t('contact.button')}
+              {t('contact.button', 'Contacter le support')}
             </a>
           </div>
         </div>
