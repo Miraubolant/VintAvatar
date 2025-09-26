@@ -25,10 +25,10 @@ export const FAQSection: React.FC = () => {
 
               <div className="text-center sm:text-left flex-1">
                 <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-black mb-4">
-                  {t('section.title')}
+                  {t('section.title', 'Des questions ?')}
                 </h2>
                 <p className="font-body font-semibold text-lg sm:text-xl text-gray-700">
-                  {t('section.subtitle')}
+                  {t('section.subtitle', 'Consultez notre FAQ complète pour tout savoir sur VintDress')}
                 </p>
               </div>
             </div>
@@ -41,7 +41,7 @@ export const FAQSection: React.FC = () => {
                     1
                   </div>
                   <p className="font-display font-semibold text-black">
-                    {t('section.point1')}
+                    {t('section.point1', 'Comment utiliser l\'outil')}
                   </p>
                 </div>
               </div>
@@ -52,7 +52,7 @@ export const FAQSection: React.FC = () => {
                     2
                   </div>
                   <p className="font-display font-semibold text-black">
-                    {t('section.point2')}
+                    {t('section.point2', 'Tarifs et abonnements')}
                   </p>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export const FAQSection: React.FC = () => {
                     3
                   </div>
                   <p className="font-display font-semibold text-black">
-                    {t('section.point3')}
+                    {t('section.point3', 'Optimisation des ventes')}
                   </p>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export const FAQSection: React.FC = () => {
                     4
                   </div>
                   <p className="font-display font-semibold text-black">
-                    {t('section.point4')}
+                    {t('section.point4', 'Protection et confidentialité')}
                   </p>
                 </div>
               </div>
@@ -87,7 +87,7 @@ export const FAQSection: React.FC = () => {
                 className="group inline-flex items-center gap-3 bg-vinted text-white font-display font-bold text-lg px-8 py-4 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
                 <HelpCircle className="w-6 h-6" />
-                <span>{t('section.button')}</span>
+                <span>{t('section.button', 'Consulter la FAQ')}</span>
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
