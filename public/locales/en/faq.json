@@ -1,0 +1,139 @@
+{
+  "seo": {
+    "title": "FAQ - Frequently Asked Questions | VintDress",
+    "description": "Find all answers to your questions about VintDress: AI avatar generation, pricing, usage, Vinted sales and more",
+    "keywords": "FAQ, frequently asked questions, VintDress, AI avatar, Vinted, help, support"
+  },
+  "title": "Frequently Asked Questions",
+  "subtitle": "Everything you need to know to boost your Vinted sales",
+  "section": {
+    "title": "Have questions?",
+    "subtitle": "Check our comprehensive FAQ to learn everything about VintDress",
+    "point1": "How to use the tool",
+    "point2": "Pricing and subscriptions",
+    "point3": "Sales optimization",
+    "point4": "Protection and privacy",
+    "button": "View FAQ"
+  },
+  "categories": {
+    "general": {
+      "title": "General Questions",
+      "questions": [
+        {
+          "question": "What is VintDress?",
+          "answer": "VintDress is a revolutionary tool using artificial intelligence to transform your clothing photos into professional photos with virtual models. Our technology significantly improves the attractiveness of your Vinted listings, increasing your sales up to 5x."
+        },
+        {
+          "question": "How does VintDress work?",
+          "answer": "It's very simple! Take a photo of your clothing, choose the virtual model characteristics (gender, skin tone, body type, pose, background), and our AI generates a professional photo in seconds. The face is automatically masked to preserve privacy."
+        },
+        {
+          "question": "What types of clothing can I transform?",
+          "answer": "VintDress works with all types of clothing: dresses, tops, pants, jackets, coats, and more. Our AI automatically adapts to the type of clothing to create the most realistic rendering possible."
+        }
+      ]
+    },
+    "usage": {
+      "title": "Using the Tool",
+      "questions": [
+        {
+          "question": "How to take the best photo of my clothing?",
+          "answer": "For best results: 1) Photograph the clothing on a neutral background, 2) Make sure it's clearly visible and well-lit, 3) Avoid excessive wrinkles, 4) Frame the entire garment. Our AI will do the rest!"
+        },
+        {
+          "question": "Can I customize the virtual model?",
+          "answer": "Yes! You can choose: gender (female/male), skin tone, body type, posture, and background setting. These options allow you to create the perfect image for your target audience."
+        },
+        {
+          "question": "How long does generation take?",
+          "answer": "Generation typically takes between 15 and 30 seconds. You can follow the progress in real-time thanks to our loading animation. Once completed, your image is automatically saved to your account."
+        },
+        {
+          "question": "Can I download my generated images?",
+          "answer": "Absolutely! All your images are saved in your account. You can download them anytime from the 'History' tab in your personal space, with before/after comparison."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Pricing and Credits",
+      "questions": [
+        {
+          "question": "What are the pricing options?",
+          "answer": "We offer 3 options: Starter Pack at €3.49 (10 generations), Pro Pack at €6.99 (25 generations), and Premium Subscription at €11.99/month (40 monthly generations). Choose according to your needs!"
+        },
+        {
+          "question": "How do credits work?",
+          "answer": "1 credit = 1 image generation. Pack credits never expire. For the monthly subscription, you receive 40 credits that automatically renew each month."
+        },
+        {
+          "question": "Can I combine multiple packs?",
+          "answer": "Yes! You can purchase multiple credit packs that add up. You can also have a monthly subscription AND credit packs at the same time."
+        },
+        {
+          "question": "How do I cancel my subscription?",
+          "answer": "You can cancel your subscription anytime from your account space. Cancellation takes effect at the end of your current billing period, and you keep your credits until that date."
+        }
+      ]
+    },
+    "sales": {
+      "title": "Sales Impact",
+      "questions": [
+        {
+          "question": "Does VintDress really improve sales?",
+          "answer": "Yes! Our users see an average increase of 3 to 5x in their sales. Photos with virtual models generate more views, more likes, and sell faster at better prices."
+        },
+        {
+          "question": "Why do modeled photos sell better?",
+          "answer": "Buyers can better visualize the clothing being worn, evaluate the fit and drape. This creates trust and reduces uncertainty, leading to faster purchases at higher prices."
+        },
+        {
+          "question": "Can I use the images on other platforms?",
+          "answer": "Absolutely! The generated images belong to you. You can use them on Vinted, Leboncoin, Depop, or any other selling platform. They're perfect everywhere!"
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy and Security",
+      "questions": [
+        {
+          "question": "Are my photos secure?",
+          "answer": "Yes, completely. Your photos are securely stored on European servers. They are only accessible by you and are never shared or used for other purposes."
+        },
+        {
+          "question": "Is the model's face visible?",
+          "answer": "No, our AI automatically masks the virtual model's face (usually with a smartphone) to preserve privacy and avoid any image rights issues."
+        },
+        {
+          "question": "Can I delete my data?",
+          "answer": "Yes, you have total control. You can delete your generated images anytime from your account. If you delete your account, all your data is permanently erased."
+        }
+      ]
+    },
+    "affiliate": {
+      "title": "Affiliate Program",
+      "questions": [
+        {
+          "question": "How does the affiliate program work?",
+          "answer": "It's simple! Share your unique referral code with friends. When they make their first purchase, you both receive 1 free generation. It's win-win!"
+        },
+        {
+          "question": "Where do I find my referral code?",
+          "answer": "Your unique referral code is in the 'Affiliation' tab of your account space. You can copy it directly or share the pre-filled link."
+        },
+        {
+          "question": "How many people can I refer?",
+          "answer": "There's no limit! You can refer as many people as you want. Each new referred customer earns you 1 free generation."
+        },
+        {
+          "question": "When do I receive my free generations?",
+          "answer": "Free generations are credited automatically as soon as your referral makes their first purchase, regardless of the chosen offer (pack or subscription)."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Can't find your answer?",
+    "description": "Our support team is here to help. Contact us and we'll respond as soon as possible.",
+    "button": "Contact Support"
+  }
+}
