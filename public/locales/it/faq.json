@@ -21,11 +21,11 @@
       "questions": [
         {
           "question": "Cos'è VintDress?",
-          "answer": "VintDress è uno strumento rivoluzionario che utilizza l'intelligenza artificiale per trasformare le tue foto di abbigliamento in foto professionali con modelli virtuali. La nostra tecnologia migliora significativamente l'attrattiva dei tuoi annunci Vinted, aumentando le vendite fino a 5 volte."
+          "answer": "VintDress è una piattaforma rivoluzionaria che utilizza l'intelligenza artificiale Replicate FLUX Kontext Pro per trasformare le tue foto di abbigliamento in immagini professionali con modelli virtuali realistici. Il nostro servizio si integra perfettamente con Vinted: incolla semplicemente l'URL del tuo annuncio o carica una foto, configura il tuo modello ideale, e ottieni in 30 secondi una foto che aumenta le tue vendite fino a 5x."
         },
         {
           "question": "Come funziona VintDress?",
-          "answer": "È molto semplice! Scatta una foto del tuo capo, scegli le caratteristiche del modello virtuale (genere, tonalità della pelle, tipo di corpo, posa, sfondo) e la nostra IA genera una foto professionale in pochi secondi. Il viso viene automaticamente nascosto per preservare la privacy."
+          "answer": "Il processo è ultra-semplice in 3 passaggi: 1) Importa il tuo capo tramite URL Vinted o caricando una foto, 2) Configura il tuo modello virtuale (genere, tonalità della pelle, tipo di corpo, posa, sfondo, tipo di abbigliamento), 3) La nostra IA genera automaticamente una foto professionale in 15-30 secondi. Il viso del modello viene sistematicamente mascherato (di solito con uno smartphone) per rispettare la privacy ed evitare problemi di diritti d'immagine."
         },
         {
           "question": "Quali tipi di abbigliamento posso trasformare?",
