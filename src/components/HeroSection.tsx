@@ -28,6 +28,7 @@ export const HeroSection: React.FC = () => {
   const [showAuthRequiredModal, setShowAuthRequiredModal] = useState(false);
   const [showOnboardingGuide, setShowOnboardingGuide] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const generatedResultRef = useRef<HTMLDivElement>(null);
 
   const { user, session } = useAuth();
   const navigate = useNavigate();
@@ -301,6 +302,14 @@ export const HeroSection: React.FC = () => {
           
           setGeneratedResult(finalImageUrl);
           setIsGenerating(false);
+
+          // Scroll vers le résultat généré (surtout important sur mobile)
+          setTimeout(() => {
+            generatedResultRef.current?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center'
+            });
+          }, 100);
         }, 2000);
         
         // Optionally show analysis results
@@ -686,7 +695,7 @@ export const HeroSection: React.FC = () => {
 
 {/* Affichage du résultat généré - Mise en avant */}
           {generatedResult && (
-            <div className="max-w-4xl mx-auto mt-8 px-2 sm:px-0">
+            <div ref={generatedResultRef} className="max-w-4xl mx-auto mt-8 px-2 sm:px-0">
               <div className="bg-white border-4 border-black p-4 sm:p-6 lg:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
 
                 {/* Éléments décoratifs */}
