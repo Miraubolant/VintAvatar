@@ -233,7 +233,7 @@ Marie's story proves that success on Vinted is accessible to everyone with the r
 **Marie's final advice:** "Don't just sell clothes, sell dreams. Our AI tool helps you do exactly that."
 `,
   author: "Interview by Sophie Martin",
-  date: "5 janvier 2025",
+  date: "November 18, 2025",
   readTime: "9 min",
   category: "Success Story",
   image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=400&fit=crop"

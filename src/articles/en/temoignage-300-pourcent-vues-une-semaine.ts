@@ -107,7 +107,7 @@ Marie decides to redo all her most important photos:
 *Thanks to Marie for this authentic testimonial. If you also have a success story to share, contact us!*
   `,
   author: "Marie Johnson",
-  date: "March 5, 2025",
+  date: "November 20, 2025",
   category: "Success Story",
   readTime: "8 min",
   image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&h=400&fit=crop",

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle, ShoppingBag, CreditCard, Camera, Shield, Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useSEO } from '../hooks/useSEO';
+import { useSEO, generateFaqSEO, SEO_CONFIGS } from '../hooks/useSEO';
+import { SITE_CONFIG } from '../constants';
 
 interface FAQItem {
   question: string;
@@ -20,21 +21,42 @@ export const FAQPage: React.FC = () => {
   const [expandedCategories, setExpandedCategories] = useState<number[]>([0]);
   const [expandedQuestions, setExpandedQuestions] = useState<string[]>([]);
 
-  useSEO({
-    title: t('seo.title', 'FAQ - Questions fréquentes | VintDress'),
-    description: t('seo.description', 'Trouvez toutes les réponses à vos questions sur VintDress'),
-    keywords: t('seo.keywords', 'FAQ, questions fréquentes, VintDress, avatar IA, Vinted')
-  });
-
   const getCategoryQuestions = (categoryKey: string): FAQItem[] => {
     try {
       const questions = t(`categories.${categoryKey}.questions`, { returnObjects: true });
       return Array.isArray(questions) ? questions : [];
     } catch (error) {
-      console.warn(`Missing translations for categories.${categoryKey}.questions`);
       return [];
     }
   };
+
+  // Collect all FAQ items for schema
+  const allFaqItems = useMemo(() => {
+    const categoryKeys = ['general', 'usage', 'pricing', 'sales', 'privacy', 'affiliate'];
+    return categoryKeys.flatMap(key => getCategoryQuestions(key));
+  }, [t]);
+
+  // Generate FAQ schema for SEO
+  const faqSchema = useMemo(() => ({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: allFaqItems.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  }), [allFaqItems]);
+
+  useSEO({
+    ...SEO_CONFIGS.faq,
+    title: t('seo.title', 'FAQ - Questions fréquentes | VintDress'),
+    description: t('seo.description', 'Trouvez toutes les réponses à vos questions sur VintDress : utilisation, tarifs, génération d\'avatars IA, abonnements et plus encore.'),
+    keywords: t('seo.keywords', 'FAQ, questions fréquentes, VintDress, avatar IA, Vinted, aide, support'),
+    structuredData: faqSchema
+  });
 
   const categories: FAQCategory[] = [
     {

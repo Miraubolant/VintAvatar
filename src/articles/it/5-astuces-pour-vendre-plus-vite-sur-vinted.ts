@@ -86,7 +86,7 @@ Vendere con successo su Vinted combina tecnica, tempismo e gli strumenti giusti.
 **Pronto ad aumentare le tue vendite su Vinted? Prova il nostro strumento IA ora!**
 `,
   author: "Emma Dubois",
-  date: "10 gennaio 2025",
+  date: "28 novembre 2025",
   readTime: "5 min",
   category: "Consigli",
   image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop"

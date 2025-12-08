@@ -206,7 +206,7 @@ Il vintage su Vinted e una miniera d'oro per chi sa come fare. Le chiavi del suc
 **Pronto a valorizzare i tuoi tesori vintage? Prova la nostra IA per foto che vendono!**
 `,
   author: "Sophie Martin",
-  date: "6 dicembre 2024",
+  date: "6 dicembre 2025",
   category: "Guida",
   readTime: "10 min",
   image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop",

@@ -187,7 +187,7 @@ Teste différentes versions :
 **🚀 Prêt à révolutionner tes photos Vinted ? Teste notre IA dès maintenant !**
   `,
   author: "Équipe VintedAvatar",
-  date: "15 Janvier 2025",
+  date: "15 Novembre 2025",
   category: "Guide",
   readTime: "12 min",
   image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&h=400&fit=crop",

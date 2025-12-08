@@ -25,6 +25,7 @@ const AccountPage = React.lazy(() => import('./pages/AccountPage').then(module =
 const FAQPage = React.lazy(() => import('./pages/FAQPage').then(module => ({ default: module.FAQPage })));
 const ArticlePage = React.lazy(() => import('./pages/ArticlePage').then(module => ({ default: module.ArticlePage })));
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
+const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 
 // Loading component - Neo-brutalism style
 const LoadingComponent = () => {
@@ -126,6 +127,12 @@ function App() {
               <Route path="/faq" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <FAQPage />
+                </Suspense>
+              } />
+              {/* 404 - Page not found */}
+              <Route path="*" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <NotFoundPage />
                 </Suspense>
               } />
               </Routes>

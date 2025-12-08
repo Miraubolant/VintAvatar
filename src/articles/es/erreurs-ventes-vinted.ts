@@ -223,7 +223,7 @@ Estos 10 errores son evitables. La buena noticia? Corregirlos es simple y los re
 **Listo para dejar de cometer estos errores? Empieza mejorando tus fotos ahora!**
 `,
   author: "Thomas Bernard",
-  date: "25 de noviembre de 2024",
+  date: "25 de noviembre de 2025",
   category: "Consejos",
   readTime: "9 min",
   image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop",

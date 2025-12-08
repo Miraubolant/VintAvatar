@@ -212,7 +212,7 @@ Success on Vinted requires a systematic approach combining strategy, tools, and 
 **Ready to transform your Vinted results? Start with our AI tool and watch your sales explode!**
 `,
   author: "Thomas Dubois",
-  date: "12 janvier 2025",
+  date: "November 12, 2025",
   readTime: "7 min",
   category: "Strategy",
   image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop"

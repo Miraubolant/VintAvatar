@@ -206,7 +206,7 @@ El vintage en Vinted es una mina de oro para quien sabe hacerlo. Las claves del 
 **Listo para valorizar tus tesoros vintage? Prueba nuestra IA para fotos que venden!**
 `,
   author: "Sophie Martin",
-  date: "6 de diciembre de 2024",
+  date: "6 de diciembre de 2025",
   category: "Guia",
   readTime: "10 min",
   image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop",

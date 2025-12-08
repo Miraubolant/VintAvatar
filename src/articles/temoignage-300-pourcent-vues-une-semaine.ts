@@ -107,7 +107,7 @@ Marie décide de refaire toutes ses photos les plus importantes :
 *Merci à Marie pour ce témoignage authentique. Si vous aussi vous avez une success story à partager, contactez-nous !*
   `,
   author: "Marie Laurent",
-  date: "5 Mars 2025",
+  date: "20 Novembre 2025",
   category: "Success Story",
   readTime: "8 min",
   image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&h=400&fit=crop",

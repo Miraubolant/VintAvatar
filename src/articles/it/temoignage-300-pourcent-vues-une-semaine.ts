@@ -107,7 +107,7 @@ Maria decide di rifare tutte le sue foto più importanti:
 *Grazie a Maria per questa testimonianza autentica. Se anche tu hai una storia di successo da condividere, contattaci!*
   `,
   author: "Maria Rossi",
-  date: "5 Marzo 2025",
+  date: "20 novembre 2025",
   category: "Storia di Successo",
   readTime: "8 min",
   image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&h=400&fit=crop",

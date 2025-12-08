@@ -144,7 +144,7 @@ El éxito en Vinted requiere un enfoque sistemático que combine estrategia, her
 **¿Listo para transformar tus resultados en Vinted? ¡Empieza con nuestra herramienta IA y ve explotar tus ventas!**
 `,
   author: "Thomas Dubois",
-  date: "12 enero 2025",
+  date: "12 de noviembre de 2025",
   readTime: "7 min",
   category: "Estrategia",
   image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop"
