@@ -11,7 +11,10 @@
     "readArticle": "READ ARTICLE",
     "readMore": "READ MORE",
     "backToBlog": "BACK TO BLOG",
-    "startNow": "START NOW"
+    "startNow": "START NOW",
+    "viewAll": "VIEW ALL ARTICLES",
+    "showLess": "SHOW LESS",
+    "showMore": "SHOW MORE ARTICLES"
   },
   "metadata": {
     "readTime": "read",

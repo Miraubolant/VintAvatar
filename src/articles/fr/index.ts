@@ -5,6 +5,9 @@ import { article as guidePhotos } from '../guide-complet-photos-vinted-2025';
 import { article as strategie } from '../strategie-vente-vinted-2025';
 import { article as tendances } from '../tendances-mode-2025';
 import { article as successStory } from '../success-story-marie-2025';
+import { article as vintage } from '../vendre-vintage-vinted-guide';
+import { article as identite } from '../identite-visuelle-vinted';
+import { article as erreurs } from '../erreurs-ventes-vinted';
 
 export const articles = {
   [astuces.slug]: astuces,
@@ -13,9 +16,13 @@ export const articles = {
   [guidePhotos.slug]: guidePhotos,
   [strategie.slug]: strategie,
   [tendances.slug]: tendances,
-  [successStory.slug]: successStory
+  [successStory.slug]: successStory,
+  [vintage.slug]: vintage,
+  [identite.slug]: identite,
+  [erreurs.slug]: erreurs
 };
 
-export const articlesList = [guidePhotos, strategie, tendances, successStory, astuces, ia, temoignage];
+// Articles sorted by date (most recent first)
+export const articlesList = [guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
 
 export type Article = typeof astuces;
