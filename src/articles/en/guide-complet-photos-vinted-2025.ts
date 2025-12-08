@@ -139,7 +139,7 @@ Photo optimization is no longer an option, it's a necessity. With our AI tool, y
 **Ready to transform your sales? Try our AI tool now and see the difference!**
 `,
   author: "Sophie Martin",
-  date: "15 janvier 2025",
+  date: "November 15, 2025",
   readTime: "8 min",
   category: "Guide",
   image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&h=400&fit=crop"

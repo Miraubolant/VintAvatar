@@ -32,7 +32,6 @@ export const Footer: React.FC = () => {
             <div className="flex flex-wrap gap-4 md:justify-end">
               {[
                 { href: "#hero", labelKey: "footer.navigation.home", bg: "bg-mint" },
-                { href: "#methode", labelKey: "footer.navigation.method", bg: "bg-white" },
                 { href: "#avant-apres", labelKey: "footer.navigation.beforeAfter", bg: "bg-pink-pastel" },
                 { href: "#tarifs", labelKey: "footer.navigation.pricing", bg: "bg-vinted", text: "text-white" },
                 { href: "#avis", labelKey: "footer.navigation.reviews", bg: "bg-white" },

@@ -212,7 +212,7 @@ Un'identita visiva forte su Vinted significa:
 **Pronto a creare il tuo brand Vinted? Inizia con le nostre foto IA per una coerenza perfetta!**
 `,
   author: "Julie Renard",
-  date: "1 dicembre 2024",
+  date: "1 dicembre 2025",
   category: "Strategia",
   readTime: "8 min",
   image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=400&fit=crop",

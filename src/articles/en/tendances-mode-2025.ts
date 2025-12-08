@@ -254,7 +254,7 @@ Fashion trends are opportunities for those who know how to seize them. With our 
 **Ready to surf the 2025 trends? Let our AI transform your pieces into irresistible visuals!**
 `,
   author: "Léa Moreau",
-  date: "8 janvier 2025",
+  date: "November 10, 2025",
   readTime: "6 min",
   category: "Trends",
   image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&h=400&fit=crop"

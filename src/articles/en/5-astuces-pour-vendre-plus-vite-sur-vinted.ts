@@ -86,7 +86,7 @@ Selling successfully on Vinted combines technique, timing, and the right tools. 
 **Ready to boost your Vinted sales? Try our AI tool now!**
 `,
   author: "Emma Dubois",
-  date: "10 janvier 2025",
+  date: "November 28, 2025",
   readTime: "5 min",
   category: "Tips",
   image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop"

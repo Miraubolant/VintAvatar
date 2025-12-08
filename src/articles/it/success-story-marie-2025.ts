@@ -229,7 +229,7 @@ export const article = {
 *Maria usa VintedAvatar da più di un anno. Risultati non garantiti, variabili secondo l'investimento personale.*
   `,
   author: "Team VintedAvatar",
-  date: "20 Gennaio 2025",
+  date: "18 novembre 2025",
   category: "Storia di Successo",
   readTime: "12 min",
   image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=400&fit=crop",

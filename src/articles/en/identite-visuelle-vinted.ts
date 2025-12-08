@@ -212,7 +212,7 @@ A strong visual identity on Vinted means:
 **Ready to create your Vinted brand? Start with our AI photos for perfect consistency!**
 `,
   author: "Julie Renard",
-  date: "December 1, 2024",
+  date: "December 1, 2025",
   category: "Strategy",
   readTime: "8 min",
   image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=400&fit=crop",

@@ -89,7 +89,7 @@ Are you ready to join this revolution?
 **🚀 Try VintedAvatar now and transform your sales!**
   `,
   author: "Tech Team",
-  date: "March 8, 2025",
+  date: "November 22, 2025",
   category: "Technology",
   readTime: "7 min",
   image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop",

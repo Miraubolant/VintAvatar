@@ -86,7 +86,7 @@ Vender con éxito en Vinted combina técnica, timing y las herramientas adecuada
 **¿Listo para impulsar tus ventas en Vinted? ¡Prueba nuestra herramienta de IA ahora!**
 `,
   author: "Emma Dubois",
-  date: "10 enero 2025",
+  date: "28 de noviembre de 2025",
   readTime: "5 min",
   category: "Consejos",
   image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop"

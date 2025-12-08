@@ -89,7 +89,7 @@ E tu, sei pronto/a a unirti a questa rivoluzione?
 **🚀 Prova VintedAvatar subito e trasforma le tue vendite!**
   `,
   author: "Team Tecnico",
-  date: "8 Marzo 2025",
+  date: "22 novembre 2025",
   category: "Tecnologia",
   readTime: "7 min",
   image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop",

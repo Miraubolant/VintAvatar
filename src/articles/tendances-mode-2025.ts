@@ -269,7 +269,7 @@ Passion + Timing + Qualité = Success story Vinted !
 **🎯 Prête à conquérir 2025 ? Lance-toi maintenant !**
   `,
   author: "Équipe VintedAvatar",
-  date: "3 Janvier 2025",
+  date: "10 Novembre 2025",
   category: "Tendance",
   readTime: "18 min",
   image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&h=400&fit=crop",

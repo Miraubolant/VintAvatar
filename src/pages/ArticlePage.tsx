@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getArticles } from '../articles';
 import { useSEO, generateArticleSEO } from '../hooks/useSEO';
-import { generateArticleSchema } from '../utils/structuredData';
+import { generateArticleSchema, generateBreadcrumbSchema } from '../utils/structuredData';
+import { SITE_CONFIG } from '../constants';
 
 export const ArticlePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation('blog');
+  const { t } = useTranslation('blog');
 
   useEffect(() => {
-    // Scroll to top when article loads
     window.scrollTo(0, 0);
   }, []);
 
@@ -23,22 +23,35 @@ export const ArticlePage: React.FC = () => {
   }
 
   const article = articles[slug];
-  
+
+  // Generate combined structured data for SEO
+  const structuredData = useMemo(() => {
+    const articleSchema = generateArticleSchema({
+      headline: article.title,
+      description: article.excerpt,
+      author: article.author,
+      datePublished: article.date,
+      dateModified: article.date,
+      url: `${SITE_CONFIG.url}/blog/${slug}`,
+      image: article.image
+    });
+
+    const breadcrumbSchema = generateBreadcrumbSchema([
+      { name: 'Accueil', url: SITE_CONFIG.url },
+      { name: 'Blog', url: `${SITE_CONFIG.url}/#blog` },
+      { name: article.title, url: `${SITE_CONFIG.url}/blog/${slug}` }
+    ]);
+
+    // Return combined schema as array
+    return [articleSchema, breadcrumbSchema];
+  }, [article, slug]);
+
   // Dynamic SEO optimization for articles
   const articleSEO = generateArticleSEO(article);
-  const articleSchema = generateArticleSchema({
-    headline: article.title,
-    description: article.excerpt,
-    author: article.author,
-    datePublished: article.date,
-    dateModified: article.date,
-    url: `https://vintdress.com/blog/${slug}`,
-    image: article.image
-  });
-  
+
   useSEO({
     ...articleSEO,
-    structuredData: articleSchema
+    structuredData: structuredData
   });
   
   return (

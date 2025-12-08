@@ -212,7 +212,7 @@ Une identite visuelle forte sur Vinted, c'est :
 **Pret a creer ta marque Vinted ? Commence par nos photos IA pour une coherence parfaite !**
 `,
   author: "Julie Renard",
-  date: "1 Decembre 2024",
+  date: "1 Decembre 2025",
   category: "Strategie",
   readTime: "8 min",
   image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=400&fit=crop",

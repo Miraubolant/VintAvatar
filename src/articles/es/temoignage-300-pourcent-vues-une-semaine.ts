@@ -107,7 +107,7 @@ María decide rehacer todas sus fotos más importantes:
 *Gracias a María por este testimonio auténtico. ¡Si tú también tienes una historia de éxito que compartir, contáctanos!*
   `,
   author: "María López",
-  date: "5 Marzo 2025",
+  date: "20 de noviembre de 2025",
   category: "Historia de Éxito",
   readTime: "8 min",
   image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&h=400&fit=crop",

@@ -223,7 +223,7 @@ Questi 10 errori sono evitabili. La buona notizia? Correggerli e semplice e i ri
 **Pronto a smettere di fare questi errori? Inizia migliorando le tue foto adesso!**
 `,
   author: "Thomas Bernard",
-  date: "25 novembre 2024",
+  date: "25 novembre 2025",
   category: "Consigli",
   readTime: "9 min",
   image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop",

@@ -411,18 +411,18 @@ export const HeroSection: React.FC = () => {
                 <div className="flex flex-wrap justify-center items-center gap-2 lg:gap-3">
                   <div className="inline-block bg-white border-4 border-black px-3 py-3 lg:px-6 lg:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
                     <div className="font-display font-bold text-black text-sm lg:text-lg">{t('uploadSection.steps.step1.title')}</div>
-                    <div className="font-body text-xs lg:text-sm text-gray-600 mt-1 lg:mt-2 hidden sm:block">{t('uploadSection.steps.step1.subtitle')}</div>
-                    <div className="font-body text-xs text-gray-600 mt-1 sm:hidden">{t('uploadSection.steps.step1.mobileSubtitle')}</div>
+                    <div className="font-body font-bold text-xs lg:text-sm text-gray-600 mt-1 lg:mt-2 hidden sm:block">{t('uploadSection.steps.step1.subtitle')}</div>
+                    <div className="font-body font-bold text-xs text-gray-600 mt-1 sm:hidden">{t('uploadSection.steps.step1.mobileSubtitle')}</div>
                   </div>
                   <div className="inline-block bg-vinted border-4 border-black px-3 py-3 lg:px-6 lg:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
                     <div className="font-display font-bold text-white text-sm lg:text-lg">{t('uploadSection.steps.step2.title')}</div>
-                    <div className="font-body text-xs lg:text-sm text-white/80 mt-1 lg:mt-2 hidden sm:block">{t('uploadSection.steps.step2.subtitle')}</div>
-                    <div className="font-body text-xs text-white/80 mt-1 sm:hidden">{t('uploadSection.steps.step2.mobileSubtitle')}</div>
+                    <div className="font-body font-bold text-xs lg:text-sm text-white/80 mt-1 lg:mt-2 hidden sm:block">{t('uploadSection.steps.step2.subtitle')}</div>
+                    <div className="font-body font-bold text-xs text-white/80 mt-1 sm:hidden">{t('uploadSection.steps.step2.mobileSubtitle')}</div>
                   </div>
                   <div className="inline-block bg-mint border-4 border-black px-3 py-3 lg:px-6 lg:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
                     <div className="font-display font-bold text-black text-sm lg:text-lg">{t('uploadSection.steps.step3.title')}</div>
-                    <div className="font-body text-xs lg:text-sm text-gray-600 mt-1 lg:mt-2 hidden sm:block">{t('uploadSection.steps.step3.subtitle')}</div>
-                    <div className="font-body text-xs text-gray-600 mt-1 sm:hidden">{t('uploadSection.steps.step3.mobileSubtitle')}</div>
+                    <div className="font-body font-bold text-xs lg:text-sm text-gray-600 mt-1 lg:mt-2 hidden sm:block">{t('uploadSection.steps.step3.subtitle')}</div>
+                    <div className="font-body font-bold text-xs text-gray-600 mt-1 sm:hidden">{t('uploadSection.steps.step3.mobileSubtitle')}</div>
                   </div>
                 </div>
               </div>

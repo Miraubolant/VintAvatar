@@ -201,7 +201,7 @@ Avec ces stratégies, tu n'es plus un simple vendeur : tu deviens un entrepreneu
 **🚀 Prêt à dominer Vinted en 2025 ? Commence dès maintenant !**
   `,
   author: "Équipe VintedAvatar",
-  date: "8 Janvier 2025",
+  date: "12 Novembre 2025",
   category: "Stratégie",
   readTime: "15 min",
   image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop",

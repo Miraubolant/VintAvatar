@@ -206,7 +206,7 @@ Vintage on Vinted is a gold mine for those who know what they're doing. The keys
 **Ready to add value to your vintage treasures? Try our AI for photos that sell!**
 `,
   author: "Sophie Martin",
-  date: "December 6, 2024",
+  date: "December 6, 2025",
   category: "Guide",
   readTime: "10 min",
   image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop",

@@ -89,7 +89,7 @@ La IA no está aquí para reemplazar la creatividad humana, sino para democratiz
 **🚀 ¡Prueba VintedAvatar ahora mismo y transforma tus ventas!**
   `,
   author: "Equipo Técnico",
-  date: "8 Marzo 2025",
+  date: "22 de noviembre de 2025",
   category: "Tecnología",
   readTime: "7 min",
   image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop",
