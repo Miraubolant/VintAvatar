@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Calendar, User, ArrowRight, Tag, Lightbulb, ChevronDown } from 'lucide-react';
+import { Calendar, User, ArrowRight, Tag, Lightbulb, ChevronDown, ChevronUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { getArticlesList } from '../articles';
+
+const ARTICLES_TO_SHOW = 7; // 1 featured + 6 in grid
 
 const getBlogPosts = () => {
   const articlesList = getArticlesList();
@@ -16,6 +18,13 @@ export const BlogSection: React.FC = () => {
   const { t } = useTranslation('blog');
   const blogPosts = getBlogPosts();
   const [showAllArticles, setShowAllArticles] = useState(false);
+
+  // Calculate visible articles (1 featured + 6 others = 7 total, or all if expanded)
+  const visiblePosts = showAllArticles
+    ? blogPosts
+    : blogPosts.slice(0, ARTICLES_TO_SHOW);
+
+  const hasMoreArticles = blogPosts.length > ARTICLES_TO_SHOW;
 
   return (
     <section id="blog" className="relative py-20 lg:py-24 bg-cream overflow-hidden">
@@ -51,7 +60,7 @@ export const BlogSection: React.FC = () => {
         </div>
 
         {/* Featured Post - Mobile Optimized */}
-        {blogPosts.filter(post => post.featured).map((post) => (
+        {visiblePosts.filter(post => post.featured).map((post) => (
           <div key={post.id} className="mb-12 sm:mb-16">
             <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">
               <div className="flex flex-col lg:flex-row">
@@ -109,7 +118,7 @@ export const BlogSection: React.FC = () => {
 
         {/* Blog Grid - Mobile Optimized */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8">
-          {blogPosts
+          {visiblePosts
             .filter(post => !post.featured)
             .map((post, index) => {
               // Sur mobile, afficher seulement 2 articles sauf si showAllArticles est true
@@ -169,15 +178,31 @@ export const BlogSection: React.FC = () => {
         })}
         </div>
 
-        {/* Show More Button - Mobile Only */}
-        {!showAllArticles && blogPosts.filter(post => !post.featured).length > 2 && (
+        {/* Show More Button - Mobile Only (for mobile grid expansion) */}
+        {!showAllArticles && visiblePosts.filter(post => !post.featured).length > 2 && (
           <div className="flex justify-center mb-8 sm:hidden">
             <button
               onClick={() => setShowAllArticles(true)}
               className="inline-flex items-center gap-2 px-6 py-3 bg-white border-4 border-black font-display font-bold text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform -rotate-1"
             >
-              Voir plus d'articles
+              {t('buttons.showMore', 'Voir plus d\'articles')}
               <ChevronDown className="w-5 h-5" />
+            </button>
+          </div>
+        )}
+
+        {/* View All Articles Button - All Screens */}
+        {hasMoreArticles && (
+          <div className="flex justify-center mb-8">
+            <button
+              onClick={() => setShowAllArticles(!showAllArticles)}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-vinted text-white border-4 border-black font-display font-bold text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform rotate-1"
+            >
+              {showAllArticles
+                ? t('buttons.showLess', 'Voir moins')
+                : t('buttons.viewAll', 'Voir tous les articles')
+              }
+              {showAllArticles ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
             </button>
           </div>
         )}

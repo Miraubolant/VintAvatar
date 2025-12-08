@@ -11,7 +11,10 @@
     "readArticle": "LIRE L'ARTICLE",
     "readMore": "LIRE LA SUITE",
     "backToBlog": "RETOUR AU BLOG",
-    "startNow": "COMMENCER MAINTENANT"
+    "startNow": "COMMENCER MAINTENANT",
+    "viewAll": "VOIR TOUS LES ARTICLES",
+    "showLess": "VOIR MOINS",
+    "showMore": "VOIR PLUS D'ARTICLES"
   },
   "metadata": {
     "readTime": "lecture",

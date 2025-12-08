@@ -8,6 +8,9 @@ import { article as guidePhotos } from './guide-complet-photos-vinted-2025';
 import { article as strategie } from './strategie-vente-vinted-2025';
 import { article as tendances } from './tendances-mode-2025';
 import { article as successStory } from './success-story-marie-2025';
+import { article as vintage } from './vendre-vintage-vinted-guide';
+import { article as identite } from './identite-visuelle-vinted';
+import { article as erreurs } from './erreurs-ventes-vinted';
 
 // Import multilingual articles
 import * as frArticles from './fr/index';
@@ -23,10 +26,14 @@ const frenchArticles = {
   [guidePhotos.slug]: guidePhotos,
   [strategie.slug]: strategie,
   [tendances.slug]: tendances,
-  [successStory.slug]: successStory
+  [successStory.slug]: successStory,
+  [vintage.slug]: vintage,
+  [identite.slug]: identite,
+  [erreurs.slug]: erreurs
 };
 
-const frenchArticlesList = [guidePhotos, strategie, tendances, successStory, astuces, ia, temoignage];
+// Articles sorted by date (most recent first)
+const frenchArticlesList = [guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
 
 // Get articles based on current language
 export const getArticles = () => {
