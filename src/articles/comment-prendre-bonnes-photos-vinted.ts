@@ -232,7 +232,7 @@ La qualité de tes photos fait **toute** la différence sur Vinted. Avec ce guid
   date: "5 Décembre 2025",
   category: "Guide Débutant",
   readTime: "10 min",
-  image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop",
+  image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=400&fit=crop",
   tags: ["Débutant", "Photos", "Vinted", "Guide", "Tutoriel"],
   metaDescription: "Guide complet pour débutants : comment prendre de bonnes photos pour Vinted. Éclairage, fond, techniques, astuces pro. Vendez plus vite !",
   keywords: ["comment prendre photo vinted", "photo vinted débutant", "bonnes photos vinted", "tutoriel photo vinted", "vendre vinted débutant"],
