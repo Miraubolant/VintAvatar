@@ -1,7 +1,51 @@
-import React, { useState } from 'react';
-import { X, LogIn, UserPlus, Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, LogIn, UserPlus, Mail, Lock, User, Eye, EyeOff, ExternalLink, Copy, Check, AlertTriangle } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { useTranslation } from 'react-i18next';
+
+// Détection des navigateurs in-app (TikTok, Instagram, Facebook, etc.)
+const isInAppBrowser = (): { isInApp: boolean; appName: string } => {
+  const ua = navigator.userAgent || navigator.vendor || (window as any).opera || '';
+
+  // TikTok
+  if (/BytedanceWebview|TikTok/i.test(ua)) {
+    return { isInApp: true, appName: 'TikTok' };
+  }
+  // Instagram
+  if (/Instagram/i.test(ua)) {
+    return { isInApp: true, appName: 'Instagram' };
+  }
+  // Facebook
+  if (/FBAN|FBAV|FB_IAB/i.test(ua)) {
+    return { isInApp: true, appName: 'Facebook' };
+  }
+  // Snapchat
+  if (/Snapchat/i.test(ua)) {
+    return { isInApp: true, appName: 'Snapchat' };
+  }
+  // Twitter
+  if (/Twitter/i.test(ua)) {
+    return { isInApp: true, appName: 'Twitter' };
+  }
+  // LinkedIn
+  if (/LinkedInApp/i.test(ua)) {
+    return { isInApp: true, appName: 'LinkedIn' };
+  }
+  // Pinterest
+  if (/Pinterest/i.test(ua)) {
+    return { isInApp: true, appName: 'Pinterest' };
+  }
+  // WeChat
+  if (/MicroMessenger/i.test(ua)) {
+    return { isInApp: true, appName: 'WeChat' };
+  }
+  // Generic WebView detection
+  if (/wv|WebView/i.test(ua)) {
+    return { isInApp: true, appName: 'une application' };
+  }
+
+  return { isInApp: false, appName: '' };
+};
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -18,9 +62,34 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [inAppBrowser, setInAppBrowser] = useState<{ isInApp: boolean; appName: string }>({ isInApp: false, appName: '' });
+  const [copied, setCopied] = useState(false);
 
   const { signInWithGoogle, signInWithEmail, signUpWithEmail } = useAuth();
   const { t } = useTranslation('auth');
+
+  // Détecter le navigateur in-app au montage
+  useEffect(() => {
+    setInAppBrowser(isInAppBrowser());
+  }, []);
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      // Fallback pour les navigateurs qui ne supportent pas clipboard
+      const textArea = document.createElement('textarea');
+      textArea.value = window.location.href;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   if (!isOpen) return null;
 
@@ -169,13 +238,47 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
 
         {/* Content */}
         <div className="p-6">
+          {/* In-App Browser Warning */}
+          {inAppBrowser.isInApp && (
+            <div className="mb-4 p-4 bg-yellow-100 border-3 border-yellow-500 shadow-[3px_3px_0px_0px_rgba(234,179,8,1)]">
+              <div className="flex items-start gap-3">
+                <AlertTriangle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <p className="font-display font-bold text-sm text-yellow-800 mb-2">
+                    Connexion Google impossible
+                  </p>
+                  <p className="font-body text-xs text-yellow-700 mb-3">
+                    Le navigateur de {inAppBrowser.appName} bloque la connexion Google.
+                    Ouvrez ce lien dans Safari ou Chrome pour vous connecter.
+                  </p>
+                  <button
+                    onClick={handleCopyLink}
+                    className="flex items-center gap-2 px-3 py-2 bg-yellow-500 text-white border-2 border-yellow-700 font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(161,98,7,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(161,98,7,1)] transition-all duration-200"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-4 h-4" />
+                        Lien copié !
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4" />
+                        Copier le lien
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Google Button */}
           <button
             onClick={handleGoogleAuth}
-            disabled={isLoading}
+            disabled={isLoading || inAppBrowser.isInApp}
             className={`w-full flex items-center justify-center gap-3 px-4 py-3 mb-6 bg-vinted text-white border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-              isLoading 
-                ? 'opacity-50 cursor-not-allowed' 
+              isLoading || inAppBrowser.isInApp
+                ? 'opacity-50 cursor-not-allowed'
                 : 'hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
             }`}
           >
