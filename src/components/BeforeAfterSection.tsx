@@ -8,7 +8,7 @@ export const BeforeAfterSection: React.FC = () => {
   const { t } = useTranslation('beforeafter');
 
   return (
-    <section id="avant-apres" className="relative py-20 lg:py-24 bg-cream overflow-hidden">
+    <section id="avant-apres" className="relative py-12 sm:py-16 lg:py-20 bg-cream overflow-hidden">
       {/* Formes décoratives neo-brutalism */}
       <div className="absolute top-16 right-16 w-14 h-14 bg-mint border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="absolute top-1/3 left-8 w-10 h-10 bg-pink-pastel border-3 border-black transform -rotate-45 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
