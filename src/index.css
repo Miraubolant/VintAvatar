@@ -1,3 +1,4 @@
+@import './styles/fonts.css';
 @import './styles/neo-brutalism.css';
 @import './styles/scrollbar.css';
 @tailwind base;
