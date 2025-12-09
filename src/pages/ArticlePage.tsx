@@ -2,6 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import DOMPurify from 'dompurify';
 import { getArticles } from '../articles';
 import { useSEO, generateArticleSEO } from '../hooks/useSEO';
 import { generateArticleSchema, generateBreadcrumbSchema, generateHowToSchema, generateFAQSchema } from '../utils/structuredData';
@@ -164,15 +165,22 @@ export const ArticlePage: React.FC = () => {
             style={{
               fontFamily: 'inherit'
             }}
-            dangerouslySetInnerHTML={{ 
-              __html: article.content
-                .replace(/^# /gm, '<h1 class="font-display font-bold text-3xl text-black mb-6 mt-8 first:mt-0">')
-                .replace(/^## /gm, '<h2 class="font-display font-bold text-2xl text-black mb-4 mt-6">')
-                .replace(/^### /gm, '<h3 class="font-display font-bold text-xl text-black mb-3 mt-5">')
-                .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-vinted">$1</strong>')
-                .replace(/^- /gm, '<li class="mb-2">')
-                .replace(/\n\n/g, '</p><p class="mb-4">')
-                .replace(/^(.+)$/gm, '<p class="mb-4 leading-relaxed">$1</p>')
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(
+                article.content
+                  .replace(/^# /gm, '<h1 class="font-display font-bold text-3xl text-black mb-6 mt-8 first:mt-0">')
+                  .replace(/^## /gm, '<h2 class="font-display font-bold text-2xl text-black mb-4 mt-6">')
+                  .replace(/^### /gm, '<h3 class="font-display font-bold text-xl text-black mb-3 mt-5">')
+                  .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-vinted">$1</strong>')
+                  .replace(/^- /gm, '<li class="mb-2">')
+                  .replace(/\n\n/g, '</p><p class="mb-4">')
+                  .replace(/^(.+)$/gm, '<p class="mb-4 leading-relaxed">$1</p>'),
+                {
+                  ALLOWED_TAGS: ['h1', 'h2', 'h3', 'h4', 'p', 'strong', 'em', 'ul', 'ol', 'li', 'a', 'br', 'span'],
+                  ALLOWED_ATTR: ['class', 'href', 'target', 'rel'],
+                  ALLOW_DATA_ATTR: false,
+                }
+              )
             }}
           />
         </div>
