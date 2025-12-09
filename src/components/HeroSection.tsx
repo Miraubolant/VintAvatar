@@ -742,11 +742,22 @@ export const HeroSection: React.FC = () => {
                     {t('interface.viewLarge')}
                   </button>
                   <button
-                    onClick={() => {
-                      const link = document.createElement('a');
-                      link.href = generatedResult;
-                      link.download = 'avatar-generated.jpg';
-                      link.click();
+                    onClick={async () => {
+                      try {
+                        const response = await fetch(generatedResult);
+                        const blob = await response.blob();
+                        const blobUrl = URL.createObjectURL(blob);
+
+                        const link = document.createElement('a');
+                        link.href = blobUrl;
+                        link.download = `avatar-vintdress-${Date.now()}.jpg`;
+                        link.click();
+
+                        URL.revokeObjectURL(blobUrl);
+                      } catch (error) {
+                        console.error('Download error:', error);
+                        window.open(generatedResult, '_blank');
+                      }
                     }}
                     className="w-full sm:w-auto px-6 py-3 bg-mint text-black border-3 border-black font-display font-bold text-sm sm:text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                   >
