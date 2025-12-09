@@ -21,7 +21,7 @@
       "questions": [
         {
           "question": "Qu'est-ce que VintDress ?",
-          "answer": "VintDress est une plateforme révolutionnaire qui utilise l'intelligence artificielle Replicate FLUX Kontext Pro pour transformer vos photos de vêtements en images professionnelles avec des mannequins virtuels réalistes. Notre service s'intègre parfaitement avec Vinted : collez simplement l'URL de votre annonce ou uploadez une photo, configurez votre mannequin idéal, et obtenez en 30 secondes une photo qui booste vos ventes jusqu'à 5x."
+          "answer": "VintDress est une plateforme révolutionnaire qui utilise l'intelligence artificielle de dernière génération pour transformer vos photos de vêtements en images professionnelles avec des mannequins virtuels réalistes. Notre service s'intègre parfaitement avec Vinted : collez simplement l'URL de votre annonce ou uploadez une photo, configurez votre mannequin idéal, et obtenez en 30 secondes une photo qui booste vos ventes jusqu'à 5x."
         },
         {
           "question": "Comment fonctionne VintDress ?",
@@ -42,7 +42,7 @@
         },
         {
           "question": "Comment prendre la meilleure photo si j'uploade directement ?",
-          "answer": "Pour des résultats optimaux : 1) Photographiez le vêtement sur un fond neutre (blanc, beige, ou uni), 2) Assurez-vous qu'il soit bien éclairé avec de la lumière naturelle, 3) Évitez les plis excessifs, lissez le vêtement, 4) Cadrez le vêtement en entier dans l'image, 5) Évitez les ombres marquées. Notre IA Replicate FLUX optimisera automatiquement le reste !"
+          "answer": "Pour des résultats optimaux : 1) Photographiez le vêtement sur un fond neutre (blanc, beige, ou uni), 2) Assurez-vous qu'il soit bien éclairé avec de la lumière naturelle, 3) Évitez les plis excessifs, lissez le vêtement, 4) Cadrez le vêtement en entier dans l'image, 5) Évitez les ombres marquées. Notre IA optimisera automatiquement le reste !"
         },
         {
           "question": "Quelles options de personnalisation sont disponibles ?",
@@ -50,7 +50,7 @@
         },
         {
           "question": "Combien de temps prend la génération et comment ça marche ?",
-          "answer": "La génération complète prend 15-30 secondes et se déroule en 3 phases visibles : 1) Analyse (15s) - Notre IA analyse le vêtement et la configuration, 2) Génération (15s) - Création du mannequin virtuel avec Replicate FLUX Kontext Pro, 3) Sauvegarde (2s) - Finalisation et stockage sécurisé. Vous pouvez suivre la progression en temps réel avec notre animation. L'image finale est automatiquement sauvegardée dans votre historique personnel."
+          "answer": "La génération complète prend 15-30 secondes et se déroule en 3 phases visibles : 1) Analyse (15s) - Notre IA analyse le vêtement et la configuration, 2) Génération (15s) - Création du mannequin virtuel avec notre technologie IA avancée, 3) Sauvegarde (2s) - Finalisation et stockage sécurisé. Vous pouvez suivre la progression en temps réel avec notre animation. L'image finale est automatiquement sauvegardée dans votre historique personnel."
         },
         {
           "question": "Comment accéder à mes images générées ?",

@@ -236,5 +236,8 @@ Marie's story proves that success on Vinted is accessible to everyone with the r
   date: "November 18, 2025",
   readTime: "9 min",
   category: "Success Story",
-  image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=400&fit=crop"
+  image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=400&fit=crop",
+  tags: ["Success Story", "Vinted", "AI Photos", "Business", "Testimonial"],
+  metaDescription: "How Marie transformed her Vinted sales from €200 to €2000/month with AI photos. Her complete success story revealed!",
+  keywords: ["vinted success story", "make money vinted", "vinted business", "AI photos vinted", "marie vinted avatar", "vinted testimonial"]
 };

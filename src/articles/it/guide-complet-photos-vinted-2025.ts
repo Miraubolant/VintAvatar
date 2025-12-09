@@ -110,5 +110,8 @@ L'ottimizzazione delle foto non è più un'opzione, è una necessità. Con il no
   date: "15 novembre 2025",
   readTime: "8 min",
   category: "Guida",
-  image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&h=400&fit=crop"
+  image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&h=400&fit=crop",
+  tags: ["Guida", "Foto", "Vinted", "2025", "IA", "Ottimizzazione"],
+  metaDescription: "Guida completa 2025 per ottimizzare le tue foto Vinted. Tecniche pro, IA, strategie avanzate. +200% visualizzazioni garantite!",
+  keywords: ["guida foto vinted 2025", "ottimizzare foto vinted", "foto IA vinted", "vendere di più vinted", "guida completa vinted"]
 };

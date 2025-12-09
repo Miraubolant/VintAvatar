@@ -207,5 +207,23 @@ Avec ces stratégies, tu n'es plus un simple vendeur : tu deviens un entrepreneu
   image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop",
   tags: ["Stratégie", "Vente", "Vinted", "2025", "Business", "E-commerce"],
   metaDescription: "Stratégies de vente Vinted 2025 : prix, titres, timing. Les secrets des top vendeurs pour exploser tes ventes !",
-  keywords: ["stratégie vente vinted 2025", "vendre plus vinted", "prix vinted", "optimiser ventes vinted", "business vinted"]
+  keywords: ["stratégie vente vinted 2025", "vendre plus vinted", "prix vinted", "optimiser ventes vinted", "business vinted"],
+  howTo: {
+    name: "Comment créer une stratégie de vente Vinted gagnante",
+    description: "Guide complet pour dominer les ventes sur Vinted en 2025",
+    totalTime: "PT1H",
+    steps: [
+      { name: "Analyser la concurrence", text: "Recherchez 10 articles similaires, notez prix et présentations, positionnez-vous stratégiquement" },
+      { name: "Optimiser vos titres", text: "Utilisez la formule: MARQUE + TYPE + DÉTAIL UNIQUE + TAILLE + ÉTAT" },
+      { name: "Appliquer la psychologie des prix", text: "Finissez par 9 ou 5 (19€, 25€), proposez des bundles et offres fidélité" },
+      { name: "Créer des descriptions qui convertissent", text: "Utilisez le template: accroche émotionnelle + détails + infos pratiques + hashtags" },
+      { name: "Suivre et optimiser", text: "Analysez vos KPIs (vues, likes, temps de vente) et testez différentes approches" }
+    ]
+  },
+  faq: [
+    { question: "Quelle est la meilleure stratégie de prix sur Vinted ?", answer: "Utilisez des prix psychologiques (finissant par 9 ou 5), proposez des bundles et adaptez selon l'état et la marque." },
+    { question: "Comment se démarquer parmi 65 millions d'utilisateurs ?", answer: "Photos IA professionnelles, titres optimisés avec mots-clés puissants, descriptions storytelling et service client réactif." },
+    { question: "Quel est le meilleur titre pour une annonce Vinted ?", answer: "La formule gagnante: MARQUE + TYPE + DÉTAIL UNIQUE + TAILLE + ÉTAT. Ex: 'ZARA Robe Blazer Noire Boutons Dorés T.M Parfait État'" }
+  ],
+  relatedArticles: ["5-astuces-pour-vendre-plus-vite-sur-vinted", "guide-complet-photos-vinted-2025", "tendances-mode-2025"]
 };

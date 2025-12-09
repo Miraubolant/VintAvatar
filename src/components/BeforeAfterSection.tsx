@@ -66,6 +66,9 @@ export const BeforeAfterSection: React.FC = () => {
                     src={item.before_image_url}
                     alt={`Photo Vinted avant transformation IA - ${item.category}`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    width={400}
+                    height={320}
                   />
                   <div className="absolute top-2 left-2">
                     <div className="px-2 py-1 bg-pink-pastel border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
@@ -79,6 +82,9 @@ export const BeforeAfterSection: React.FC = () => {
                     src={item.after_image_url}
                     alt={`Avatar IA après génération automatique - ${item.category} portée`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    width={400}
+                    height={320}
                   />
                   <div className="absolute top-2 right-2">
                     <div className="px-2 py-1 bg-mint border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">

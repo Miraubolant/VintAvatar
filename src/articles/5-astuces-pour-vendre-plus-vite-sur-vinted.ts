@@ -67,5 +67,23 @@ Avec ces 5 astuces, tu devrais voir tes ventes décoller ! Et n'oublie pas : des
   image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop",
   tags: ["Vinted", "Conseils", "Vente", "Photos", "IA"],
   metaDescription: "Découvre 5 astuces essentielles pour booster tes ventes sur Vinted. Photos IA, prix optimal, timing parfait - tous nos secrets révélés !",
-  keywords: ["vente vinted", "astuces vinted", "photos vinted", "vendre plus vite", "IA photos"]
+  keywords: ["vente vinted", "astuces vinted", "photos vinted", "vendre plus vite", "IA photos"],
+  howTo: {
+    name: "Comment vendre plus vite sur Vinted",
+    description: "5 astuces essentielles pour booster vos ventes Vinted rapidement",
+    totalTime: "PT15M",
+    steps: [
+      { name: "Améliorer vos photos", text: "Utilisez la lumière naturelle et notre IA pour créer des photos portées professionnelles en 30 secondes" },
+      { name: "Optimiser titre et description", text: "Créez un titre avec Marque + Modèle + Taille + État, et une description détaillée avec matières et mesures" },
+      { name: "Fixer un prix stratégique", text: "Commencez légèrement au-dessus du prix souhaité et utilisez des prix en 9 (19€ au lieu de 20€)" },
+      { name: "Publier au bon moment", text: "Publiez dimanche soir 18h-20h, mercredi soir ou vendredi après-midi pour maximiser la visibilité" },
+      { name: "Être réactif", text: "Répondez aux messages dans l'heure et restez flexible sur la négociation" }
+    ]
+  },
+  faq: [
+    { question: "Quel est le meilleur moment pour publier sur Vinted ?", answer: "Les meilleurs créneaux sont dimanche soir (18h-20h), mercredi soir et vendredi après-midi." },
+    { question: "Comment fixer le bon prix sur Vinted ?", answer: "Analysez 5 articles similaires vendus, positionnez-vous 10-20% en dessous de la moyenne et utilisez des prix psychologiques (19€ au lieu de 20€)." },
+    { question: "Les photos IA augmentent-elles vraiment les ventes ?", answer: "Oui, nos utilisateurs constatent +300% de vues et des ventes 3 à 5 fois plus rapides avec les photos générées par IA." }
+  ],
+  relatedArticles: ["guide-complet-photos-vinted-2025", "strategie-vente-vinted-2025", "erreurs-ventes-vinted"]
 };

@@ -89,5 +89,8 @@ Vender con éxito en Vinted combina técnica, timing y las herramientas adecuada
   date: "28 de noviembre de 2025",
   readTime: "5 min",
   category: "Consejos",
-  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop"
+  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop",
+  tags: ["Vinted", "Consejos", "Ventas", "Fotos", "IA"],
+  metaDescription: "Descubre 5 trucos esenciales para impulsar tus ventas en Vinted. Fotos IA, precios óptimos, timing perfecto - ¡todos nuestros secretos revelados!",
+  keywords: ["vender en vinted", "trucos vinted", "fotos vinted", "vender más rápido vinted", "fotos IA vinted"]
 };

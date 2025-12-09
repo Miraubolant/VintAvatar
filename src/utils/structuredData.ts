@@ -20,6 +20,21 @@ export interface ArticleSchema {
   image?: string;
 }
 
+export interface HowToStep {
+  name: string;
+  text: string;
+  image?: string;
+}
+
+export interface HowToSchema {
+  name: string;
+  description: string;
+  image?: string;
+  totalTime?: string;
+  estimatedCost?: { currency: string; value: string };
+  steps: HowToStep[];
+}
+
 // Generate FAQ Schema
 export const generateFAQSchema = (faqs: FAQItem[]) => {
   return {
@@ -32,6 +47,30 @@ export const generateFAQSchema = (faqs: FAQItem[]) => {
         "@type": "Answer",
         "text": faq.answer
       }
+    }))
+  };
+};
+
+// Generate HowTo Schema
+export const generateHowToSchema = (howTo: HowToSchema) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": howTo.name,
+    "description": howTo.description,
+    "image": howTo.image,
+    "totalTime": howTo.totalTime,
+    "estimatedCost": howTo.estimatedCost ? {
+      "@type": "MonetaryAmount",
+      "currency": howTo.estimatedCost.currency,
+      "value": howTo.estimatedCost.value
+    } : undefined,
+    "step": howTo.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      "position": index + 1,
+      "name": step.name,
+      "text": step.text,
+      "image": step.image
     }))
   };
 };

@@ -147,5 +147,8 @@ El éxito en Vinted requiere un enfoque sistemático que combine estrategia, her
   date: "12 de noviembre de 2025",
   readTime: "7 min",
   category: "Estrategia",
-  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop"
+  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop",
+  tags: ["Estrategia", "Ventas", "Vinted", "2025", "Negocio", "E-commerce"],
+  metaDescription: "Estrategias de venta Vinted 2025: precios, títulos, timing. ¡Los secretos de los mejores vendedores para impulsar tus ventas!",
+  keywords: ["estrategia venta vinted 2025", "vender más vinted", "precios vinted", "optimizar ventas vinted", "negocio vinted"]
 };

@@ -215,5 +215,8 @@ Success on Vinted requires a systematic approach combining strategy, tools, and 
   date: "November 12, 2025",
   readTime: "7 min",
   category: "Strategy",
-  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop"
+  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop",
+  tags: ["Strategy", "Sales", "Vinted", "2025", "Business", "E-commerce"],
+  metaDescription: "Vinted selling strategies 2025: pricing, titles, timing. Top sellers' secrets to boost your sales!",
+  keywords: ["vinted selling strategy 2025", "sell more vinted", "vinted pricing", "optimize vinted sales", "vinted business"]
 };

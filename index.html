@@ -178,6 +178,77 @@
       }
     }
     </script>
+
+    <!-- Schema.org JSON-LD - Service (AI Photo Generation) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "AI Photo Generation for E-commerce",
+      "name": "VintDress - Générateur de Photos IA",
+      "description": "Service de génération d'images par intelligence artificielle pour créer des photos portées réalistes destinées à la vente sur Vinted et autres plateformes de mode.",
+      "url": "https://vintdress.com",
+      "provider": {
+        "@type": "Organization",
+        "name": "VintDress",
+        "url": "https://vintdress.com"
+      },
+      "areaServed": [
+        {"@type": "Country", "name": "France"},
+        {"@type": "Country", "name": "United Kingdom"},
+        {"@type": "Country", "name": "Spain"},
+        {"@type": "Country", "name": "Italy"},
+        {"@type": "Country", "name": "Germany"},
+        {"@type": "Country", "name": "Belgium"}
+      ],
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://vintdress.com",
+        "serviceType": "Online"
+      },
+      "termsOfService": "https://vintdress.com/cgu",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "VintDress Pricing Plans",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pack 10 Crédits"
+            },
+            "price": "3.49",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pack 25 Crédits"
+            },
+            "price": "6.99",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Abonnement Mensuel - 40 générations"
+            },
+            "price": "11.99",
+            "priceCurrency": "EUR"
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "24000",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
