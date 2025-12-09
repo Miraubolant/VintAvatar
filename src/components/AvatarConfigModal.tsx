@@ -123,6 +123,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
               </div>
               <button
                 onClick={onClose}
+                aria-label="Fermer la configuration"
                 className="w-7 h-7 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform hover:rotate-90 transition-all duration-300"
               >
                 <X className="w-3 h-3 text-black" />
