@@ -79,9 +79,16 @@ function App() {
       <Router>
         <LanguageProvider>
           <div className="min-h-screen bg-cream">
+            {/* Skip to main content - Accessibility */}
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-vinted focus:text-white focus:border-2 focus:border-black focus:font-display focus:font-bold focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+            >
+              Aller au contenu principal
+            </a>
             <Header />
             <Breadcrumbs />
-            <main className="pt-16 sm:pt-20 lg:pt-24">
+            <main id="main-content" role="main" className="pt-16 sm:pt-20 lg:pt-24">
               <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/auth/callback" element={

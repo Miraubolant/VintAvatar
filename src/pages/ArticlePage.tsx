@@ -4,7 +4,8 @@ import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getArticles } from '../articles';
 import { useSEO, generateArticleSEO } from '../hooks/useSEO';
-import { generateArticleSchema, generateBreadcrumbSchema } from '../utils/structuredData';
+import { generateArticleSchema, generateBreadcrumbSchema, generateHowToSchema, generateFAQSchema } from '../utils/structuredData';
+import { Link } from 'react-router-dom';
 import { SITE_CONFIG } from '../constants';
 
 export const ArticlePage: React.FC = () => {
@@ -24,9 +25,28 @@ export const ArticlePage: React.FC = () => {
 
   const article = articles[slug];
 
+  // Cast article to any for optional fields
+  const articleData = article as typeof article & {
+    howTo?: { name: string; description: string; totalTime?: string; steps: { name: string; text: string }[] };
+    faq?: { question: string; answer: string }[];
+    relatedArticles?: string[];
+  };
+
+  // Get related articles if available
+  const relatedArticlesList = useMemo(() => {
+    if (!articleData.relatedArticles) return [];
+    return articleData.relatedArticles
+      .filter((relSlug: string) => articles[relSlug])
+      .map((relSlug: string) => ({ relatedSlug: relSlug, ...articles[relSlug] }))
+      .slice(0, 3);
+  }, [articleData, articles]);
+
   // Generate combined structured data for SEO
   const structuredData = useMemo(() => {
-    const articleSchema = generateArticleSchema({
+    const schemas: Record<string, unknown>[] = [];
+
+    // Article schema
+    schemas.push(generateArticleSchema({
       headline: article.title,
       description: article.excerpt,
       author: article.author,
@@ -34,17 +54,27 @@ export const ArticlePage: React.FC = () => {
       dateModified: article.date,
       url: `${SITE_CONFIG.url}/blog/${slug}`,
       image: article.image
-    });
+    }) as Record<string, unknown>);
 
-    const breadcrumbSchema = generateBreadcrumbSchema([
+    // Breadcrumb schema
+    schemas.push(generateBreadcrumbSchema([
       { name: 'Accueil', url: SITE_CONFIG.url },
       { name: 'Blog', url: `${SITE_CONFIG.url}/#blog` },
       { name: article.title, url: `${SITE_CONFIG.url}/blog/${slug}` }
-    ]);
+    ]) as Record<string, unknown>);
 
-    // Return combined schema as array
-    return [articleSchema, breadcrumbSchema];
-  }, [article, slug]);
+    // HowTo schema if article has howTo data
+    if (articleData.howTo) {
+      schemas.push(generateHowToSchema(articleData.howTo) as Record<string, unknown>);
+    }
+
+    // FAQ schema if article has faq data
+    if (articleData.faq) {
+      schemas.push(generateFAQSchema(articleData.faq) as Record<string, unknown>);
+    }
+
+    return schemas;
+  }, [article, articleData, slug]);
 
   // Dynamic SEO optimization for articles
   const articleSEO = generateArticleSEO(article);
@@ -148,6 +178,36 @@ export const ArticlePage: React.FC = () => {
         </div>
       </div>
       
+      {/* Related Articles Section */}
+      {relatedArticlesList.length > 0 && (
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="bg-white border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+            <h3 className="font-display font-bold text-2xl text-black mb-6 transform -rotate-1">
+              {t('relatedArticles.title', 'Articles similaires')}
+            </h3>
+            <div className="grid md:grid-cols-3 gap-4">
+              {relatedArticlesList.map((relArticle) => (
+                <Link
+                  key={relArticle.relatedSlug}
+                  to={`/blog/${relArticle.relatedSlug}`}
+                  className="block bg-cream border-3 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                >
+                  <div className="px-2 py-1 bg-vinted border-2 border-black text-white text-xs font-display font-bold inline-block mb-2 transform rotate-1">
+                    {relArticle.category}
+                  </div>
+                  <h4 className="font-display font-bold text-sm text-black line-clamp-2">
+                    {relArticle.title}
+                  </h4>
+                  <p className="font-body text-xs text-gray-600 mt-2">
+                    {relArticle.readTime}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* CTA de fin d'article */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mb-16">
         <div className="bg-vinted border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 text-center">

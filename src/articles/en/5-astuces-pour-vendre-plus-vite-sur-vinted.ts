@@ -89,5 +89,8 @@ Selling successfully on Vinted combines technique, timing, and the right tools. 
   date: "November 28, 2025",
   readTime: "5 min",
   category: "Tips",
-  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop"
+  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop",
+  tags: ["Vinted", "Tips", "Sales", "Photos", "AI"],
+  metaDescription: "Discover 5 essential tips to boost your Vinted sales. AI photos, optimal pricing, perfect timing - all our secrets revealed!",
+  keywords: ["sell on vinted", "vinted tips", "vinted photos", "sell faster vinted", "AI photos vinted"]
 };

@@ -193,5 +193,24 @@ Teste différentes versions :
   image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&h=400&fit=crop",
   tags: ["Guide", "Photos", "Vinted", "2025", "IA", "Optimisation"],
   metaDescription: "Guide complet 2025 pour optimiser tes photos Vinted. Techniques pro, IA, stratégies avancées. +200% de vues garanties !",
-  keywords: ["guide photos vinted 2025", "optimiser photos vinted", "photos IA vinted", "vendre plus vinted", "guide complet vinted"]
+  keywords: ["guide photos vinted 2025", "optimiser photos vinted", "photos IA vinted", "vendre plus vinted", "guide complet vinted"],
+  howTo: {
+    name: "Comment optimiser ses photos Vinted en 2025",
+    description: "Guide étape par étape pour créer des photos Vinted qui convertissent avec l'aide de l'IA",
+    totalTime: "PT30M",
+    steps: [
+      { name: "Préparer l'éclairage", text: "Utilisez la lumière naturelle près d'une fenêtre nord ou un ring light 5500K pour un éclairage optimal" },
+      { name: "Choisir le bon fond", text: "Optez pour un fond blanc pur, beige naturel ou gris clair pour mettre en valeur vos vêtements" },
+      { name: "Cadrer correctement", text: "Utilisez le ratio 4:5 préféré de Vinted avec une résolution minimum de 1080x1350px" },
+      { name: "Générer la photo IA", text: "Uploadez votre photo sur VintDress, choisissez le modèle et générez en 30 secondes" },
+      { name: "Publier et optimiser", text: "Téléchargez la photo générée et publiez-la comme photo principale de votre annonce" }
+    ]
+  },
+  faq: [
+    { question: "Quel format de photo utiliser sur Vinted ?", answer: "Le format optimal est 4:5 (1080x1350px) qui s'affiche parfaitement sur mobile et desktop." },
+    { question: "Combien de photos faut-il mettre sur une annonce Vinted ?", answer: "L'idéal est 5 photos : une principale portée, des détails, une vue arrière et l'étiquette." },
+    { question: "L'IA peut-elle vraiment améliorer mes ventes ?", answer: "Oui, les utilisateurs constatent en moyenne +300% de vues et +250% de ventes avec des photos IA." },
+    { question: "Combien de temps pour créer une photo IA ?", answer: "Seulement 30 secondes pour générer une photo portée professionnelle avec VintDress." }
+  ],
+  relatedArticles: ["5-astuces-pour-vendre-plus-vite-sur-vinted", "strategie-vente-vinted-2025", "tendances-mode-2025"]
 };

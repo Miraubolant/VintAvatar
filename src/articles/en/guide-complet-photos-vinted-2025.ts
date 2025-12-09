@@ -142,5 +142,8 @@ Photo optimization is no longer an option, it's a necessity. With our AI tool, y
   date: "November 15, 2025",
   readTime: "8 min",
   category: "Guide",
-  image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&h=400&fit=crop"
+  image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&h=400&fit=crop",
+  tags: ["Guide", "Photos", "Vinted", "2025", "AI", "Optimization"],
+  metaDescription: "Complete 2025 guide to optimize your Vinted photos. Pro techniques, AI, advanced strategies. +200% views guaranteed!",
+  keywords: ["vinted photo guide 2025", "optimize vinted photos", "AI photos vinted", "sell more vinted", "complete vinted guide"]
 };

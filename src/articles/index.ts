@@ -11,6 +11,8 @@ import { article as successStory } from './success-story-marie-2025';
 import { article as vintage } from './vendre-vintage-vinted-guide';
 import { article as identite } from './identite-visuelle-vinted';
 import { article as erreurs } from './erreurs-ventes-vinted';
+import { article as commentPhotos } from './comment-prendre-bonnes-photos-vinted';
+import { article as comparatif } from './vintdress-vs-alternatives-comparatif-2025';
 
 // Import multilingual articles
 import * as frArticles from './fr/index';
@@ -29,11 +31,13 @@ const frenchArticles = {
   [successStory.slug]: successStory,
   [vintage.slug]: vintage,
   [identite.slug]: identite,
-  [erreurs.slug]: erreurs
+  [erreurs.slug]: erreurs,
+  [commentPhotos.slug]: commentPhotos,
+  [comparatif.slug]: comparatif
 };
 
 // Articles sorted by date (most recent first)
-const frenchArticlesList = [guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
+const frenchArticlesList = [commentPhotos, comparatif, guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
 
 // Get articles based on current language
 export const getArticles = () => {

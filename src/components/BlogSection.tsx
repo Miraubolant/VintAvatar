@@ -69,6 +69,9 @@ export const BlogSection: React.FC = () => {
                     src={post.image}
                     alt={`${post.title} - Guide avatar IA pour Vinted`}
                     className="w-full h-48 sm:h-64 lg:h-full object-cover border-b-4 lg:border-b-0 lg:border-r-4 border-black"
+                    loading="lazy"
+                    width={800}
+                    height={400}
                   />
                 </div>
                 <div className="lg:w-1/2 p-4 sm:p-6 lg:p-8">
@@ -134,6 +137,9 @@ export const BlogSection: React.FC = () => {
                 src={post.image}
                 alt={`${post.title} - Conseils génération photo portée Vinted`}
                 className="w-full h-32 sm:h-40 object-cover border-3 border-black mb-3 sm:mb-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+                loading="lazy"
+                width={400}
+                height={200}
               />
 
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
@@ -177,19 +183,6 @@ export const BlogSection: React.FC = () => {
           );
         })}
         </div>
-
-        {/* Show More Button - Mobile Only (for mobile grid expansion) */}
-        {!showAllArticles && visiblePosts.filter(post => !post.featured).length > 2 && (
-          <div className="flex justify-center mb-8 sm:hidden">
-            <button
-              onClick={() => setShowAllArticles(true)}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white border-4 border-black font-display font-bold text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform -rotate-1"
-            >
-              {t('buttons.showMore', 'Voir plus d\'articles')}
-              <ChevronDown className="w-5 h-5" />
-            </button>
-          </div>
-        )}
 
         {/* View All Articles Button - All Screens */}
         {hasMoreArticles && (

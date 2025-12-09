@@ -257,5 +257,8 @@ Fashion trends are opportunities for those who know how to seize them. With our 
   date: "November 10, 2025",
   readTime: "6 min",
   category: "Trends",
-  image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&h=400&fit=crop"
+  image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&h=400&fit=crop",
+  tags: ["Fashion Trends", "2025", "Vinted", "Style", "Second-hand"],
+  metaDescription: "Discover fashion trends 2025 to sell on Vinted. Y2K, Cottagecore, sustainable fashion - all trends that sell!",
+  keywords: ["fashion trends 2025", "vinted fashion 2025", "y2k 2025", "cottagecore", "sell fashion vinted", "vinted trends"]
 };

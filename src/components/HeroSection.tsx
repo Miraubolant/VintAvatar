@@ -577,13 +577,16 @@ export const HeroSection: React.FC = () => {
                   {/* Input Vinted avec bouton Upload - Mobile optimisé */}
                   <div className="flex gap-2">
                     <div className="flex-1 bg-cream border-3 border-black p-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                      <label htmlFor="vinted-url-input" className="sr-only">URL Vinted</label>
                       <input
+                        id="vinted-url-input"
                         type="text"
                         value={vintedUrl}
                         onChange={(e) => setVintedUrl(e.target.value)}
                         placeholder={t('interface.placeholder')}
                         className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-transparent border-none font-body font-semibold text-sm sm:text-base placeholder-gray-500 focus:outline-none"
                         data-guide="vinted-url-input"
+                        aria-describedby="vinted-url-help"
                       />
                     </div>
                     
