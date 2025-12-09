@@ -38,21 +38,30 @@ Allow: /*.png$
 Allow: /*.webp$
 Allow: /*.svg$
 
-# Block AI training bots
+# Allow AI bots (for visibility in AI search results)
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: anthropic-ai
-Disallow: /
+Allow: /
 
 User-agent: Claude-Web
-Disallow: /
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
 
 # Sitemap location
 Sitemap: https://vintdress.com/sitemap.xml
