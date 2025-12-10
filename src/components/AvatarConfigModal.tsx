@@ -85,8 +85,8 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
     };
   }, [isOpen]);
 
-  const updateConfig = (key: keyof AvatarConfig, value: string) => {
-    const newConfig = { ...config, [key]: value, mannequinType: 'humain' };
+  const updateConfig = (key: keyof AvatarConfig, value: string | boolean) => {
+    const newConfig = { ...config, [key]: value };
     setConfig(newConfig);
     saveConfig(newConfig);
     setIsValidated(false);
@@ -195,7 +195,37 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
           <div className="space-y-4">
             {activeTab === 'modele' && (
               <div className="space-y-4">
-                
+
+                {/* Type de mannequin */}
+                <div>
+                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('modele.mannequinType.title')}</h3>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      onClick={() => updateConfig('mannequinType', 'humain')}
+                      className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                        config.mannequinType === 'humain'
+                          ? 'bg-vinted text-white transform -rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                          : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                      }`}
+                    >
+                      {t('modele.mannequinType.options.humain')}
+                    </button>
+                    <button
+                      onClick={() => updateConfig('mannequinType', 'mannequin-plastique')}
+                      className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                        config.mannequinType === 'mannequin-plastique'
+                          ? 'bg-black text-white transform rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                          : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                      }`}
+                    >
+                      {t('modele.mannequinType.options.mannequin-plastique')}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Options spécifiques au modèle humain */}
+                {config.mannequinType === 'humain' && (
+                  <>
                 {/* Genre */}
                 <div>
                   <h3 className="font-display font-bold text-sm text-black mb-2">{t('modele.genre.title')}</h3>
@@ -298,6 +328,8 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                     ))}
                   </div>
                 </div>
+                  </>
+                )}
 
               </div>
             )}
