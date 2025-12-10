@@ -298,13 +298,30 @@ async function generateWithReplicate(
   
   // Build simplified prompt for FLUX Kontext Pro
   const clothingType = clothingTypeMap[config.clothingType] || 'clothing item'
-  
-  // Face visibility logic - avoid explicit face-related terms for security filters
-  const faceInstruction = config.showPhone 
-    ? `The person holds a smartphone naturally at eye level in selfie position, with the device positioned directly in front of them. The phone screen covers the front view from forehead to chin area. Only hair, ears, and the back/sides of the head remain visible. The smartphone is held naturally in their hand at portrait orientation.`
-    : `Apply a soft blur effect to the person for privacy while keeping the clothing and body in sharp focus.`
-  
-  const prompt = `Transform this ${clothingType} photo into a professional fashion photograph.
+
+  let prompt: string
+
+  // Check if plastic mannequin mode
+  if (config.mannequinType === 'mannequin-plastique') {
+    // Plastic mannequin prompt - no human characteristics needed
+    prompt = `Transform this ${clothingType} photo into a professional fashion retail display photograph.
+  Show a sleek glossy black plastic mannequin displaying this exact ${clothingType}.
+  The mannequin should have a smooth, reflective black surface with elegant, modern design - like high-end retail store displays.
+  Keep the original ${clothingType} exactly as shown - same colors, patterns, materials, and all details must be preserved.
+  The mannequin should be ${postureMap[config.posture] || 'standing'} in a natural display pose.
+  Camera angle: ${angleMap[config.angle] || 'optimal angle for the clothing type'}.
+  Framing: ${framingMap[config.framing] || 'full body shot'}.
+  Background: ${decorMap[config.decor] || 'professional studio setting'}.
+  Lighting: ${lightingMap[config.lighting] || 'professional studio lighting'} with ${seasonMap[config.season] || 'season appropriate'} ambiance.
+  Style: professional fashion retail photography with sharp focus on the ${clothingType}, sleek mannequin with reflective black plastic surface, optimized for e-commerce display.`
+  } else {
+    // Human model prompt (existing logic)
+    // Face visibility logic - avoid explicit face-related terms for security filters
+    const faceInstruction = config.showPhone
+      ? `The person holds a smartphone naturally at eye level in selfie position, with the device positioned directly in front of them. The phone screen covers the front view from forehead to chin area. Only hair, ears, and the back/sides of the head remain visible. The smartphone is held naturally in their hand at portrait orientation.`
+      : `Apply a soft blur effect to the person for privacy while keeping the clothing and body in sharp focus.`
+
+    prompt = `Transform this ${clothingType} photo into a professional fashion photograph.
   Show a ${ageMap[config.age] || 'age appropriate'} ${genderMap[config.gender] || 'person'} with ${carnationMap[config.carnation] || 'medium skin tone'} and ${config.morphology} body type wearing this exact ${clothingType}.
   Keep the original ${clothingType} exactly as shown - same colors, patterns, materials, and all details.
   The person should be ${postureMap[config.posture] || 'standing'}.
@@ -314,6 +331,7 @@ async function generateWithReplicate(
   Background: ${decorMap[config.decor] || 'professional studio setting'}.
   Lighting: ${lightingMap[config.lighting] || 'professional studio lighting'} with ${seasonMap[config.season] || 'season appropriate'} ambiance.
   Style: professional fashion photography with sharp focus on the ${clothingType}, optimized for e-commerce display.`
+  }
 
   // Call Replicate API
   const response = await fetch('https://api.replicate.com/v1/predictions', {

@@ -6,6 +6,13 @@
     "environnement": "ENTORNO"
   },
   "modele": {
+    "mannequinType": {
+      "title": "TIPO DE MANIQUÍ",
+      "options": {
+        "humain": "MODELO HUMANO",
+        "mannequin-plastique": "MANIQUÍ PLÁSTICO"
+      }
+    },
     "genre": {
       "title": "GÉNERO",
       "options": {

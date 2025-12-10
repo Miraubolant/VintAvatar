@@ -6,6 +6,13 @@
     "environnement": "ENVIRONNEMENT"
   },
   "modele": {
+    "mannequinType": {
+      "title": "TYPE DE MANNEQUIN",
+      "options": {
+        "humain": "MODÈLE HUMAIN",
+        "mannequin-plastique": "MANNEQUIN PLASTIQUE"
+      }
+    },
     "genre": {
       "title": "GENRE",
       "options": {
