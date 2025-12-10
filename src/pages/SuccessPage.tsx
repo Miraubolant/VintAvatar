@@ -1,15 +1,60 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { CheckCircle, Sparkles, ArrowRight } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { useSubscription } from '../hooks/useSubscription';
 import { useSEO, SEO_CONFIGS } from '../hooks/useSEO';
 
+// Declare gtag for TypeScript
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 export const SuccessPage: React.FC = () => {
   useSEO(SEO_CONFIGS.success);
-  
+
   const { user } = useAuth();
   const { subscription, refetch } = useSubscription();
   const [loading, setLoading] = useState(true);
+  const conversionTracked = useRef(false);
+
+  // Google Ads Conversion Tracking
+  useEffect(() => {
+    if (conversionTracked.current) return;
+
+    // Get session_id from URL for transaction_id
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionId = urlParams.get('session_id') || `conv_${Date.now()}`;
+
+    // Determine value based on subscription or URL params
+    let conversionValue = 6.99; // Default middle value
+    const priceParam = urlParams.get('price');
+
+    if (priceParam) {
+      conversionValue = parseFloat(priceParam);
+    } else if (subscription) {
+      // Determine price from subscription type
+      if (subscription.plan_type === 'monthly') {
+        conversionValue = 11.99;
+      } else if (subscription.credits_remaining === 25) {
+        conversionValue = 6.99;
+      } else if (subscription.credits_remaining === 10) {
+        conversionValue = 3.49;
+      }
+    }
+
+    // Fire Google Ads conversion event
+    if (window.gtag) {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-17788562000/zef-CNXdgs4bENDUn6JC',
+        'value': conversionValue,
+        'currency': 'EUR',
+        'transaction_id': sessionId
+      });
+      conversionTracked.current = true;
+    }
+  }, [subscription]);
 
   useEffect(() => {
     // Refresh subscription data after payment
