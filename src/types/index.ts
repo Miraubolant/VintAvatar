@@ -121,6 +121,7 @@ export interface SEOData {
   twitterImage?: string;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
   hreflangLinks?: HreflangLink[];
+  noindex?: boolean;
 }
 
 export interface HreflangLink {
