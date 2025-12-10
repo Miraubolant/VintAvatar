@@ -23,9 +23,12 @@ export const SuccessPage: React.FC = () => {
   useEffect(() => {
     if (conversionTracked.current) return;
 
-    // Get session_id from URL for transaction_id
+    // Get session_id from URL - ONLY fire conversion if session_id exists (from real Stripe checkout)
     const urlParams = new URLSearchParams(window.location.search);
-    const sessionId = urlParams.get('session_id') || `conv_${Date.now()}`;
+    const sessionId = urlParams.get('session_id');
+
+    // Don't track conversion if no session_id (prevents false conversions from direct page visits)
+    if (!sessionId) return;
 
     // Determine value based on subscription or URL params
     let conversionValue = 6.99; // Default middle value

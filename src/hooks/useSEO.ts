@@ -78,6 +78,11 @@ export const useSEO = (seoData: SEOData) => {
       updateMetaTag('keywords', seoData.keywords);
     }
 
+    // Handle robots meta tag (noindex for private pages)
+    if (seoData.noindex) {
+      updateMetaTag('robots', 'noindex, nofollow');
+    }
+
     // Update canonical URL
     if (seoData.canonical) {
       updateCanonical(seoData.canonical);
@@ -169,7 +174,8 @@ export const SEO_CONFIGS = {
     description: 'Gérez vos crédits VintDress, consultez votre historique de générations et accédez à votre système de parrainage.',
     canonical: `${SITE_CONFIG.url}/account`,
     ogImage: SITE_CONFIG.defaultImage,
-    ogType: 'website'
+    ogType: 'website',
+    noindex: true // Prevent indexing - private page
   },
 
   success: {
@@ -177,7 +183,8 @@ export const SEO_CONFIGS = {
     description: 'Votre paiement a été traité avec succès. Vos crédits sont maintenant disponibles pour générer des avatars IA.',
     canonical: `${SITE_CONFIG.url}/success`,
     ogImage: SITE_CONFIG.defaultImage,
-    ogType: 'website'
+    ogType: 'website',
+    noindex: true // Prevent indexing - private page
   },
 
   cancel: {
@@ -185,7 +192,8 @@ export const SEO_CONFIGS = {
     description: 'Votre paiement a été annulé. Vous pouvez réessayer ou nous contacter si vous rencontrez des difficultés.',
     canonical: `${SITE_CONFIG.url}/cancel`,
     ogImage: SITE_CONFIG.defaultImage,
-    ogType: 'website'
+    ogType: 'website',
+    noindex: true // Prevent indexing - private page
   },
 
   cgu: {
