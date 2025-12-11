@@ -15,6 +15,7 @@
     },
     "genre": {
       "title": "GENRE",
+      "titleMannequin": "TYPE DE MANNEQUIN",
       "options": {
         "femme": "FEMME",
         "homme": "HOMME",

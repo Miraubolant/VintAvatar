@@ -15,6 +15,7 @@
     },
     "genre": {
       "title": "GENERE",
+      "titleMannequin": "TIPO DI MANICHINO",
       "options": {
         "femme": "DONNA",
         "homme": "UOMO",
