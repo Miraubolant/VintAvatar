@@ -66,7 +66,8 @@ export const BeforeAfterSection: React.FC = () => {
                     src={item.before_image_url}
                     alt={`Photo Vinted avant transformation IA - ${item.category}`}
                     className="w-full h-full object-cover"
-                    loading="lazy"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    fetchPriority={index === 0 ? "high" : "low"}
                     width={400}
                     height={320}
                   />
@@ -76,13 +77,14 @@ export const BeforeAfterSection: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="flex-1 relative">
                   <img
                     src={item.after_image_url}
                     alt={`Avatar IA après génération automatique - ${item.category} portée`}
                     className="w-full h-full object-cover"
-                    loading="lazy"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    fetchPriority={index === 0 ? "high" : "low"}
                     width={400}
                     height={320}
                   />

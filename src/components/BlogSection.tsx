@@ -70,6 +70,7 @@ export const BlogSection: React.FC = () => {
                     alt={`${post.title} - Guide avatar IA pour Vinted`}
                     className="w-full h-48 sm:h-64 lg:h-full object-cover border-b-4 lg:border-b-0 lg:border-r-4 border-black"
                     loading="lazy"
+                    fetchPriority="low"
                     width={800}
                     height={400}
                   />
@@ -138,6 +139,7 @@ export const BlogSection: React.FC = () => {
                 alt={`${post.title} - Conseils génération photo portée Vinted`}
                 className="w-full h-32 sm:h-40 object-cover border-3 border-black mb-3 sm:mb-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
                 loading="lazy"
+                fetchPriority="low"
                 width={400}
                 height={200}
               />
