@@ -25,7 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: https://*.google.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://js.stripe.com; script-src-elem 'self' 'unsafe-inline' https://*.google.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://js.stripe.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https: blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.stripe.com https://api.replicate.com https://replicate.delivery https://*.google.com https://*.google-analytics.com https://*.doubleclick.net https://*.googleadservices.com https://*.googlesyndication.com https://raw.githubusercontent.com; frame-src https://js.stripe.com https://hooks.stripe.com https://*.googletagmanager.com https://*.doubleclick.net https://*.google.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: https://*.google.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://js.stripe.com https://*.tawk.to; script-src-elem 'self' 'unsafe-inline' https://*.google.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.googlesyndication.com https://*.doubleclick.net https://js.stripe.com https://*.tawk.to; style-src 'self' 'unsafe-inline'; font-src 'self' https://*.tawk.to; img-src 'self' data: https: blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.stripe.com https://api.replicate.com https://replicate.delivery https://*.google.com https://*.google-analytics.com https://*.doubleclick.net https://*.googleadservices.com https://*.googlesyndication.com https://raw.githubusercontent.com https://*.tawk.to wss://*.tawk.to; frame-src https://js.stripe.com https://hooks.stripe.com https://*.googletagmanager.com https://*.doubleclick.net https://*.google.com https://*.tawk.to; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(self)" />
@@ -250,5 +250,18 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Tawk.to Live Chat Widget -->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/693af08c72e9cf197ba23caf/1jc73n923';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
   </body>
 </html>
