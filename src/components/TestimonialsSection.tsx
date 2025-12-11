@@ -89,6 +89,7 @@ export const TestimonialsSection: React.FC = () => {
                   alt={`Photo de ${testimonial.name}, utilisateur satisfait de génération avatar IA Vinted`}
                   className="w-10 h-10 sm:w-12 sm:h-12 object-cover border-2 sm:border-3 border-black transform rotate-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
                   loading="lazy"
+                  fetchPriority="low"
                   width={48}
                   height={48}
                 />
