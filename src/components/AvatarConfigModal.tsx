@@ -223,24 +223,26 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                   </div>
                 </div>
 
-                {/* Options spécifiques au modèle humain */}
-                {config.mannequinType === 'humain' && (
-                  <>
-                {/* Genre */}
+                {/* Genre - Toujours visible pour humain et mannequin plastique */}
                 <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('modele.genre.title')}</h3>
-                  <div className="grid grid-cols-3 gap-2">
+                  <h3 className="font-display font-bold text-sm text-black mb-2">
+                    {config.mannequinType === 'mannequin-plastique'
+                      ? t('modele.genre.titleMannequin')
+                      : t('modele.genre.title')}
+                  </h3>
+                  <div className="grid grid-cols-2 gap-2">
                     {[
                       { id: 'femme', label: t('modele.genre.options.femme') },
-                      { id: 'homme', label: t('modele.genre.options.homme') },
-                      { id: 'auto', label: t('modele.genre.options.auto') }
+                      { id: 'homme', label: t('modele.genre.options.homme') }
                     ].map((gender) => (
                       <button
                         key={gender.id}
                         onClick={() => updateConfig('gender', gender.id)}
                         className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                           config.gender === gender.id
-                            ? 'bg-mint text-black transform -rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                            ? config.mannequinType === 'mannequin-plastique'
+                              ? 'bg-black text-white transform -rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                              : 'bg-mint text-black transform -rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
                             : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
                         }`}
                       >
@@ -249,6 +251,10 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                     ))}
                   </div>
                 </div>
+
+                {/* Options spécifiques au modèle humain */}
+                {config.mannequinType === 'humain' && (
+                  <>
 
 
                 {/* Carnation */}

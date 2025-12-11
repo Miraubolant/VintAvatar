@@ -15,6 +15,7 @@
     },
     "genre": {
       "title": "GÉNERO",
+      "titleMannequin": "TIPO DE MANIQUÍ",
       "options": {
         "femme": "MUJER",
         "homme": "HOMBRE",

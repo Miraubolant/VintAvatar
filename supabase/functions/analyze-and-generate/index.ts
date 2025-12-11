@@ -303,17 +303,23 @@ async function generateWithReplicate(
 
   // Check if plastic mannequin mode
   if (config.mannequinType === 'mannequin-plastique') {
-    // Plastic mannequin prompt - no human characteristics needed
+    // Determine mannequin gender type
+    const mannequinGender = config.gender === 'homme' ? 'male' : 'female'
+    const mannequinBodyDescription = config.gender === 'homme'
+      ? 'masculine proportions with broad shoulders and narrow hips'
+      : 'feminine proportions with curved silhouette'
+
+    // Plastic mannequin prompt with gender
     prompt = `Transform this ${clothingType} photo into a professional fashion retail display photograph.
-  Show a sleek glossy black plastic mannequin displaying this exact ${clothingType}.
-  The mannequin should have a smooth, reflective black surface with elegant, modern design - like high-end retail store displays.
+  Show a sleek glossy black plastic ${mannequinGender} mannequin displaying this exact ${clothingType}.
+  The mannequin should have ${mannequinBodyDescription}, smooth reflective black surface with elegant, modern design - like high-end retail store displays.
   Keep the original ${clothingType} exactly as shown - same colors, patterns, materials, and all details must be preserved.
   The mannequin should be ${postureMap[config.posture] || 'standing'} in a natural display pose.
   Camera angle: ${angleMap[config.angle] || 'optimal angle for the clothing type'}.
   Framing: ${framingMap[config.framing] || 'full body shot'}.
   Background: ${decorMap[config.decor] || 'professional studio setting'}.
   Lighting: ${lightingMap[config.lighting] || 'professional studio lighting'} with ${seasonMap[config.season] || 'season appropriate'} ambiance.
-  Style: professional fashion retail photography with sharp focus on the ${clothingType}, sleek mannequin with reflective black plastic surface, optimized for e-commerce display.`
+  Style: professional fashion retail photography with sharp focus on the ${clothingType}, sleek ${mannequinGender} mannequin with reflective black plastic surface, optimized for e-commerce display.`
   } else {
     // Human model prompt (existing logic)
     // Face visibility logic - avoid explicit face-related terms for security filters
