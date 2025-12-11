@@ -31,15 +31,15 @@ export const Footer: React.FC = () => {
             {/* Navigation avec style */}
             <div className="flex flex-wrap gap-4 md:justify-end">
               {[
-                { href: "#hero", labelKey: "footer.navigation.home", bg: "bg-mint" },
-                { href: "#avant-apres", labelKey: "footer.navigation.beforeAfter", bg: "bg-pink-pastel" },
-                { href: "#tarifs", labelKey: "footer.navigation.pricing", bg: "bg-vinted", text: "text-white" },
-                { href: "#avis", labelKey: "footer.navigation.reviews", bg: "bg-white" },
-                { href: "#blog", labelKey: "footer.navigation.blog", bg: "bg-mint" }
+                { href: "/#hero", labelKey: "footer.navigation.home", bg: "bg-mint" },
+                { href: "/#avant-apres", labelKey: "footer.navigation.beforeAfter", bg: "bg-pink-pastel" },
+                { href: "/#tarifs", labelKey: "footer.navigation.pricing", bg: "bg-vinted", text: "text-white" },
+                { href: "/#avis", labelKey: "footer.navigation.reviews", bg: "bg-white" },
+                { href: "/#blog", labelKey: "footer.navigation.blog", bg: "bg-mint" }
               ].map((link) => (
-                <a 
+                <a
                   key={link.href}
-                  href={link.href} 
+                  href={link.href}
                   className={`${link.bg} ${link.text || 'text-black'} font-display font-bold text-sm px-4 py-2 border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform rotate-1 hover:rotate-0`}
                 >
                   {t(link.labelKey)}
