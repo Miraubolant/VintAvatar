@@ -46,6 +46,11 @@ export const ResultPage: React.FC = () => {
   const [croppedImageUrl, setCroppedImageUrl] = useState<string | null>(null);
   const [showCropped, setShowCropped] = useState(false);
 
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     if (id) {
       fetchResult();
@@ -248,16 +253,11 @@ export const ResultPage: React.FC = () => {
 
           {/* Generated image */}
           <div className="flex justify-center mb-6">
-            <div className="relative">
-              <img
-                src={displayedImage}
-                alt="Avatar IA genere"
-                className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
-              />
-              <div className="absolute -top-3 -left-3 bg-vinted text-white border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-6">
-                <span className="font-display font-bold text-xs">NEW</span>
-              </div>
-            </div>
+            <img
+              src={displayedImage}
+              alt="Avatar IA genere"
+              className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+            />
           </div>
 
           {/* Action buttons */}
@@ -270,7 +270,15 @@ export const ResultPage: React.FC = () => {
               {t('download', 'TELECHARGER')}
             </button>
             <button
-              onClick={handleCropHead}
+              onClick={() => {
+                if (croppedImageUrl) {
+                  // Toggle between cropped and original
+                  setShowCropped(!showCropped);
+                } else {
+                  // First time: crop the image
+                  handleCropHead();
+                }
+              }}
               disabled={isCropping}
               className="w-full sm:w-auto px-6 py-3 bg-pink-pastel text-black border-3 border-black font-display font-bold text-sm sm:text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
             >
@@ -278,18 +286,6 @@ export const ResultPage: React.FC = () => {
               {isCropping ? t('cropping', 'DECOUPE...') : (showCropped ? t('showOriginal', 'VOIR ORIGINAL') : t('cropHead', 'COUPER LA TETE'))}
             </button>
           </div>
-
-          {/* Toggle cropped/original */}
-          {croppedImageUrl && (
-            <div className="text-center mb-6">
-              <button
-                onClick={() => setShowCropped(!showCropped)}
-                className="text-sm font-body text-gray-600 underline hover:text-vinted transition-colors"
-              >
-                {showCropped ? t('showOriginal', 'Voir l\'image originale') : t('showCropped', 'Voir l\'image decoupee')}
-              </button>
-            </div>
-          )}
 
           {/* Title & Description section */}
           {result.vinted_listing && (
