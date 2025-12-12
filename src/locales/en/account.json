@@ -95,7 +95,11 @@
       "previous": "PREVIOUS",
       "next": "NEXT",
       "page": "PAGE"
-    }
+    },
+    "viewListing": "VIEW TITLE & DESCRIPTION",
+    "listingModalTitle": "AI TITLE & DESCRIPTION",
+    "titleLabel": "TITLE",
+    "descriptionLabel": "DESCRIPTION"
   },
   "affiliateTab": {
     "referralCode": {
@@ -171,6 +175,8 @@
     "seeLess": "SEE LESS",
     "processing": "PROCESSING...",
     "close": "CLOSE",
+    "copy": "COPY",
+    "copied": "COPIED!",
     "firstVisit": "FIRST VISIT?",
     "originalClothingPhotoAlt": "Original clothing photo before AI avatar generation Vinted",
     "downloadAlert": "Please right-click and \"Save as\" on this link: "

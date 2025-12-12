@@ -62,7 +62,9 @@
     "descriptionLabel": "DESCRIPCIÓN",
     "copyTitle": "COPIAR",
     "copyDescription": "COPIAR",
-    "copied": "¡COPIADO!"
+    "copied": "¡COPIADO!",
+    "aiDisclaimer": "Imagen generada por IA a partir de tu foto. Muestra el artículo llevado pero no garantiza una reproducción fiel de los detalles (logos, texturas, corte). Recomendamos indicar que es una foto IA al publicar.",
+    "regenerate": "NUEVA GENERACIÓN"
   },
   "requirements": {
     "title": "¿FOTO PERFECTA?",

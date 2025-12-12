@@ -62,7 +62,9 @@
     "descriptionLabel": "DESCRIZIONE",
     "copyTitle": "COPIA",
     "copyDescription": "COPIA",
-    "copied": "COPIATO!"
+    "copied": "COPIATO!",
+    "aiDisclaimer": "Immagine generata dall'IA dalla tua foto. Valorizza l'articolo indossato ma non garantisce una riproduzione fedele dei dettagli (loghi, texture, taglio). Consigliamo di indicare che si tratta di una foto IA durante la pubblicazione.",
+    "regenerate": "NUOVA GENERAZIONE"
   },
   "requirements": {
     "title": "FOTO PERFETTA?",

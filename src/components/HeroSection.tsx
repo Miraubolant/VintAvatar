@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkles, Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, History, HelpCircle, Copy, Check } from 'lucide-react';
+import { Sparkles, Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, History, HelpCircle, Copy, Check, AlertTriangle, RefreshCw } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AvatarConfigModal } from './AvatarConfigModal';
 import { GenerationLoadingModal } from './GenerationLoadingModal';
@@ -306,10 +306,14 @@ export const HeroSection: React.FC = () => {
           setGeneratedResult(finalImageUrl);
 
           // Store the Vinted listing if available
+          console.log('API Response - vinted_listing:', data.vinted_listing);
           if (data.vinted_listing) {
+            console.log('Setting vintedListing state:', data.vinted_listing);
             setVintedListing(data.vinted_listing);
             setCopiedTitle(false);
             setCopiedDescription(false);
+          } else {
+            console.log('No vinted_listing in response');
           }
 
           setIsGenerating(false);
@@ -788,71 +792,105 @@ export const HeroSection: React.FC = () => {
 
                 {/* Section Titre & Description optimisés par IA */}
                 {vintedListing && (
-                  <div className="border-t-4 border-black pt-6">
-                    {/* Header de la section */}
-                    <div className="text-center mb-4">
-                      <div className="inline-block bg-vinted border-3 border-black px-4 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
-                        <div className="flex items-center gap-2">
-                          <Sparkles className="w-4 h-4 text-white" />
-                          <span className="font-display font-bold text-sm text-white">
+                  <div className="border-t-4 border-black pt-6 mt-2">
+                    {/* Header de la section - Plus visible */}
+                    <div className="text-center mb-6">
+                      <div className="inline-block bg-gradient-to-r from-vinted to-teal-500 border-4 border-black px-6 py-3 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                        <div className="flex items-center gap-3">
+                          <Sparkles className="w-5 h-5 text-white animate-pulse" />
+                          <span className="font-display font-bold text-base sm:text-lg text-white tracking-wide">
                             {t('interface.listingTitle', 'TITRE & DESCRIPTION OPTIMISÉS')}
                           </span>
-                          <Sparkles className="w-4 h-4 text-white" />
+                          <Sparkles className="w-5 h-5 text-white animate-pulse" />
                         </div>
                       </div>
-                      <p className="font-body text-xs text-gray-600 mt-2">
+                      <p className="font-body text-sm text-gray-600 mt-3 max-w-md mx-auto">
                         {t('interface.listingSubtitle', 'Votre annonce améliorée par l\'IA pour vendre plus vite')}
                       </p>
                     </div>
 
-                    {/* Titre */}
-                    <div className="mb-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-display font-bold text-xs text-black bg-mint px-2 py-1 border-2 border-black">
-                          {t('interface.titleLabel', 'TITRE')}
-                        </span>
-                        <button
-                          onClick={() => {
-                            navigator.clipboard.writeText(vintedListing.title);
-                            setCopiedTitle(true);
-                            setTimeout(() => setCopiedTitle(false), 2000);
-                          }}
-                          className={`flex items-center gap-1 px-3 py-1 border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                            copiedTitle ? 'bg-mint text-black' : 'bg-white text-black'
-                          }`}
-                        >
-                          {copiedTitle ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
-                          {copiedTitle ? t('interface.copied', 'COPIÉ !') : t('interface.copyTitle', 'COPIER')}
-                        </button>
+                    {/* Container pour Titre et Description */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+                      {/* Titre */}
+                      <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-2">
+                            <div className="w-3 h-3 bg-mint border-2 border-black transform rotate-45"></div>
+                            <span className="font-display font-bold text-sm text-black">
+                              {t('interface.titleLabel', 'TITRE')}
+                            </span>
+                          </div>
+                          <button
+                            onClick={() => {
+                              navigator.clipboard.writeText(vintedListing.title);
+                              setCopiedTitle(true);
+                              setTimeout(() => setCopiedTitle(false), 2000);
+                            }}
+                            className={`flex items-center gap-1.5 px-3 py-1.5 border-3 border-black font-display font-bold text-xs shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                              copiedTitle ? 'bg-mint text-black' : 'bg-vinted text-white'
+                            }`}
+                          >
+                            {copiedTitle ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                            {copiedTitle ? t('interface.copied', 'COPIÉ !') : t('interface.copyTitle', 'COPIER')}
+                          </button>
+                        </div>
+                        <div className="bg-cream border-3 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                          <p className="font-display font-bold text-black text-base sm:text-lg">{vintedListing.title}</p>
+                        </div>
                       </div>
-                      <div className="bg-cream border-3 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <p className="font-body font-semibold text-black text-sm">{vintedListing.title}</p>
+
+                      {/* Description */}
+                      <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-2">
+                            <div className="w-3 h-3 bg-pink-pastel border-2 border-black transform rotate-45"></div>
+                            <span className="font-display font-bold text-sm text-black">
+                              {t('interface.descriptionLabel', 'DESCRIPTION')}
+                            </span>
+                          </div>
+                          <button
+                            onClick={() => {
+                              navigator.clipboard.writeText(vintedListing.description);
+                              setCopiedDescription(true);
+                              setTimeout(() => setCopiedDescription(false), 2000);
+                            }}
+                            className={`flex items-center gap-1.5 px-3 py-1.5 border-3 border-black font-display font-bold text-xs shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                              copiedDescription ? 'bg-mint text-black' : 'bg-vinted text-white'
+                            }`}
+                          >
+                            {copiedDescription ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                            {copiedDescription ? t('interface.copied', 'COPIÉ !') : t('interface.copyDescription', 'COPIER')}
+                          </button>
+                        </div>
+                        <div className="bg-cream border-3 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] max-h-40 overflow-y-auto">
+                          <p className="font-body text-black text-sm whitespace-pre-line leading-relaxed">{vintedListing.description}</p>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Description */}
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-display font-bold text-xs text-black bg-pink-pastel px-2 py-1 border-2 border-black">
-                          {t('interface.descriptionLabel', 'DESCRIPTION')}
-                        </span>
-                        <button
-                          onClick={() => {
-                            navigator.clipboard.writeText(vintedListing.description);
-                            setCopiedDescription(true);
-                            setTimeout(() => setCopiedDescription(false), 2000);
-                          }}
-                          className={`flex items-center gap-1 px-3 py-1 border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                            copiedDescription ? 'bg-mint text-black' : 'bg-white text-black'
-                          }`}
-                        >
-                          {copiedDescription ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
-                          {copiedDescription ? t('interface.copied', 'COPIÉ !') : t('interface.copyDescription', 'COPIER')}
-                        </button>
+                    {/* Disclaimer */}
+                    <div className="mt-6 bg-amber-50 border-3 border-amber-400 p-4 shadow-[3px_3px_0px_0px_rgba(251,191,36,1)]">
+                      <div className="flex items-start gap-3">
+                        <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                        <p className="font-body text-xs sm:text-sm text-amber-800 leading-relaxed">
+                          {t('interface.aiDisclaimer', 'Image générée par IA à partir de votre photo. Elle met en valeur l\'article porté mais ne garantit pas une reproduction fidèle des détails (logos, textures, coupe). Nous recommandons d\'indiquer qu\'il s\'agit d\'une photo IA lors de la publication.')}
+                        </p>
                       </div>
-                      <div className="bg-cream border-3 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <p className="font-body text-black text-sm whitespace-pre-line">{vintedListing.description}</p>
-                      </div>
+                    </div>
+
+                    {/* Bouton Régénérer */}
+                    <div className="mt-6 text-center">
+                      <button
+                        onClick={() => {
+                          setGeneratedResult(null);
+                          setVintedListing(null);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black border-3 border-black font-display font-bold text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                      >
+                        <RefreshCw className="w-4 h-4" />
+                        {t('interface.regenerate', 'NOUVELLE GÉNÉRATION')}
+                      </button>
                     </div>
                   </div>
                 )}

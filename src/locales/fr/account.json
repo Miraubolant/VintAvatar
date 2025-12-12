@@ -95,7 +95,11 @@
       "previous": "PRÉCÉDENT",
       "next": "SUIVANT",
       "page": "PAGE"
-    }
+    },
+    "viewListing": "VOIR TITRE & DESCRIPTION",
+    "listingModalTitle": "TITRE & DESCRIPTION IA",
+    "titleLabel": "TITRE",
+    "descriptionLabel": "DESCRIPTION"
   },
   "affiliateTab": {
     "referralCode": {
@@ -171,6 +175,8 @@
     "seeLess": "VOIR MOINS",
     "processing": "TRAITEMENT...",
     "close": "FERMER",
+    "copy": "COPIER",
+    "copied": "COPIÉ !",
     "firstVisit": "PREMIÈRE VISITE ?",
     "originalClothingPhotoAlt": "Photo vêtement originale avant génération avatar IA Vinted",
     "downloadAlert": "Veuillez faire clic droit et \"Enregistrer sous\" sur ce lien: "

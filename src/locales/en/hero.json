@@ -62,7 +62,9 @@
     "descriptionLabel": "DESCRIPTION",
     "copyTitle": "COPY",
     "copyDescription": "COPY",
-    "copied": "COPIED!"
+    "copied": "COPIED!",
+    "aiDisclaimer": "AI-generated image from your photo. It showcases the item worn but does not guarantee accurate reproduction of specific details (logos, textures, cut). We recommend mentioning it's an AI photo when publishing.",
+    "regenerate": "NEW GENERATION"
   },
   "requirements": {
     "title": "PERFECT PHOTO?",
