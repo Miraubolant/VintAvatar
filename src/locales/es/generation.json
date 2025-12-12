@@ -2,19 +2,23 @@
   "stages": {
     "analyzing": {
       "title": "ANÁLISIS",
-      "message": "Analizando tu ropa en progreso"
+      "message": "Analizando tu ropa en progreso",
+      "short": "ANÁLISIS"
     },
     "generating": {
       "title": "GENERACIÓN",
-      "message": "Generando tu avatar en progreso"
+      "message": "Generando tu avatar en progreso",
+      "short": "CREAR"
     },
     "saving": {
       "title": "FINALIZANDO",
-      "message": "Finalizando y guardando"
+      "message": "Finalizando y guardando",
+      "short": "GUARDAR"
     },
     "complete": {
-      "title": "COMPLETADO",
-      "message": "Generación completada con éxito"
+      "title": "COMPLETADO!",
+      "message": "Generación completada con éxito",
+      "short": "HECHO"
     }
   }
 }
