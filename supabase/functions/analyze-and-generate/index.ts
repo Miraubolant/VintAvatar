@@ -64,22 +64,38 @@ async function generateVintedListing(imageUrl: string, clothingType: string): Pr
 
   const clothingLabel = clothingTypeLabels[clothingType] || 'vêtement'
 
-  const prompt = `Tu es un expert de la vente sur Vinted. Analyse cette image de ${clothingLabel} et génère:
+  const prompt = `Tu es un EXPERT de la mode et de la vente sur Vinted avec 10 ans d'expérience. Analyse cette image de ${clothingLabel} en détail.
 
-1. Un TITRE accrocheur pour Vinted (max 50 caractères, en français)
-2. Une DESCRIPTION optimisée pour vendre (5-6 lignes, en français)
+ÉTAPE 1 - ANALYSE VISUELLE APPROFONDIE:
+- Examine attentivement les LOGOS, ÉTIQUETTES, MOTIFS ou DÉTAILS distinctifs
+- Si tu reconnais une MARQUE (Nike, Adidas, Zara, H&M, Levi's, Ralph Lauren, etc.), mentionne-la
+- Si tu n'es pas sûr de la marque, décris le style qui pourrait indiquer une marque (ex: "style sportswear premium", "coupe workwear")
+- Identifie la MATIÈRE probable (coton, polyester, cuir, laine, denim, etc.)
+- Note la COULEUR exacte et les MOTIFS (uni, rayé, imprimé, etc.)
 
-La description doit inclure:
-- Le type de vêtement
-- La couleur et les détails visuels importants
-- Le style (casual, élégant, sportif, etc.)
-- Des mots-clés populaires sur Vinted
-- Une phrase d'accroche finale
+ÉTAPE 2 - GÉNÈRE:
+
+1. Un TITRE VENDEUR (max 50 caractères, français):
+   - Si marque identifiée: "[Marque] - [Type] [Couleur/Détail]"
+   - Si marque incertaine: "[Type] [Style] - [Couleur/Détail]"
+   - Utilise des mots-clés recherchés: vintage, Y2K, oversize, slim, etc.
+
+2. Une DESCRIPTION OPTIMISÉE (6-8 lignes, français):
+   Ligne 1: Type de vêtement + marque (si identifiée) ou style
+   Ligne 2: Couleur précise + motifs
+   Ligne 3: Matière probable + qualité perçue
+   Ligne 4: Coupe/fit (slim, oversize, regular, crop, etc.)
+   Ligne 5: Taille estimée si visible ou "voir mesures"
+   Ligne 6: État (très bon état, comme neuf, etc.)
+   Ligne 7: Occasion idéale (casual, soirée, sport, travail)
+   Ligne 8: Accroche finale engageante
+
+IMPORTANT: Si tu vois un logo ou un détail de marque, MENTIONNE-LE. Les acheteurs Vinted recherchent par marque!
 
 Réponds UNIQUEMENT au format JSON strict:
 {"title": "...", "description": "..."}
 
-Ne mets pas de markdown, pas de backticks, juste le JSON.`
+Pas de markdown, pas de backticks, juste le JSON.`
 
   try {
     // Call LLaVA model on Replicate

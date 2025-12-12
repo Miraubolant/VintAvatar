@@ -2,6 +2,11 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from './useAuth';
 
+export interface VintedListing {
+  title: string;
+  description: string;
+}
+
 export interface GenerationHistoryItem {
   id: string;
   created_at: string;
@@ -12,6 +17,7 @@ export interface GenerationHistoryItem {
   clothing_analysis: any;
   generation_config: any;
   model_used: string;
+  vinted_listing: VintedListing | null;
 }
 
 export const useGenerationHistory = () => {
@@ -96,7 +102,8 @@ export const useGenerationHistory = () => {
             generated_image_url: item.metadata?.generated_image_url || '',
             clothing_analysis: item.metadata?.clothing_analysis || {},
             generation_config: item.metadata?.generation_config || {},
-            model_used: item.metadata?.model_used || 'unknown'
+            model_used: item.metadata?.model_used || 'unknown',
+            vinted_listing: item.metadata?.vinted_listing || null
           };
         })
       );

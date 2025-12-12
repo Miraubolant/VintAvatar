@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useSEO, SEO_CONFIGS } from '../hooks/useSEO';
-import { 
-  User, 
-  CreditCard, 
-  TrendingUp, 
-  Zap, 
+import {
+  User,
+  CreditCard,
+  TrendingUp,
+  Zap,
   ArrowLeft,
   Clock,
   Target,
@@ -19,7 +19,10 @@ import {
   X,
   Copy,
   Gift,
-  Scissors
+  Scissors,
+  FileText,
+  Sparkles,
+  Check
 } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { useAccountStats } from '../hooks/useAccountStats';
@@ -51,6 +54,10 @@ export const AccountPage: React.FC = () => {
   const [isCropping, setIsCropping] = useState(false);
   const [showCroppedVersion, setShowCroppedVersion] = useState(false);
   const [cropError, setCropError] = useState<string | null>(null);
+  const [isListingModalOpen, setIsListingModalOpen] = useState(false);
+  const [selectedListing, setSelectedListing] = useState<{ title: string; description: string } | null>(null);
+  const [copiedListingTitle, setCopiedListingTitle] = useState(false);
+  const [copiedListingDescription, setCopiedListingDescription] = useState(false);
   const { user, loading: authLoading, deleteUserAccount } = useAuth();
   const { stats, loading, error, formatDate, formatDateTime } = useAccountStats();
   const { history, loading: historyLoading, error: historyError, formatDateTime: formatHistoryDateTime } = useGenerationHistory();
@@ -742,7 +749,7 @@ export const AccountPage: React.FC = () => {
                         )}
 
                         {/* Actions */}
-                        <div className="flex gap-2">
+                        <div className="flex flex-wrap gap-2">
                           {item.generated_image_url && (
                             <>
                               <button
@@ -760,6 +767,20 @@ export const AccountPage: React.FC = () => {
                                 {t('historyTab.downloadImage')}
                               </button>
                             </>
+                          )}
+                          {item.vinted_listing && (
+                            <button
+                              onClick={() => {
+                                setSelectedListing(item.vinted_listing);
+                                setIsListingModalOpen(true);
+                                setCopiedListingTitle(false);
+                                setCopiedListingDescription(false);
+                              }}
+                              className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-r from-vinted to-teal-500 text-white border-3 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                            >
+                              <FileText className="w-4 h-4" />
+                              <span>{t('historyTab.viewListing', 'VOIR TITRE & DESCRIPTION')}</span>
+                            </button>
                           )}
                         </div>
                       </div>
@@ -1076,6 +1097,102 @@ export const AccountPage: React.FC = () => {
                     {showCroppedVersion ? 'VOIR ORIGINAL' : 'VOIR SANS TÊTE'}
                   </button>
                 )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Listing Modal - Popup for Title & Description */}
+        {isListingModalOpen && selectedListing && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+            onClick={() => setIsListingModalOpen(false)}
+          >
+            <div
+              className="relative bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-lg w-full max-h-[90vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="flex justify-between items-center p-4 bg-gradient-to-r from-vinted to-teal-500 border-b-4 border-black sticky top-0">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-white" />
+                  <h3 className="font-display font-bold text-white">{t('historyTab.listingModalTitle', 'TITRE & DESCRIPTION IA')}</h3>
+                </div>
+                <button
+                  onClick={() => setIsListingModalOpen(false)}
+                  className="p-2 bg-white border-3 border-black font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-4 space-y-4">
+                {/* Title */}
+                <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 bg-mint border-2 border-black transform rotate-45"></div>
+                      <span className="font-display font-bold text-sm text-black">
+                        {t('historyTab.titleLabel', 'TITRE')}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(selectedListing.title);
+                        setCopiedListingTitle(true);
+                        setTimeout(() => setCopiedListingTitle(false), 2000);
+                      }}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 border-3 border-black font-display font-bold text-xs shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                        copiedListingTitle ? 'bg-mint text-black' : 'bg-vinted text-white'
+                      }`}
+                    >
+                      {copiedListingTitle ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      {copiedListingTitle ? t('common.copied', 'COPIÉ !') : t('common.copy', 'COPIER')}
+                    </button>
+                  </div>
+                  <div className="bg-cream border-3 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <p className="font-display font-bold text-black text-base">{selectedListing.title}</p>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 bg-pink-pastel border-2 border-black transform rotate-45"></div>
+                      <span className="font-display font-bold text-sm text-black">
+                        {t('historyTab.descriptionLabel', 'DESCRIPTION')}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(selectedListing.description);
+                        setCopiedListingDescription(true);
+                        setTimeout(() => setCopiedListingDescription(false), 2000);
+                      }}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 border-3 border-black font-display font-bold text-xs shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                        copiedListingDescription ? 'bg-mint text-black' : 'bg-vinted text-white'
+                      }`}
+                    >
+                      {copiedListingDescription ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      {copiedListingDescription ? t('common.copied', 'COPIÉ !') : t('common.copy', 'COPIER')}
+                    </button>
+                  </div>
+                  <div className="bg-cream border-3 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] max-h-48 overflow-y-auto">
+                    <p className="font-body text-black text-sm whitespace-pre-line leading-relaxed">{selectedListing.description}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="p-4 bg-cream border-t-4 border-black">
+                <button
+                  onClick={() => setIsListingModalOpen(false)}
+                  className="w-full px-4 py-3 bg-white text-black border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                >
+                  {t('common.close', 'FERMER')}
+                </button>
               </div>
             </div>
           </div>
