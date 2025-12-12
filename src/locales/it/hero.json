@@ -55,7 +55,14 @@
     "viewLarge": "VEDI IN GRANDE",
     "download": "SCARICA",
     "viewHistory": "VEDI STORICO",
-    "generating": "GENERANDO..."
+    "generating": "GENERANDO...",
+    "listingTitle": "TITOLO E DESCRIZIONE OTTIMIZZATI",
+    "listingSubtitle": "Il tuo annuncio migliorato dall'IA per vendere più velocemente",
+    "titleLabel": "TITOLO",
+    "descriptionLabel": "DESCRIZIONE",
+    "copyTitle": "COPIA",
+    "copyDescription": "COPIA",
+    "copied": "COPIATO!"
   },
   "requirements": {
     "title": "FOTO PERFETTA?",

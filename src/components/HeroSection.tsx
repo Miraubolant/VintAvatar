@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkles, Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, History, HelpCircle } from 'lucide-react';
+import { Sparkles, Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, History, HelpCircle, Copy, Check } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AvatarConfigModal } from './AvatarConfigModal';
 import { GenerationLoadingModal } from './GenerationLoadingModal';
@@ -22,6 +22,9 @@ export const HeroSection: React.FC = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [generationStage, setGenerationStage] = useState<'analyzing' | 'generating' | 'saving' | 'complete'>('analyzing');
   const [generatedResult, setGeneratedResult] = useState<string | null>(null);
+  const [vintedListing, setVintedListing] = useState<{ title: string; description: string } | null>(null);
+  const [copiedTitle, setCopiedTitle] = useState(false);
+  const [copiedDescription, setCopiedDescription] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   const [showImageRequiredModal, setShowImageRequiredModal] = useState(false);
@@ -285,11 +288,11 @@ export const HeroSection: React.FC = () => {
 
       if (data.success) {
         setGenerationStage('complete');
-        
+
         // Laisser voir "complete" pendant 2 secondes
         setTimeout(async () => {
           let finalImageUrl = data.generated_image_url;
-          
+
           // Appliquer le crop si demandé dans la configuration
           if (config.cropHead) {
             try {
@@ -299,8 +302,16 @@ export const HeroSection: React.FC = () => {
               // Continuer avec l'image originale en cas d'erreur de crop
             }
           }
-          
+
           setGeneratedResult(finalImageUrl);
+
+          // Store the Vinted listing if available
+          if (data.vinted_listing) {
+            setVintedListing(data.vinted_listing);
+            setCopiedTitle(false);
+            setCopiedDescription(false);
+          }
+
           setIsGenerating(false);
 
           // Scroll vers le résultat généré (surtout important sur mobile)
@@ -311,7 +322,7 @@ export const HeroSection: React.FC = () => {
             });
           }, 100);
         }, 2000);
-        
+
         // Optionally show analysis results
         console.log('Analysis:', data.analysis);
       } else {
@@ -734,7 +745,7 @@ export const HeroSection: React.FC = () => {
                 </div>
 
                 {/* Boutons d'action - Responsive */}
-                <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6">
                   <button
                     onClick={() => window.open(generatedResult, '_blank')}
                     className="w-full sm:w-auto px-6 py-3 bg-vinted text-white border-3 border-black font-display font-bold text-sm sm:text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
@@ -774,6 +785,77 @@ export const HeroSection: React.FC = () => {
                     {t('interface.viewHistory')}
                   </button>
                 </div>
+
+                {/* Section Titre & Description optimisés par IA */}
+                {vintedListing && (
+                  <div className="border-t-4 border-black pt-6">
+                    {/* Header de la section */}
+                    <div className="text-center mb-4">
+                      <div className="inline-block bg-vinted border-3 border-black px-4 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+                        <div className="flex items-center gap-2">
+                          <Sparkles className="w-4 h-4 text-white" />
+                          <span className="font-display font-bold text-sm text-white">
+                            {t('interface.listingTitle', 'TITRE & DESCRIPTION OPTIMISÉS')}
+                          </span>
+                          <Sparkles className="w-4 h-4 text-white" />
+                        </div>
+                      </div>
+                      <p className="font-body text-xs text-gray-600 mt-2">
+                        {t('interface.listingSubtitle', 'Votre annonce améliorée par l\'IA pour vendre plus vite')}
+                      </p>
+                    </div>
+
+                    {/* Titre */}
+                    <div className="mb-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-display font-bold text-xs text-black bg-mint px-2 py-1 border-2 border-black">
+                          {t('interface.titleLabel', 'TITRE')}
+                        </span>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText(vintedListing.title);
+                            setCopiedTitle(true);
+                            setTimeout(() => setCopiedTitle(false), 2000);
+                          }}
+                          className={`flex items-center gap-1 px-3 py-1 border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                            copiedTitle ? 'bg-mint text-black' : 'bg-white text-black'
+                          }`}
+                        >
+                          {copiedTitle ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                          {copiedTitle ? t('interface.copied', 'COPIÉ !') : t('interface.copyTitle', 'COPIER')}
+                        </button>
+                      </div>
+                      <div className="bg-cream border-3 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        <p className="font-body font-semibold text-black text-sm">{vintedListing.title}</p>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-display font-bold text-xs text-black bg-pink-pastel px-2 py-1 border-2 border-black">
+                          {t('interface.descriptionLabel', 'DESCRIPTION')}
+                        </span>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText(vintedListing.description);
+                            setCopiedDescription(true);
+                            setTimeout(() => setCopiedDescription(false), 2000);
+                          }}
+                          className={`flex items-center gap-1 px-3 py-1 border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                            copiedDescription ? 'bg-mint text-black' : 'bg-white text-black'
+                          }`}
+                        >
+                          {copiedDescription ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                          {copiedDescription ? t('interface.copied', 'COPIÉ !') : t('interface.copyDescription', 'COPIER')}
+                        </button>
+                      </div>
+                      <div className="bg-cream border-3 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        <p className="font-body text-black text-sm whitespace-pre-line">{vintedListing.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}
