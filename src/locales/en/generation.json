@@ -2,19 +2,23 @@
   "stages": {
     "analyzing": {
       "title": "ANALYSIS",
-      "message": "Analyzing your clothing in progress"
+      "message": "Analyzing your clothing in progress",
+      "short": "ANALYZE"
     },
     "generating": {
       "title": "GENERATION",
-      "message": "Generating your avatar in progress"
+      "message": "Generating your avatar in progress",
+      "short": "CREATE"
     },
     "saving": {
       "title": "FINALIZING",
-      "message": "Finalizing and saving"
+      "message": "Finalizing and saving",
+      "short": "SAVE"
     },
     "complete": {
-      "title": "COMPLETE",
-      "message": "Generation completed successfully"
+      "title": "COMPLETE!",
+      "message": "Generation completed successfully",
+      "short": "DONE"
     }
   }
 }
