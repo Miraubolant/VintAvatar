@@ -1,0 +1,33 @@
+{
+  "loading": "CARICAMENTO...",
+  "success": "AVATAR GENERATO CON SUCCESSO",
+  "generatedAt": "Generato il",
+  "back": "INDIETRO",
+  "viewLarge": "VEDI IN GRANDE",
+  "download": "SCARICA",
+  "cropHead": "TAGLIA TESTA",
+  "cropping": "TAGLIANDO...",
+  "showOriginal": "Vedi immagine originale",
+  "showCropped": "Vedi immagine ritagliata",
+  "listingTitle": "TITOLO E DESCRIZIONE",
+  "listingSubtitle": "Il tuo annuncio migliorato dall'IA per vendere piu velocemente",
+  "titleLabel": "TITOLO",
+  "descriptionLabel": "DESCRIZIONE",
+  "copy": "COPIA",
+  "copied": "COPIATO!",
+  "aiDisclaimer": "Immagine generata dall'IA dalla tua foto. Valorizza l'articolo indossato ma non garantisce una riproduzione fedele dei dettagli (loghi, texture, taglio). Consigliamo di indicare che si tratta di una foto IA durante la pubblicazione.",
+  "newGeneration": "NUOVA GENERAZIONE",
+  "viewHistory": "Vedi tutta la cronologia",
+  "share": {
+    "button": "CONDIVIDI",
+    "title": "Il mio avatar VintDress",
+    "text": "Guarda il mio avatar generato dall'IA!"
+  },
+  "linkCopied": "LINK COPIATO!",
+  "errors": {
+    "title": "OPS!",
+    "notFound": "Generazione non trovata",
+    "loading": "Errore nel caricamento"
+  },
+  "backToHome": "TORNA ALLA HOME"
+}

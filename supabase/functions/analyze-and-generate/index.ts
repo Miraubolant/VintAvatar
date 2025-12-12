@@ -261,8 +261,8 @@ Deno.serve(async (req) => {
     // Step 5: Save generated image to storage
     const finalImageUrl = await saveGeneratedImage(supabaseClient, generatedImageUrl, userId)
 
-    // Step 6: Track usage (include listing data)
-    await trackUsage(supabaseClient, userId, originalImageUrl, finalImageUrl, config, vintedListing)
+    // Step 6: Track usage (include listing data) and get the generation ID
+    const generationId = await trackUsage(supabaseClient, userId, originalImageUrl, finalImageUrl, config, vintedListing)
 
     // Step 7: Use credit from subscription
     await useUserCredit(supabaseClient, userId)
@@ -270,6 +270,7 @@ Deno.serve(async (req) => {
     return new Response(
       JSON.stringify({
         success: true,
+        generation_id: generationId,
         generated_image_url: finalImageUrl,
         vinted_listing: vintedListing
       }),
@@ -612,8 +613,8 @@ async function trackUsage(
   generatedUrl: string,
   config: GenerationConfig,
   vintedListing?: VintedListing
-) {
-  const { error } = await supabase
+): Promise<string> {
+  const { data, error } = await supabase
     .from('usage_tracking')
     .insert({
       user_id: userId,
@@ -630,8 +631,11 @@ async function trackUsage(
         vinted_listing: vintedListing || null
       }
     })
+    .select('id')
+    .single()
 
   if (error) throw error
+  return data.id
 }
 
 async function useUserCredit(supabase: any, userId: string) {

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkles, Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, History, HelpCircle, Copy, Check, AlertTriangle, RefreshCw } from 'lucide-react';
+import { Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, HelpCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AvatarConfigModal } from './AvatarConfigModal';
 import { GenerationLoadingModal } from './GenerationLoadingModal';
@@ -8,7 +8,6 @@ import { OnboardingGuide } from './OnboardingGuide';
 import { useAuth } from '../hooks/useAuth';
 import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
-import { cropHead } from '../utils/headCropper';
 
 export const HeroSection: React.FC = () => {
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
@@ -21,17 +20,12 @@ export const HeroSection: React.FC = () => {
   const [hasStoredConfig, setHasStoredConfig] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [generationStage, setGenerationStage] = useState<'analyzing' | 'generating' | 'saving' | 'complete'>('analyzing');
-  const [generatedResult, setGeneratedResult] = useState<string | null>(null);
-  const [vintedListing, setVintedListing] = useState<{ title: string; description: string } | null>(null);
-  const [copiedTitle, setCopiedTitle] = useState(false);
-  const [copiedDescription, setCopiedDescription] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   const [showImageRequiredModal, setShowImageRequiredModal] = useState(false);
   const [showAuthRequiredModal, setShowAuthRequiredModal] = useState(false);
   const [showOnboardingGuide, setShowOnboardingGuide] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const generatedResultRef = useRef<HTMLDivElement>(null);
 
   const { user, session } = useAuth();
   const navigate = useNavigate();
@@ -286,49 +280,15 @@ export const HeroSection: React.FC = () => {
         throw functionError;
       }
 
-      if (data.success) {
+      if (data.success && data.generation_id) {
         setGenerationStage('complete');
 
-        // Laisser voir "complete" pendant 2 secondes
-        setTimeout(async () => {
-          let finalImageUrl = data.generated_image_url;
-
-          // Appliquer le crop si demandé dans la configuration
-          if (config.cropHead) {
-            try {
-              finalImageUrl = await cropHead(data.generated_image_url);
-            } catch (cropError) {
-              console.error('Erreur lors du crop automatique:', cropError);
-              // Continuer avec l'image originale en cas d'erreur de crop
-            }
-          }
-
-          setGeneratedResult(finalImageUrl);
-
-          // Store the Vinted listing if available
-          console.log('API Response - vinted_listing:', data.vinted_listing);
-          if (data.vinted_listing) {
-            console.log('Setting vintedListing state:', data.vinted_listing);
-            setVintedListing(data.vinted_listing);
-            setCopiedTitle(false);
-            setCopiedDescription(false);
-          } else {
-            console.log('No vinted_listing in response');
-          }
-
+        // Laisser voir "complete" pendant 2 secondes puis rediriger vers la page résultat
+        setTimeout(() => {
           setIsGenerating(false);
-
-          // Scroll vers le résultat généré (surtout important sur mobile)
-          setTimeout(() => {
-            generatedResultRef.current?.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center'
-            });
-          }, 100);
+          // Rediriger vers la page de résultat avec l'ID de la génération
+          navigate(`/result/${data.generation_id}`);
         }, 2000);
-
-        // Optionally show analysis results
-        console.log('Analysis:', data.analysis);
       } else {
         throw new Error(data.error || 'Erreur lors de la génération');
       }
@@ -711,190 +671,6 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-{/* Affichage du résultat généré - Mise en avant */}
-          {generatedResult && (
-            <div ref={generatedResultRef} className="max-w-4xl mx-auto mt-8 px-2 sm:px-0">
-              <div className="bg-white border-4 border-black p-4 sm:p-6 lg:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
-
-                {/* Éléments décoratifs */}
-                <div className="absolute -top-4 -right-4 w-10 h-10 bg-mint border-3 border-black transform rotate-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hidden sm:block"></div>
-                <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-pink-pastel border-3 border-black transform -rotate-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hidden sm:block"></div>
-
-                {/* Badge succès */}
-                <div className="text-center mb-4 sm:mb-6">
-                  <div className="inline-block bg-mint border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-                    <div className="flex items-center gap-2">
-                      <Star className="w-5 h-5 text-vinted" />
-                      <span className="font-display font-bold text-base sm:text-lg text-black">
-                        {t('interface.generationSuccess')}
-                      </span>
-                      <Star className="w-5 h-5 text-vinted" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Image générée - Grande et centrée */}
-                <div className="flex justify-center mb-6">
-                  <div className="relative">
-                    <img
-                      src={generatedResult}
-                      alt="Avatar IA généré automatiquement pour photo Vinted portée réaliste"
-                      className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
-                    />
-                    {/* Badge "Nouveau" sur l'image */}
-                    <div className="absolute -top-3 -left-3 bg-vinted text-white border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-6">
-                      <span className="font-display font-bold text-xs">NEW</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Boutons d'action - Responsive */}
-                <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6">
-                  <button
-                    onClick={() => window.open(generatedResult, '_blank')}
-                    className="w-full sm:w-auto px-6 py-3 bg-vinted text-white border-3 border-black font-display font-bold text-sm sm:text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-                  >
-                    {t('interface.viewLarge')}
-                  </button>
-                  <button
-                    onClick={async () => {
-                      try {
-                        const response = await fetch(generatedResult);
-                        const blob = await response.blob();
-                        const blobUrl = URL.createObjectURL(blob);
-
-                        const link = document.createElement('a');
-                        link.href = blobUrl;
-                        link.download = `avatar-vintdress-${Date.now()}.jpg`;
-                        link.click();
-
-                        URL.revokeObjectURL(blobUrl);
-                      } catch (error) {
-                        console.error('Download error:', error);
-                        window.open(generatedResult, '_blank');
-                      }
-                    }}
-                    className="w-full sm:w-auto px-6 py-3 bg-mint text-black border-3 border-black font-display font-bold text-sm sm:text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-                  >
-                    {t('interface.download')}
-                  </button>
-                  <button
-                    onClick={() => {
-                      navigate('/account?tab=history');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="w-full sm:w-auto px-6 py-3 bg-pink-pastel text-black border-3 border-black font-display font-bold text-sm sm:text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2"
-                  >
-                    <History className="w-4 h-4" />
-                    {t('interface.viewHistory')}
-                  </button>
-                </div>
-
-                {/* Section Titre & Description par IA */}
-                {vintedListing && (
-                  <div className="border-t-4 border-black pt-6 mt-2">
-                    {/* Header de la section */}
-                    <div className="text-center mb-6">
-                      <div className="inline-flex items-center gap-3 bg-vinted border-4 border-black px-6 py-3 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
-                        <Sparkles className="w-5 h-5 text-white" />
-                        <span className="font-display font-bold text-base sm:text-lg text-white tracking-wide">
-                          {t('interface.listingTitle', 'TITRE & DESCRIPTION')}
-                        </span>
-                        <Sparkles className="w-5 h-5 text-white" />
-                      </div>
-                      <p className="font-body text-sm text-gray-600 mt-3 max-w-md mx-auto">
-                        {t('interface.listingSubtitle', 'Votre annonce améliorée par l\'IA pour vendre plus vite')}
-                      </p>
-                    </div>
-
-                    {/* Container pour Titre et Description */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-                      {/* Titre */}
-                      <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                        <div className="flex items-center justify-between mb-3">
-                          <div className="flex items-center gap-2">
-                            <div className="w-3 h-3 bg-mint border-2 border-black transform rotate-45"></div>
-                            <span className="font-display font-bold text-sm text-black">
-                              {t('interface.titleLabel', 'TITRE')}
-                            </span>
-                          </div>
-                          <button
-                            onClick={() => {
-                              navigator.clipboard.writeText(vintedListing.title);
-                              setCopiedTitle(true);
-                              setTimeout(() => setCopiedTitle(false), 2000);
-                            }}
-                            className={`flex items-center gap-1.5 px-3 py-1.5 border-3 border-black font-display font-bold text-xs shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                              copiedTitle ? 'bg-mint text-black' : 'bg-vinted text-white'
-                            }`}
-                          >
-                            {copiedTitle ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                            {copiedTitle ? t('interface.copied', 'COPIÉ !') : t('interface.copyTitle', 'COPIER')}
-                          </button>
-                        </div>
-                        <div className="bg-cream border-3 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                          <p className="font-display font-bold text-black text-base sm:text-lg">{vintedListing.title}</p>
-                        </div>
-                      </div>
-
-                      {/* Description */}
-                      <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                        <div className="flex items-center justify-between mb-3">
-                          <div className="flex items-center gap-2">
-                            <div className="w-3 h-3 bg-pink-pastel border-2 border-black transform rotate-45"></div>
-                            <span className="font-display font-bold text-sm text-black">
-                              {t('interface.descriptionLabel', 'DESCRIPTION')}
-                            </span>
-                          </div>
-                          <button
-                            onClick={() => {
-                              navigator.clipboard.writeText(vintedListing.description);
-                              setCopiedDescription(true);
-                              setTimeout(() => setCopiedDescription(false), 2000);
-                            }}
-                            className={`flex items-center gap-1.5 px-3 py-1.5 border-3 border-black font-display font-bold text-xs shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                              copiedDescription ? 'bg-mint text-black' : 'bg-vinted text-white'
-                            }`}
-                          >
-                            {copiedDescription ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                            {copiedDescription ? t('interface.copied', 'COPIÉ !') : t('interface.copyDescription', 'COPIER')}
-                          </button>
-                        </div>
-                        <div className="bg-cream border-3 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] max-h-40 overflow-y-auto">
-                          <p className="font-body text-black text-sm whitespace-pre-line leading-relaxed">{vintedListing.description}</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Disclaimer */}
-                    <div className="mt-6 bg-amber-50 border-3 border-amber-400 p-4 shadow-[3px_3px_0px_0px_rgba(251,191,36,1)]">
-                      <div className="flex items-start gap-3">
-                        <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                        <p className="font-body text-xs sm:text-sm text-amber-800 leading-relaxed">
-                          {t('interface.aiDisclaimer', 'Image générée par IA à partir de votre photo. Elle met en valeur l\'article porté mais ne garantit pas une reproduction fidèle des détails (logos, textures, coupe). Nous recommandons d\'indiquer qu\'il s\'agit d\'une photo IA lors de la publication.')}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Bouton Régénérer */}
-                    <div className="mt-8 text-center">
-                      <button
-                        onClick={() => {
-                          setGeneratedResult(null);
-                          setVintedListing(null);
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
-                        className="group inline-flex items-center gap-3 px-8 py-4 bg-black text-white border-4 border-black font-display font-bold text-base shadow-[6px_6px_0px_0px_rgba(9,177,186,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[9px_9px_0px_0px_rgba(9,177,186,1)] transition-all duration-200"
-                      >
-                        <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
-                        {t('interface.regenerate', 'NOUVELLE GÉNÉRATION')}
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
         </div>
       </div>
 
