@@ -55,7 +55,14 @@
     "viewLarge": "VIEW LARGE",
     "download": "DOWNLOAD",
     "viewHistory": "VIEW HISTORY",
-    "generating": "GENERATING..."
+    "generating": "GENERATING...",
+    "listingTitle": "OPTIMIZED TITLE & DESCRIPTION",
+    "listingSubtitle": "Your listing improved by AI to sell faster",
+    "titleLabel": "TITLE",
+    "descriptionLabel": "DESCRIPTION",
+    "copyTitle": "COPY",
+    "copyDescription": "COPY",
+    "copied": "COPIED!"
   },
   "requirements": {
     "title": "PERFECT PHOTO?",

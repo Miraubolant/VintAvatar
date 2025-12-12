@@ -55,7 +55,14 @@
     "viewLarge": "VOIR EN GRAND",
     "download": "TÉLÉCHARGER",
     "viewHistory": "VOIR HISTORIQUE",
-    "generating": "GÉNÈRE..."
+    "generating": "GÉNÈRE...",
+    "listingTitle": "TITRE & DESCRIPTION OPTIMISÉS",
+    "listingSubtitle": "Votre annonce améliorée par l'IA pour vendre plus vite",
+    "titleLabel": "TITRE",
+    "descriptionLabel": "DESCRIPTION",
+    "copyTitle": "COPIER",
+    "copyDescription": "COPIER",
+    "copied": "COPIÉ !"
   },
   "requirements": {
     "title": "PHOTO PARFAITE ?",

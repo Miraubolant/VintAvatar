@@ -36,7 +36,147 @@ interface GenerationConfig {
   cropHead: boolean;
 }
 
-// Removed ClothingAnalysis interface - no longer using GPT-4o analysis
+interface VintedListing {
+  title: string;
+  description: string;
+}
+
+// Function to generate Vinted listing title and description using LLaVA
+async function generateVintedListing(imageUrl: string, clothingType: string): Promise<VintedListing> {
+  const replicateApiKey = Deno.env.get('REPLICATE_API_TOKEN')
+  if (!replicateApiKey) {
+    throw new Error('Replicate API key not configured')
+  }
+
+  const clothingTypeLabels: { [key: string]: string } = {
+    'auto': 'vêtement',
+    't-shirt': 't-shirt',
+    'chemise': 'chemise',
+    'pull': 'pull',
+    'veste': 'veste',
+    'manteau': 'manteau',
+    'pantalon': 'pantalon',
+    'jupe': 'jupe',
+    'robe': 'robe',
+    'short': 'short',
+    'chaussures': 'chaussures'
+  }
+
+  const clothingLabel = clothingTypeLabels[clothingType] || 'vêtement'
+
+  const prompt = `Tu es un expert de la vente sur Vinted. Analyse cette image de ${clothingLabel} et génère:
+
+1. Un TITRE accrocheur pour Vinted (max 50 caractères, en français)
+2. Une DESCRIPTION optimisée pour vendre (5-6 lignes, en français)
+
+La description doit inclure:
+- Le type de vêtement
+- La couleur et les détails visuels importants
+- Le style (casual, élégant, sportif, etc.)
+- Des mots-clés populaires sur Vinted
+- Une phrase d'accroche finale
+
+Réponds UNIQUEMENT au format JSON strict:
+{"title": "...", "description": "..."}
+
+Ne mets pas de markdown, pas de backticks, juste le JSON.`
+
+  try {
+    // Call LLaVA model on Replicate
+    const response = await fetch('https://api.replicate.com/v1/predictions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Token ${replicateApiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        version: "80537f9eead1a5bfa72d5ac6ea6414379be41d4d4f6679fd776e9535d1eb58bb", // LLaVA-13b
+        input: {
+          image: imageUrl,
+          prompt: prompt,
+          max_tokens: 500,
+          temperature: 0.7
+        }
+      })
+    })
+
+    if (!response.ok) {
+      const error = await response.json()
+      console.error('LLaVA API error:', error)
+      throw new Error(`LLaVA API error: ${error.detail || 'Unknown error'}`)
+    }
+
+    const prediction = await response.json()
+
+    // Poll for result
+    let result = prediction
+    let attempts = 0
+    const maxAttempts = 30 // Max 30 seconds for text generation
+
+    while (result.status !== 'succeeded' && result.status !== 'failed' && attempts < maxAttempts) {
+      await new Promise(resolve => setTimeout(resolve, 1000))
+
+      const pollResponse = await fetch(`https://api.replicate.com/v1/predictions/${prediction.id}`, {
+        headers: {
+          'Authorization': `Token ${replicateApiKey}`
+        }
+      })
+
+      if (!pollResponse.ok) {
+        throw new Error('Failed to poll LLaVA prediction')
+      }
+
+      result = await pollResponse.json()
+      attempts++
+    }
+
+    if (result.status === 'failed') {
+      throw new Error(`LLaVA generation failed: ${result.error || 'Unknown error'}`)
+    }
+
+    if (result.status !== 'succeeded') {
+      throw new Error('LLaVA generation timed out')
+    }
+
+    // Parse the output - LLaVA returns an array of strings
+    let outputText = ''
+    if (Array.isArray(result.output)) {
+      outputText = result.output.join('')
+    } else if (typeof result.output === 'string') {
+      outputText = result.output
+    }
+
+    console.log('LLaVA raw output:', outputText)
+
+    // Try to extract JSON from the response
+    const jsonMatch = outputText.match(/\{[\s\S]*"title"[\s\S]*"description"[\s\S]*\}/)
+    if (jsonMatch) {
+      try {
+        const parsed = JSON.parse(jsonMatch[0])
+        return {
+          title: parsed.title || `${clothingLabel} - Très bon état`,
+          description: parsed.description || `Superbe ${clothingLabel} en très bon état. N'hésitez pas à me contacter pour plus d'informations !`
+        }
+      } catch (parseError) {
+        console.error('JSON parse error:', parseError)
+      }
+    }
+
+    // Fallback: generate basic title/description
+    return {
+      title: `${clothingLabel.charAt(0).toUpperCase() + clothingLabel.slice(1)} - Excellent état`,
+      description: `Magnifique ${clothingLabel} en excellent état.\n\nCaractéristiques visibles sur la photo.\n\nN'hésitez pas à me contacter pour toute question !\n\nEnvoi soigné et rapide.`
+    }
+
+  } catch (error) {
+    console.error('LLaVA error:', error)
+    // Return fallback values instead of throwing
+    return {
+      title: `${clothingLabel.charAt(0).toUpperCase() + clothingLabel.slice(1)} - Très bon état`,
+      description: `Superbe ${clothingLabel} en très bon état.\n\nVoir les détails sur la photo.\n\nContactez-moi pour plus d'informations !`
+    }
+  }
+}
 
 Deno.serve(async (req) => {
   const origin = req.headers.get('origin')
@@ -96,22 +236,26 @@ Deno.serve(async (req) => {
       originalImageUrl = await uploadOriginalImage(supabaseClient, imageData, userId)
     }
     
-    // Step 2: Generate with Replicate directly (no analysis)
-    const generatedImageUrl = await generateWithReplicate(originalImageUrl, config)
-    
+    // Step 2: Generate image AND Vinted listing in parallel
+    const [generatedImageUrl, vintedListing] = await Promise.all([
+      generateWithReplicate(originalImageUrl, config),
+      generateVintedListing(originalImageUrl, config.clothingType)
+    ])
+
     // Step 5: Save generated image to storage
     const finalImageUrl = await saveGeneratedImage(supabaseClient, generatedImageUrl, userId)
-    
-    // Step 6: Track usage
-    await trackUsage(supabaseClient, userId, originalImageUrl, finalImageUrl, config)
-    
+
+    // Step 6: Track usage (include listing data)
+    await trackUsage(supabaseClient, userId, originalImageUrl, finalImageUrl, config, vintedListing)
+
     // Step 7: Use credit from subscription
     await useUserCredit(supabaseClient, userId)
 
     return new Response(
-      JSON.stringify({ 
-        success: true, 
-        generated_image_url: finalImageUrl
+      JSON.stringify({
+        success: true,
+        generated_image_url: finalImageUrl,
+        vinted_listing: vintedListing
       }),
       {
         status: 200,
@@ -446,11 +590,12 @@ async function saveGeneratedImage(supabase: any, imageUrl: string, userId: strin
 
 
 async function trackUsage(
-  supabase: any, 
-  userId: string, 
-  originalUrl: string, 
-  generatedUrl: string, 
-  config: GenerationConfig
+  supabase: any,
+  userId: string,
+  originalUrl: string,
+  generatedUrl: string,
+  config: GenerationConfig,
+  vintedListing?: VintedListing
 ) {
   const { error } = await supabase
     .from('usage_tracking')
@@ -465,7 +610,8 @@ async function trackUsage(
         clothing_type: config.clothingType,
         model_used: 'flux-kontext-pro',
         generation_method: 'replicate',
-        generation_timestamp: new Date().toISOString()
+        generation_timestamp: new Date().toISOString(),
+        vinted_listing: vintedListing || null
       }
     })
 
