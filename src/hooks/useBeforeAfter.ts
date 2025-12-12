@@ -27,10 +27,10 @@ export const useBeforeAfter = () => {
     const customData: BeforeAfterItem[] = [
       {
         id: 1,
-        category: "Robe Noire Élégante",
+        category: "Blouson Cuir Marron",
         description: "Photo amateur → Avatar IA professionnel",
         improvement: "",
-        tags: ["Mode", "Robe", "Élégant"],
+        tags: ["Mode", "Blouson", "Cuir"],
         before_image_url: "https://iroihdwursjjkadtbyye.supabase.co/storage/v1/object/sign/original-images/before-after/1.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80NTMxMjU5Yi05M2ZlLTRkMzctYTI3Yy0yYTVlYzljN2RhN2UiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJvcmlnaW5hbC1pbWFnZXMvYmVmb3JlLWFmdGVyLzEuanBnIiwiaWF0IjoxNzU3NjE3ODUxLCJleHAiOjE5MTUyOTc4NTF9.zCmWNnmrUNrtcE_B_xQkqYUk67Q8_7h-_Dc2QwYqSfk",
         after_image_url: "https://iroihdwursjjkadtbyye.supabase.co/storage/v1/object/public/generated-avatars/before-after/1.jpg",
         display_order: 1,
