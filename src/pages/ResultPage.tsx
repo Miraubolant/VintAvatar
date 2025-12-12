@@ -102,7 +102,18 @@ export const ResultPage: React.FC = () => {
     if (!result?.generated_image_url) return;
 
     const imageUrl = showCropped && croppedImageUrl ? croppedImageUrl : result.generated_image_url;
+    const filename = `avatar-vintdress-${result.id}${showCropped ? '-cropped' : ''}.jpg`;
 
+    // Handle base64 data URLs directly (for cropped images)
+    if (imageUrl.startsWith('data:')) {
+      const link = document.createElement('a');
+      link.href = imageUrl;
+      link.download = filename;
+      link.click();
+      return;
+    }
+
+    // Handle regular URLs with fetch
     try {
       const response = await fetch(imageUrl);
       const blob = await response.blob();
@@ -110,7 +121,7 @@ export const ResultPage: React.FC = () => {
 
       const link = document.createElement('a');
       link.href = blobUrl;
-      link.download = `avatar-vintdress-${result.id}.jpg`;
+      link.download = filename;
       link.click();
 
       URL.revokeObjectURL(blobUrl);
