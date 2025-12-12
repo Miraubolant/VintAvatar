@@ -64,36 +64,36 @@ async function generateVintedListing(imageUrl: string, clothingType: string): Pr
 
   const clothingLabel = clothingTypeLabels[clothingType] || 'vêtement'
 
-  const prompt = `Tu es un EXPERT de la mode et de la vente sur Vinted avec 10 ans d'expérience. Analyse cette image de ${clothingLabel} en détail.
+  const prompt = `LANGUE: FRANÇAIS UNIQUEMENT. Tu DOIS répondre entièrement en français.
 
-ÉTAPE 1 - ANALYSE VISUELLE APPROFONDIE:
-- Examine attentivement les LOGOS, ÉTIQUETTES, MOTIFS ou DÉTAILS distinctifs
+Tu es un EXPERT de la mode et de la vente sur Vinted France avec 10 ans d'expérience. Analyse cette image de ${clothingLabel} en détail.
+
+ÉTAPE 1 - ANALYSE VISUELLE:
+- Cherche les LOGOS, ÉTIQUETTES ou DÉTAILS de marque visibles
 - Si tu reconnais une MARQUE (Nike, Adidas, Zara, H&M, Levi's, Ralph Lauren, etc.), mentionne-la
-- Si tu n'es pas sûr de la marque, décris le style qui pourrait indiquer une marque (ex: "style sportswear premium", "coupe workwear")
-- Identifie la MATIÈRE probable (coton, polyester, cuir, laine, denim, etc.)
-- Note la COULEUR exacte et les MOTIFS (uni, rayé, imprimé, etc.)
+- Si tu n'es pas sûr, décris le style (sportswear, streetwear, classique, etc.)
+- Identifie la MATIÈRE (coton, polyester, cuir, laine, denim, etc.)
+- Note la COULEUR et les MOTIFS (uni, rayé, imprimé, etc.)
 
-ÉTAPE 2 - GÉNÈRE:
+ÉTAPE 2 - GÉNÈRE EN FRANÇAIS:
 
-1. Un TITRE VENDEUR (max 50 caractères, français):
-   - Si marque identifiée: "[Marque] - [Type] [Couleur/Détail]"
-   - Si marque incertaine: "[Type] [Style] - [Couleur/Détail]"
-   - Utilise des mots-clés recherchés: vintage, Y2K, oversize, slim, etc.
+1. TITRE (max 50 caractères, EN FRANÇAIS):
+   Format: "[Marque si visible] [Type] [Couleur] - [Style]"
+   Exemple: "Nike Sweat Noir - Sportswear" ou "Pull Oversize Beige - Vintage"
 
-2. Une DESCRIPTION OPTIMISÉE (6-8 lignes, français):
-   Ligne 1: Type de vêtement + marque (si identifiée) ou style
-   Ligne 2: Couleur précise + motifs
-   Ligne 3: Matière probable + qualité perçue
-   Ligne 4: Coupe/fit (slim, oversize, regular, crop, etc.)
-   Ligne 5: Taille estimée si visible ou "voir mesures"
-   Ligne 6: État (très bon état, comme neuf, etc.)
-   Ligne 7: Occasion idéale (casual, soirée, sport, travail)
-   Ligne 8: Accroche finale engageante
+2. DESCRIPTION (6-8 lignes, TOUT EN FRANÇAIS):
+   - Type de vêtement et marque si identifiée
+   - Couleur précise et motifs
+   - Matière probable
+   - Coupe (slim, oversize, regular, crop)
+   - État: "Très bon état" ou "Comme neuf"
+   - Occasion: casual, soirée, sport, travail
+   - Phrase d'accroche engageante
 
-IMPORTANT: Si tu vois un logo ou un détail de marque, MENTIONNE-LE. Les acheteurs Vinted recherchent par marque!
+RÈGLE ABSOLUE: Tout le texte DOIT être en FRANÇAIS. Pas un seul mot en anglais dans le titre ou la description.
 
-Réponds UNIQUEMENT au format JSON strict:
-{"title": "...", "description": "..."}
+Réponds UNIQUEMENT en JSON:
+{"title": "titre en français", "description": "description en français"}
 
 Pas de markdown, pas de backticks, juste le JSON.`
 

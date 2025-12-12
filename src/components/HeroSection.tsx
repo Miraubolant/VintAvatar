@@ -790,19 +790,17 @@ export const HeroSection: React.FC = () => {
                   </button>
                 </div>
 
-                {/* Section Titre & Description optimisés par IA */}
+                {/* Section Titre & Description par IA */}
                 {vintedListing && (
                   <div className="border-t-4 border-black pt-6 mt-2">
-                    {/* Header de la section - Plus visible */}
+                    {/* Header de la section */}
                     <div className="text-center mb-6">
-                      <div className="inline-block bg-gradient-to-r from-vinted to-teal-500 border-4 border-black px-6 py-3 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-                        <div className="flex items-center gap-3">
-                          <Sparkles className="w-5 h-5 text-white animate-pulse" />
-                          <span className="font-display font-bold text-base sm:text-lg text-white tracking-wide">
-                            {t('interface.listingTitle', 'TITRE & DESCRIPTION OPTIMISÉS')}
-                          </span>
-                          <Sparkles className="w-5 h-5 text-white animate-pulse" />
-                        </div>
+                      <div className="inline-flex items-center gap-3 bg-vinted border-4 border-black px-6 py-3 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
+                        <Sparkles className="w-5 h-5 text-white" />
+                        <span className="font-display font-bold text-base sm:text-lg text-white tracking-wide">
+                          {t('interface.listingTitle', 'TITRE & DESCRIPTION')}
+                        </span>
+                        <Sparkles className="w-5 h-5 text-white" />
                       </div>
                       <p className="font-body text-sm text-gray-600 mt-3 max-w-md mx-auto">
                         {t('interface.listingSubtitle', 'Votre annonce améliorée par l\'IA pour vendre plus vite')}
@@ -879,16 +877,16 @@ export const HeroSection: React.FC = () => {
                     </div>
 
                     {/* Bouton Régénérer */}
-                    <div className="mt-6 text-center">
+                    <div className="mt-8 text-center">
                       <button
                         onClick={() => {
                           setGeneratedResult(null);
                           setVintedListing(null);
                           window.scrollTo({ top: 0, behavior: 'smooth' });
                         }}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black border-3 border-black font-display font-bold text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                        className="group inline-flex items-center gap-3 px-8 py-4 bg-black text-white border-4 border-black font-display font-bold text-base shadow-[6px_6px_0px_0px_rgba(9,177,186,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[9px_9px_0px_0px_rgba(9,177,186,1)] transition-all duration-200"
                       >
-                        <RefreshCw className="w-4 h-4" />
+                        <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
                         {t('interface.regenerate', 'NOUVELLE GÉNÉRATION')}
                       </button>
                     </div>
