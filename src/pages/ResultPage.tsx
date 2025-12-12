@@ -12,7 +12,6 @@ import {
   RefreshCw,
   ArrowLeft,
   Share2,
-  Eye,
   Scissors
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
@@ -263,13 +262,6 @@ export const ResultPage: React.FC = () => {
 
           {/* Action buttons */}
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6">
-            <button
-              onClick={() => window.open(displayedImage, '_blank')}
-              className="w-full sm:w-auto px-6 py-3 bg-vinted text-white border-3 border-black font-display font-bold text-sm sm:text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2"
-            >
-              <Eye className="w-4 h-4" />
-              {t('viewLarge', 'VOIR EN GRAND')}
-            </button>
             <button
               onClick={handleDownload}
               className="w-full sm:w-auto px-6 py-3 bg-mint text-black border-3 border-black font-display font-bold text-sm sm:text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2"
