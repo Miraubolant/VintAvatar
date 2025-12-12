@@ -1,0 +1,33 @@
+{
+  "loading": "LOADING...",
+  "success": "AVATAR GENERATED SUCCESSFULLY",
+  "generatedAt": "Generated on",
+  "back": "BACK",
+  "viewLarge": "VIEW LARGE",
+  "download": "DOWNLOAD",
+  "cropHead": "CROP HEAD",
+  "cropping": "CROPPING...",
+  "showOriginal": "View original image",
+  "showCropped": "View cropped image",
+  "listingTitle": "TITLE & DESCRIPTION",
+  "listingSubtitle": "Your listing improved by AI to sell faster",
+  "titleLabel": "TITLE",
+  "descriptionLabel": "DESCRIPTION",
+  "copy": "COPY",
+  "copied": "COPIED!",
+  "aiDisclaimer": "AI-generated image from your photo. It showcases the item worn but does not guarantee accurate reproduction of specific details (logos, textures, cut). We recommend mentioning it's an AI photo when publishing.",
+  "newGeneration": "NEW GENERATION",
+  "viewHistory": "View all my history",
+  "share": {
+    "button": "SHARE",
+    "title": "My VintDress avatar",
+    "text": "Check out my AI-generated avatar!"
+  },
+  "linkCopied": "LINK COPIED!",
+  "errors": {
+    "title": "OOPS!",
+    "notFound": "Generation not found",
+    "loading": "Error loading"
+  },
+  "backToHome": "BACK TO HOME"
+}

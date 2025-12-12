@@ -26,6 +26,7 @@ const FAQPage = React.lazy(() => import('./pages/FAQPage').then(module => ({ def
 const ArticlePage = React.lazy(() => import('./pages/ArticlePage').then(module => ({ default: module.ArticlePage })));
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
+const ResultPage = React.lazy(() => import('./pages/ResultPage').then(module => ({ default: module.ResultPage })));
 
 // Loading component - Neo-brutalism style
 const LoadingComponent = () => {
@@ -104,6 +105,11 @@ function App() {
               <Route path="/cancel" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <CancelPage />
+                </Suspense>
+              } />
+              <Route path="/result/:id" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ResultPage />
                 </Suspense>
               } />
               <Route path="/account" element={
