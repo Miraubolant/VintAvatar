@@ -304,12 +304,18 @@ export const ResultPage: React.FC = () => {
             <div className="border-t-4 border-black pt-6 mt-2">
               {/* Header */}
               <div className="text-center mb-6">
-                <div className="inline-flex items-center gap-3 bg-vinted border-4 border-black px-6 py-3 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
-                  <Sparkles className="w-5 h-5 text-white" />
-                  <span className="font-display font-bold text-base sm:text-lg text-white tracking-wide">
-                    {t('listingTitle', 'TITRE & DESCRIPTION')}
-                  </span>
-                  <Sparkles className="w-5 h-5 text-white" />
+                <div className="relative inline-block">
+                  {/* NEW badge */}
+                  <div className="absolute -top-3 -right-3 bg-pink-pastel text-black border-2 border-black px-2 py-0.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-12 z-10">
+                    <span className="font-display font-bold text-[10px]">NEW</span>
+                  </div>
+                  <div className="inline-flex items-center gap-3 bg-vinted border-4 border-black px-6 py-3 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
+                    <Sparkles className="w-5 h-5 text-white" />
+                    <span className="font-display font-bold text-base sm:text-lg text-white tracking-wide">
+                      {t('listingTitle', 'TITRE & DESCRIPTION')}
+                    </span>
+                    <Sparkles className="w-5 h-5 text-white" />
+                  </div>
                 </div>
                 <p className="font-body text-sm text-gray-600 mt-3 max-w-md mx-auto">
                   {t('listingSubtitle', 'Votre annonce amelioree par l\'IA pour vendre plus vite')}
@@ -391,7 +397,7 @@ export const ResultPage: React.FC = () => {
           <div className="mt-8 text-center">
             <button
               onClick={() => navigate('/')}
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-black text-white border-4 border-black font-display font-bold text-base shadow-[6px_6px_0px_0px_rgba(9,177,186,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[9px_9px_0px_0px_rgba(9,177,186,1)] transition-all duration-200"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-vinted text-white border-4 border-black font-display font-bold text-base shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[9px_9px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
               {t('newGeneration', 'NOUVELLE GENERATION')}
