@@ -26,7 +26,7 @@
       "title": "1. PRÉSENTATION DU SERVICE",
       "content": {
         "description": "VintDress est un outil en ligne permettant de générer, à partir d'un lien Vinted® ou d'une image uploadée, des photographies \"portées\" réalisées par un modèle d'intelligence artificielle (FLUX Kontext Pro fourni par Replicate).",
-        "operator": "Le service est exploité par : Miraubolant (SIREN 999 999 999) – 113 rue saint honoré, 75001 Paris.",
+        "operator": "Le service est exploité par : Miraubolant (SIREN 995105442) – 113 rue saint honoré, 75001 Paris.",
         "features": [
           "Analyse automatique des vêtements uploadés",
           "Génération d'avatars IA portant les articles",
@@ -310,7 +310,7 @@
           "name": "Miraubolant",
           "address": "113 rue saint honoré",
           "city": "75001 Paris, France",
-          "siren": "SIREN : 999 999 999"
+          "siren": "SIREN : 995105442"
         },
         "contacts": {
           "general": "Questions générales : contact@miraubolant.com",
