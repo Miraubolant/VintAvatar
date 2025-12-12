@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Sparkles, Zap, Star, Eye, CheckCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -11,31 +11,83 @@ const stageInfo = {
   analyzing: {
     icon: Eye,
     color: "bg-mint",
-    progress: 25
+    minProgress: 0,
+    maxProgress: 25,
+    duration: 15000 // 15 seconds
   },
   generating: {
     icon: Sparkles,
     color: "bg-vinted",
-    progress: 75
+    minProgress: 25,
+    maxProgress: 85,
+    duration: 60000 // 60 seconds
   },
   saving: {
     icon: Zap,
     color: "bg-pink-pastel",
-    progress: 95
+    minProgress: 85,
+    maxProgress: 98,
+    duration: 10000 // 10 seconds
   },
   complete: {
     icon: CheckCircle,
     color: "bg-mint",
-    progress: 100
+    minProgress: 100,
+    maxProgress: 100,
+    duration: 0
   }
 };
 
 export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ isOpen, stage }) => {
   const [dots, setDots] = useState('');
+  const [progress, setProgress] = useState(0);
   const { t } = useTranslation('generation');
+  const stageStartTime = useRef<number>(Date.now());
+  const animationFrame = useRef<number | null>(null);
 
   const currentStage = stageInfo[stage];
   const IconComponent = currentStage.icon;
+
+  // Reset stage start time when stage changes
+  useEffect(() => {
+    stageStartTime.current = Date.now();
+    setProgress(currentStage.minProgress);
+  }, [stage]);
+
+  // Smooth progress animation
+  useEffect(() => {
+    if (!isOpen || stage === 'complete') {
+      if (stage === 'complete') {
+        setProgress(100);
+      }
+      return;
+    }
+
+    const animate = () => {
+      const elapsed = Date.now() - stageStartTime.current;
+      const stageProgress = Math.min(elapsed / currentStage.duration, 1);
+
+      // Ease-out function for more natural feel (fast at start, slows down)
+      const easedProgress = 1 - Math.pow(1 - stageProgress, 2);
+
+      const newProgress = currentStage.minProgress +
+        (currentStage.maxProgress - currentStage.minProgress) * easedProgress;
+
+      setProgress(Math.round(newProgress));
+
+      if (stageProgress < 1) {
+        animationFrame.current = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current);
+      }
+    };
+  }, [isOpen, stage, currentStage]);
 
   // Animation des points
   useEffect(() => {
@@ -79,9 +131,9 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
           {/* Enhanced Progress Bar */}
           <div className="mb-6">
             <div className="w-full h-8 bg-cream border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
-              <div 
-                className={`h-full ${currentStage.color} transition-all duration-1000 ease-in-out relative`}
-                style={{ width: `${currentStage.progress}%` }}
+              <div
+                className={`h-full ${currentStage.color} transition-all duration-300 ease-out relative`}
+                style={{ width: `${progress}%` }}
               >
                 {/* Moving stripe animation */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-pulse"></div>
@@ -91,7 +143,7 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
             </div>
             <div className="flex justify-between mt-2 font-display font-bold text-black">
               <span className="text-sm">0%</span>
-              <span className="text-xl text-vinted">{currentStage.progress}%</span>
+              <span className="text-xl text-vinted">{progress}%</span>
               <span className="text-sm">100%</span>
             </div>
           </div>

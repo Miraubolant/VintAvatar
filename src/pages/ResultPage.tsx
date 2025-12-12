@@ -395,7 +395,18 @@ export const ResultPage: React.FC = () => {
           {/* New generation button */}
           <div className="mt-8 text-center">
             <button
-              onClick={() => navigate('/')}
+              onClick={() => {
+                navigate('/');
+                // Scroll to hero section after navigation
+                setTimeout(() => {
+                  const heroSection = document.getElementById('hero');
+                  if (heroSection) {
+                    heroSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }, 100);
+              }}
               className="group inline-flex items-center gap-3 px-8 py-4 bg-vinted text-white border-4 border-black font-display font-bold text-base shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[9px_9px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />

@@ -64,38 +64,27 @@ async function generateVintedListing(imageUrl: string, clothingType: string): Pr
 
   const clothingLabel = clothingTypeLabels[clothingType] || 'vêtement'
 
-  const prompt = `LANGUE: FRANÇAIS UNIQUEMENT. Tu DOIS répondre entièrement en français.
+  const prompt = `Tu es un vendeur expert Vinted France. Analyse cette photo de ${clothingLabel} et génère une annonce en FRANÇAIS.
 
-Tu es un EXPERT de la mode et de la vente sur Vinted France avec 10 ans d'expérience. Analyse cette image de ${clothingLabel} en détail.
+EXEMPLES DE BONNES ANNONCES:
 
-ÉTAPE 1 - ANALYSE VISUELLE:
-- Cherche les LOGOS, ÉTIQUETTES ou DÉTAILS de marque visibles
-- Si tu reconnais une MARQUE (Nike, Adidas, Zara, H&M, Levi's, Ralph Lauren, etc.), mentionne-la
-- Si tu n'es pas sûr, décris le style (sportswear, streetwear, classique, etc.)
-- Identifie la MATIÈRE (coton, polyester, cuir, laine, denim, etc.)
-- Note la COULEUR et les MOTIFS (uni, rayé, imprimé, etc.)
+Exemple 1 - T-shirt Nike:
+{"title": "T-shirt Nike Noir Logo Brodé - Taille M", "description": "T-shirt Nike authentique en coton noir.\n\nLogo Nike brodé sur la poitrine.\nCoupe regular, confortable.\nMatière: 100% coton doux.\nTaille M (convient aussi S large).\n\nTrès bon état, porté quelques fois.\nIdéal pour le sport ou le casual.\n\nEnvoi soigné sous 48h !"}
 
-ÉTAPE 2 - GÉNÈRE EN FRANÇAIS:
+Exemple 2 - Veste en cuir:
+{"title": "Veste Cuir Marron Vintage - Style Biker", "description": "Magnifique veste en cuir véritable marron.\n\nStyle biker/motard avec zip asymétrique.\nCuir souple et patiné, look vintage.\nPoches zippées sur les côtés.\nDoublure intérieure en bon état.\n\nTaille L, coupe ajustée.\nExcellent état vintage.\n\nPièce unique avec du caractère !"}
 
-1. TITRE (max 50 caractères, EN FRANÇAIS):
-   Format: "[Marque si visible] [Type] [Couleur] - [Style]"
-   Exemple: "Nike Sweat Noir - Sportswear" ou "Pull Oversize Beige - Vintage"
+Exemple 3 - Robe H&M:
+{"title": "Robe H&M Fleurie Été - Taille 38", "description": "Jolie robe d'été H&M à motifs fleuris.\n\nImprimé floral rose sur fond blanc.\nCoupe évasée, légère et fluide.\nBretelles fines ajustables.\nMatière légère parfaite pour l'été.\n\nTaille 38, longueur mi-cuisse.\nComme neuve, portée 2 fois.\n\nParfaite pour les beaux jours !"}
 
-2. DESCRIPTION (6-8 lignes, TOUT EN FRANÇAIS):
-   - Type de vêtement et marque si identifiée
-   - Couleur précise et motifs
-   - Matière probable
-   - Coupe (slim, oversize, regular, crop)
-   - État: "Très bon état" ou "Comme neuf"
-   - Occasion: casual, soirée, sport, travail
-   - Phrase d'accroche engageante
+MAINTENANT, analyse la photo et génère:
+- TITRE: max 50 caractères, format "[Marque si visible] [Type] [Couleur] - [Détail]"
+- DESCRIPTION: 6-8 lignes avec matière, couleur, coupe, état, occasion
 
-RÈGLE ABSOLUE: Tout le texte DOIT être en FRANÇAIS. Pas un seul mot en anglais dans le titre ou la description.
+IMPORTANT: Si tu vois une marque (logo, étiquette), mentionne-la. Sinon, décris le style.
 
-Réponds UNIQUEMENT en JSON:
-{"title": "titre en français", "description": "description en français"}
-
-Pas de markdown, pas de backticks, juste le JSON.`
+Réponds UNIQUEMENT en JSON valide (pas de markdown):
+{"title": "...", "description": "..."}`
 
   try {
     // Call LLaVA model on Replicate
@@ -111,7 +100,7 @@ Pas de markdown, pas de backticks, juste le JSON.`
           image: imageUrl,
           prompt: prompt,
           max_tokens: 500,
-          temperature: 0.7
+          temperature: 0.4
         }
       })
     })
@@ -168,13 +157,39 @@ Pas de markdown, pas de backticks, juste le JSON.`
     const jsonMatch = outputText.match(/\{[\s\S]*"title"[\s\S]*"description"[\s\S]*\}/)
     if (jsonMatch) {
       try {
-        const parsed = JSON.parse(jsonMatch[0])
+        // Clean JSON: escape literal newlines inside string values
+        let cleanedJson = jsonMatch[0]
+        // Replace literal newlines inside strings with \n
+        // Keep keys as-is (this line is just documentation, actual escaping happens below)
+        cleanedJson = cleanedJson.replace(/:\s*"([^"]*)"/g, (_match, content) => {
+          // Escape newlines, carriage returns and tabs in string values
+          const escapedContent = content
+            .replace(/\r\n/g, '\\n')
+            .replace(/\n/g, '\\n')
+            .replace(/\r/g, '\\n')
+            .replace(/\t/g, '\\t')
+          return `: "${escapedContent}"`
+        })
+
+        console.log('Cleaned JSON:', cleanedJson)
+        const parsed = JSON.parse(cleanedJson)
         return {
           title: parsed.title || `${clothingLabel} - Très bon état`,
           description: parsed.description || `Superbe ${clothingLabel} en très bon état. N'hésitez pas à me contacter pour plus d'informations !`
         }
       } catch (parseError) {
-        console.error('JSON parse error:', parseError)
+        console.error('JSON parse error:', parseError, 'Raw:', jsonMatch[0])
+
+        // Fallback: try to extract title and description with regex
+        const titleMatch = outputText.match(/"title"\s*:\s*"([^"]+)"/)
+        const descMatch = outputText.match(/"description"\s*:\s*"([\s\S]*?)"(?:\s*[,}])/)
+
+        if (titleMatch || descMatch) {
+          return {
+            title: titleMatch ? titleMatch[1] : `${clothingLabel} - Très bon état`,
+            description: descMatch ? descMatch[1].replace(/\\n/g, '\n') : `Superbe ${clothingLabel} en très bon état.`
+          }
+        }
       }
     }
 
