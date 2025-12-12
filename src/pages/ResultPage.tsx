@@ -306,7 +306,7 @@ export const ResultPage: React.FC = () => {
                 <div className="relative inline-block">
                   {/* NEW badge */}
                   <div className="absolute -top-3 -right-3 bg-pink-pastel text-black border-2 border-black px-2 py-0.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-12 z-10">
-                    <span className="font-display font-bold text-[10px]">NEW</span>
+                    <span className="font-display font-bold text-[10px]">BÉTA</span>
                   </div>
                   <div className="inline-flex items-center gap-3 bg-vinted border-4 border-black px-6 py-3 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
                     <Sparkles className="w-5 h-5 text-white" />
