@@ -41,11 +41,11 @@ interface VintedListing {
   description: string;
 }
 
-// Function to generate Vinted listing title and description using LLaVA
+// Function to generate Vinted listing title and description using GPT-4o-mini
 async function generateVintedListing(imageUrl: string, clothingType: string): Promise<VintedListing> {
-  const replicateApiKey = Deno.env.get('REPLICATE_API_TOKEN')
-  if (!replicateApiKey) {
-    throw new Error('Replicate API key not configured')
+  const openaiApiKey = Deno.env.get('OPENAI_API_KEY')
+  if (!openaiApiKey) {
+    throw new Error('OpenAI API key not configured')
   }
 
   const clothingTypeLabels: { [key: string]: string } = {
@@ -64,131 +64,110 @@ async function generateVintedListing(imageUrl: string, clothingType: string): Pr
 
   const clothingLabel = clothingTypeLabels[clothingType] || 'vêtement'
 
-  const prompt = `Tu es un vendeur expert Vinted France. Analyse cette photo de ${clothingLabel} et génère une annonce en FRANÇAIS.
+  const systemPrompt = `Tu es un vendeur expert Vinted France. Tu génères des annonces attractives et professionnelles en FRANÇAIS.
 
-EXEMPLES DE BONNES ANNONCES:
-
-Exemple 1 - T-shirt Nike:
-{"title": "T-shirt Nike Noir Logo Brodé - Taille M", "description": "T-shirt Nike authentique en coton noir.\n\nLogo Nike brodé sur la poitrine.\nCoupe regular, confortable.\nMatière: 100% coton doux.\nTaille M (convient aussi S large).\n\nTrès bon état, porté quelques fois.\nIdéal pour le sport ou le casual.\n\nEnvoi soigné sous 48h !"}
-
-Exemple 2 - Veste en cuir:
-{"title": "Veste Cuir Marron Vintage - Style Biker", "description": "Magnifique veste en cuir véritable marron.\n\nStyle biker/motard avec zip asymétrique.\nCuir souple et patiné, look vintage.\nPoches zippées sur les côtés.\nDoublure intérieure en bon état.\n\nTaille L, coupe ajustée.\nExcellent état vintage.\n\nPièce unique avec du caractère !"}
-
-Exemple 3 - Robe H&M:
-{"title": "Robe H&M Fleurie Été - Taille 38", "description": "Jolie robe d'été H&M à motifs fleuris.\n\nImprimé floral rose sur fond blanc.\nCoupe évasée, légère et fluide.\nBretelles fines ajustables.\nMatière légère parfaite pour l'été.\n\nTaille 38, longueur mi-cuisse.\nComme neuve, portée 2 fois.\n\nParfaite pour les beaux jours !"}
-
-MAINTENANT, analyse la photo et génère:
+RÈGLES:
 - TITRE: max 50 caractères, format "[Marque si visible] [Type] [Couleur] - [Détail]"
 - DESCRIPTION: 6-8 lignes avec matière, couleur, coupe, état, occasion
+- Si tu vois une marque (logo, étiquette), mentionne-la. Sinon, décris le style.
+- Réponds UNIQUEMENT en JSON valide, sans markdown ni texte supplémentaire.`
 
-IMPORTANT: Si tu vois une marque (logo, étiquette), mentionne-la. Sinon, décris le style.
+  const userPrompt = `Analyse cette photo de ${clothingLabel} et génère une annonce Vinted.
 
-Réponds UNIQUEMENT en JSON valide (pas de markdown):
+EXEMPLES DE FORMAT:
+{"title": "T-shirt Nike Noir Logo Brodé - Taille M", "description": "T-shirt Nike authentique en coton noir.\\n\\nLogo Nike brodé sur la poitrine.\\nCoupe regular, confortable.\\nMatière: 100% coton doux.\\nTaille M (convient aussi S large).\\n\\nTrès bon état, porté quelques fois.\\nIdéal pour le sport ou le casual.\\n\\nEnvoi soigné sous 48h !"}
+
+{"title": "Veste Cuir Marron Vintage - Style Biker", "description": "Magnifique veste en cuir véritable marron.\\n\\nStyle biker/motard avec zip asymétrique.\\nCuir souple et patiné, look vintage.\\nPoches zippées sur les côtés.\\nDoublure intérieure en bon état.\\n\\nTaille L, coupe ajustée.\\nExcellent état vintage.\\n\\nPièce unique avec du caractère !"}
+
+Réponds UNIQUEMENT avec le JSON (pas de \`\`\`json, pas de texte avant/après):
 {"title": "...", "description": "..."}`
 
   try {
-    // Call LLaVA model on Replicate
-    const response = await fetch('https://api.replicate.com/v1/predictions', {
+    // Call GPT-4o-mini with vision
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Token ${replicateApiKey}`,
+        'Authorization': `Bearer ${openaiApiKey}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        version: "80537f9eead1a5bfa72d5ac6ea6414379be41d4d4f6679fd776e9535d1eb58bb", // LLaVA-13b
-        input: {
-          image: imageUrl,
-          prompt: prompt,
-          max_tokens: 500,
-          temperature: 0.4
-        }
+        model: 'gpt-4o-mini',
+        messages: [
+          {
+            role: 'system',
+            content: systemPrompt
+          },
+          {
+            role: 'user',
+            content: [
+              {
+                type: 'text',
+                text: userPrompt
+              },
+              {
+                type: 'image_url',
+                image_url: {
+                  url: imageUrl,
+                  detail: 'low' // Use low detail for cost efficiency
+                }
+              }
+            ]
+          }
+        ],
+        max_tokens: 500,
+        temperature: 0.4
       })
     })
 
     if (!response.ok) {
       const error = await response.json()
-      console.error('LLaVA API error:', error)
-      throw new Error(`LLaVA API error: ${error.detail || 'Unknown error'}`)
+      console.error('OpenAI API error:', error)
+      throw new Error(`OpenAI API error: ${error.error?.message || 'Unknown error'}`)
     }
 
-    const prediction = await response.json()
+    const result = await response.json()
+    const outputText = result.choices?.[0]?.message?.content || ''
 
-    // Poll for result
-    let result = prediction
-    let attempts = 0
-    const maxAttempts = 30 // Max 30 seconds for text generation
+    console.log('GPT-4o-mini raw output:', outputText)
 
-    while (result.status !== 'succeeded' && result.status !== 'failed' && attempts < maxAttempts) {
-      await new Promise(resolve => setTimeout(resolve, 1000))
+    // Try to parse JSON directly (GPT usually returns clean JSON)
+    try {
+      // Remove any potential markdown code blocks
+      const cleanedOutput = outputText
+        .replace(/```json\n?/g, '')
+        .replace(/```\n?/g, '')
+        .trim()
 
-      const pollResponse = await fetch(`https://api.replicate.com/v1/predictions/${prediction.id}`, {
-        headers: {
-          'Authorization': `Token ${replicateApiKey}`
+      const parsed = JSON.parse(cleanedOutput)
+      return {
+        title: parsed.title || `${clothingLabel} - Très bon état`,
+        description: (parsed.description || `Superbe ${clothingLabel} en très bon état.`).replace(/\\n/g, '\n')
+      }
+    } catch (parseError) {
+      console.error('JSON parse error, trying regex:', parseError)
+
+      // Fallback: try to extract JSON from response
+      const jsonMatch = outputText.match(/\{[\s\S]*"title"[\s\S]*"description"[\s\S]*\}/)
+      if (jsonMatch) {
+        try {
+          const parsed = JSON.parse(jsonMatch[0])
+          return {
+            title: parsed.title || `${clothingLabel} - Très bon état`,
+            description: (parsed.description || `Superbe ${clothingLabel} en très bon état.`).replace(/\\n/g, '\n')
+          }
+        } catch {
+          // Continue to regex fallback
         }
-      })
-
-      if (!pollResponse.ok) {
-        throw new Error('Failed to poll LLaVA prediction')
       }
 
-      result = await pollResponse.json()
-      attempts++
-    }
+      // Regex fallback
+      const titleMatch = outputText.match(/"title"\s*:\s*"([^"]+)"/)
+      const descMatch = outputText.match(/"description"\s*:\s*"([\s\S]*?)"(?:\s*[,}])/)
 
-    if (result.status === 'failed') {
-      throw new Error(`LLaVA generation failed: ${result.error || 'Unknown error'}`)
-    }
-
-    if (result.status !== 'succeeded') {
-      throw new Error('LLaVA generation timed out')
-    }
-
-    // Parse the output - LLaVA returns an array of strings
-    let outputText = ''
-    if (Array.isArray(result.output)) {
-      outputText = result.output.join('')
-    } else if (typeof result.output === 'string') {
-      outputText = result.output
-    }
-
-    console.log('LLaVA raw output:', outputText)
-
-    // Try to extract JSON from the response
-    const jsonMatch = outputText.match(/\{[\s\S]*"title"[\s\S]*"description"[\s\S]*\}/)
-    if (jsonMatch) {
-      try {
-        // Clean JSON: escape literal newlines inside string values
-        let cleanedJson = jsonMatch[0]
-        // Replace literal newlines inside strings with \n
-        // Keep keys as-is (this line is just documentation, actual escaping happens below)
-        cleanedJson = cleanedJson.replace(/:\s*"([^"]*)"/g, (_match, content) => {
-          // Escape newlines, carriage returns and tabs in string values
-          const escapedContent = content
-            .replace(/\r\n/g, '\\n')
-            .replace(/\n/g, '\\n')
-            .replace(/\r/g, '\\n')
-            .replace(/\t/g, '\\t')
-          return `: "${escapedContent}"`
-        })
-
-        console.log('Cleaned JSON:', cleanedJson)
-        const parsed = JSON.parse(cleanedJson)
+      if (titleMatch || descMatch) {
         return {
-          title: parsed.title || `${clothingLabel} - Très bon état`,
-          description: parsed.description || `Superbe ${clothingLabel} en très bon état. N'hésitez pas à me contacter pour plus d'informations !`
-        }
-      } catch (parseError) {
-        console.error('JSON parse error:', parseError, 'Raw:', jsonMatch[0])
-
-        // Fallback: try to extract title and description with regex
-        const titleMatch = outputText.match(/"title"\s*:\s*"([^"]+)"/)
-        const descMatch = outputText.match(/"description"\s*:\s*"([\s\S]*?)"(?:\s*[,}])/)
-
-        if (titleMatch || descMatch) {
-          return {
-            title: titleMatch ? titleMatch[1] : `${clothingLabel} - Très bon état`,
-            description: descMatch ? descMatch[1].replace(/\\n/g, '\n') : `Superbe ${clothingLabel} en très bon état.`
-          }
+          title: titleMatch ? titleMatch[1] : `${clothingLabel} - Très bon état`,
+          description: descMatch ? descMatch[1].replace(/\\n/g, '\n') : `Superbe ${clothingLabel} en très bon état.`
         }
       }
     }
@@ -200,7 +179,7 @@ Réponds UNIQUEMENT en JSON valide (pas de markdown):
     }
 
   } catch (error) {
-    console.error('LLaVA error:', error)
+    console.error('OpenAI error:', error)
     // Return fallback values instead of throwing
     return {
       title: `${clothingLabel.charAt(0).toUpperCase() + clothingLabel.slice(1)} - Très bon état`,
