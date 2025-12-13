@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Sparkles, Zap, Eye, CheckCircle } from 'lucide-react';
+import { Sparkles, CheckCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface GenerationLoadingModalProps {
@@ -7,79 +7,45 @@ interface GenerationLoadingModalProps {
   stage: 'analyzing' | 'generating' | 'saving' | 'complete';
 }
 
-const stageInfo = {
-  analyzing: {
-    icon: Eye,
-    color: "bg-mint",
-    barColor: "bg-mint",
-    textColor: "text-black",
-    minProgress: 0,
-    maxProgress: 25,
-    duration: 15000
-  },
-  generating: {
-    icon: Sparkles,
-    color: "bg-vinted",
-    barColor: "bg-vinted",
-    textColor: "text-white",
-    minProgress: 25,
-    maxProgress: 85,
-    duration: 60000
-  },
-  saving: {
-    icon: Zap,
-    color: "bg-pink-pastel",
-    barColor: "bg-pink-pastel",
-    textColor: "text-black",
-    minProgress: 85,
-    maxProgress: 98,
-    duration: 10000
-  },
-  complete: {
-    icon: CheckCircle,
-    color: "bg-mint",
-    barColor: "bg-mint",
-    textColor: "text-black",
-    minProgress: 100,
-    maxProgress: 100,
-    duration: 0
-  }
-};
-
 export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ isOpen, stage }) => {
-  const [dots, setDots] = useState('');
   const [progress, setProgress] = useState(0);
   const { t } = useTranslation('generation');
-  const stageStartTime = useRef<number>(Date.now());
+  const startTime = useRef<number>(Date.now());
   const animationFrame = useRef<number | null>(null);
 
-  const currentStage = stageInfo[stage];
-  const IconComponent = currentStage.icon;
+  // Target duration: 5.5 seconds to reach 97%
+  const GENERATION_DURATION = 5500;
 
-  // Reset stage start time when stage changes
+  // Reset on open
   useEffect(() => {
-    stageStartTime.current = Date.now();
-    setProgress(currentStage.minProgress);
-  }, [stage]);
+    if (isOpen) {
+      startTime.current = Date.now();
+      setProgress(0);
+    }
+  }, [isOpen]);
 
-  // Smooth progress animation
+  // Smooth progress animation - goes to 97% over 5.5 seconds
   useEffect(() => {
-    if (!isOpen || stage === 'complete') {
-      if (stage === 'complete') {
-        setProgress(100);
-      }
+    if (!isOpen) return;
+
+    // If complete, jump to 100%
+    if (stage === 'complete') {
+      setProgress(100);
       return;
     }
 
     const animate = () => {
-      const elapsed = Date.now() - stageStartTime.current;
-      const stageProgress = Math.min(elapsed / currentStage.duration, 1);
-      const easedProgress = 1 - Math.pow(1 - stageProgress, 2);
-      const newProgress = currentStage.minProgress +
-        (currentStage.maxProgress - currentStage.minProgress) * easedProgress;
-      setProgress(Math.round(newProgress));
+      const elapsed = Date.now() - startTime.current;
+      const rawProgress = Math.min(elapsed / GENERATION_DURATION, 1);
 
-      if (stageProgress < 1) {
+      // Ease-out curve for natural feeling
+      const easedProgress = 1 - Math.pow(1 - rawProgress, 3);
+
+      // Cap at 97% until complete
+      const newProgress = Math.round(easedProgress * 97);
+      setProgress(newProgress);
+
+      if (rawProgress < 1) {
         animationFrame.current = requestAnimationFrame(animate);
       }
     };
@@ -91,68 +57,124 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
         cancelAnimationFrame(animationFrame.current);
       }
     };
-  }, [isOpen, stage, currentStage]);
-
-  // Dots animation
-  useEffect(() => {
-    if (!isOpen) return;
-    const interval = setInterval(() => {
-      setDots((prev) => prev.length >= 3 ? '' : prev + '.');
-    }, 400);
-    return () => clearInterval(interval);
-  }, [isOpen]);
+  }, [isOpen, stage]);
 
   if (!isOpen) return null;
 
-  return (
-    <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-      <div className="w-full max-w-sm sm:max-w-md">
-        {/* Main card */}
-        <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 sm:p-8">
+  const isComplete = stage === 'complete';
 
-          {/* Icon with pulse animation */}
-          <div className="flex justify-center mb-5">
-            <div className={`p-4 ${currentStage.color} border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${stage !== 'complete' ? 'animate-pulse' : ''}`}>
-              <IconComponent className={`w-10 h-10 sm:w-12 sm:h-12 ${currentStage.textColor}`} />
+  return (
+    <div className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4">
+      {/* Decorative floating elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-mint border-2 border-black transform rotate-45 animate-bounce" style={{ animationDelay: '0s', animationDuration: '2s' }} />
+        <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-pink-pastel border-2 border-black rounded-full animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }} />
+        <div className="absolute bottom-1/3 left-1/3 w-5 h-5 bg-vinted border-2 border-black transform rotate-12 animate-bounce" style={{ animationDelay: '0.3s', animationDuration: '2.2s' }} />
+        <div className="absolute bottom-1/4 right-1/3 w-3 h-3 bg-mint border-2 border-black transform -rotate-12 animate-bounce" style={{ animationDelay: '0.7s', animationDuration: '1.8s' }} />
+      </div>
+
+      <div className="w-full max-w-md relative">
+        {/* Main card */}
+        <div className={`bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 transition-all duration-300 ${isComplete ? 'scale-105' : ''}`}>
+
+          {/* Decorative corner */}
+          <div className="absolute -top-3 -right-3 w-8 h-8 bg-pink-pastel border-3 border-black transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" />
+          <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-mint border-3 border-black transform -rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" />
+
+          {/* Icon */}
+          <div className="flex justify-center mb-6">
+            <div className={`relative p-5 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 ${
+              isComplete ? 'bg-mint' : 'bg-vinted'
+            }`}>
+              {isComplete ? (
+                <CheckCircle className="w-12 h-12 text-black" />
+              ) : (
+                <>
+                  <Sparkles className="w-12 h-12 text-white animate-pulse" />
+                  {/* Rotating ring effect */}
+                  <div className="absolute inset-0 border-4 border-transparent border-t-white/30 rounded-sm animate-spin" style={{ animationDuration: '1.5s' }} />
+                </>
+              )}
             </div>
           </div>
 
           {/* Title */}
           <h2 className="font-display font-bold text-2xl sm:text-3xl text-black text-center mb-2">
-            {t(`stages.${stage}.title`)}
+            {isComplete ? t('stages.complete.title') : t('stages.generating.title')}
           </h2>
 
           {/* Message */}
-          <p className="font-body text-base sm:text-lg text-gray-600 text-center mb-6">
-            {t(`stages.${stage}.message`)}
-            <span className="text-vinted font-bold">{dots}</span>
+          <p className="font-body text-base text-gray-600 text-center mb-8">
+            {isComplete ? t('stages.complete.message') : t('stages.generating.message')}
           </p>
 
           {/* Big percentage */}
-          <div className="text-center mb-4">
-            <span className="font-display font-bold text-5xl sm:text-6xl text-vinted">
-              {progress}
-            </span>
-            <span className="font-display font-bold text-2xl sm:text-3xl text-black">%</span>
+          <div className="text-center mb-6">
+            <div className="inline-flex items-baseline gap-1">
+              <span className={`font-display font-bold text-6xl sm:text-7xl transition-colors duration-300 ${
+                isComplete ? 'text-mint' : 'text-vinted'
+              }`}>
+                {progress}
+              </span>
+              <span className="font-display font-bold text-3xl text-black">%</span>
+            </div>
           </div>
 
-          {/* Progress bar */}
-          <div className="w-full h-5 sm:h-6 bg-cream border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
-            <div
-              className={`h-full ${currentStage.barColor} transition-all duration-300 ease-out`}
-              style={{ width: `${progress}%` }}
-            />
+          {/* Progress bar container */}
+          <div className="relative">
+            {/* Background bar */}
+            <div className="w-full h-6 bg-cream border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+              {/* Progress fill */}
+              <div
+                className={`h-full transition-all duration-200 ease-out ${
+                  isComplete ? 'bg-mint' : 'bg-vinted'
+                }`}
+                style={{ width: `${progress}%` }}
+              >
+                {/* Shimmer effect */}
+                {!isComplete && (
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div
+                      className="absolute inset-y-0 w-20 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"
+                      style={{
+                        animation: 'shimmer 1.5s infinite',
+                      }}
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+
           </div>
 
-          {/* Stage info - simple text */}
-          <p className="font-display font-bold text-xs sm:text-sm text-center mt-4 text-gray-500 uppercase tracking-wide">
-            {stage === 'analyzing' && '1/3'}
-            {stage === 'generating' && '2/3'}
-            {stage === 'saving' && '3/3'}
-            {stage === 'complete' && '✓'}
-          </p>
+          {/* Status text */}
+          <div className="mt-6 text-center">
+            {isComplete ? (
+              <div className="inline-flex items-center gap-2 bg-mint border-3 border-black px-4 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                <CheckCircle className="w-4 h-4" />
+                <span className="font-display font-bold text-sm">PRÊT !</span>
+              </div>
+            ) : (
+              <div className="inline-flex items-center gap-2 text-gray-500">
+                <div className="flex gap-1">
+                  <div className="w-2 h-2 bg-vinted rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                  <div className="w-2 h-2 bg-vinted rounded-full animate-bounce" style={{ animationDelay: '0.15s' }} />
+                  <div className="w-2 h-2 bg-vinted rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
+                </div>
+                <span className="font-body text-sm">{t('stages.generating.message')}</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
+
+      {/* CSS for shimmer animation */}
+      <style>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(400%); }
+        }
+      `}</style>
     </div>
   );
 };
