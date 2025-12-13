@@ -379,16 +379,6 @@ export const ResultPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Disclaimer */}
-              <div className="mt-6 bg-amber-50 border-3 border-amber-400 p-4 shadow-[3px_3px_0px_0px_rgba(251,191,36,1)]">
-                <div className="flex items-start gap-3">
-                  <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                  <p className="font-body text-xs sm:text-sm text-amber-800 leading-relaxed">
-                    {t('aiDisclaimer', 'Image generee par IA a partir de votre photo. Elle met en valeur l\'article porte mais ne garantit pas une reproduction fidele des details (logos, textures, coupe). Nous recommandons d\'indiquer qu\'il s\'agit d\'une photo IA lors de la publication.')}
-                  </p>
-                </div>
-              </div>
             </div>
           )}
 
