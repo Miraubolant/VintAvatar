@@ -161,7 +161,7 @@ export const generateHreflangLinks = (basePath: string): HreflangLink[] => {
 export const SEO_CONFIGS = {
   home: {
     title: 'VintDress - Générateur IA de Photos Portées pour Vinted | +300% de Ventes',
-    description: 'Créez des photos portées réalistes pour Vinted en 30 secondes avec l\'IA. Pas de mannequin nécessaire. +300% de vues, +250% de ventes. Essai gratuit.',
+    description: 'Créez des photos portées réalistes pour Vinted en 30 secondes avec l\'IA. Pas de mannequin nécessaire. +300% de vues, +250% de ventes.',
     keywords: 'vinted, photo portée, IA, générateur photo, mannequin virtuel, vente vêtements, avatar IA, photo produit, intelligence artificielle, vendre sur vinted',
     canonical: SITE_CONFIG.url,
     ogImage: SITE_CONFIG.defaultImage,
