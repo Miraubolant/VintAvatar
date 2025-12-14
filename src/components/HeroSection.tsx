@@ -9,6 +9,24 @@ import { useAuth } from '../hooks/useAuth';
 import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
 
+// Valeurs par défaut pour la configuration de l'avatar
+const DEFAULT_AVATAR_CONFIG = {
+  gender: 'femme',
+  mannequinType: 'humain',
+  carnation: 'claire',
+  morphology: 'S',
+  age: '18-25',
+  posture: 'debout',
+  angle: 'face',
+  framing: 'corps-entier',
+  decor: 'chambre',
+  lighting: 'studio',
+  season: 'auto',
+  clothingType: 'auto',
+  showPhone: false,
+  cropHead: false
+};
+
 export const HeroSection: React.FC = () => {
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [vintedUrl, setVintedUrl] = useState('');
@@ -243,8 +261,12 @@ export const HeroSection: React.FC = () => {
     setGenerationStage('analyzing');
 
     try {
-      const config = JSON.parse(localStorage.getItem('avatar_config') || '{}');
-      
+      // Récupérer la config stockée ou utiliser les valeurs par défaut
+      const storedConfig = localStorage.getItem('avatar_config');
+      const config = storedConfig
+        ? { ...DEFAULT_AVATAR_CONFIG, ...JSON.parse(storedConfig) }
+        : DEFAULT_AVATAR_CONFIG;
+
       // Étape 1: Analyse (afficher pendant ~15 secondes)
       setGenerationStage('analyzing');
       
