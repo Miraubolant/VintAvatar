@@ -554,7 +554,7 @@ export const HeroSection: React.FC = () => {
                         fileInputRef.current?.click();
                       }}
                       title="Uploader une photo"
-                      className="bg-pink-pastel border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center px-3 py-2 sm:px-4 sm:py-3"
+                      className="bg-mint border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center px-3 py-2 sm:px-4 sm:py-3"
                       data-guide="upload-button"
                     >
                       <Upload className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -633,10 +633,19 @@ export const HeroSection: React.FC = () => {
           </div>
           </div>
 
-          {/* Badge social proof */}
+          {/* Badge social proof amélioré */}
           <div className="flex justify-center">
-            <div className="inline-flex items-center bg-pink-pastel border-2 border-black px-4 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-              <span className="font-display font-bold text-sm text-black">+10 000 GENERATIONS</span>
+            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 bg-white border-3 border-black px-4 sm:px-6 py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-6">
+                  <Sparkles className="w-4 h-4 text-white" />
+                </div>
+                <span className="font-display font-bold text-lg sm:text-xl text-vinted">+10 000</span>
+              </div>
+              <div className="text-center sm:text-left">
+                <span className="font-display font-bold text-sm text-black block">PHOTOS TRANSFORMÉES</span>
+                <span className="font-body text-xs text-gray-600">Rejoins la communauté VintDress !</span>
+              </div>
             </div>
           </div>
 
