@@ -37,8 +37,8 @@
   },
   "configSection": {
     "title": "CONFIGURATION IA",
-    "configure": "CONFIGURER VOTRE AVATAR",
-    "generate": "GÉNÉRER VOTRE IMAGE",
+    "configure": "CONFIGURE TON AVATAR",
+    "generate": "GÉNÈRE TON IMAGE",
     "generating": "GÉNÉRATION..."
   },
   "interface": {

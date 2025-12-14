@@ -32,7 +32,7 @@ export const TestimonialsSection: React.FC = () => {
         {/* Header Neo-Brutalism */}
         <div className="text-center mb-16">
           
-          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight mb-8">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
             <div className="text-black transform -rotate-2 mb-4 relative">
               <span className="inline-block bg-pink-pastel border-4 border-black px-8 py-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 {t('title.line1')}
@@ -44,10 +44,10 @@ export const TestimonialsSection: React.FC = () => {
               </span>
             </div>
           </h2>
-          
-          <div className="max-w-2xl mx-auto">
+
+          <div className="max-w-2xl mx-auto pt-6 pb-8">
             <p className="font-body font-semibold text-lg text-gray-700">
-              {t('subtitle')}
+              Découvre comment les vendeurs <span className="text-vinted font-bold">transforment leurs ventes</span> avec <span className="text-vinted font-bold">l'IA</span> !
             </p>
           </div>
         </div>
