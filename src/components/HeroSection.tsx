@@ -343,16 +343,10 @@ export const HeroSection: React.FC = () => {
               </span>
             </h1>
 
-            {/* Description + Badge sur une ligne */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-              <p className="font-body text-sm sm:text-base text-gray-600">
-                {t('subtitle')} <span className="text-vinted font-bold">{t('description')}</span>
-              </p>
-              <div className="inline-flex items-center gap-1.5 bg-pink-pastel border-2 border-black px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                <Sparkles className="w-3 h-3 text-black" />
-                <span className="font-display text-xs text-black">+10 000 GENERATIONS</span>
-              </div>
-            </div>
+            {/* Description simple */}
+            <p className="font-body text-sm sm:text-base text-gray-600">
+              {t('subtitle')} <span className="text-vinted font-bold">{t('description')}</span>
+            </p>
           </div>
 
           {/* Interface d'upload compacte */}
@@ -372,17 +366,17 @@ export const HeroSection: React.FC = () => {
 
               {/* Étapes compactes */}
               <div className="flex justify-center items-center gap-2 mb-4">
-                <div className="flex items-center gap-1 bg-cream border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <span className="w-5 h-5 bg-white border-2 border-black flex items-center justify-center font-display text-xs">1</span>
-                  <span className="font-display text-xs">{t('uploadSection.steps.step1.title')}</span>
+                <div className="flex items-center gap-1.5 bg-cream border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="w-5 h-5 bg-white border-2 border-black flex items-center justify-center font-display text-xs font-bold">1</span>
+                  <span className="font-display text-xs">AJOUTER</span>
                 </div>
-                <div className="flex items-center gap-1 bg-vinted border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <span className="w-5 h-5 bg-white border-2 border-black flex items-center justify-center font-display text-xs">2</span>
-                  <span className="font-display text-xs text-white">{t('uploadSection.steps.step2.title')}</span>
+                <div className="flex items-center gap-1.5 bg-vinted border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="w-5 h-5 bg-white border-2 border-black flex items-center justify-center font-display text-xs font-bold">2</span>
+                  <span className="font-display text-xs text-white">CONFIGURER</span>
                 </div>
-                <div className="flex items-center gap-1 bg-mint border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <span className="w-5 h-5 bg-white border-2 border-black flex items-center justify-center font-display text-xs">3</span>
-                  <span className="font-display text-xs">{t('uploadSection.steps.step3.title')}</span>
+                <div className="flex items-center gap-1.5 bg-mint border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="w-5 h-5 bg-white border-2 border-black flex items-center justify-center font-display text-xs font-bold">3</span>
+                  <span className="font-display text-xs">GÉNÉRER</span>
                 </div>
               </div>
 
@@ -584,17 +578,9 @@ export const HeroSection: React.FC = () => {
                       data-guide="extract-button"
                     >
                       {isScrapingVinted ? (
-                        <>
-                          <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
-                          <span className="hidden sm:inline">EXTRACTION...</span>
-                          <span className="sm:hidden">EXTRAIT...</span>
-                        </>
+                        <span>EXTRACTION...</span>
                       ) : (
-                        <>
-                          <Sparkles className="w-4 h-4 hidden sm:inline" />
-                          <span className="hidden sm:inline">{t('interface.extractButton')}</span>
-                          <span className="sm:hidden">{t('interface.extractButton')}</span>
-                        </>
+                        <span>{t('interface.extractButton')}</span>
                       )}
                     </button>
                     
@@ -613,9 +599,7 @@ export const HeroSection: React.FC = () => {
                       }`}
                       data-guide="config-button"
                     >
-                      <Sparkles className="w-4 h-4 text-white hidden sm:inline" />
-                      <span className="hidden sm:inline">{t('configSection.configure')}</span>
-                      <span className="sm:hidden">{t('configSection.configure')}</span>
+                      <span>{t('configSection.configure')}</span>
                     </button>
                     
                     {/* Générer Avatar - Bouton principal */}
@@ -628,21 +612,21 @@ export const HeroSection: React.FC = () => {
                       data-guide="generate-button"
                     >
                       {!user ? (
-                        <>
-                          <Star className="w-4 h-4" />
-                          <span>CONNEXION</span>
-                        </>
+                        <span>CONNEXION</span>
                       ) : (
-                        <>
-                          <Zap className="w-4 h-4" />
-                          <span className="hidden sm:inline">{isGenerating ? t('configSection.generating') : t('configSection.generate')}</span>
-                          <span className="sm:hidden">{isGenerating ? t('interface.generating') : t('configSection.generate')}</span>
-                        </>
+                        <span>{isGenerating ? t('configSection.generating') : t('configSection.generate')}</span>
                       )}
                     </button>
                   </div>
                 </form>
               </div>
+            </div>
+          </div>
+
+          {/* Badge social proof */}
+          <div className="flex justify-center">
+            <div className="inline-flex items-center bg-pink-pastel border-2 border-black px-4 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+              <span className="font-display font-bold text-sm text-black">+10 000 GENERATIONS</span>
             </div>
           </div>
 
