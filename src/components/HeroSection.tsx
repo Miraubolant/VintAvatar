@@ -351,14 +351,14 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Description simple */}
-          <div className="pt-2 sm:pt-4">
+          <div className="pt-4 sm:pt-6">
             <p className="font-body text-sm sm:text-base text-gray-600">
               {t('subtitle')} <span className="text-vinted font-bold">{t('description')}</span>
             </p>
           </div>
 
           {/* Interface d'upload compacte */}
-          <div className="pt-2 sm:pt-4">
+          <div className="pt-4 sm:pt-6">
           <div className="max-w-3xl mx-auto">
             <div className="bg-white border-3 border-black p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
 
@@ -545,11 +545,6 @@ export const HeroSection: React.FC = () => {
                     </button>
                   </div>
 
-                  {/* Indication upload */}
-                  <p className="text-center font-body text-[10px] sm:text-xs text-gray-500">
-                    Colle un lien Vinted <span className="text-gray-400">ou</span> <button type="button" onClick={() => fileInputRef.current?.click()} className="text-vinted font-semibold hover:underline">télécharge ta photo</button>
-                  </p>
-
                   <input
                     ref={fileInputRef}
                     type="file"
@@ -622,7 +617,7 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Badge social proof amélioré */}
-          <div className="flex justify-center">
+          <div className="flex justify-center pt-4 sm:pt-6">
             <div className="inline-flex flex-row items-center gap-3 sm:gap-6 px-2 sm:px-4 py-2">
               {/* Note et étoiles */}
               <div className="flex flex-col items-center gap-0.5 sm:gap-1">
