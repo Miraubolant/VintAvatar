@@ -136,14 +136,14 @@ export const PricingSection: React.FC = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                plan.popular ? 'scale-105' : ''
+              className={`relative bg-white border-4 border-black p-6 sm:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                plan.popular ? 'md:scale-105 mt-8 md:mt-0' : ''
               } ${plan.popular ? 'border-pink-pastel border-6' : ''}`}
             >
               {/* Badge populaire */}
               {plan.popular && (
-                <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="bg-pink-pastel text-black px-6 py-2 border-4 border-black font-display font-bold text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-3">
+                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="bg-pink-pastel text-black px-4 sm:px-6 py-1.5 sm:py-2 border-3 sm:border-4 border-black font-display font-bold text-xs sm:text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-3">
                     {t('plans.popular.badge')}
                   </div>
                 </div>

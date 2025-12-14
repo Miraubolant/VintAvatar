@@ -8,35 +8,49 @@ export const BeforeAfterSection: React.FC = () => {
   const { t } = useTranslation('beforeafter');
 
   return (
-    <section id="avant-apres" className="relative py-12 sm:py-16 lg:py-20 bg-cream overflow-hidden">
-      {/* Formes décoratives neo-brutalism */}
-      <div className="absolute top-16 right-16 w-14 h-14 bg-mint border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
+    <section id="avant-apres" className="relative pt-6 pb-12 sm:py-16 lg:py-20 bg-cream overflow-hidden">
+      {/* Formes décoratives neo-brutalism - cachées sur mobile */}
+      <div className="hidden sm:block absolute top-16 right-16 w-14 h-14 bg-mint border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="absolute top-1/3 left-8 w-10 h-10 bg-pink-pastel border-3 border-black transform -rotate-45 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="absolute bottom-32 right-8 w-12 h-12 bg-vinted border-4 border-black neo-shape-circle shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="absolute bottom-16 left-1/4 w-8 h-8 bg-cream border-3 border-black transform -rotate-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header Neo-Brutalism */}
-        <div className="text-center mb-16">
-          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight mb-8">
-            <div className="text-black transform -rotate-2 mb-4 relative">
-              <span className="inline-block bg-white border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        {/* Header Neo-Brutalism - Compact sur mobile */}
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="font-display font-bold text-[1.6rem] sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+            {/* Version mobile: inline compact */}
+            <div className="flex flex-wrap justify-center items-center gap-2 sm:hidden">
+              <span className="inline-block bg-white text-black border-2 border-black px-3 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
                 {t('title.line1')}
               </span>
-            </div>
-            <div className="text-black transform rotate-1 relative mb-4">
-              <span className="inline-block bg-pink-pastel border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <span className="inline-block bg-pink-pastel text-black border-2 border-black px-3 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
                 {t('title.line2')}
               </span>
-            </div>
-            <div className="text-white transform -rotate-1 relative">
-              <span className="inline-block bg-vinted border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <span className="inline-block bg-vinted text-white border-2 border-black px-3 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
                 {t('title.line3')}
               </span>
             </div>
+            {/* Version desktop: blocs empilés */}
+            <div className="hidden sm:block">
+              <div className="text-black transform -rotate-2 mb-4 relative">
+                <span className="inline-block bg-white border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                  {t('title.line1')}
+                </span>
+              </div>
+              <div className="text-black transform rotate-1 relative mb-4">
+                <span className="inline-block bg-pink-pastel border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                  {t('title.line2')}
+                </span>
+              </div>
+              <div className="text-white transform -rotate-1 relative">
+                <span className="inline-block bg-vinted border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                  {t('title.line3')}
+                </span>
+              </div>
+            </div>
           </h2>
-          
         </div>
 
         {/* Loading State */}
