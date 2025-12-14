@@ -46,7 +46,7 @@ export const FAQSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-pink-pastel border-3 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+              <div className="bg-yellow-300 border-3 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-black border-2 border-black flex items-center justify-center text-white font-bold">
                     2

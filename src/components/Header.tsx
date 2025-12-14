@@ -38,8 +38,14 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           
           {/* Logo Neo-Brutalism Pastel */}
-          <button 
-            onClick={() => navigate('/')}
+          <button
+            onClick={() => {
+              if (location.pathname === '/') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                navigate('/');
+              }
+            }}
             className="flex items-center gap-2 group shrink-0"
           >
             <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-vinted border-3 border-black flex items-center justify-center transform -rotate-2 group-hover:rotate-0 transition-transform duration-300 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">

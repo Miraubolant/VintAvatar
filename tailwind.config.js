@@ -35,7 +35,7 @@ export default {
         },
       },
       fontFamily: {
-        'display': ['Space Grotesk', 'system-ui', 'sans-serif'],
+        'display': ['Luckiest Guy', 'cursive'],
         'body': ['Inter', 'system-ui', 'sans-serif'],
         sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },

@@ -80,9 +80,9 @@ export const PricingSection: React.FC = () => {
       period: '',
       priceId: 'price_1SAqbcKHJNJEt6Gqn4vj2WGy',
       icon: Crown,
-      color: 'bg-blue-500',
-      hoverColor: 'hover:bg-blue-600',
-      textColor: 'text-white',
+      color: 'bg-pink-pastel',
+      hoverColor: 'hover:bg-pink-300',
+      textColor: 'text-black',
       popular: true,
       features: t('plans.popular.features', { returnObjects: true }) as string[]
     },
@@ -124,8 +124,8 @@ export const PricingSection: React.FC = () => {
             </div>
           </h2>
           
-          <div className="inline-block">
-            <p className="font-body font-semibold text-lg bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-w-2xl transform -rotate-1">
+          <div className="max-w-2xl mx-auto">
+            <p className="font-body font-semibold text-lg text-gray-700">
               {t('subtitle')}
             </p>
           </div>

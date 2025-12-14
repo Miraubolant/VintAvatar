@@ -45,8 +45,8 @@ export const TestimonialsSection: React.FC = () => {
             </div>
           </h2>
           
-          <div className="inline-block">
-            <p className="font-body font-semibold text-lg bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-w-2xl transform -rotate-1">
+          <div className="max-w-2xl mx-auto">
+            <p className="font-body font-semibold text-lg text-gray-700">
               {t('subtitle')}
             </p>
           </div>
