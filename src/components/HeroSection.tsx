@@ -326,12 +326,12 @@ export const HeroSection: React.FC = () => {
       <div className="hidden md:block absolute bottom-32 left-20 w-10 h-10 bg-vinted border-4 border-black transform rotate-45 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="hidden md:block absolute bottom-20 right-10 w-14 h-14 bg-pink-pastel border-4 border-black neo-shape-circle shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
-        <div className="text-center space-y-4 sm:space-y-6">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-2 sm:pt-22 lg:pt-26 sm:pb-6 lg:pb-8">
+        <div className="text-center space-y-2 sm:space-y-6">
 
           {/* Titre sur plusieurs lignes */}
           <div className="space-y-2">
-            <h1 className="font-display font-bold text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            <h1 className="font-display font-bold text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
               <div className="mb-2">
                 <span className="inline-block bg-white border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
                   {t('title.line1')}
@@ -351,47 +351,20 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Description simple */}
-          <div className="pt-4">
+          <div className="pt-2 sm:pt-4">
             <p className="font-body text-sm sm:text-base text-gray-600">
               {t('subtitle')} <span className="text-vinted font-bold">{t('description')}</span>
             </p>
           </div>
 
           {/* Interface d'upload compacte */}
-          <div className="pt-4">
+          <div className="pt-2 sm:pt-4">
           <div className="max-w-3xl mx-auto">
-            <div className="bg-white border-3 border-black p-4 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative">
-
-              {/* Guide button */}
-              <button
-                onClick={handleReactivateGuide}
-                className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 group"
-                title={t('guide:button.title')}
-              >
-                <div className="w-7 h-7 bg-vinted rounded-full border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-[-1px] group-hover:translate-y-[-1px] transition-all">
-                  <HelpCircle className="w-4 h-4 text-white" />
-                </div>
-              </button>
-
-              {/* Étapes compactes */}
-              <div className="flex justify-center items-center gap-2 mb-4">
-                <div className="flex items-center gap-1.5 bg-cream border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <span className="w-5 h-5 bg-white border-2 border-black flex items-center justify-center font-display text-xs font-bold">1</span>
-                  <span className="font-display text-xs">AJOUTER</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-vinted border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <span className="w-5 h-5 bg-white border-2 border-black flex items-center justify-center font-display text-xs font-bold">2</span>
-                  <span className="font-display text-xs text-white">CONFIGURER</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-mint border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <span className="w-5 h-5 bg-white border-2 border-black flex items-center justify-center font-display text-xs font-bold">3</span>
-                  <span className="font-display text-xs">GÉNÉRER</span>
-                </div>
-              </div>
+            <div className="bg-white border-3 border-black p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
 
               {/* Aperçu des images - Si présent */}
               {(vintedImages.length > 0 || uploadedImage) && (
-                <div className="bg-cream border-2 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-4">
+                <div className="bg-cream border-2 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-3 sm:mb-4">
                   {/* Info article */}
                   {vintedArticleInfo && vintedArticleInfo.title && (
                     <div className="mb-2 p-2 bg-mint border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
@@ -525,11 +498,11 @@ export const HeroSection: React.FC = () => {
               )}
 
               {/* Zone de saisie et actions principales */}
-              <div className="space-y-4">
-                <form onSubmit={handleUrlSubmit} className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
+                <form onSubmit={handleUrlSubmit} className="space-y-3 sm:space-y-4">
                   {/* Input Vinted avec bouton Upload - Mobile optimisé */}
                   <div className="flex gap-2">
-                    <div className="flex-1 bg-cream border-3 border-black p-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="flex-1 bg-cream border-3 border-black p-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative">
                       <label htmlFor="vinted-url-input" className="sr-only">URL Vinted</label>
                       <input
                         id="vinted-url-input"
@@ -537,10 +510,20 @@ export const HeroSection: React.FC = () => {
                         value={vintedUrl}
                         onChange={(e) => setVintedUrl(e.target.value)}
                         placeholder={t('interface.placeholder')}
-                        className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-transparent border-none font-body font-semibold text-sm sm:text-base placeholder-gray-500 focus:outline-none"
+                        className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-10 bg-transparent border-none font-body font-semibold text-sm sm:text-base placeholder-gray-500 focus:outline-none"
                         data-guide="vinted-url-input"
                         aria-describedby="vinted-url-help"
                       />
+                      {vintedUrl && (
+                        <button
+                          type="button"
+                          onClick={() => setVintedUrl('')}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-gray-200 border-2 border-black flex items-center justify-center hover:bg-gray-300 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+                          title="Effacer l'URL"
+                        >
+                          <X className="w-3 h-3" />
+                        </button>
+                      )}
                     </div>
                     
                     {/* Upload Photo - Responsive */}
@@ -561,7 +544,12 @@ export const HeroSection: React.FC = () => {
                       <span className="hidden sm:inline ml-2">{t('interface.photoButton')}</span>
                     </button>
                   </div>
-                  
+
+                  {/* Indication upload */}
+                  <p className="text-center font-body text-[10px] sm:text-xs text-gray-500">
+                    Colle un lien Vinted <span className="text-gray-400">ou</span> <button type="button" onClick={() => fileInputRef.current?.click()} className="text-vinted font-semibold hover:underline">télécharge ta photo</button>
+                  </p>
+
                   <input
                     ref={fileInputRef}
                     type="file"
@@ -571,13 +559,13 @@ export const HeroSection: React.FC = () => {
                   />
 
                   {/* Boutons d'actions - Mobile optimisé */}
-                  <div className="space-y-3 sm:space-y-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-3">
+                  <div className="space-y-2 sm:space-y-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-3">
                     
                     {/* Extraire Vinted */}
                     <button
                       type="submit"
                       disabled={!vintedUrl || isScrapingVinted}
-                      className={`w-full border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2 px-3 py-3 sm:px-4 ${
+                      className={`w-full border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2 px-3 py-2.5 sm:py-3 sm:px-4 ${
                         vintedUrl && !isScrapingVinted && vintedImages.length === 0
                           ? 'bg-pink-pastel text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] animate-pulse'
                           : vintedUrl && !isScrapingVinted
@@ -603,7 +591,7 @@ export const HeroSection: React.FC = () => {
                           setHasStoredConfig(!!config);
                         }, 100);
                       }}
-                      className={`w-full bg-vinted border-3 border-black font-display font-bold text-xs sm:text-sm text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2 px-3 py-3 sm:px-4 ${
+                      className={`w-full bg-vinted border-3 border-black font-display font-bold text-xs sm:text-sm text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2 px-3 py-2.5 sm:py-3 sm:px-4 ${
                         (vintedImages.length > 0 || uploadedImage) && !hasStoredConfig ? 'animate-pulse' : ''
                       }`}
                       data-guide="config-button"
@@ -615,7 +603,7 @@ export const HeroSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={handleGenerate}
-                      className={`w-full ${!user ? 'bg-mint' : 'bg-pink-pastel'} border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 sm:col-span-2 lg:col-span-1 flex items-center justify-center gap-2 px-3 py-3 sm:px-4 ${
+                      className={`w-full ${!user ? 'bg-mint' : 'bg-pink-pastel'} border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 sm:col-span-2 lg:col-span-1 flex items-center justify-center gap-2 px-3 py-2.5 sm:py-3 sm:px-4 ${
                         (vintedImages.length > 0 || uploadedImage) && hasStoredConfig ? 'animate-pulse' : ''
                       }`}
                       data-guide="generate-button"
@@ -635,16 +623,27 @@ export const HeroSection: React.FC = () => {
 
           {/* Badge social proof amélioré */}
           <div className="flex justify-center">
-            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-4 sm:px-6 py-2">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-6">
-                  <Sparkles className="w-4 h-4 text-white" />
+            <div className="inline-flex flex-row items-center gap-3 sm:gap-6 px-2 sm:px-4 py-2">
+              {/* Note et étoiles */}
+              <div className="flex flex-col items-center gap-0.5 sm:gap-1">
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <span className="font-display font-bold text-lg sm:text-3xl text-black">4.7</span>
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className={`w-3 h-3 sm:w-5 sm:h-5 ${i < 4 ? 'text-yellow-400 fill-yellow-400' : i === 4 ? 'text-yellow-400 fill-yellow-400 opacity-70' : 'text-gray-300'}`} />
+                    ))}
+                  </div>
                 </div>
-                <span className="font-display font-bold text-lg sm:text-xl text-black">+10 000</span>
+                <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">note moyenne</span>
               </div>
-              <div className="text-center sm:text-left">
-                <span className="font-display font-bold text-sm text-black block">PHOTOS TRANSFORMÉES</span>
-                <span className="font-body text-xs text-gray-600">Rejoins la communauté VintDress !</span>
+
+              {/* Séparateur */}
+              <div className="w-px h-8 sm:h-10 bg-black opacity-20"></div>
+
+              {/* Compteur */}
+              <div className="flex flex-col items-center gap-0.5 sm:gap-1">
+                <span className="font-display font-bold text-lg sm:text-3xl text-black">+10 000</span>
+                <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">photos transformées</span>
               </div>
             </div>
           </div>

@@ -38,7 +38,7 @@ export const BlogSection: React.FC = () => {
         {/* Header Neo-Brutalism */}
         <div className="text-center mb-16">
           
-          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight mb-8">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
             <div className="text-black transform -rotate-2 mb-4 relative">
               <span className="inline-block bg-white border-4 border-black px-8 py-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 {t('title.line1')}
@@ -51,10 +51,10 @@ export const BlogSection: React.FC = () => {
               </span>
             </div>
           </h2>
-          
-          <div className="inline-block">
-            <p className="font-body font-semibold text-lg bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-w-2xl transform -rotate-1">
-              {t('subtitle')}
+
+          <div className="max-w-2xl mx-auto pt-6 pb-8">
+            <p className="font-body font-semibold text-lg text-gray-700">
+              Reste à jour avec nos <span className="text-vinted font-bold">derniers conseils</span> pour <span className="text-vinted font-bold">maximiser tes ventes</span> !
             </p>
           </div>
         </div>
