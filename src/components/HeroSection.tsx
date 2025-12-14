@@ -329,27 +329,36 @@ export const HeroSection: React.FC = () => {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
         <div className="text-center space-y-4 sm:space-y-6">
 
-          {/* Titre + Description compacts */}
-          <div className="space-y-3 sm:space-y-4">
+          {/* Titre sur plusieurs lignes */}
+          <div className="space-y-2">
             <h1 className="font-display font-bold text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-              <span className="inline-block bg-white border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-                {t('title.line1')}
-              </span>
-              <span className="inline-block bg-vinted text-white border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1 mx-1">
-                {t('title.line2')}
-              </span>
-              <span className="inline-block bg-mint border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-                {t('title.line3')}
-              </span>
+              <div className="mb-2">
+                <span className="inline-block bg-white border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                  {t('title.line1')}
+                </span>
+              </div>
+              <div className="mb-2">
+                <span className="inline-block bg-vinted text-white border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+                  {t('title.line2')}
+                </span>
+              </div>
+              <div>
+                <span className="inline-block bg-mint border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                  {t('title.line3')}
+                </span>
+              </div>
             </h1>
+          </div>
 
-            {/* Description simple */}
+          {/* Description simple */}
+          <div className="pt-4">
             <p className="font-body text-sm sm:text-base text-gray-600">
               {t('subtitle')} <span className="text-vinted font-bold">{t('description')}</span>
             </p>
           </div>
 
           {/* Interface d'upload compacte */}
+          <div className="pt-4">
           <div className="max-w-3xl mx-auto">
             <div className="bg-white border-3 border-black p-4 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative">
 
@@ -621,6 +630,7 @@ export const HeroSection: React.FC = () => {
                 </form>
               </div>
             </div>
+          </div>
           </div>
 
           {/* Badge social proof */}
