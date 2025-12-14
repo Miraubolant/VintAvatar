@@ -615,7 +615,7 @@ export const HeroSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={handleGenerate}
-                      className={`w-full bg-pink-pastel border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 sm:col-span-2 lg:col-span-1 flex items-center justify-center gap-2 px-3 py-3 sm:px-4 ${
+                      className={`w-full ${!user ? 'bg-mint' : 'bg-pink-pastel'} border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 sm:col-span-2 lg:col-span-1 flex items-center justify-center gap-2 px-3 py-3 sm:px-4 ${
                         (vintedImages.length > 0 || uploadedImage) && hasStoredConfig ? 'animate-pulse' : ''
                       }`}
                       data-guide="generate-button"
@@ -635,12 +635,12 @@ export const HeroSection: React.FC = () => {
 
           {/* Badge social proof amélioré */}
           <div className="flex justify-center">
-            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 bg-white border-3 border-black px-4 sm:px-6 py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-4 sm:px-6 py-2">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-6">
                   <Sparkles className="w-4 h-4 text-white" />
                 </div>
-                <span className="font-display font-bold text-lg sm:text-xl text-vinted">+10 000</span>
+                <span className="font-display font-bold text-lg sm:text-xl text-black">+10 000</span>
               </div>
               <div className="text-center sm:text-left">
                 <span className="font-display font-bold text-sm text-black block">PHOTOS TRANSFORMÉES</span>
