@@ -349,18 +349,20 @@ export const HeroSection: React.FC = () => {
               </div>
             </h1>
             
-            {/* Description avec style BD */}
-            <div className="relative inline-block">
-              <div className="bg-white border-4 border-black p-5 transform rotate-1 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] max-w-2xl">
-                <p className="font-body font-semibold text-base sm:text-lg leading-relaxed">
-                  {t('subtitle')}
-                  <span className="text-vinted font-bold"> {t('description')}</span>
-                </p>
+            {/* Description simple sans cadre */}
+            <div className="max-w-2xl mx-auto">
+              <p className="font-body font-semibold text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700">
+                {t('subtitle')}
+                <span className="text-vinted font-bold"> {t('description')}</span>
+              </p>
+            </div>
+
+            {/* Badge social proof */}
+            <div className="flex justify-center">
+              <div className="inline-flex items-center gap-2 bg-pink-pastel border-3 border-black px-4 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                <Sparkles className="w-4 h-4 text-black" />
+                <span className="font-display text-sm text-black">+10 000 GENERATIONS</span>
               </div>
-              
-              {/* Éléments décoratifs autour de la description */}
-              <div className="absolute -top-3 -right-3 w-6 h-6 bg-pink-pastel border-2 border-black transform rotate-45 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"></div>
-              <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-mint border-2 border-black transform -rotate-12 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"></div>
             </div>
 
           </div>
@@ -647,7 +649,7 @@ export const HeroSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={handleGenerate}
-                      className={`w-full bg-mint border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 sm:col-span-2 lg:col-span-1 flex items-center justify-center gap-2 px-3 py-3 sm:px-4 ${
+                      className={`w-full bg-pink-pastel border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 sm:col-span-2 lg:col-span-1 flex items-center justify-center gap-2 px-3 py-3 sm:px-4 ${
                         (vintedImages.length > 0 || uploadedImage) && hasStoredConfig ? 'animate-pulse' : ''
                       }`}
                       data-guide="generate-button"
