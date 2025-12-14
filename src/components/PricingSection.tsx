@@ -111,7 +111,7 @@ export const PricingSection: React.FC = () => {
         {/* Header Neo-Brutalism */}
         <div className="text-center mb-16">
           
-          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+          <h2 className="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
             <div className="text-black transform -rotate-3 mb-4 relative">
               <span className="inline-block bg-mint border-4 border-black px-8 py-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 {t('title.line1')}
