@@ -249,13 +249,9 @@ export const ResultPage: React.FC = () => {
           {/* Success badge */}
           <div className="text-center mb-6">
             <div className="inline-block bg-mint border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-              <div className="flex items-center gap-2">
-                <Star className="w-5 h-5 text-vinted" />
-                <span className="font-display font-bold text-base sm:text-lg text-black">
-                  {t('success', 'AVATAR GENERE AVEC SUCCES')}
-                </span>
-                <Star className="w-5 h-5 text-vinted" />
-              </div>
+              <span className="font-display font-bold text-base sm:text-lg text-black">
+                {t('success', 'AVATAR GENERE AVEC SUCCES')}
+              </span>
             </div>
             <p className="font-body text-sm text-gray-500 mt-2">
               {t('generatedAt', 'Genere le')} {formatDate(result.created_at)}
@@ -309,11 +305,9 @@ export const ResultPage: React.FC = () => {
                     <span className="font-display font-bold text-[10px]">BÉTA</span>
                   </div>
                   <div className="inline-flex items-center gap-3 bg-vinted border-4 border-black px-6 py-3 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
-                    <Sparkles className="w-5 h-5 text-white" />
                     <span className="font-display font-bold text-base sm:text-lg text-white tracking-wide">
                       {t('listingTitle', 'TITRE & DESCRIPTION')}
                     </span>
-                    <Sparkles className="w-5 h-5 text-white" />
                   </div>
                 </div>
                 <p className="font-body text-sm text-gray-600 mt-3 max-w-md mx-auto">
