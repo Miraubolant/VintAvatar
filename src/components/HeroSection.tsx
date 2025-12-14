@@ -326,12 +326,12 @@ export const HeroSection: React.FC = () => {
       <div className="hidden md:block absolute bottom-32 left-20 w-10 h-10 bg-vinted border-4 border-black transform rotate-45 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="hidden md:block absolute bottom-20 right-10 w-14 h-14 bg-pink-pastel border-4 border-black neo-shape-circle shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-2 sm:pt-22 lg:pt-26 sm:pb-6 lg:pb-8">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2 sm:pt-8 lg:pt-12 sm:pb-6 lg:pb-8">
         <div className="text-center space-y-2 sm:space-y-6">
 
           {/* Titre sur plusieurs lignes */}
           <div className="space-y-2">
-            <h1 className="font-display font-bold text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <h1 className="font-display font-bold text-[1.75rem] xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
               <div className="mb-2">
                 <span className="inline-block bg-white border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
                   {t('title.line1')}
