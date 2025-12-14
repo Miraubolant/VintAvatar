@@ -326,96 +326,69 @@ export const HeroSection: React.FC = () => {
       <div className="hidden md:block absolute bottom-32 left-20 w-10 h-10 bg-vinted border-4 border-black transform rotate-45 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="hidden md:block absolute bottom-20 right-10 w-14 h-14 bg-pink-pastel border-4 border-black neo-shape-circle shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        <div className="text-center space-y-8 sm:space-y-12">
-          
-          {/* Titre principal Neo-Brutalism */}
-          <div className="space-y-8">
-            <h1 className="font-display font-bold text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight mb-8">
-              <div className="text-black transform -rotate-2 mb-3 sm:mb-4 relative">
-                <span className="inline-block bg-white border-3 sm:border-4 border-black px-3 sm:px-6 py-2 sm:py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                  {t('title.line1')}
-                </span>
-              </div>
-              <div className="text-white transform rotate-1 relative mb-3 sm:mb-4">
-                <span className="inline-block bg-vinted border-3 sm:border-4 border-black px-3 sm:px-6 py-2 sm:py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                  {t('title.line2')}
-                </span>
-              </div>
-              <div className="text-black transform -rotate-1 relative">
-                <span className="inline-block bg-mint border-3 sm:border-4 border-black px-3 sm:px-6 py-2 sm:py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                  {t('title.line3')}
-                </span>
-              </div>
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+        <div className="text-center space-y-4 sm:space-y-6">
+
+          {/* Titre + Description compacts */}
+          <div className="space-y-3 sm:space-y-4">
+            <h1 className="font-display font-bold text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+              <span className="inline-block bg-white border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                {t('title.line1')}
+              </span>
+              <span className="inline-block bg-vinted text-white border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1 mx-1">
+                {t('title.line2')}
+              </span>
+              <span className="inline-block bg-mint border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                {t('title.line3')}
+              </span>
             </h1>
-            
-            {/* Description simple sans cadre */}
-            <div className="max-w-2xl mx-auto">
-              <p className="font-body font-semibold text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700">
-                {t('subtitle')}
-                <span className="text-vinted font-bold"> {t('description')}</span>
-              </p>
-            </div>
 
-            {/* Badge social proof */}
-            <div className="flex justify-center">
-              <div className="inline-flex items-center gap-2 bg-pink-pastel border-3 border-black px-4 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                <Sparkles className="w-4 h-4 text-black" />
-                <span className="font-display text-sm text-black">+10 000 GENERATIONS</span>
+            {/* Description + Badge sur une ligne */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+              <p className="font-body text-sm sm:text-base text-gray-600">
+                {t('subtitle')} <span className="text-vinted font-bold">{t('description')}</span>
+              </p>
+              <div className="inline-flex items-center gap-1.5 bg-pink-pastel border-2 border-black px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <Sparkles className="w-3 h-3 text-black" />
+                <span className="font-display text-xs text-black">+10 000 GENERATIONS</span>
               </div>
             </div>
-
           </div>
 
-          {/* Interface d'upload Neo-Brutalism - Section unique fusionnée */}
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 relative">
-              {/* Éléments décoratifs */}
-              <div className="absolute -top-3 -right-3 w-8 h-8 bg-mint border-3 border-black transform rotate-45 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
-              <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-vinted border-3 border-black transform -rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"></div>
-              <div className="absolute top-4 left-4 w-4 h-4 bg-pink-pastel border-2 border-black transform rotate-12 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"></div>
+          {/* Interface d'upload compacte */}
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-white border-3 border-black p-4 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative">
 
-              {/* Guide button - top right corner with pulse animation */}
+              {/* Guide button */}
               <button
                 onClick={handleReactivateGuide}
-                className="absolute top-2 right-5 sm:top-4 sm:right-8 z-10 group"
+                className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 group"
                 title={t('guide:button.title')}
               >
-                <div className="relative">
-                  {/* Pulsing background effect */}
-                  <div className="absolute inset-0 bg-vinted rounded-full animate-ping opacity-25"></div>
-
-                  {/* Main button */}
-                  <div className="relative w-8 h-8 sm:w-10 sm:h-10 bg-vinted rounded-full border-2 sm:border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-[-1px] group-hover:translate-y-[-1px] sm:group-hover:translate-x-[-2px] sm:group-hover:translate-y-[-2px] transition-all duration-200">
-                    <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                  </div>
+                <div className="w-7 h-7 bg-vinted rounded-full border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-[-1px] group-hover:translate-y-[-1px] transition-all">
+                  <HelpCircle className="w-4 h-4 text-white" />
                 </div>
               </button>
-              
-              {/* Indications des étapes - Responsive */}
-              <div className="text-center mb-6">
-                <div className="flex flex-wrap justify-center items-center gap-2 lg:gap-3">
-                  <div className="inline-block bg-white border-4 border-black px-3 py-3 lg:px-6 lg:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-                    <div className="font-display font-bold text-black text-sm lg:text-lg">{t('uploadSection.steps.step1.title')}</div>
-                    <div className="font-body font-bold text-xs lg:text-sm text-gray-600 mt-1 lg:mt-2 hidden sm:block">{t('uploadSection.steps.step1.subtitle')}</div>
-                    <div className="font-body font-bold text-xs text-gray-600 mt-1 sm:hidden">{t('uploadSection.steps.step1.mobileSubtitle')}</div>
-                  </div>
-                  <div className="inline-block bg-vinted border-4 border-black px-3 py-3 lg:px-6 lg:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
-                    <div className="font-display font-bold text-white text-sm lg:text-lg">{t('uploadSection.steps.step2.title')}</div>
-                    <div className="font-body font-bold text-xs lg:text-sm text-white/80 mt-1 lg:mt-2 hidden sm:block">{t('uploadSection.steps.step2.subtitle')}</div>
-                    <div className="font-body font-bold text-xs text-white/80 mt-1 sm:hidden">{t('uploadSection.steps.step2.mobileSubtitle')}</div>
-                  </div>
-                  <div className="inline-block bg-mint border-4 border-black px-3 py-3 lg:px-6 lg:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-                    <div className="font-display font-bold text-black text-sm lg:text-lg">{t('uploadSection.steps.step3.title')}</div>
-                    <div className="font-body font-bold text-xs lg:text-sm text-gray-600 mt-1 lg:mt-2 hidden sm:block">{t('uploadSection.steps.step3.subtitle')}</div>
-                    <div className="font-body font-bold text-xs text-gray-600 mt-1 sm:hidden">{t('uploadSection.steps.step3.mobileSubtitle')}</div>
-                  </div>
+
+              {/* Étapes compactes */}
+              <div className="flex justify-center items-center gap-2 mb-4">
+                <div className="flex items-center gap-1 bg-cream border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="w-5 h-5 bg-white border-2 border-black flex items-center justify-center font-display text-xs">1</span>
+                  <span className="font-display text-xs">{t('uploadSection.steps.step1.title')}</span>
+                </div>
+                <div className="flex items-center gap-1 bg-vinted border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="w-5 h-5 bg-white border-2 border-black flex items-center justify-center font-display text-xs">2</span>
+                  <span className="font-display text-xs text-white">{t('uploadSection.steps.step2.title')}</span>
+                </div>
+                <div className="flex items-center gap-1 bg-mint border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="w-5 h-5 bg-white border-2 border-black flex items-center justify-center font-display text-xs">3</span>
+                  <span className="font-display text-xs">{t('uploadSection.steps.step3.title')}</span>
                 </div>
               </div>
 
               {/* Aperçu des images - Si présent */}
               {(vintedImages.length > 0 || uploadedImage) && (
-                <div className="bg-cream border-3 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-5">
+                <div className="bg-cream border-2 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-4">
                   {/* Info article */}
                   {vintedArticleInfo && vintedArticleInfo.title && (
                     <div className="mb-2 p-2 bg-mint border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">

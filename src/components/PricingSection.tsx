@@ -138,12 +138,12 @@ export const PricingSection: React.FC = () => {
               key={index}
               className={`relative bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                 plan.popular ? 'scale-105' : ''
-              } ${plan.popular ? 'border-vinted border-6' : ''}`}
+              } ${plan.popular ? 'border-pink-pastel border-6' : ''}`}
             >
               {/* Badge populaire */}
               {plan.popular && (
                 <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="bg-vinted text-white px-6 py-2 border-4 border-black font-display font-bold text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-3">
+                  <div className="bg-pink-pastel text-black px-6 py-2 border-4 border-black font-display font-bold text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-3">
                     {t('plans.popular.badge')}
                   </div>
                 </div>
@@ -152,9 +152,9 @@ export const PricingSection: React.FC = () => {
               {/* Header avec icône et nom */}
               <div className="text-center mb-8">
                 <div className={`w-16 h-16 mx-auto mb-4 border-4 border-black flex items-center justify-center transform ${plan.popular ? 'rotate-6' : 'rotate-12'} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
-                  plan.popular ? 'bg-vinted' : index % 2 === 0 ? 'bg-mint' : 'bg-pink-pastel'
+                  plan.popular ? 'bg-pink-pastel' : index % 2 === 0 ? 'bg-mint' : 'bg-pink-pastel'
                 }`}>
-                  <plan.icon className={`w-8 h-8 ${plan.popular ? 'text-white' : 'text-black'}`} />
+                  <plan.icon className="w-8 h-8 text-black" />
                 </div>
                 <h3 className="font-display font-bold text-2xl text-black">{plan.name}</h3>
               </div>
@@ -169,7 +169,7 @@ export const PricingSection: React.FC = () => {
                     {plan.period ? plan.period : t('common.oneTimePayment', 'Paiement unique')}
                   </div>
                   {plan.popular && (
-                    <div className="mt-2 px-3 py-1 bg-vinted text-white border-2 border-black font-display font-bold text-xs inline-block transform rotate-2">
+                    <div className="mt-2 px-3 py-1 bg-pink-pastel text-black border-2 border-black font-display font-bold text-xs inline-block transform rotate-2">
                       {t('common.bestValue', 'MEILLEURE VALEUR')}
                     </div>
                   )}
@@ -184,9 +184,9 @@ export const PricingSection: React.FC = () => {
                     className="flex items-start gap-4"
                   >
                     <div className={`w-7 h-7 border-3 border-black flex items-center justify-center flex-shrink-0 transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${
-                      plan.popular ? 'bg-vinted' : 'bg-mint'
+                      plan.popular ? 'bg-pink-pastel' : 'bg-mint'
                     }`}>
-                      <Check className={`w-4 h-4 ${plan.popular ? 'text-white' : 'text-black'}`} />
+                      <Check className="w-4 h-4 text-black" />
                     </div>
                     <span className="font-body font-semibold text-black leading-relaxed">{feature}</span>
                   </li>
@@ -197,7 +197,7 @@ export const PricingSection: React.FC = () => {
               <button
                 onClick={() => handleSubscribe(plan.priceId, plan.name)}
                 className={`w-full px-6 py-4 border-4 border-black font-display font-bold text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform ${
-                  plan.popular ? 'bg-vinted text-white scale-105' : index % 2 === 0 ? 'bg-mint text-black' : 'bg-pink-pastel text-black'
+                  plan.popular ? 'bg-pink-pastel text-black scale-105' : index % 2 === 0 ? 'bg-mint text-black' : 'bg-pink-pastel text-black'
                 }`}
               >
                 <span className="flex items-center justify-center gap-3">
