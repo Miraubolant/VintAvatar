@@ -19,7 +19,7 @@ export const BeforeAfterSection: React.FC = () => {
         
         {/* Header Neo-Brutalism - Compact sur mobile */}
         <div className="text-center mb-8 sm:mb-16">
-          <h2 className="font-display font-bold text-[1.6rem] sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+          <h2 className="font-display font-semibold text-[1.6rem] sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
             {/* Version mobile: inline compact */}
             <div className="flex flex-wrap justify-center items-center gap-2 sm:hidden">
               <span className="inline-block bg-white text-black border-2 border-black px-3 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
