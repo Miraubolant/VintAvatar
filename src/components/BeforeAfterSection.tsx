@@ -133,7 +133,7 @@ export const BeforeAfterSection: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-16">
           {[
             { value: t('stats.0.value'), label: t('stats.0.label'), bg: "bg-mint" },
-            { value: t('stats.1.value'), label: t('stats.1.label'), bg: "bg-pink-pastel" },
+            { value: t('stats.1.value'), label: t('stats.1.label'), bg: "bg-yellow-300" },
             { value: t('stats.2.value'), label: t('stats.2.label'), bg: "bg-vinted", text: "text-white" },
             { value: t('stats.3.value'), label: t('stats.3.label'), bg: "bg-cream" }
           ].map((stat, idx) => (
@@ -163,7 +163,7 @@ export const BeforeAfterSection: React.FC = () => {
                   heroSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-vinted text-white border-3 border-black font-display font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-pink-pastel text-black border-3 border-black font-display font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               <Sparkles className="w-5 h-5" />
               {t('cta.button')}
