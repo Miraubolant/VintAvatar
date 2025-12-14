@@ -296,12 +296,17 @@ export const HeroSection: React.FC = () => {
   };
 
   const handleGenerate = async () => {
+    // Vérifier si l'utilisateur est connecté en premier
+    if (!user) {
+      setShowAuthRequiredModal(true);
+      return;
+    }
+
     // Check if we have either an uploaded image or a selected Vinted image
     if (!uploadedImage && !selectedVintedImage) {
       setShowImageRequiredModal(true);
       return;
     }
-
 
     // Use Vinted image if available, otherwise use uploaded image
     if (selectedVintedImage) {
@@ -592,16 +597,12 @@ export const HeroSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={handleGenerate}
-                      className={`w-full ${!user ? 'bg-mint' : 'bg-pink-pastel'} border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 sm:col-span-2 lg:col-span-1 flex items-center justify-center gap-2 px-3 py-2.5 sm:py-3 sm:px-4 ${
-                        (vintedImages.length > 0 || uploadedImage) && hasStoredConfig ? 'animate-pulse' : ''
+                      className={`w-full bg-pink-pastel border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 sm:col-span-2 lg:col-span-1 flex items-center justify-center gap-2 px-3 py-2.5 sm:py-3 sm:px-4 ${
+                        (vintedImages.length > 0 || uploadedImage) ? 'animate-pulse' : ''
                       }`}
                       data-guide="generate-button"
                     >
-                      {!user ? (
-                        <span>CONNEXION</span>
-                      ) : (
-                        <span>{isGenerating ? t('configSection.generating') : t('configSection.generate')}</span>
-                      )}
+                      <span>{isGenerating ? t('configSection.generating') : t('configSection.generate')}</span>
                     </button>
                   </div>
                 </form>
