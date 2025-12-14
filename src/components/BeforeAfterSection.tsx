@@ -133,7 +133,7 @@ export const BeforeAfterSection: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-16">
           {[
             { value: t('stats.0.value'), label: t('stats.0.label'), bg: "bg-mint" },
-            { value: t('stats.1.value'), label: t('stats.1.label'), bg: "bg-yellow-300" },
+            { value: t('stats.1.value'), label: t('stats.1.label'), bg: "bg-white" },
             { value: t('stats.2.value'), label: t('stats.2.label'), bg: "bg-vinted", text: "text-white" },
             { value: t('stats.3.value'), label: t('stats.3.label'), bg: "bg-cream" }
           ].map((stat, idx) => (

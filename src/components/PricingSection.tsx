@@ -212,7 +212,7 @@ export const PricingSection: React.FC = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-16">
           {(t('stats', { returnObjects: true }) as Array<{ value: string; label: string }>).map((stat, idx) => {
-            const backgrounds = ["bg-mint", "bg-yellow-300", "bg-vinted", "bg-cream"];
+            const backgrounds = ["bg-mint", "bg-white", "bg-vinted", "bg-cream"];
             const textColors = ["text-black", "text-black", "text-white", "text-black"];
             return (
             <div key={idx} className="text-center h-full">
