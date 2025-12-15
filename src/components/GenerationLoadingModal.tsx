@@ -172,7 +172,7 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
           {!isComplete && (
             <div className="mt-6 border-t-2 border-dashed border-gray-200 pt-6">
               <p className="text-xs text-gray-400 text-center mb-2 font-body">Publicité</p>
-              <div className="bg-cream border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] p-2 overflow-hidden">
+              <div className="bg-cream border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] p-2 overflow-hidden h-[90px] sm:h-[100px]">
                 <GoogleAdBanner
                   slot={AD_CONFIG.slots.loadingModal}
                   format="horizontal"
