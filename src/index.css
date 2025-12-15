@@ -332,7 +332,7 @@ img[data-loading="true"] {
   }
 }
 
-/* Préférence pour mouvement réduit */
+/* Préférence pour mouvement réduit - exceptions gérées via JS pour le marquee */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
