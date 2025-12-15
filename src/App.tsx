@@ -8,6 +8,7 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import { CookieConsent } from './components/CookieConsent';
 import { Breadcrumbs } from './components/Breadcrumbs';
 import { LanguageProvider } from './components/LanguageProvider';
+import { PromoBanner } from './components/PromoBanner';
 import { useSEO, SEO_CONFIGS } from './hooks/useSEO';
 import { useTranslation } from 'react-i18next';
 import './lib/i18n';
@@ -55,6 +56,7 @@ function HomePage() {
   return (
     <>
       <HeroSection />
+      <PromoBanner />
       <Suspense fallback={<LoadingComponent />}>
         <BeforeAfterSection />
       </Suspense>
