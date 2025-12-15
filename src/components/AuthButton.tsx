@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UserPlus, LogOut, User } from 'lucide-react';
+import { LogOut, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { AuthModal } from './AuthModal';
@@ -54,7 +54,7 @@ export const AuthButton: React.FC = () => {
         className="flex items-center gap-1 p-2 sm:px-4 sm:py-2.5 bg-vinted text-white border-3 border-black font-display font-bold text-[10px] sm:text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
         aria-label="Connexion"
       >
-        <UserPlus className="w-5 h-5 sm:w-4 sm:h-4" />
+        <User className="w-5 h-5 sm:w-4 sm:h-4" />
         <span className="hidden sm:inline">{t('authButton.login')}</span>
       </button>
 
