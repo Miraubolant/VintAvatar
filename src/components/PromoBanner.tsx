@@ -22,16 +22,8 @@ export const PromoBanner: React.FC = () => {
       }
     );
 
-    const handleMouseEnter = () => animation.pause();
-    const handleMouseLeave = () => animation.play();
-
-    track.addEventListener('mouseenter', handleMouseEnter);
-    track.addEventListener('mouseleave', handleMouseLeave);
-
     return () => {
       animation.cancel();
-      track.removeEventListener('mouseenter', handleMouseEnter);
-      track.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
