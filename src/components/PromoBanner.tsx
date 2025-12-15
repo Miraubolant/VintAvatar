@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import { Gift } from 'lucide-react';
 
 export const PromoBanner: React.FC = () => {
@@ -7,6 +7,7 @@ export const PromoBanner: React.FC = () => {
   const placeholderRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [bannerHeight, setBannerHeight] = useState(0);
 
   // Detect mobile viewport
   useEffect(() => {
@@ -16,21 +17,32 @@ export const PromoBanner: React.FC = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Cache banner height on mount and resize (avoids forced reflow during render)
+  useLayoutEffect(() => {
+    const updateHeight = () => {
+      if (bannerRef.current) {
+        setBannerHeight(bannerRef.current.offsetHeight);
+      }
+    };
+
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+    return () => window.removeEventListener('resize', updateHeight);
+  }, []);
+
   // Sticky behavior on scroll
   useEffect(() => {
     const handleScroll = () => {
       if (!placeholderRef.current) return;
 
-      // Header heights: h-16 (64px), sm:h-20 (80px), lg:h-24 (96px)
       const headerHeight = window.innerWidth >= 1024 ? 96 : window.innerWidth >= 640 ? 80 : 64;
       const placeholderTop = placeholderRef.current.getBoundingClientRect().top;
 
-      // Banner becomes sticky when its original position reaches the header bottom
       setIsSticky(placeholderTop <= headerHeight);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Check initial state
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -42,7 +54,6 @@ export const PromoBanner: React.FC = () => {
     const track = trackRef.current;
     track.getAnimations().forEach(anim => anim.cancel());
 
-    // Faster on mobile (12s) vs desktop (18s)
     const duration = isMobile ? 12000 : 18000;
 
     const animation = track.animate(
@@ -71,7 +82,7 @@ export const PromoBanner: React.FC = () => {
       {/* Placeholder to maintain layout when banner is fixed */}
       <div
         ref={placeholderRef}
-        style={{ height: isSticky ? (bannerRef.current?.offsetHeight || 0) : 0 }}
+        style={{ height: isSticky ? bannerHeight : 0 }}
       />
 
       <div ref={bannerRef} className={bannerClasses}>
