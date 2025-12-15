@@ -38,7 +38,7 @@ export const PromoBanner: React.FC = () => {
           <div key={index} className="flex items-center mx-8 sm:mx-14 shrink-0">
             <Gift className="w-6 h-6 sm:w-7 sm:h-7 text-white mr-3 sm:mr-4 shrink-0" strokeWidth={2.5} />
             <span className="font-display font-bold text-white text-sm sm:text-base md:text-lg tracking-wide whitespace-nowrap uppercase">
-              PROMO NOËL : GÉNÉRATION DESCRIPTION OFFERTE
+              PROMO NOËL : 1 AVATAR GÉNÉRÉ = 1 DESCRIPTION OFFERTE
             </span>
           </div>
         ))}
