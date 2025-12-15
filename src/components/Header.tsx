@@ -52,16 +52,13 @@ export const Header: React.FC = () => {
               <Sparkles className="text-white w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
             </div>
             
-            {/* Titre style Hero VintDress avec NOW! - Horizontal */}
+            {/* Titre style Hero VintDress - Horizontal */}
             <div className="flex items-center gap-0.5 sm:gap-1">
               <span className="inline-block bg-white border-3 border-black px-1.5 sm:px-2 lg:px-3 py-1 sm:py-1.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-xs sm:text-sm lg:text-base text-black transform -rotate-2 group-hover:rotate-0 transition-transform duration-300">
                 VINT
               </span>
               <span className="inline-block bg-vinted border-3 border-black px-1.5 sm:px-2 lg:px-3 py-1 sm:py-1.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-xs sm:text-sm lg:text-base text-white transform rotate-1 group-hover:rotate-0 transition-transform duration-300">
                 DRESS
-              </span>
-              <span className="inline-block bg-mint border-3 border-black px-1.5 sm:px-2 lg:px-3 py-1 sm:py-1.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-xs sm:text-sm lg:text-base text-black transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
-                NOW!
               </span>
             </div>
           </button>
