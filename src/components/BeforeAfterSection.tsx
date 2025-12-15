@@ -25,10 +25,10 @@ export const BeforeAfterSection: React.FC = () => {
               <span className="inline-block bg-white text-black border-2 border-black px-3 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
                 {t('title.line1')}
               </span>
-              <span className="inline-block bg-pink-pastel text-black border-2 border-black px-3 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+              <span className="inline-block bg-vinted text-white border-2 border-black px-3 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
                 {t('title.line2')}
               </span>
-              <span className="inline-block bg-vinted text-white border-2 border-black px-3 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+              <span className="inline-block bg-mint text-black border-2 border-black px-3 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
                 {t('title.line3')}
               </span>
             </div>
@@ -39,13 +39,13 @@ export const BeforeAfterSection: React.FC = () => {
                   {t('title.line1')}
                 </span>
               </div>
-              <div className="text-black transform rotate-1 relative mb-4">
-                <span className="inline-block bg-pink-pastel border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <div className="text-white transform rotate-1 relative mb-4">
+                <span className="inline-block bg-vinted border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                   {t('title.line2')}
                 </span>
               </div>
-              <div className="text-white transform -rotate-1 relative">
-                <span className="inline-block bg-vinted border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <div className="text-black transform -rotate-1 relative">
+                <span className="inline-block bg-mint border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                   {t('title.line3')}
                 </span>
               </div>
