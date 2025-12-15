@@ -45,7 +45,7 @@ export const TestimonialsSection: React.FC = () => {
             </div>
           </h2>
 
-          <div className="max-w-2xl mx-auto pt-6 pb-8">
+          <div className="max-w-2xl mx-auto pt-10 pb-8">
             <p className="font-body font-semibold text-lg text-gray-700">
               Découvre comment les vendeurs <span className="text-vinted font-bold">transforment leurs ventes</span> avec <span className="text-vinted font-bold">l'IA</span> !
             </p>

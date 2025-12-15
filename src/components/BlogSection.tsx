@@ -52,7 +52,7 @@ export const BlogSection: React.FC = () => {
             </div>
           </h2>
 
-          <div className="max-w-2xl mx-auto pt-6 pb-8">
+          <div className="max-w-2xl mx-auto pt-10 pb-8">
             <p className="font-body font-semibold text-lg text-gray-700">
               Reste à jour avec nos <span className="text-vinted font-bold">derniers conseils</span> pour <span className="text-vinted font-bold">maximiser tes ventes</span> !
             </p>

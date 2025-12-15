@@ -124,7 +124,7 @@ export const PricingSection: React.FC = () => {
             </div>
           </h2>
           
-          <div className="max-w-2xl mx-auto pt-6 pb-8">
+          <div className="max-w-2xl mx-auto pt-10 pb-8">
             <p className="font-body font-semibold text-lg text-gray-700">
               Choisis le plan qui correspond à tes besoins de <span className="text-vinted font-bold">génération d'avatars IA</span> !
             </p>
