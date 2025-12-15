@@ -661,10 +661,10 @@ export const HeroSection: React.FC = () => {
               {/* Séparateur */}
               <div className="w-px h-8 sm:h-10 bg-black opacity-20"></div>
 
-              {/* Vendeurs pro */}
+              {/* Qualité HD */}
               <div className="flex flex-col items-center gap-0.5 sm:gap-1">
-                <span className="font-display font-bold text-lg sm:text-3xl text-black">+500</span>
-                <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">vendeurs pro</span>
+                <span className="font-display font-bold text-lg sm:text-3xl text-black">HD</span>
+                <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">qualité photo</span>
               </div>
             </div>
           </div>
