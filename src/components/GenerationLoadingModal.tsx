@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Sparkles, CheckCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { GoogleAdBanner } from './ads/GoogleAdBanner';
+import { AD_CONFIG } from './ads/adConfig';
 
 interface GenerationLoadingModalProps {
   isOpen: boolean;
@@ -165,6 +167,20 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
               </div>
             )}
           </div>
+
+          {/* Google Ad - Only show during generation */}
+          {!isComplete && (
+            <div className="mt-6 border-t-2 border-dashed border-gray-200 pt-6">
+              <p className="text-xs text-gray-400 text-center mb-2 font-body">Publicité</p>
+              <div className="bg-cream border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] p-2 overflow-hidden">
+                <GoogleAdBanner
+                  slot={AD_CONFIG.slots.loadingModal}
+                  format="rectangle"
+                  responsive={true}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
