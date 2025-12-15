@@ -657,6 +657,15 @@ export const HeroSection: React.FC = () => {
                 <span className="font-display font-bold text-lg sm:text-3xl text-black">+10 000</span>
                 <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">photos transformées</span>
               </div>
+
+              {/* Séparateur */}
+              <div className="w-px h-8 sm:h-10 bg-black opacity-20"></div>
+
+              {/* Vendeurs pro */}
+              <div className="flex flex-col items-center gap-0.5 sm:gap-1">
+                <span className="font-display font-bold text-lg sm:text-3xl text-black">+500</span>
+                <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">vendeurs pro</span>
+              </div>
             </div>
           </div>
 
