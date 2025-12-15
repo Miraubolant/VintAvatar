@@ -6,8 +6,8 @@ export const AD_CONFIG = {
 
   // Ad slots - Create these in your AdSense dashboard
   slots: {
-    // Loading modal ad (VintDress Loading Modal)
-    loadingModal: '6534108352',
+    // Loading modal ad (VintDress Loading V1 - Horizontal)
+    loadingModal: '7904042106',
 
     // Future ad placements
     // sidebar: 'YYYYYYYYYY',
