@@ -51,10 +51,10 @@ export const AuthButton: React.FC = () => {
     <>
       <button
         onClick={() => setIsAuthModalOpen(true)}
-        className="flex items-center gap-1 px-1.5 sm:px-4 py-1.5 sm:py-2.5 bg-vinted text-white border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+        className="flex items-center gap-1 p-2 sm:px-4 sm:py-2.5 bg-vinted text-white border-3 border-black font-display font-bold text-[10px] sm:text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
         aria-label="Connexion"
       >
-        <UserPlus className="w-3 h-3 sm:w-4 sm:h-4" />
+        <UserPlus className="w-5 h-5 sm:w-4 sm:h-4" />
         <span className="hidden sm:inline">{t('authButton.login')}</span>
       </button>
 
