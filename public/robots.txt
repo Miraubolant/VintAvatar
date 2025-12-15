@@ -1,4 +1,4 @@
-# VintDress - Générateur IA de Photos Portées pour Vinted
+# VintDress - Generateur IA de Photos Portees pour Vinted
 # https://vintdress.com
 
 # All crawlers
@@ -14,29 +14,6 @@ Disallow: /account
 Disallow: /auth/
 Disallow: /success
 Disallow: /cancel
-
-# Disallow query params that don't affect content (except lang)
-Disallow: /*?*tab=
-Disallow: /*?*ref=
-
-# Google specific
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-# Bing specific
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 2
-
-# Google Image Bot
-User-agent: Googlebot-Image
-Allow: /
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.png$
-Allow: /*.webp$
-Allow: /*.svg$
 
 # Allow AI bots (for visibility in AI search results)
 User-agent: GPTBot
@@ -65,6 +42,3 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://vintdress.com/sitemap.xml
-
-# Host directive for search engines
-Host: https://vintdress.com
