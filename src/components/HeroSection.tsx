@@ -299,6 +299,38 @@ export const HeroSection: React.FC = () => {
       return;
     }
 
+    // Si pas d'image mais un lien Vinted valide, extraire d'abord
+    if (!uploadedImage && !vintedImage && vintedUrl && isValidVintedUrl(vintedUrl)) {
+      try {
+        setIsScrapingVinted(true);
+        setError(null);
+
+        const { data: scrapResult, error: scrapError } = await supabase.functions.invoke('vinted-scraper', {
+          body: { vintedUrl },
+          headers: {
+            Authorization: `Bearer ${session?.access_token}`,
+          },
+        });
+
+        if (scrapError || !scrapResult.success || scrapResult.images.length === 0) {
+          throw new Error(scrapResult?.error || 'Impossible de récupérer les images depuis cette URL Vinted');
+        }
+
+        // Utiliser directement la première image pour la génération
+        setVintedImage(scrapResult.images[0]);
+        setIsScrapingVinted(false);
+
+        // Lancer la génération avec l'image extraite
+        await processImageGeneration(scrapResult.images[0], true);
+        return;
+      } catch (error) {
+        console.error('Error extracting Vinted image:', error);
+        setError(error instanceof Error ? error.message : 'Erreur lors de l\'extraction');
+        setIsScrapingVinted(false);
+        return;
+      }
+    }
+
     // Check if we have either an uploaded image or a Vinted image
     if (!uploadedImage && !vintedImage) {
       setShowImageRequiredModal(true);
