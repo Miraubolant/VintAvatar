@@ -589,9 +589,9 @@ export const HeroSection: React.FC = () => {
                       disabled={!vintedUrl || isScrapingVinted}
                       className={`w-full border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2 px-3 py-2.5 sm:py-3 sm:px-4 ${
                         vintedUrl && !isScrapingVinted && vintedImages.length === 0
-                          ? 'bg-mint text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] animate-pulse'
+                          ? 'bg-pink-pastel text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] animate-pulse'
                           : vintedUrl && !isScrapingVinted
-                            ? 'bg-mint text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
+                            ? 'bg-white text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
                             : 'bg-gray-300 text-gray-600 cursor-not-allowed'
                       }`}
                       data-guide="extract-button"
