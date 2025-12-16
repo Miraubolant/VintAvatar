@@ -790,10 +790,21 @@ export const HeroSection: React.FC = () => {
             {/* Actions */}
             <div className="flex gap-3">
               <button
-                onClick={() => setShowImageRequiredModal(false)}
-                className="flex-1 px-4 py-3 bg-gray-200 border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                onClick={() => {
+                  setShowImageRequiredModal(false);
+                  if (vintedUrl && isValidVintedUrl(vintedUrl)) {
+                    // Trigger extraction automatically
+                    handleUrlSubmit({ preventDefault: () => {} } as React.FormEvent);
+                  } else {
+                    // Focus the Vinted URL input
+                    setTimeout(() => {
+                      document.getElementById('vinted-url-input')?.focus();
+                    }, 100);
+                  }
+                }}
+                className="flex-1 px-4 py-3 bg-mint border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
-                {t('modals.imageRequired.closeButton')}
+                {t('modals.imageRequired.extractVintedButton')}
               </button>
               <button
                 onClick={() => {

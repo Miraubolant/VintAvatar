@@ -123,7 +123,7 @@
         "vinted": "Paste a Vinted link in the field above",
         "upload": "Upload your photo with the button"
       },
-      "closeButton": "CLOSE",
+      "extractVintedButton": "EXTRACT VINTED PHOTO",
       "uploadButton": "UPLOAD"
     },
     "subscriptionRequired": {
