@@ -23,7 +23,7 @@ interface AvatarConfig {
   lighting: string;
   season: string;
   clothingType: string;
-  showPhone: boolean;
+  faceMode: 'visible' | 'blur' | 'phone';
   cropHead: boolean;
 }
 
@@ -51,7 +51,7 @@ const getStoredConfig = (): AvatarConfig => {
     lighting: 'studio',
     season: 'auto',
     clothingType: 'auto',
-    showPhone: false,
+    faceMode: 'visible',
     cropHead: false
   };
 };
@@ -330,6 +330,30 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                         }`}
                       >
                         {age.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Mode Visage */}
+                <div>
+                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('modele.faceMode.title')}</h3>
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      { id: 'visible', label: t('modele.faceMode.options.visible') },
+                      { id: 'blur', label: t('modele.faceMode.options.blur') },
+                      { id: 'phone', label: t('modele.faceMode.options.phone') }
+                    ].map((mode) => (
+                      <button
+                        key={mode.id}
+                        onClick={() => updateConfig('faceMode', mode.id)}
+                        className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                          config.faceMode === mode.id
+                            ? 'bg-vinted text-white transform rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                            : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                        }`}
+                      >
+                        {mode.label}
                       </button>
                     ))}
                   </div>

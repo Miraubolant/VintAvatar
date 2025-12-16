@@ -32,7 +32,7 @@ interface GenerationConfig {
   lighting: string;
   season: string;
   clothingType: string;
-  showPhone: boolean;
+  faceMode: 'visible' | 'blur' | 'phone';
   cropHead: boolean;
 }
 
@@ -41,49 +41,27 @@ interface VintedListing {
   description: string;
 }
 
-// Function to generate Vinted listing title and description using GPT-4o-mini
+// Generate Vinted listing with GPT-4o Vision
 async function generateVintedListing(imageUrl: string, clothingType: string): Promise<VintedListing> {
   const openaiApiKey = Deno.env.get('OPENAI_API_KEY')
   if (!openaiApiKey) {
     throw new Error('OpenAI API key not configured')
   }
 
-  const clothingTypeLabels: { [key: string]: string } = {
-    'auto': 'vêtement',
-    't-shirt': 't-shirt',
-    'chemise': 'chemise',
-    'pull': 'pull',
-    'veste': 'veste',
-    'manteau': 'manteau',
-    'pantalon': 'pantalon',
-    'jupe': 'jupe',
-    'robe': 'robe',
-    'short': 'short',
-    'chaussures': 'chaussures'
-  }
-
-  const clothingLabel = clothingTypeLabels[clothingType] || 'vêtement'
-
   const systemPrompt = `Tu es un vendeur expert Vinted France. Tu génères des annonces attractives et professionnelles en FRANÇAIS.
 
 RÈGLES:
-- TITRE: max 50 caractères, format "[Marque si visible] [Type] [Couleur] - [Détail]"
+- TITRE: max 50 caractères, format "[Type] [Couleur] - [Détail accrocheur]"
 - DESCRIPTION: 6-8 lignes avec matière, couleur, coupe, état, occasion
-- Si tu vois une marque (logo, étiquette), mentionne-la. Sinon, décris le style.
+- Analyse l'image pour décrire précisément le vêtement
 - Réponds UNIQUEMENT en JSON valide, sans markdown ni texte supplémentaire.`
 
-  const userPrompt = `Analyse cette photo de ${clothingLabel} et génère une annonce Vinted.
+  const userPrompt = `Génère une annonce Vinted optimisée pour ce ${clothingType}.
 
-EXEMPLES DE FORMAT:
-{"title": "T-shirt Nike Noir Logo Brodé - Taille M", "description": "T-shirt Nike authentique en coton noir.\\n\\nLogo Nike brodé sur la poitrine.\\nCoupe regular, confortable.\\nMatière: 100% coton doux.\\nTaille M (convient aussi S large).\\n\\nTrès bon état, porté quelques fois.\\nIdéal pour le sport ou le casual.\\n\\nEnvoi soigné sous 48h !"}
-
-{"title": "Veste Cuir Marron Vintage - Style Biker", "description": "Magnifique veste en cuir véritable marron.\\n\\nStyle biker/motard avec zip asymétrique.\\nCuir souple et patiné, look vintage.\\nPoches zippées sur les côtés.\\nDoublure intérieure en bon état.\\n\\nTaille L, coupe ajustée.\\nExcellent état vintage.\\n\\nPièce unique avec du caractère !"}
-
-Réponds UNIQUEMENT avec le JSON (pas de \`\`\`json, pas de texte avant/après):
+Réponds UNIQUEMENT avec le JSON:
 {"title": "...", "description": "..."}`
 
   try {
-    // Call GPT-4o-mini with vision
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -93,24 +71,12 @@ Réponds UNIQUEMENT avec le JSON (pas de \`\`\`json, pas de texte avant/après):
       body: JSON.stringify({
         model: 'gpt-4o-mini',
         messages: [
-          {
-            role: 'system',
-            content: systemPrompt
-          },
+          { role: 'system', content: systemPrompt },
           {
             role: 'user',
             content: [
-              {
-                type: 'text',
-                text: userPrompt
-              },
-              {
-                type: 'image_url',
-                image_url: {
-                  url: imageUrl,
-                  detail: 'low' // Use low detail for cost efficiency
-                }
-              }
+              { type: 'text', text: userPrompt },
+              { type: 'image_url', image_url: { url: imageUrl, detail: 'low' } }
             ]
           }
         ],
@@ -128,266 +94,54 @@ Réponds UNIQUEMENT avec le JSON (pas de \`\`\`json, pas de texte avant/après):
     const result = await response.json()
     const outputText = result.choices?.[0]?.message?.content || ''
 
-    console.log('GPT-4o-mini raw output:', outputText)
-
-    // Try to parse JSON directly (GPT usually returns clean JSON)
+    // Parse JSON response
     try {
-      // Remove any potential markdown code blocks
-      const cleanedOutput = outputText
-        .replace(/```json\n?/g, '')
-        .replace(/```\n?/g, '')
-        .trim()
-
+      const cleanedOutput = outputText.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
       const parsed = JSON.parse(cleanedOutput)
       return {
-        title: parsed.title || `${clothingLabel} - Très bon état`,
-        description: (parsed.description || `Superbe ${clothingLabel} en très bon état.`).replace(/\\n/g, '\n')
+        title: parsed.title || `${clothingType} - Très bon état`,
+        description: (parsed.description || '').replace(/\\n/g, '\n')
       }
     } catch (parseError) {
-      console.error('JSON parse error, trying regex:', parseError)
-
-      // Fallback: try to extract JSON from response
-      const jsonMatch = outputText.match(/\{[\s\S]*"title"[\s\S]*"description"[\s\S]*\}/)
-      if (jsonMatch) {
-        try {
-          const parsed = JSON.parse(jsonMatch[0])
-          return {
-            title: parsed.title || `${clothingLabel} - Très bon état`,
-            description: (parsed.description || `Superbe ${clothingLabel} en très bon état.`).replace(/\\n/g, '\n')
-          }
-        } catch {
-          // Continue to regex fallback
-        }
-      }
-
       // Regex fallback
       const titleMatch = outputText.match(/"title"\s*:\s*"([^"]+)"/)
       const descMatch = outputText.match(/"description"\s*:\s*"([\s\S]*?)"(?:\s*[,}])/)
-
-      if (titleMatch || descMatch) {
-        return {
-          title: titleMatch ? titleMatch[1] : `${clothingLabel} - Très bon état`,
-          description: descMatch ? descMatch[1].replace(/\\n/g, '\n') : `Superbe ${clothingLabel} en très bon état.`
-        }
+      return {
+        title: titleMatch ? titleMatch[1] : `${clothingType} - Très bon état`,
+        description: descMatch ? descMatch[1].replace(/\\n/g, '\n') : `Superbe ${clothingType} en excellent état.`
       }
     }
 
-    // Fallback: generate basic title/description
+  } catch (error) {
+    console.error('Vinted listing error:', error)
     return {
-      title: `${clothingLabel.charAt(0).toUpperCase() + clothingLabel.slice(1)} - Excellent état`,
-      description: `Magnifique ${clothingLabel} en excellent état.\n\nCaractéristiques visibles sur la photo.\n\nN'hésitez pas à me contacter pour toute question !\n\nEnvoi soigné et rapide.`
-    }
-
-  } catch (error) {
-    console.error('OpenAI error:', error)
-    // Return fallback values instead of throwing
-    return {
-      title: `${clothingLabel.charAt(0).toUpperCase() + clothingLabel.slice(1)} - Très bon état`,
-      description: `Superbe ${clothingLabel} en très bon état.\n\nVoir les détails sur la photo.\n\nContactez-moi pour plus d'informations !`
+      title: `${clothingType.charAt(0).toUpperCase() + clothingType.slice(1)} - Excellent état`,
+      description: `Magnifique ${clothingType} en très bon état.\n\nEnvoi soigné et rapide !`
     }
   }
 }
 
-Deno.serve(async (req) => {
-  const origin = req.headers.get('origin')
-  const corsHeaders = getCorsHeaders(origin)
-
-  // Handle CORS preflight requests
-  if (req.method === 'OPTIONS') {
-    return new Response('ok', { headers: corsHeaders })
-  }
-
-  try {
-    // Create Supabase client with user context
-    const supabaseClient = createClient(
-      Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '',
-      {
-        global: {
-          headers: { Authorization: req.headers.get('Authorization')! }
-        }
-      }
-    )
-
-    const { imageData, config, userId, isUrl } = await req.json()
-
-    if (!imageData || !config || !userId) {
-      return new Response(
-        JSON.stringify({ error: 'Missing required parameters' }),
-        { 
-          status: 400,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-        }
-      )
-    }
-
-
-    let originalImageUrl: string
-    let originalImageBlob: Blob
-    
-    if (isUrl) {
-      // If imageData is already a URL (from Vinted scraping), use it directly
-      originalImageUrl = imageData
-      // Fetch the image to get blob for images.edit API
-      const imageResponse = await fetch(originalImageUrl)
-      originalImageBlob = await imageResponse.blob()
-    } else {
-      // Step 1: Upload original image to storage (for uploaded files)
-      // Convert base64 to blob for both storage and API use
-      const base64Data = imageData.split(',')[1]
-      const byteCharacters = atob(base64Data)
-      const byteNumbers = new Array(byteCharacters.length)
-      for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i)
-      }
-      const byteArray = new Uint8Array(byteNumbers)
-      originalImageBlob = new Blob([byteArray], { type: 'image/jpeg' })
-      
-      originalImageUrl = await uploadOriginalImage(supabaseClient, imageData, userId)
-    }
-    
-    // Step 2: Generate image AND Vinted listing in parallel
-    const [generatedImageUrl, vintedListing] = await Promise.all([
-      generateWithReplicate(originalImageUrl, config),
-      generateVintedListing(originalImageUrl, config.clothingType)
-    ])
-
-    // Step 5: Save generated image to storage
-    const finalImageUrl = await saveGeneratedImage(supabaseClient, generatedImageUrl, userId)
-
-    // Step 6: Track usage (include listing data) and get the generation ID
-    const generationId = await trackUsage(supabaseClient, userId, originalImageUrl, finalImageUrl, config, vintedListing)
-
-    // Step 7: Use credit from subscription
-    await useUserCredit(supabaseClient, userId)
-
-    return new Response(
-      JSON.stringify({
-        success: true,
-        generation_id: generationId,
-        generated_image_url: finalImageUrl,
-        vinted_listing: vintedListing
-      }),
-      {
-        status: 200,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      }
-    )
-
-  } catch (error) {
-    return new Response(
-      JSON.stringify({ error: error.message || 'Internal server error' }),
-      {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      }
-    )
-  }
-})
-
-async function cleanupOldImages(supabase: any, userId: string) {
-  const MAX_IMAGES_PER_USER = 100;
-
-  try {
-    // Lister tous les fichiers de l'utilisateur
-    const { data: files, error: listError } = await supabase.storage
-      .from('original-images')
-      .list(userId, {
-        sortBy: { column: 'created_at', order: 'asc' }
-      });
-
-    if (listError) {
-      console.error('Error listing files:', listError);
-      return;
-    }
-
-    if (files && files.length >= MAX_IMAGES_PER_USER) {
-      // Calculer combien de fichiers supprimer
-      const filesToDeleteCount = files.length - MAX_IMAGES_PER_USER + 1;
-
-      // Prendre les plus anciens fichiers
-      const filesToDelete = files.slice(0, filesToDeleteCount);
-
-      // Supprimer les fichiers un par un
-      for (const file of filesToDelete) {
-        const { error: deleteError } = await supabase.storage
-          .from('original-images')
-          .remove([`${userId}/${file.name}`]);
-
-        if (deleteError) {
-          console.error('Error deleting file:', deleteError);
-        }
-      }
-
-      console.log(`Cleaned up ${filesToDelete.length} old images for user ${userId}`);
-    }
-  } catch (error) {
-    console.error('Error in cleanupOldImages:', error);
-  }
-}
-
-async function uploadOriginalImage(supabase: any, imageData: string, userId: string): Promise<string> {
-  // Nettoyer les anciennes images avant l'upload
-  await cleanupOldImages(supabase, userId);
-
-  // Convert base64 to blob
-  const base64Data = imageData.split(',')[1]
-  const byteCharacters = atob(base64Data)
-  const byteNumbers = new Array(byteCharacters.length)
-  
-  for (let i = 0; i < byteCharacters.length; i++) {
-    byteNumbers[i] = byteCharacters.charCodeAt(i)
-  }
-  
-  const byteArray = new Uint8Array(byteNumbers)
-  
-  const fileName = `${userId}/${Date.now()}-original.jpg`
-  
-  const { data, error } = await supabase.storage
-    .from('original-images')
-    .upload(fileName, byteArray, {
-      contentType: 'image/jpeg',
-      upsert: true
-    })
-
-  if (error) throw error
-  
-  const { data: { signedUrl }, error: signedUrlError } = await supabase.storage
-    .from('original-images')
-    .createSignedUrl(fileName, 3600) // URL valide 1 heure
-    
-  if (signedUrlError) throw signedUrlError
-    
-  return signedUrl
-}
-
-// Removed analyzeClothing function - no longer using GPT-4o analysis
-
-// Function for Replicate FLUX Kontext Pro generation
-async function generateWithReplicate(
-  imageUrl: string, 
-  config: GenerationConfig
-): Promise<string> {
+// Generate with Replicate FLUX Kontext Pro
+async function generateWithReplicate(imageUrl: string, config: GenerationConfig): Promise<string> {
   const replicateApiKey = Deno.env.get('REPLICATE_API_TOKEN')
   if (!replicateApiKey) {
     throw new Error('Replicate API key not configured')
   }
 
-  
-  // Map configuration to English for the prompt
+  // Map configuration to English
   const genderMap: { [key: string]: string } = {
     'femme': 'woman',
     'homme': 'man',
     'auto': 'person'
   }
-  
+
   const carnationMap: { [key: string]: string } = {
     'claire': 'light skin tone',
     'medium': 'medium skin tone',
     'mate': 'olive skin tone',
     'foncee': 'dark skin tone'
   }
-  
+
   const decorMap: { [key: string]: string } = {
     'studio-pro': 'professional white studio backdrop with soft lighting',
     'chambre': 'modern clean bedroom interior',
@@ -429,72 +183,59 @@ async function generateWithReplicate(
     'doux': 'soft diffused lighting'
   }
 
-  const seasonMap: { [key: string]: string } = {
-    'auto': 'season appropriate',
-    'printemps': 'spring season with fresh bright lighting',
-    'ete': 'summer season with warm bright lighting',
-    'automne': 'autumn season with warm golden lighting',
-    'hiver': 'winter season with cool crisp lighting'
+  const clothingTypeMap: { [key: string]: string } = {
+    'haut': 'top/shirt',
+    'bas': 'pants/bottoms',
+    'robe': 'dress',
+    'veste': 'jacket/coat',
+    'ensemble': 'outfit/set',
+    'auto': 'clothing item'
   }
 
-  const clothingTypeMap: { [key: string]: string } = {
-    'auto': 'clothing item',
-    't-shirt': 't-shirt',
-    'chemise': 'shirt',
-    'pull': 'sweater',
-    'veste': 'jacket',
-    'manteau': 'coat',
-    'pantalon': 'pants',
-    'jupe': 'skirt',
-    'robe': 'dress',
-    'short': 'shorts',
-    'chaussures': 'shoes'
-  }
-  
-  // Build simplified prompt for FLUX Kontext Pro
   const clothingType = clothingTypeMap[config.clothingType] || 'clothing item'
 
   let prompt: string
 
   // Check if plastic mannequin mode
   if (config.mannequinType === 'mannequin-plastique') {
-    // Determine mannequin gender type
     const mannequinGender = config.gender === 'homme' ? 'male' : 'female'
     const mannequinBodyDescription = config.gender === 'homme'
       ? 'masculine proportions with broad shoulders and narrow hips'
       : 'feminine proportions with curved silhouette'
 
-    // Plastic mannequin prompt with gender
     prompt = `Transform this ${clothingType} photo into a professional fashion retail display photograph.
-  Show a sleek glossy black plastic ${mannequinGender} mannequin displaying this exact ${clothingType}.
-  The mannequin should have ${mannequinBodyDescription}, smooth reflective black surface with elegant, modern design - like high-end retail store displays.
-  Keep the original ${clothingType} exactly as shown - same colors, patterns, materials, and all details must be preserved.
-  The mannequin should be ${postureMap[config.posture] || 'standing'} in a natural display pose.
-  Camera angle: ${angleMap[config.angle] || 'optimal angle for the clothing type'}.
-  Framing: ${framingMap[config.framing] || 'full body shot'}.
-  Background: ${decorMap[config.decor] || 'professional studio setting'}.
-  Lighting: ${lightingMap[config.lighting] || 'professional studio lighting'} with ${seasonMap[config.season] || 'season appropriate'} ambiance.
-  Style: professional fashion retail photography with sharp focus on the ${clothingType}, sleek ${mannequinGender} mannequin with reflective black plastic surface, optimized for e-commerce display.`
+Show a sleek glossy black plastic ${mannequinGender} mannequin displaying this exact ${clothingType}.
+The mannequin should have ${mannequinBodyDescription}, smooth reflective black surface with elegant, modern design - like high-end retail store displays.
+CRITICAL: Keep the original ${clothingType} EXACTLY as shown - preserve all colors, patterns, materials, and details perfectly.
+The mannequin should be ${postureMap[config.posture] || 'standing'} in a natural display pose.
+Camera angle: ${angleMap[config.angle] || 'optimal angle for the clothing type'}.
+Framing: ${framingMap[config.framing] || 'full body shot'}.
+Background: ${decorMap[config.decor] || 'professional studio setting'}.
+Lighting: ${lightingMap[config.lighting] || 'professional studio lighting'}.
+Style: professional fashion retail photography with sharp focus on the ${clothingType}, sleek ${mannequinGender} mannequin with reflective black plastic surface, optimized for e-commerce display.`
   } else {
-    // Human model prompt (existing logic)
-    // Face visibility logic - avoid explicit face-related terms for security filters
-    const faceInstruction = config.showPhone
-      ? `The person holds a smartphone naturally at eye level in selfie position, with the device positioned directly in front of them. The phone screen covers the front view from forehead to chin area. Only hair, ears, and the back/sides of the head remain visible. The smartphone is held naturally in their hand at portrait orientation.`
-      : `Apply a soft blur effect to the person for privacy while keeping the clothing and body in sharp focus.`
+    // Human model prompt - face mode handling
+    let faceInstruction = ''
+    if (config.faceMode === 'phone') {
+      faceInstruction = `The person holds a smartphone naturally at eye level in selfie position, with the device positioned directly in front of them. The phone screen covers the front view from forehead to chin area. Only hair, ears, and the back/sides of the head remain visible. The smartphone is held naturally in their hand at portrait orientation.`
+    } else if (config.faceMode === 'blur') {
+      faceInstruction = `Apply a soft blur effect to the person's face for privacy while keeping the clothing and body in sharp focus.`
+    }
+    // faceMode === 'visible' means no special instruction (face is visible and sharp)
 
     prompt = `Transform this ${clothingType} photo into a professional fashion photograph.
-  Show a ${ageMap[config.age] || 'age appropriate'} ${genderMap[config.gender] || 'person'} with ${carnationMap[config.carnation] || 'medium skin tone'} and ${config.morphology} body type wearing this exact ${clothingType}.
-  Keep the original ${clothingType} exactly as shown - same colors, patterns, materials, and all details.
-  The person should be ${postureMap[config.posture] || 'standing'}.
-  Camera angle: ${angleMap[config.angle] || 'optimal angle for the clothing type'}.
-  Framing: ${framingMap[config.framing] || 'full body shot'}.
-  ${faceInstruction}
-  Background: ${decorMap[config.decor] || 'professional studio setting'}.
-  Lighting: ${lightingMap[config.lighting] || 'professional studio lighting'} with ${seasonMap[config.season] || 'season appropriate'} ambiance.
-  Style: professional fashion photography with sharp focus on the ${clothingType}, optimized for e-commerce display.`
+Show a ${ageMap[config.age] || 'young adult'} ${genderMap[config.gender] || 'person'} with ${carnationMap[config.carnation] || 'medium skin tone'} and ${config.morphology} body type wearing this exact ${clothingType}.
+CRITICAL: Keep the original ${clothingType} EXACTLY as shown - preserve all colors, patterns, materials, and ALL visible details perfectly.
+The person should be ${postureMap[config.posture] || 'standing'} with a natural, confident pose.
+Camera angle: ${angleMap[config.angle] || 'optimal angle for the clothing type'}.
+Framing: ${framingMap[config.framing] || 'full body shot'}.
+${faceInstruction}
+Background: ${decorMap[config.decor] || 'professional studio setting'}.
+Lighting: ${lightingMap[config.lighting] || 'professional studio lighting'}.
+Style: professional fashion photography with sharp focus on the ${clothingType}, optimized for e-commerce and Vinted listings.`
   }
 
-  // Call Replicate API
+  // Call Replicate API - FLUX.2 Pro
   const response = await fetch('https://api.replicate.com/v1/predictions', {
     method: 'POST',
     headers: {
@@ -502,13 +243,14 @@ async function generateWithReplicate(
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      version: "2dfe45debca13e5ecfad755ef6ca9943fc56a6effb306f4c6e2ea4762df6e53e", // FLUX Kontext Pro version
+      version: "285631b5656a1839331cd9af0d82da820e2075db12046d1d061c681b2f206bc6",
       input: {
         prompt: prompt,
-        input_image: imageUrl,
+        input_images: [imageUrl],
         aspect_ratio: "match_input_image",
         output_format: "png",
-        safety_tolerance: 2
+        output_quality: 90,
+        safety_tolerance: 5
       }
     })
   })
@@ -519,86 +261,188 @@ async function generateWithReplicate(
   }
 
   const prediction = await response.json()
-  
+
   // Poll for result
   let result = prediction
   let attempts = 0
-  const maxAttempts = 60 // Max 60 seconds
-  
+  const maxAttempts = 60
+
   while (result.status !== 'succeeded' && result.status !== 'failed' && attempts < maxAttempts) {
     await new Promise(resolve => setTimeout(resolve, 1000))
-    
+
     const pollResponse = await fetch(`https://api.replicate.com/v1/predictions/${prediction.id}`, {
-      headers: {
-        'Authorization': `Token ${replicateApiKey}`
-      }
+      headers: { 'Authorization': `Token ${replicateApiKey}` }
     })
-    
+
     if (!pollResponse.ok) {
       throw new Error('Failed to poll Replicate prediction')
     }
-    
+
     result = await pollResponse.json()
     attempts++
-    
-    if (attempts % 10 === 0) {
-    }
   }
 
   if (result.status === 'failed') {
     throw new Error(`Replicate generation failed: ${result.error || 'Unknown error'}`)
   }
-  
+
   if (result.status !== 'succeeded') {
     throw new Error('Replicate generation timed out')
   }
 
-  
-  // Return the generated image URL - handle different possible output formats
+  // Return the generated image URL
   if (result.output) {
-    // If output is an array, take the first element
     if (Array.isArray(result.output) && result.output.length > 0) {
-      const imageUrl = result.output[0]
-      if (typeof imageUrl === 'string' && imageUrl.startsWith('http')) {
-        return imageUrl
+      const outputUrl = result.output[0]
+      if (typeof outputUrl === 'string' && outputUrl.startsWith('http')) {
+        return outputUrl
       }
     }
-    // If output is a string directly
     if (typeof result.output === 'string' && result.output.startsWith('http')) {
       return result.output
     }
   }
-  
+
   throw new Error(`No valid output URL from Replicate: ${JSON.stringify(result.output)}`)
 }
 
-// Removed duplicate functions and GPT-4o residual code
+Deno.serve(async (req) => {
+  const origin = req.headers.get('origin')
+  const corsHeaders = getCorsHeaders(origin)
 
-async function saveGeneratedImage(supabase: any, imageUrl: string, userId: string): Promise<string> {
-  let imageBlob: ArrayBuffer
-  
-  // Handle URL from Replicate (standard HTTP URL)
-  const imageResponse = await fetch(imageUrl)
-  imageBlob = await imageResponse.arrayBuffer()
-  
-  const fileName = `${userId}/${Date.now()}-generated.jpg`
-  
-  const { data, error } = await supabase.storage
-    .from('generated-avatars')
-    .upload(fileName, imageBlob, {
-      contentType: 'image/jpeg',
-      upsert: true
-    })
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', { headers: corsHeaders })
+  }
+
+  try {
+    const supabaseClient = createClient(
+      Deno.env.get('SUPABASE_URL') ?? '',
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '',
+      {
+        global: {
+          headers: { Authorization: req.headers.get('Authorization')! }
+        }
+      }
+    )
+
+    const { imageData, config, userId, isUrl } = await req.json()
+
+    if (!imageData || !config || !userId) {
+      return new Response(
+        JSON.stringify({ error: 'Missing required parameters' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    let originalImageUrl: string
+
+    if (isUrl) {
+      originalImageUrl = imageData
+    } else {
+      originalImageUrl = await uploadOriginalImage(supabaseClient, imageData, userId)
+    }
+
+    // Generate image AND Vinted listing in parallel
+    const [generatedImageUrl, vintedListing] = await Promise.all([
+      generateWithReplicate(originalImageUrl, config),
+      generateVintedListing(originalImageUrl, config.clothingType)
+    ])
+
+    // Save generated image to storage
+    const finalImageUrl = await saveGeneratedImage(supabaseClient, generatedImageUrl, userId)
+
+    // Track usage
+    const generationId = await trackUsage(supabaseClient, userId, originalImageUrl, finalImageUrl, config, vintedListing)
+
+    // Use credit from subscription
+    await useUserCredit(supabaseClient, userId)
+
+    return new Response(
+      JSON.stringify({
+        success: true,
+        generation_id: generationId,
+        generated_image_url: finalImageUrl,
+        vinted_listing: vintedListing
+      }),
+      { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+    )
+
+  } catch (error) {
+    console.error('Generation error:', error)
+    return new Response(
+      JSON.stringify({ error: error.message || 'Internal server error' }),
+      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+    )
+  }
+})
+
+async function cleanupOldImages(supabase: any, userId: string) {
+  const MAX_IMAGES_PER_USER = 100;
+  try {
+    const { data: files, error: listError } = await supabase.storage
+      .from('original-images')
+      .list(userId, { sortBy: { column: 'created_at', order: 'asc' } });
+
+    if (listError) return;
+
+    if (files && files.length >= MAX_IMAGES_PER_USER) {
+      const filesToDeleteCount = files.length - MAX_IMAGES_PER_USER + 1;
+      const filesToDelete = files.slice(0, filesToDeleteCount);
+      for (const file of filesToDelete) {
+        await supabase.storage.from('original-images').remove([`${userId}/${file.name}`]);
+      }
+    }
+  } catch (error) {
+    console.error('Error in cleanupOldImages:', error);
+  }
+}
+
+async function uploadOriginalImage(supabase: any, imageData: string, userId: string): Promise<string> {
+  await cleanupOldImages(supabase, userId);
+
+  const base64Data = imageData.split(',')[1]
+  const byteCharacters = atob(base64Data)
+  const byteNumbers = new Array(byteCharacters.length)
+
+  for (let i = 0; i < byteCharacters.length; i++) {
+    byteNumbers[i] = byteCharacters.charCodeAt(i)
+  }
+
+  const byteArray = new Uint8Array(byteNumbers)
+  const fileName = `${userId}/${Date.now()}-original.jpg`
+
+  const { error } = await supabase.storage
+    .from('original-images')
+    .upload(fileName, byteArray, { contentType: 'image/jpeg', upsert: true })
 
   if (error) throw error
-  
+
+  const { data: { signedUrl }, error: signedUrlError } = await supabase.storage
+    .from('original-images')
+    .createSignedUrl(fileName, 3600)
+
+  if (signedUrlError) throw signedUrlError
+  return signedUrl
+}
+
+async function saveGeneratedImage(supabase: any, imageUrl: string, userId: string): Promise<string> {
+  const imageResponse = await fetch(imageUrl)
+  const imageBlob = await imageResponse.arrayBuffer()
+
+  const fileName = `${userId}/${Date.now()}-generated.jpg`
+
+  const { error } = await supabase.storage
+    .from('generated-avatars')
+    .upload(fileName, imageBlob, { contentType: 'image/jpeg', upsert: true })
+
+  if (error) throw error
+
   const { data: { publicUrl } } = supabase.storage
     .from('generated-avatars')
     .getPublicUrl(fileName)
-    
+
   return publicUrl
 }
-
 
 async function trackUsage(
   supabase: any,
@@ -619,7 +463,7 @@ async function trackUsage(
         generated_image_url: generatedUrl,
         generation_config: config,
         clothing_type: config.clothingType,
-        model_used: 'flux-kontext-pro',
+        model_used: 'flux-2-pro',
         generation_method: 'replicate',
         generation_timestamp: new Date().toISOString(),
         vinted_listing: vintedListing || null
@@ -633,7 +477,6 @@ async function trackUsage(
 }
 
 async function useUserCredit(supabase: any, userId: string) {
-  // Get all user subscriptions
   const { data: subscriptions, error: fetchError } = await supabase
     .from('subscriptions')
     .select('*')
@@ -645,49 +488,46 @@ async function useUserCredit(supabase: any, userId: string) {
   }
 
   const now = new Date().toISOString()
-  
+
   // Priority 1: Use credits first
   const totalCredits = subscriptions
-    .filter(sub => sub.plan_type === 'credits' && sub.status === 'active')
-    .reduce((total, sub) => total + sub.credits_remaining, 0)
-  
+    .filter((sub: any) => sub.plan_type === 'credits' && sub.status === 'active')
+    .reduce((total: number, sub: any) => total + sub.credits_remaining, 0)
+
   if (totalCredits > 0) {
-    // Find first credit pack and use one credit
-    const creditPack = subscriptions.find(sub => 
-      sub.plan_type === 'credits' && 
-      sub.status === 'active' && 
+    const creditPack = subscriptions.find((sub: any) =>
+      sub.plan_type === 'credits' &&
+      sub.status === 'active' &&
       sub.credits_remaining > 0
     )
-    
+
     if (creditPack) {
       const { error: updateError } = await supabase
         .from('subscriptions')
         .update({ credits_remaining: creditPack.credits_remaining - 1 })
         .eq('id', creditPack.id)
-      
+
       if (updateError) throw updateError
       return
     }
   }
 
   // Priority 2: Use monthly subscription
-  const monthlySubscription = subscriptions.find(sub => 
-    sub.plan_type === 'monthly' && 
+  const monthlySubscription = subscriptions.find((sub: any) =>
+    sub.plan_type === 'monthly' &&
     (sub.status === 'active' || (sub.current_period_end && sub.current_period_end > now))
   )
-  
+
   if (monthlySubscription) {
     if (monthlySubscription.monthly_generations_used >= monthlySubscription.monthly_limit) {
       throw new Error('Monthly limit reached')
     }
-    
+
     const { error: updateError } = await supabase
       .from('subscriptions')
-      .update({ 
-        monthly_generations_used: monthlySubscription.monthly_generations_used + 1 
-      })
+      .update({ monthly_generations_used: monthlySubscription.monthly_generations_used + 1 })
       .eq('id', monthlySubscription.id)
-    
+
     if (updateError) throw updateError
     return
   }

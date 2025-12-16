@@ -47,6 +47,14 @@
         "26-35": "26-35",
         "36-50": "36-50"
       }
+    },
+    "faceMode": {
+      "title": "FACE",
+      "options": {
+        "visible": "VISIBLE",
+        "blur": "BLURRED",
+        "phone": "PHONE"
+      }
     }
   },
   "style": {
