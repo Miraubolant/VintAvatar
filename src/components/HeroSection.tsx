@@ -802,7 +802,7 @@ export const HeroSection: React.FC = () => {
                     }, 100);
                   }
                 }}
-                className="flex-1 px-4 py-3 bg-mint border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                className="flex-1 px-4 py-3 bg-pink-pastel border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
                 {t('modals.imageRequired.extractVintedButton')}
               </button>
@@ -811,9 +811,10 @@ export const HeroSection: React.FC = () => {
                   setShowImageRequiredModal(false);
                   fileInputRef.current?.click();
                 }}
-                className="flex-1 px-4 py-3 bg-pink-pastel border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                className="flex-1 px-4 py-3 bg-mint border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2"
               >
-                {t('modals.imageRequired.uploadButton')}
+                <Images className="w-4 h-4" />
+                {t('interface.galleryButton')}
               </button>
             </div>
           </div>
