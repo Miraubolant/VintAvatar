@@ -47,6 +47,14 @@
         "26-35": "26-35",
         "36-50": "36-50"
       }
+    },
+    "faceMode": {
+      "title": "VISO",
+      "options": {
+        "visible": "VISIBILE",
+        "blur": "SFOCATO",
+        "phone": "TELEFONO"
+      }
     }
   },
   "style": {
