@@ -265,7 +265,7 @@ Style: professional fashion photography with sharp focus on the ${clothingType},
   // Poll for result
   let result = prediction
   let attempts = 0
-  const maxAttempts = 60
+  const maxAttempts = 120 // 2 minutes timeout for FLUX.2 Pro (slower but higher quality)
 
   while (result.status !== 'succeeded' && result.status !== 'failed' && attempts < maxAttempts) {
     await new Promise(resolve => setTimeout(resolve, 1000))

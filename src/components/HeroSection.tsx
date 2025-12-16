@@ -23,7 +23,7 @@ const DEFAULT_AVATAR_CONFIG = {
   lighting: 'studio',
   season: 'auto',
   clothingType: 'auto',
-  showPhone: false,
+  faceMode: 'visible',
   cropHead: false
 };
 
@@ -318,6 +318,12 @@ export const HeroSection: React.FC = () => {
   };
 
   const handleGenerate = async () => {
+    // Protection contre les doubles clics
+    if (isGenerating) {
+      console.log('Generation already in progress, ignoring duplicate call');
+      return;
+    }
+
     // Vérifier si l'utilisateur est connecté en premier
     if (!user) {
       setShowAuthRequiredModal(true);
