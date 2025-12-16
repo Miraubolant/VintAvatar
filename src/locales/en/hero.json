@@ -43,7 +43,7 @@
   },
   "interface": {
     "placeholder": "Paste your Vinted link here...",
-    "photoButton": "PHOTO",
+    "galleryButton": "GALLERY",
     "extractButton": "EXTRACT VINTED PHOTO",
     "deleteButton": "DELETE",
     "imageReady": "IMAGE",

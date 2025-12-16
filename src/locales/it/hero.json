@@ -43,7 +43,7 @@
   },
   "interface": {
     "placeholder": "Incolla il tuo link Vinted qui...",
-    "photoButton": "FOTO",
+    "galleryButton": "GALLERIA",
     "extractButton": "ESTRAI FOTO VINTED",
     "deleteButton": "ELIMINA",
     "imageReady": "IMMAGINE",

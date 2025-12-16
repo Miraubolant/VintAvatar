@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, HelpCircle, Sparkles } from 'lucide-react';
+import { Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, HelpCircle, Sparkles, Images } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AvatarConfigModal } from './AvatarConfigModal';
 import { GenerationLoadingModal } from './GenerationLoadingModal';
@@ -553,7 +553,7 @@ export const HeroSection: React.FC = () => {
                       )}
                     </div>
                     
-                    {/* Upload Photo - Responsive */}
+                    {/* Gallery Button - Responsive */}
                     <button
                       type="button"
                       onClick={() => {
@@ -563,12 +563,12 @@ export const HeroSection: React.FC = () => {
                         }
                         fileInputRef.current?.click();
                       }}
-                      title="Uploader une photo"
+                      title="Ouvrir la galerie"
                       className="bg-mint border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center px-3 py-2 sm:px-4 sm:py-3"
                       data-guide="upload-button"
                     >
-                      <Upload className="w-4 h-4 sm:w-5 sm:h-5" />
-                      <span className="hidden sm:inline ml-2">{t('interface.photoButton')}</span>
+                      <Images className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="hidden sm:inline ml-2">{t('interface.galleryButton')}</span>
                     </button>
                   </div>
 
