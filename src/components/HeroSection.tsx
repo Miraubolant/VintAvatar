@@ -287,9 +287,9 @@ export const HeroSection: React.FC = () => {
   };
 
   const handleGenerate = async () => {
-    // Protection contre les doubles clics
-    if (isGenerating) {
-      console.log('Generation already in progress, ignoring duplicate call');
+    // Protection contre les doubles clics (vérifier extraction ET génération)
+    if (isGenerating || isScrapingVinted) {
+      console.log('Generation or extraction already in progress, ignoring duplicate call');
       return;
     }
 
