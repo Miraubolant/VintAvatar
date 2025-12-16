@@ -762,7 +762,7 @@ export const HeroSection: React.FC = () => {
               </div>
               <button
                 onClick={() => setShowImageRequiredModal(false)}
-                className="w-8 h-8 bg-gray-200 border-2 border-black flex items-center justify-center hover:bg-gray-300 transition-colors"
+                className="w-8 h-8 bg-pink-pastel border-2 border-black flex items-center justify-center hover:bg-pink-300 transition-colors shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -788,7 +788,7 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Actions */}
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               <button
                 onClick={() => {
                   setShowImageRequiredModal(false);
@@ -802,7 +802,7 @@ export const HeroSection: React.FC = () => {
                     }, 100);
                   }
                 }}
-                className="flex-1 px-4 py-3 bg-pink-pastel border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                className="flex-1 px-2 py-2 sm:px-3 sm:py-2.5 bg-pink-pastel border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
                 {t('modals.imageRequired.extractVintedButton')}
               </button>
@@ -811,10 +811,10 @@ export const HeroSection: React.FC = () => {
                   setShowImageRequiredModal(false);
                   fileInputRef.current?.click();
                 }}
-                className="flex-1 px-4 py-3 bg-mint border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2"
+                className="flex-1 px-2 py-2 sm:px-3 sm:py-2.5 bg-mint border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-1 sm:gap-2"
               >
-                <Images className="w-4 h-4" />
-                {t('interface.galleryButton')}
+                <Images className="w-3 h-3 sm:w-4 sm:h-4" strokeWidth={3} />
+                <span className="font-bold">{t('interface.galleryButton')}</span>
               </button>
             </div>
           </div>
