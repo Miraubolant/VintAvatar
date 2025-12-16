@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Sparkles, CheckCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { GoogleAdBanner } from './ads/GoogleAdBanner';
-import { AD_CONFIG } from './ads/adConfig';
 
 interface GenerationLoadingModalProps {
   isOpen: boolean;
@@ -11,22 +9,56 @@ interface GenerationLoadingModalProps {
 
 export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ isOpen, stage }) => {
   const [progress, setProgress] = useState(0);
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const { t } = useTranslation('generation');
   const startTime = useRef<number>(Date.now());
   const animationFrame = useRef<number | null>(null);
+  const phraseInterval = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Target duration: 5.5 seconds to reach 97%
-  const GENERATION_DURATION = 5500;
+  // Waiting phrases that rotate
+  const waitingPhrases = [
+    t('waitingPhrases.analyzing'),
+    t('waitingPhrases.preparing'),
+    t('waitingPhrases.creating'),
+    t('waitingPhrases.styling'),
+    t('waitingPhrases.perfecting'),
+    t('waitingPhrases.almostDone'),
+  ];
+
+  // Target duration: ~45 seconds to reach 95% (FLUX.2 Pro takes longer)
+  const GENERATION_DURATION = 45000;
+  const PHRASE_ROTATION_INTERVAL = 6000; // Change phrase every 6 seconds
 
   // Reset on open
   useEffect(() => {
     if (isOpen) {
       startTime.current = Date.now();
       setProgress(0);
+      setCurrentPhraseIndex(0);
     }
   }, [isOpen]);
 
-  // Smooth progress animation - goes to 97% over 5.5 seconds
+  // Rotate through waiting phrases
+  useEffect(() => {
+    if (!isOpen || stage === 'complete') {
+      if (phraseInterval.current) {
+        clearInterval(phraseInterval.current);
+      }
+      return;
+    }
+
+    phraseInterval.current = setInterval(() => {
+      setCurrentPhraseIndex(prev => (prev + 1) % waitingPhrases.length);
+    }, PHRASE_ROTATION_INTERVAL);
+
+    return () => {
+      if (phraseInterval.current) {
+        clearInterval(phraseInterval.current);
+      }
+    };
+  }, [isOpen, stage, waitingPhrases.length]);
+
+  // Smooth progress animation - goes to 95% over ~45 seconds
   useEffect(() => {
     if (!isOpen) return;
 
@@ -40,11 +72,11 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
       const elapsed = Date.now() - startTime.current;
       const rawProgress = Math.min(elapsed / GENERATION_DURATION, 1);
 
-      // Ease-out curve for natural feeling
-      const easedProgress = 1 - Math.pow(1 - rawProgress, 3);
+      // Ease-out curve for natural feeling (slows down as it approaches end)
+      const easedProgress = 1 - Math.pow(1 - rawProgress, 2.5);
 
-      // Cap at 97% until complete
-      const newProgress = Math.round(easedProgress * 97);
+      // Cap at 95% until complete
+      const newProgress = Math.round(easedProgress * 95);
       setProgress(newProgress);
 
       if (rawProgress < 1) {
@@ -101,34 +133,26 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
           </div>
 
           {/* Title */}
-          <h2 className="font-display font-bold text-2xl sm:text-3xl text-black text-center mb-2">
+          <h2 className="font-display font-bold text-2xl sm:text-3xl text-black text-center mb-4">
             {isComplete ? t('stages.complete.title') : t('stages.generating.title')}
           </h2>
 
-          {/* Message */}
-          <p className="font-body text-base text-gray-600 text-center mb-8">
-            {isComplete ? t('stages.complete.message') : t('stages.generating.message')}
-          </p>
-
-          {/* Big percentage */}
-          <div className="text-center mb-6">
-            <div className="inline-flex items-baseline gap-1">
-              <span className={`font-display font-bold text-6xl sm:text-7xl transition-colors duration-300 ${
-                isComplete ? 'text-mint' : 'text-vinted'
-              }`}>
-                {progress}
-              </span>
-              <span className="font-display font-bold text-3xl text-black">%</span>
-            </div>
+          {/* Waiting phrase - replaces percentage */}
+          <div className="text-center mb-8 min-h-[56px] flex items-center justify-center">
+            <p className={`font-body text-lg sm:text-xl transition-all duration-500 ${
+              isComplete ? 'text-black font-semibold' : 'text-gray-600'
+            }`}>
+              {isComplete ? t('stages.complete.message') : waitingPhrases[currentPhraseIndex]}
+            </p>
           </div>
 
           {/* Progress bar container */}
           <div className="relative">
             {/* Background bar */}
-            <div className="w-full h-6 bg-cream border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+            <div className="w-full h-5 bg-cream border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
               {/* Progress fill */}
               <div
-                className={`h-full transition-all duration-200 ease-out ${
+                className={`h-full transition-all duration-500 ease-out ${
                   isComplete ? 'bg-mint' : 'bg-vinted'
                 }`}
                 style={{ width: `${progress}%` }}
@@ -146,41 +170,26 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
                 )}
               </div>
             </div>
-
           </div>
 
-          {/* Status text */}
+          {/* Status indicator */}
           <div className="mt-6 text-center">
             {isComplete ? (
               <div className="inline-flex items-center gap-2 bg-mint border-3 border-black px-4 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
                 <CheckCircle className="w-4 h-4" />
-                <span className="font-display font-bold text-sm">PRÊT !</span>
+                <span className="font-display font-bold text-sm">{t('stages.complete.short')}</span>
               </div>
             ) : (
-              <div className="inline-flex items-center gap-2 text-gray-500">
+              <div className="inline-flex items-center gap-3">
                 <div className="flex gap-1">
                   <div className="w-2 h-2 bg-vinted rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
                   <div className="w-2 h-2 bg-vinted rounded-full animate-bounce" style={{ animationDelay: '0.15s' }} />
                   <div className="w-2 h-2 bg-vinted rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
                 </div>
-                <span className="font-body text-sm">{t('stages.generating.message')}</span>
+                <span className="font-body text-sm text-gray-500">{t('stages.generating.short')}</span>
               </div>
             )}
           </div>
-
-          {/* Google Ad - Only show during generation */}
-          {!isComplete && (
-            <div className="mt-6 border-t-2 border-dashed border-gray-200 pt-6">
-              <p className="text-xs text-gray-400 text-center mb-2 font-body">Publicité</p>
-              <div className="bg-cream border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] p-2 overflow-hidden h-[90px] sm:h-[100px]">
-                <GoogleAdBanner
-                  slot={AD_CONFIG.slots.loadingModal}
-                  format="horizontal"
-                  responsive={true}
-                />
-              </div>
-            </div>
-          )}
         </div>
       </div>
 

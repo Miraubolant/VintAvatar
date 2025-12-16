@@ -6,9 +6,9 @@
       "short": "ANALYSE"
     },
     "generating": {
-      "title": "GÉNÉRATION",
+      "title": "CRÉATION EN COURS",
       "message": "Génération de votre avatar en cours",
-      "short": "CRÉATION"
+      "short": "EN COURS..."
     },
     "saving": {
       "title": "FINALISATION",
@@ -17,8 +17,16 @@
     },
     "complete": {
       "title": "TERMINÉ !",
-      "message": "Génération terminée avec succès",
-      "short": "FINI"
+      "message": "Votre photo est prête !",
+      "short": "PRÊT !"
     }
+  },
+  "waitingPhrases": {
+    "analyzing": "Analyse de votre vêtement...",
+    "preparing": "Préparation du mannequin IA...",
+    "creating": "Création de votre photo professionnelle...",
+    "styling": "Ajustement du style et de la lumière...",
+    "perfecting": "Peaufinage des détails...",
+    "almostDone": "Presque terminé, patience..."
   }
 }

@@ -2,23 +2,31 @@
   "stages": {
     "analyzing": {
       "title": "ANALYSIS",
-      "message": "Analyzing your clothing in progress",
-      "short": "ANALYZE"
+      "message": "Analyzing your clothing",
+      "short": "ANALYZING"
     },
     "generating": {
-      "title": "GENERATION",
-      "message": "Generating your avatar in progress",
-      "short": "CREATE"
+      "title": "CREATING",
+      "message": "Generating your avatar",
+      "short": "IN PROGRESS..."
     },
     "saving": {
       "title": "FINALIZING",
       "message": "Finalizing and saving",
-      "short": "SAVE"
+      "short": "SAVING"
     },
     "complete": {
       "title": "COMPLETE!",
-      "message": "Generation completed successfully",
-      "short": "DONE"
+      "message": "Your photo is ready!",
+      "short": "READY!"
     }
+  },
+  "waitingPhrases": {
+    "analyzing": "Analyzing your clothing...",
+    "preparing": "Preparing the AI model...",
+    "creating": "Creating your professional photo...",
+    "styling": "Adjusting style and lighting...",
+    "perfecting": "Perfecting the details...",
+    "almostDone": "Almost done, please wait..."
   }
 }
