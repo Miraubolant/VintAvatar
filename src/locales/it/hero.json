@@ -123,7 +123,7 @@
         "vinted": "Incolla un link Vinted nel campo sopra",
         "upload": "Carica la tua foto con il pulsante"
       },
-      "closeButton": "CHIUDI",
+      "extractVintedButton": "ESTRAI FOTO VINTED",
       "uploadButton": "CARICA"
     },
     "subscriptionRequired": {
