@@ -30,9 +30,7 @@ const DEFAULT_AVATAR_CONFIG = {
 export const HeroSection: React.FC = () => {
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [vintedUrl, setVintedUrl] = useState('');
-  const [vintedImages, setVintedImages] = useState<string[]>([]);
-  const [selectedVintedImage, setSelectedVintedImage] = useState<string | null>(null);
-  const [vintedArticleInfo, setVintedArticleInfo] = useState<any>(null);
+  const [vintedImage, setVintedImage] = useState<string | null>(null);
   const [isScrapingVinted, setIsScrapingVinted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hasStoredConfig, setHasStoredConfig] = useState(false);
@@ -107,21 +105,17 @@ export const HeroSection: React.FC = () => {
 
     // Check if it's a Vinted URL
     if (!isValidVintedUrl(vintedUrl)) {
-      alert('❌ Veuillez entrer une URL Vinted valide (ex: https://www.vinted.fr/items/12345... ou https://www.vinted.fr/articles/12345...)');
+      alert('Veuillez entrer une URL Vinted valide (ex: https://www.vinted.fr/items/12345... ou https://www.vinted.fr/articles/12345...)');
       return;
     }
 
     try {
       setIsScrapingVinted(true);
       setError(null);
-      // Reset previous Vinted data
-      setVintedImages([]);
-      setSelectedVintedImage(null);
-      setVintedArticleInfo(null);
+      setVintedImage(null);
 
       console.log('Scraping Vinted URL:', vintedUrl);
 
-      // Step 1: Scrape images from Vinted URL
       const { data: scrapResult, error: scrapError } = await supabase.functions.invoke('vinted-scraper', {
         body: { vintedUrl },
         headers: {
@@ -133,16 +127,9 @@ export const HeroSection: React.FC = () => {
         throw new Error(scrapResult?.error || 'Impossible de récupérer les images depuis cette URL Vinted');
       }
 
-      console.log(`${scrapResult.images.length} images récupérées depuis Vinted`);
-
-      // Set the scraped images and info for preview
-      setVintedImages(scrapResult.images);
-      setVintedArticleInfo(scrapResult.article_info);
-      
-      // Auto-select the first image by default
-      setSelectedVintedImage(scrapResult.images[0]);
-      
-      // Garder l'image uploadée si elle existe - ne pas la supprimer automatiquement
+      // Prendre automatiquement la première image
+      setVintedImage(scrapResult.images[0]);
+      console.log('Image Vinted récupérée');
 
     } catch (error) {
       console.error('Error processing Vinted URL:', error);
@@ -152,27 +139,9 @@ export const HeroSection: React.FC = () => {
     }
   };
 
-  const handleVintedImageSelect = (imageUrl: string) => {
-    setSelectedVintedImage(imageUrl);
-    // Ne plus supprimer automatiquement l'image uploadée
-    // L'utilisateur peut choisir entre les deux images
-  };
-
-  const handleRemoveVintedImage = (imageUrlToRemove: string) => {
-    const updatedImages = vintedImages.filter(url => url !== imageUrlToRemove);
-    setVintedImages(updatedImages);
-    
-    // Si l'image supprimée était sélectionnée, sélectionner la première image restante
-    if (selectedVintedImage === imageUrlToRemove) {
-      setSelectedVintedImage(updatedImages.length > 0 ? updatedImages[0] : null);
-    }
-    
-    // Si plus d'images, réinitialiser tout
-    if (updatedImages.length === 0) {
-      setSelectedVintedImage(null);
-      setVintedArticleInfo(null);
-      setVintedUrl('');
-    }
+  const handleRemoveVintedImage = () => {
+    setVintedImage(null);
+    setVintedUrl('');
   };
 
   const isValidVintedUrl = (url: string): boolean => {
@@ -330,15 +299,15 @@ export const HeroSection: React.FC = () => {
       return;
     }
 
-    // Check if we have either an uploaded image or a selected Vinted image
-    if (!uploadedImage && !selectedVintedImage) {
+    // Check if we have either an uploaded image or a Vinted image
+    if (!uploadedImage && !vintedImage) {
       setShowImageRequiredModal(true);
       return;
     }
 
     // Use Vinted image if available, otherwise use uploaded image
-    if (selectedVintedImage) {
-      await processImageGeneration(selectedVintedImage, true);
+    if (vintedImage) {
+      await processImageGeneration(vintedImage, true);
     } else {
       await processImageGeneration(uploadedImage!, false);
     }
@@ -390,131 +359,70 @@ export const HeroSection: React.FC = () => {
             <div className="bg-white border-3 border-black p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
 
               {/* Aperçu des images - Si présent */}
-              {(vintedImages.length > 0 || uploadedImage) && (
+              {(vintedImage || uploadedImage) && (
                 <div className="bg-cream border-2 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-3 sm:mb-4">
-                  {/* Info article */}
-                  {vintedArticleInfo && vintedArticleInfo.title && (
-                    <div className="mb-2 p-2 bg-mint border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                      <p className="font-display font-bold text-black text-xs">{vintedArticleInfo.title}</p>
-                    </div>
-                  )}
-                  
-                  {/* Header avec info et bouton supprimer */}
+                  {/* Header avec info */}
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <div className="w-5 h-5 bg-vinted border-2 border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
                         <Sparkles className="w-3 h-3 text-white" />
                       </div>
                       <p className="font-display font-bold text-sm text-black">
-                        {vintedImages.length + (uploadedImage ? 1 : 0)} {vintedImages.length + (uploadedImage ? 1 : 0) > 1 ? t('interface.imagesReady') : t('interface.imageReady')} {vintedImages.length + (uploadedImage ? 1 : 0) > 1 ? t('interface.readyPlural') : t('interface.ready')}
+                        {(vintedImage ? 1 : 0) + (uploadedImage ? 1 : 0)} {t('interface.imageReady')} {t('interface.ready')}
                       </p>
                     </div>
-                    
-                    {vintedImages.length > 0 && (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setVintedImages([]);
-                          setSelectedVintedImage(null);
-                          setVintedArticleInfo(null);
-                          setVintedUrl('');
-                        }}
-                        className="px-2 py-1 bg-pink-pastel border-2 border-black font-display font-bold text-xs text-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center gap-1"
-                      >
-                        <X className="w-3 h-3" />
-                        {t('interface.deleteButton')}
-                      </button>
-                    )}
                   </div>
 
-                  {/* Grille des images - Responsive améliorée */}
-                  <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2">
-                    {vintedImages.map((imageUrl, index) => (
-                      <div key={`vinted-${index}`} className="relative group">
-                        <button
-                          type="button"
-                          onClick={() => handleVintedImageSelect(imageUrl)}
-                          className={`relative w-full border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                            selectedVintedImage === imageUrl 
-                              ? 'ring-2 ring-vinted ring-offset-1 ring-offset-white' 
-                              : ''
-                          }`}
-                        >
-                          <img 
-                            src={imageUrl} 
-                            alt={`Photo vêtement Vinted ${index + 1} pour génération avatar IA portée`}
-                            className="w-full h-20 sm:h-24 lg:h-20 object-cover"
-                            loading="lazy"
+                  {/* Images */}
+                  <div className="flex gap-2">
+                    {vintedImage && (
+                      <div className="relative group">
+                        <div className="relative w-20 h-20 sm:w-24 sm:h-24 border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ring-2 ring-vinted ring-offset-1 ring-offset-white">
+                          <img
+                            src={vintedImage}
+                            alt="Photo vêtement Vinted"
+                            className="w-full h-full object-cover"
                           />
-                          {selectedVintedImage === imageUrl && (
-                            <>
-                              <div className="absolute top-0.5 right-0.5 w-4 h-4 bg-vinted border border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                                <Star className="w-2 h-2 text-white fill-white" />
-                              </div>
-                              <div className="absolute -top-2 -left-2 bg-yellow-300 border border-black px-1 py-0.5 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transform -rotate-6 z-10">
-                                <span className="font-display font-bold text-xs">✓</span>
-                              </div>
-                            </>
-                          )}
-                          <div className="absolute bottom-0.5 left-0.5 px-1 py-0.5 bg-black text-white text-xs font-display font-bold">
-                            {index + 1}
+                          <div className="absolute top-0.5 right-0.5 w-4 h-4 bg-vinted border border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                            <Star className="w-2 h-2 text-white fill-white" />
                           </div>
-                        </button>
-                        
+                          <div className="absolute bottom-0.5 left-0.5 px-1 py-0.5 bg-black text-white text-xs font-display font-bold">
+                            VINTED
+                          </div>
+                        </div>
                         <button
                           type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleRemoveVintedImage(imageUrl);
-                          }}
+                          onClick={handleRemoveVintedImage}
                           className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] opacity-0 group-hover:opacity-100 hover:bg-red-600 transition-all duration-200 z-10"
-                          title="Supprimer cette image"
+                          title="Supprimer"
                         >
                           <X className="w-2 h-2 text-white" />
                         </button>
                       </div>
-                    ))}
-                    
+                    )}
+
                     {uploadedImage && (
-                      <div key="uploaded" className="relative group">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            if (selectedVintedImage) {
-                              setSelectedVintedImage(null);
-                            }
-                          }}
-                          className={`relative w-full border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                            !selectedVintedImage 
-                              ? 'ring-2 ring-vinted ring-offset-1 ring-offset-white' 
-                              : ''
-                          }`}
-                        >
-                          <img 
-                            src={uploadedImage} 
-                            alt="Photo vêtement uploadée pour génération avatar IA Vinted portée"
-                            className="w-full h-20 sm:h-24 lg:h-20 object-cover"
+                      <div className="relative group">
+                        <div className={`relative w-20 h-20 sm:w-24 sm:h-24 border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ${!vintedImage ? 'ring-2 ring-vinted ring-offset-1 ring-offset-white' : ''}`}>
+                          <img
+                            src={uploadedImage}
+                            alt="Photo uploadée"
+                            className="w-full h-full object-cover"
                           />
-                          {!selectedVintedImage && (
-                            <>
-                              <div className="absolute top-0.5 right-0.5 w-4 h-4 bg-vinted border border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                                <Star className="w-2 h-2 text-white fill-white" />
-                              </div>
-                              <div className="absolute -top-2 -left-2 bg-yellow-300 border border-black px-1 py-0.5 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transform -rotate-6 z-10">
-                                <span className="font-display font-bold text-xs">✓</span>
-                              </div>
-                            </>
+                          {!vintedImage && (
+                            <div className="absolute top-0.5 right-0.5 w-4 h-4 bg-vinted border border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                              <Star className="w-2 h-2 text-white fill-white" />
+                            </div>
                           )}
                           <div className="absolute bottom-0.5 left-0.5 px-1 py-0.5 bg-black text-white text-xs font-display font-bold">
                             {t('interface.uploadedLabel')}
                           </div>
-                        </button>
-                        
+                        </div>
                         <button
                           type="button"
                           onClick={handleRemoveImage}
                           className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] opacity-0 group-hover:opacity-100 hover:bg-red-600 transition-all duration-200 z-10"
-                          title="Supprimer l'image uploadée"
+                          title="Supprimer"
                         >
                           <X className="w-2 h-2 text-white" />
                         </button>
@@ -581,28 +489,8 @@ export const HeroSection: React.FC = () => {
                   />
 
                   {/* Boutons d'actions - Mobile optimisé */}
-                  <div className="space-y-2 sm:space-y-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-3">
-                    
-                    {/* Extraire Vinted */}
-                    <button
-                      type="submit"
-                      disabled={!vintedUrl || isScrapingVinted}
-                      className={`w-full border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2 px-3 py-2.5 sm:py-3 sm:px-4 ${
-                        vintedUrl && !isScrapingVinted && vintedImages.length === 0
-                          ? 'bg-pink-pastel text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] animate-pulse'
-                          : vintedUrl && !isScrapingVinted
-                            ? 'bg-white text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
-                            : 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                      }`}
-                      data-guide="extract-button"
-                    >
-                      {isScrapingVinted ? (
-                        <span>EXTRACTION...</span>
-                      ) : (
-                        <span>{t('interface.extractButton')}</span>
-                      )}
-                    </button>
-                    
+                  <div className="space-y-2 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-3">
+
                     {/* Configurer IA */}
                     <button
                       type="button"
@@ -614,19 +502,19 @@ export const HeroSection: React.FC = () => {
                         }, 100);
                       }}
                       className={`w-full bg-vinted border-3 border-black font-display font-bold text-xs sm:text-sm text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2 px-3 py-2.5 sm:py-3 sm:px-4 ${
-                        (vintedImages.length > 0 || uploadedImage) && !hasStoredConfig ? 'animate-pulse' : ''
+                        (vintedImage || uploadedImage) && !hasStoredConfig ? 'animate-pulse' : ''
                       }`}
                       data-guide="config-button"
                     >
                       <span>{t('configSection.configure')}</span>
                     </button>
-                    
+
                     {/* Générer Avatar - Bouton principal */}
                     <button
                       type="button"
                       onClick={handleGenerate}
-                      className={`w-full bg-pink-pastel border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 sm:col-span-2 lg:col-span-1 flex items-center justify-center gap-2 px-3 py-2.5 sm:py-3 sm:px-4 ${
-                        (vintedImages.length > 0 || uploadedImage) ? 'animate-pulse' : ''
+                      className={`w-full bg-pink-pastel border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2 px-3 py-2.5 sm:py-3 sm:px-4 ${
+                        (vintedImage || uploadedImage) ? 'animate-pulse' : ''
                       }`}
                       data-guide="generate-button"
                     >
@@ -792,19 +680,14 @@ export const HeroSection: React.FC = () => {
               <button
                 onClick={() => {
                   setShowImageRequiredModal(false);
-                  if (vintedUrl && isValidVintedUrl(vintedUrl)) {
-                    // Trigger extraction automatically
-                    handleUrlSubmit({ preventDefault: () => {} } as React.FormEvent);
-                  } else {
-                    // Focus the Vinted URL input
-                    setTimeout(() => {
-                      document.getElementById('vinted-url-input')?.focus();
-                    }, 100);
-                  }
+                  // Focus the Vinted URL input
+                  setTimeout(() => {
+                    document.getElementById('vinted-url-input')?.focus();
+                  }, 100);
                 }}
                 className="flex-1 px-2 py-2 sm:px-3 sm:py-2.5 bg-pink-pastel border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
-                {t('modals.imageRequired.extractVintedButton')}
+                LIEN VINTED
               </button>
               <button
                 onClick={() => {
