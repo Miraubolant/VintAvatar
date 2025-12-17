@@ -445,75 +445,97 @@ export const HeroSection: React.FC = () => {
 
               {/* Aperçu des images - Si présent */}
               {(vintedImage || uploadedImage) && (
-                <div className="bg-cream border-2 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-3 sm:mb-4">
-                  {/* Header avec info */}
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-5 h-5 bg-vinted border-2 border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                        <Sparkles className="w-3 h-3 text-white" />
+                <div className="bg-cream border-3 border-black p-3 sm:p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-3 sm:mb-4">
+                  {/* Header avec badge */}
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="w-6 h-6 sm:w-7 sm:h-7 bg-vinted border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                       </div>
-                      <p className="font-display font-bold text-sm text-black">
-                        {(vintedImage ? 1 : 0) + (uploadedImage ? 1 : 0)} {t('interface.imageReady')} {t('interface.ready')}
+                      <p className="font-display font-bold text-xs sm:text-sm text-black uppercase tracking-wide">
+                        {t('interface.imageReady')}
                       </p>
+                    </div>
+                    <div className="px-2 py-1 bg-mint border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                      <span className="font-display font-bold text-xs text-black">
+                        {(vintedImage ? 1 : 0) + (uploadedImage ? 1 : 0)} PHOTO{(vintedImage && uploadedImage) ? 'S' : ''}
+                      </span>
                     </div>
                   </div>
 
-                  {/* Images */}
-                  <div className="flex gap-2">
+                  {/* Images grid - Mobile first */}
+                  <div className="flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start">
                     {vintedImage && (
                       <div className="relative group">
-                        <div className="relative w-20 h-20 sm:w-24 sm:h-24 border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ring-2 ring-vinted ring-offset-1 ring-offset-white">
+                        {/* Image container avec effet neo-brutalism */}
+                        <div className="relative w-28 h-36 sm:w-32 sm:h-40 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">
                           <img
                             src={vintedImage}
                             alt="Photo vêtement Vinted"
                             className="w-full h-full object-cover"
                           />
-                          <div className="absolute top-0.5 right-0.5 w-4 h-4 bg-vinted border border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                            <Star className="w-2 h-2 text-white fill-white" />
+                          {/* Badge VINTED */}
+                          <div className="absolute top-2 left-2 px-2 py-1 bg-vinted border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            <span className="font-display font-bold text-[10px] sm:text-xs text-white">VINTED</span>
                           </div>
-                          <div className="absolute bottom-0.5 left-0.5 px-1 py-0.5 bg-black text-white text-xs font-display font-bold">
-                            VINTED
+                          {/* Indicateur sélectionné */}
+                          <div className="absolute bottom-2 right-2 w-6 h-6 sm:w-7 sm:h-7 bg-mint border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            <Star className="w-3 h-3 sm:w-4 sm:h-4 text-black fill-black" />
                           </div>
                         </div>
+                        {/* Bouton supprimer - visible sur mobile, hover sur desktop */}
                         <button
                           type="button"
                           onClick={handleRemoveVintedImage}
-                          className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] opacity-0 group-hover:opacity-100 hover:bg-red-600 transition-all duration-200 z-10"
+                          className="absolute -top-2 -right-2 w-7 h-7 sm:w-6 sm:h-6 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:opacity-0 sm:group-hover:opacity-100 hover:bg-red-400 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 z-10"
                           title="Supprimer"
                         >
-                          <X className="w-2 h-2 text-white" />
+                          <X className="w-4 h-4 sm:w-3 sm:h-3 text-black" />
                         </button>
                       </div>
                     )}
 
                     {uploadedImage && (
                       <div className="relative group">
-                        <div className={`relative w-20 h-20 sm:w-24 sm:h-24 border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ${!vintedImage ? 'ring-2 ring-vinted ring-offset-1 ring-offset-white' : ''}`}>
+                        {/* Image container avec effet neo-brutalism */}
+                        <div className={`relative w-28 h-36 sm:w-32 sm:h-40 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${!vintedImage ? '' : 'opacity-80'}`}>
                           <img
                             src={uploadedImage}
                             alt="Photo uploadée"
                             className="w-full h-full object-cover"
                           />
+                          {/* Badge UPLOAD */}
+                          <div className="absolute top-2 left-2 px-2 py-1 bg-pink-pastel border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            <span className="font-display font-bold text-[10px] sm:text-xs text-black">{t('interface.uploadedLabel')}</span>
+                          </div>
+                          {/* Indicateur sélectionné (seulement si pas d'image Vinted) */}
                           {!vintedImage && (
-                            <div className="absolute top-0.5 right-0.5 w-4 h-4 bg-vinted border border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                              <Star className="w-2 h-2 text-white fill-white" />
+                            <div className="absolute bottom-2 right-2 w-6 h-6 sm:w-7 sm:h-7 bg-mint border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                              <Star className="w-3 h-3 sm:w-4 sm:h-4 text-black fill-black" />
                             </div>
                           )}
-                          <div className="absolute bottom-0.5 left-0.5 px-1 py-0.5 bg-black text-white text-xs font-display font-bold">
-                            {t('interface.uploadedLabel')}
-                          </div>
                         </div>
+                        {/* Bouton supprimer - visible sur mobile, hover sur desktop */}
                         <button
                           type="button"
                           onClick={handleRemoveImage}
-                          className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] opacity-0 group-hover:opacity-100 hover:bg-red-600 transition-all duration-200 z-10"
+                          className="absolute -top-2 -right-2 w-7 h-7 sm:w-6 sm:h-6 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:opacity-0 sm:group-hover:opacity-100 hover:bg-red-400 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 z-10"
                           title="Supprimer"
                         >
-                          <X className="w-2 h-2 text-white" />
+                          <X className="w-4 h-4 sm:w-3 sm:h-3 text-black" />
                         </button>
                       </div>
                     )}
                   </div>
+
+                  {/* Info texte si 2 images */}
+                  {vintedImage && uploadedImage && (
+                    <div className="mt-3 sm:mt-4 px-2 py-1.5 bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] inline-block">
+                      <p className="font-body text-xs text-gray-700">
+                        {t('interface.vintedPriority')}
+                      </p>
+                    </div>
+                  )}
                 </div>
               )}
 
