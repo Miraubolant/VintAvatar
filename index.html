@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="fr">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17788562000"></script>
+    <!-- Google tag (gtag.js) - Chargé après le contenu principal -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=AW-17788562000"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -10,8 +10,8 @@
       gtag('config', 'AW-17788562000');
     </script>
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5670376246144204"
+    <!-- Google AdSense - Chargé après le contenu principal -->
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5670376246144204"
          crossorigin="anonymous"></script>
 
     <meta charset="UTF-8" />
@@ -82,10 +82,12 @@
     <meta name="twitter:image" content="https://vintdress.com/og-image.jpg" />
     <meta name="twitter:image:alt" content="VintDress - Générateur IA de photos portées pour Vinted" />
 
-    <!-- Google Fonts - Space Grotesk -->
+    <!-- Google Fonts - Space Grotesk (optimisé avec preload) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 
     <!-- Performance optimizations -->
     <link rel="preconnect" href="https://iroihdwursjjkadtbyye.supabase.co" crossorigin />
