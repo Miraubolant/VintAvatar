@@ -538,7 +538,7 @@ export const HeroSection: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => setVintedUrl('')}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-gray-200 border-2 border-black flex items-center justify-center hover:bg-gray-300 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+                          className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-pink-pastel border-2 border-black flex items-center justify-center hover:bg-pink-300 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
                           title="Effacer l'URL"
                         >
                           <X className="w-3 h-3" />
