@@ -686,7 +686,7 @@ export const HeroSection: React.FC = () => {
               </div>
               <button
                 onClick={() => setShowSubscriptionModal(false)}
-                className="w-8 h-8 bg-gray-200 border-2 border-black flex items-center justify-center hover:bg-gray-300 transition-colors"
+                className="w-8 h-8 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
                 <X className="w-4 h-4" />
               </button>
