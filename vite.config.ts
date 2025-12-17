@@ -27,35 +27,20 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          // Face-api.js - Chargé dynamiquement uniquement si besoin
-          if (id.includes('face-api')) {
-            return 'vendor-face-api';
-          }
+        manualChunks: {
+          // Face-api.js sera automatiquement code-split via dynamic import
           // Core React libraries
-          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
-            return 'vendor-react';
-          }
+          'vendor-react': ['react', 'react-dom'],
           // Router
-          if (id.includes('react-router')) {
-            return 'vendor-router';
-          }
+          'vendor-router': ['react-router-dom'],
           // Supabase client
-          if (id.includes('@supabase/supabase-js')) {
-            return 'vendor-supabase';
-          }
+          'vendor-supabase': ['@supabase/supabase-js'],
           // Stripe
-          if (id.includes('@stripe/stripe-js')) {
-            return 'vendor-stripe';
-          }
+          'vendor-stripe': ['@stripe/stripe-js'],
           // i18n
-          if (id.includes('i18next')) {
-            return 'vendor-i18n';
-          }
+          'vendor-i18n': ['i18next', 'react-i18next', 'i18next-browser-languagedetector'],
           // Icons
-          if (id.includes('lucide-react')) {
-            return 'vendor-icons';
-          }
+          'vendor-icons': ['lucide-react'],
         },
         // Optimize chunk file names for better caching
         chunkFileNames: (chunkInfo) => {
