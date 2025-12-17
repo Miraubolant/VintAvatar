@@ -185,84 +185,84 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white border-4 border-black max-w-md w-full shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
-        
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
+      <div className="bg-white border-3 sm:border-4 border-black max-w-md w-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 max-h-[95vh] overflow-y-auto">
+
         {/* Header */}
-        <div className="flex items-center justify-between p-6 bg-vinted border-b-4 border-black">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-              <User className="w-5 h-5 text-black" />
+        <div className="flex items-center justify-between p-3 sm:p-4 bg-vinted border-b-3 sm:border-b-4 border-black">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white border-2 sm:border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <User className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
             </div>
-            <h2 className="font-display font-bold text-xl text-white">
+            <h2 className="font-display font-bold text-base sm:text-xl text-white">
               {activeTab === 'signin' ? t('titles.signin') : t('titles.signup')}
             </h2>
           </div>
           <button
             onClick={handleClose}
-            className="w-8 h-8 bg-white border-2 border-black flex items-center justify-center hover:bg-gray-100 transition-colors shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+            className="w-7 h-7 sm:w-8 sm:h-8 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] sm:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform hover:rotate-90 transition-all duration-300"
           >
-            <X className="w-4 h-4" />
+            <X className="w-3 h-3 sm:w-4 sm:h-4" />
           </button>
         </div>
 
         {/* Tabs */}
-        <div className="flex border-b-4 border-black">
+        <div className="flex border-b-3 sm:border-b-4 border-black">
           <button
             onClick={() => handleTabChange('signin')}
-            className={`flex-1 py-3 px-4 font-display font-bold text-sm transition-all duration-200 ${
+            className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 font-display font-bold text-xs sm:text-sm transition-all duration-200 ${
               activeTab === 'signin'
                 ? 'bg-mint text-black border-r-2 border-black'
                 : 'bg-cream text-gray-700 border-r-2 border-black hover:bg-gray-100'
             }`}
           >
-            <div className="flex items-center justify-center gap-2">
-              <LogIn className="w-4 h-4" />
+            <div className="flex items-center justify-center gap-1 sm:gap-2">
+              <LogIn className="w-3 h-3 sm:w-4 sm:h-4" />
               {t('tabs.signin')}
             </div>
           </button>
           <button
             onClick={() => handleTabChange('signup')}
-            className={`flex-1 py-3 px-4 font-display font-bold text-sm transition-all duration-200 ${
+            className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 font-display font-bold text-xs sm:text-sm transition-all duration-200 ${
               activeTab === 'signup'
                 ? 'bg-mint text-black'
                 : 'bg-cream text-gray-700 hover:bg-gray-100'
             }`}
           >
-            <div className="flex items-center justify-center gap-2">
-              <UserPlus className="w-4 h-4" />
+            <div className="flex items-center justify-center gap-1 sm:gap-2">
+              <UserPlus className="w-3 h-3 sm:w-4 sm:h-4" />
               {t('tabs.signup')}
             </div>
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-3 sm:p-4">
           {/* In-App Browser Warning */}
           {inAppBrowser.isInApp && (
-            <div className="mb-4 p-4 bg-yellow-100 border-3 border-yellow-500 shadow-[3px_3px_0px_0px_rgba(234,179,8,1)]">
-              <div className="flex items-start gap-3">
-                <AlertTriangle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+            <div className="mb-3 sm:mb-4 p-3 bg-yellow-100 border-2 sm:border-3 border-yellow-500 shadow-[2px_2px_0px_0px_rgba(234,179,8,1)]">
+              <div className="flex items-start gap-2 sm:gap-3">
+                <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                 <div className="flex-1">
-                  <p className="font-display font-bold text-sm text-yellow-800 mb-2">
+                  <p className="font-display font-bold text-xs sm:text-sm text-yellow-800 mb-1.5 sm:mb-2">
                     Connexion Google impossible
                   </p>
-                  <p className="font-body text-xs text-yellow-700 mb-3">
+                  <p className="font-body text-[10px] sm:text-xs text-yellow-700 mb-2 sm:mb-3">
                     Le navigateur de {inAppBrowser.appName} bloque la connexion Google.
                     Ouvrez ce lien dans Safari ou Chrome pour vous connecter.
                   </p>
                   <button
                     onClick={handleCopyLink}
-                    className="flex items-center gap-2 px-3 py-2 bg-yellow-500 text-white border-2 border-yellow-700 font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(161,98,7,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(161,98,7,1)] transition-all duration-200"
+                    className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 bg-yellow-500 text-white border-2 border-yellow-700 font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(161,98,7,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(161,98,7,1)] transition-all duration-200"
                   >
                     {copied ? (
                       <>
-                        <Check className="w-4 h-4" />
+                        <Check className="w-3 h-3 sm:w-4 sm:h-4" />
                         Lien copié !
                       </>
                     ) : (
                       <>
-                        <Copy className="w-4 h-4" />
+                        <Copy className="w-3 h-3 sm:w-4 sm:h-4" />
                         Copier le lien
                       </>
                     )}
@@ -276,13 +276,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
           <button
             onClick={handleGoogleAuth}
             disabled={isLoading || inAppBrowser.isInApp}
-            className={`w-full flex items-center justify-center gap-3 px-4 py-3 mb-6 bg-vinted text-white border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+            className={`w-full flex items-center justify-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 mb-4 sm:mb-5 bg-vinted text-white border-2 sm:border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
               isLoading || inAppBrowser.isInApp
                 ? 'opacity-50 cursor-not-allowed'
-                : 'hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
+                : 'hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
             }`}
           >
-            <svg className="w-5 h-5" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
               <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
               <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
               <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
@@ -292,29 +292,29 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
           </button>
 
           {/* Separator */}
-          <div className="flex items-center mb-6">
+          <div className="flex items-center mb-4 sm:mb-5">
             <div className="flex-1 h-0.5 bg-black"></div>
-            <span className="px-4 font-display font-bold text-sm text-gray-600">{t('separator')}</span>
+            <span className="px-3 sm:px-4 font-display font-bold text-xs sm:text-sm text-gray-600">{t('separator')}</span>
             <div className="flex-1 h-0.5 bg-black"></div>
           </div>
 
           {/* Email Form */}
-          <form onSubmit={handleEmailAuth} className="space-y-4">
+          <form onSubmit={handleEmailAuth} className="space-y-3 sm:space-y-4">
             {/* Full Name (only for signup) */}
             {activeTab === 'signup' && (
               <div>
-                <label className="block font-display font-bold text-black mb-2">
+                <label className="block font-display font-bold text-xs sm:text-sm text-black mb-1 sm:mb-2">
                   {t('labels.fullName')}
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <User className="w-4 h-4 text-gray-500" />
+                  <div className="absolute inset-y-0 left-0 pl-2.5 sm:pl-3 flex items-center pointer-events-none">
+                    <User className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-500" />
                   </div>
                   <input
                     type="text"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border-3 border-black font-body shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                    className="w-full pl-8 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-2.5 text-sm border-2 sm:border-3 border-black font-body shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                     placeholder={t('placeholders.fullName')}
                     required
                   />
@@ -324,18 +324,18 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
 
             {/* Email */}
             <div>
-              <label className="block font-display font-bold text-black mb-2">
+              <label className="block font-display font-bold text-xs sm:text-sm text-black mb-1 sm:mb-2">
                 {t('labels.email')}
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="w-4 h-4 text-gray-500" />
+                <div className="absolute inset-y-0 left-0 pl-2.5 sm:pl-3 flex items-center pointer-events-none">
+                  <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-500" />
                 </div>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border-3 border-black font-body shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                  className="w-full pl-8 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-2.5 text-sm border-2 sm:border-3 border-black font-body shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                   placeholder={t('placeholders.email')}
                   required
                 />
@@ -344,35 +344,35 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
 
             {/* Password */}
             <div>
-              <label className="block font-display font-bold text-black mb-2">
+              <label className="block font-display font-bold text-xs sm:text-sm text-black mb-1 sm:mb-2">
                 {t('labels.password')}
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="w-4 h-4 text-gray-500" />
+                <div className="absolute inset-y-0 left-0 pl-2.5 sm:pl-3 flex items-center pointer-events-none">
+                  <Lock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-500" />
                 </div>
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-10 pr-12 py-3 border-3 border-black font-body shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                  className="w-full pl-8 sm:pl-10 pr-10 sm:pr-12 py-2 sm:py-2.5 text-sm border-2 sm:border-3 border-black font-body shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                   placeholder={t('placeholders.password')}
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  className="absolute inset-y-0 right-0 pr-2.5 sm:pr-3 flex items-center"
                 >
                   {showPassword ? (
-                    <EyeOff className="w-4 h-4 text-gray-500 hover:text-gray-700" />
+                    <EyeOff className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-500 hover:text-gray-700" />
                   ) : (
-                    <Eye className="w-4 h-4 text-gray-500 hover:text-gray-700" />
+                    <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-500 hover:text-gray-700" />
                   )}
                 </button>
               </div>
               {activeTab === 'signup' && (
-                <p className="text-xs text-gray-600 mt-1 font-body">
+                <p className="text-[10px] sm:text-xs text-gray-600 mt-1 font-body">
                   {t('validation.passwordHelp')}
                 </p>
               )}
@@ -380,8 +380,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
 
             {/* Error Message */}
             {error && (
-              <div className="p-3 bg-red-100 border-2 border-red-400 shadow-[2px_2px_0px_0px_rgba(239,68,68,1)]">
-                <p className="font-body text-sm text-red-700">{error}</p>
+              <div className="p-2 sm:p-3 bg-red-100 border-2 border-red-400 shadow-[2px_2px_0px_0px_rgba(239,68,68,1)]">
+                <p className="font-body text-xs sm:text-sm text-red-700">{error}</p>
               </div>
             )}
 
@@ -389,15 +389,15 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             <button
               type="submit"
               disabled={isLoading}
-              className={`w-full py-3 px-4 bg-mint text-black border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                isLoading 
-                  ? 'opacity-50 cursor-not-allowed' 
-                  : 'hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
+              className={`w-full py-2 sm:py-2.5 px-3 sm:px-4 bg-mint text-black border-2 sm:border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                isLoading
+                  ? 'opacity-50 cursor-not-allowed'
+                  : 'hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
               }`}
             >
               {isLoading ? (
                 <div className="flex items-center justify-center gap-2">
-                  <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
                   {activeTab === 'signin' ? t('buttons.loading.signin') : t('buttons.loading.signup')}
                 </div>
               ) : (
@@ -407,8 +407,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
           </form>
 
           {/* Additional Info */}
-          <div className="mt-6 text-center">
-            <p className="text-xs text-gray-600 font-body">
+          <div className="mt-4 sm:mt-5 text-center">
+            <p className="text-[10px] sm:text-xs text-gray-600 font-body">
               {activeTab === 'signin' ? (
                 <>
                   {t('switchText.noAccount')}{' '}
