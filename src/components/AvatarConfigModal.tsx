@@ -21,7 +21,6 @@ interface AvatarConfig {
   framing: string;
   decor: string;
   lighting: string;
-  season: string;
   clothingType: string;
   faceMode: 'visible' | 'blur' | 'phone';
   cropHead: boolean;
@@ -49,7 +48,6 @@ const getStoredConfig = (): AvatarConfig => {
     framing: 'corps-entier',
     decor: 'chambre',
     lighting: 'studio',
-    season: 'auto',
     clothingType: 'auto',
     faceMode: 'visible',
     cropHead: false
@@ -130,27 +128,22 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
               </button>
             </div>
 
-        <div className="p-3 space-y-3">
-          
+        <div className="p-2 sm:p-3 space-y-2 sm:space-y-3">
+
           {/* Affichage des crédits */}
           {user && stats && !loading && (
             <div className="text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-mint border-4 border-black text-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
-                <Sparkles className="w-4 h-4 text-vinted" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-mint border-3 border-black text-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+                <Sparkles className="w-3 h-3 text-vinted" />
                 <div className="text-center">
-                  {/* Crédits des packs */}
                   {stats.total_credits_remaining > 0 && (
-                    <div>{stats.total_credits_remaining} CRÉDITS RESTANTS</div>
+                    <span>{stats.total_credits_remaining} CRÉDITS</span>
                   )}
-                  
-                  {/* Générations d'abonnement */}
                   {stats.has_active_monthly && (
-                    <div>{stats.monthly_generations_used}/{stats.monthly_limit} GÉNÉRATIONS UTILISÉES CE MOIS</div>
+                    <span>{stats.monthly_generations_used}/{stats.monthly_limit} CE MOIS</span>
                   )}
-                  
-                  {/* Message si aucun crédit */}
                   {stats.total_credits_remaining === 0 && !stats.has_active_monthly && (
-                    <div>AUCUN CRÉDIT DISPONIBLE</div>
+                    <span>AUCUN CRÉDIT</span>
                   )}
                 </div>
               </div>
@@ -158,33 +151,33 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
           )}
 
           {/* Onglets de navigation */}
-          <div className="flex border-b-4 border-black mb-4">
+          <div className="flex gap-1 mb-2 sm:mb-3">
             <button
               onClick={() => setActiveTab('modele')}
-              className={`flex-1 p-2 font-display font-bold text-xs transition-all duration-200 ${
+              className={`flex-1 py-2 px-2 font-display font-bold text-[10px] sm:text-xs transition-all duration-200 border-2 sm:border-3 border-black ${
                 activeTab === 'modele'
-                  ? 'bg-vinted text-white border-r-4 border-black transform -rotate-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                  : 'bg-white text-black border-r-2 border-black hover:bg-cream'
+                  ? 'bg-vinted text-white transform -rotate-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] translate-y-[-2px]'
+                  : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-cream hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
               }`}
             >
               {t('tabs.modele')}
             </button>
             <button
               onClick={() => setActiveTab('style')}
-              className={`flex-1 p-2 font-display font-bold text-xs transition-all duration-200 ${
+              className={`flex-1 py-2 px-2 font-display font-bold text-[10px] sm:text-xs transition-all duration-200 border-2 sm:border-3 border-black ${
                 activeTab === 'style'
-                  ? 'bg-vinted text-white border-r-4 border-black transform rotate-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                  : 'bg-white text-black border-r-2 border-black hover:bg-cream'
+                  ? 'bg-pink-pastel text-black transform rotate-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] translate-y-[-2px]'
+                  : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-cream hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
               }`}
             >
               {t('tabs.style')}
             </button>
             <button
               onClick={() => setActiveTab('environnement')}
-              className={`flex-1 p-2 font-display font-bold text-xs transition-all duration-200 ${
+              className={`flex-1 py-2 px-2 font-display font-bold text-[10px] sm:text-xs transition-all duration-200 border-2 sm:border-3 border-black ${
                 activeTab === 'environnement'
-                  ? 'bg-vinted text-white transform -rotate-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                  : 'bg-white text-black hover:bg-cream'
+                  ? 'bg-mint text-black transform -rotate-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] translate-y-[-2px]'
+                  : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-cream hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
               }`}
             >
               {t('tabs.environnement')}
@@ -192,30 +185,30 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
           </div>
 
           {/* Contenu des onglets */}
-          <div className="space-y-4">
+          <div className="space-y-2 sm:space-y-3">
             {activeTab === 'modele' && (
-              <div className="space-y-4">
+              <div className="space-y-2 sm:space-y-3">
 
                 {/* Type de mannequin */}
                 <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('modele.mannequinType.title')}</h3>
-                  <div className="grid grid-cols-2 gap-2">
+                  <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('modele.mannequinType.title')}</h3>
+                  <div className="grid grid-cols-2 gap-1.5">
                     <button
                       onClick={() => updateConfig('mannequinType', 'humain')}
-                      className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                      className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                         config.mannequinType === 'humain'
-                          ? 'bg-vinted text-white transform -rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                          : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                          ? 'bg-vinted text-white transform -rotate-1'
+                          : 'bg-white text-black hover:bg-cream'
                       }`}
                     >
                       {t('modele.mannequinType.options.humain')}
                     </button>
                     <button
                       onClick={() => updateConfig('mannequinType', 'mannequin-plastique')}
-                      className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                      className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                         config.mannequinType === 'mannequin-plastique'
-                          ? 'bg-black text-white transform rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                          : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                          ? 'bg-black text-white transform rotate-1'
+                          : 'bg-white text-black hover:bg-cream'
                       }`}
                     >
                       {t('modele.mannequinType.options.mannequin-plastique')}
@@ -223,14 +216,14 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                   </div>
                 </div>
 
-                {/* Genre - Toujours visible pour humain et mannequin plastique */}
+                {/* Genre */}
                 <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">
+                  <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">
                     {config.mannequinType === 'mannequin-plastique'
                       ? t('modele.genre.titleMannequin')
                       : t('modele.genre.title')}
                   </h3>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 gap-1.5">
                     {[
                       { id: 'femme', label: t('modele.genre.options.femme') },
                       { id: 'homme', label: t('modele.genre.options.homme') }
@@ -238,12 +231,12 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                       <button
                         key={gender.id}
                         onClick={() => updateConfig('gender', gender.id)}
-                        className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                        className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                           config.gender === gender.id
                             ? config.mannequinType === 'mannequin-plastique'
-                              ? 'bg-black text-white transform -rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                              : 'bg-mint text-black transform -rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                            : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                              ? 'bg-black text-white transform -rotate-1'
+                              : 'bg-mint text-black transform -rotate-1'
+                            : 'bg-white text-black hover:bg-cream'
                         }`}
                       >
                         {gender.label}
@@ -255,109 +248,132 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                 {/* Options spécifiques au modèle humain */}
                 {config.mannequinType === 'humain' && (
                   <>
+                    {/* Carnation */}
+                    <div>
+                      <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('modele.carnation.title')}</h3>
+                      <div className="grid grid-cols-4 gap-1">
+                        {[
+                          { id: 'claire', label: t('modele.carnation.options.claire'), color: '#F5DEB3' },
+                          { id: 'medium', label: t('modele.carnation.options.medium'), color: '#DEB887' },
+                          { id: 'mate', label: t('modele.carnation.options.mate'), color: '#D2B48C' },
+                          { id: 'foncee', label: t('modele.carnation.options.foncee'), color: '#8B4513' }
+                        ].map((carnation) => (
+                          <button
+                            key={carnation.id}
+                            onClick={() => updateConfig('carnation', carnation.id)}
+                            className={`p-1 sm:p-1.5 border-2 border-black font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center gap-0.5 transition-all duration-200 ${
+                              config.carnation === carnation.id
+                                ? 'bg-pink-pastel text-black transform -rotate-1'
+                                : 'bg-white text-black hover:bg-cream'
+                            }`}
+                          >
+                            <div
+                              className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-black"
+                              style={{ backgroundColor: carnation.color }}
+                            ></div>
+                            <span className="text-[8px] sm:text-[10px] leading-tight">{carnation.label}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
 
+                    {/* Morphologie + Âge sur la même ligne */}
+                    <div className="grid grid-cols-2 gap-2">
+                      {/* Morphologie */}
+                      <div>
+                        <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('modele.morphology.title')}</h3>
+                        <div className="grid grid-cols-3 gap-1">
+                          {[
+                            { id: 'S', label: t('modele.morphology.options.s') },
+                            { id: 'M', label: t('modele.morphology.options.m') },
+                            { id: 'L', label: t('modele.morphology.options.l') }
+                          ].map((size) => (
+                            <button
+                              key={size.id}
+                              onClick={() => updateConfig('morphology', size.id)}
+                              className={`p-1 sm:p-1.5 border-2 border-black font-display font-bold text-[10px] sm:text-xs shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                                config.morphology === size.id
+                                  ? 'bg-mint text-black transform rotate-1'
+                                  : 'bg-white text-black hover:bg-cream'
+                              }`}
+                            >
+                              {size.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
 
-                {/* Carnation */}
-                <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('modele.carnation.title')}</h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    {[
-                      { id: 'claire', label: t('modele.carnation.options.claire'), color: '#F5DEB3' },
-                      { id: 'medium', label: t('modele.carnation.options.medium'), color: '#DEB887' },
-                      { id: 'mate', label: t('modele.carnation.options.mate'), color: '#D2B48C' },
-                      { id: 'foncee', label: t('modele.carnation.options.foncee'), color: '#8B4513' }
-                    ].map((carnation) => (
-                      <button
-                        key={carnation.id}
-                        onClick={() => updateConfig('carnation', carnation.id)}
-                        className={`p-2 border-3 border-black font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-2 transition-all duration-200 ${
-                          config.carnation === carnation.id
-                            ? 'bg-pink-pastel text-black transform -rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                            : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                        }`}
-                      >
-                        <div 
-                          className="w-5 h-5 border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
-                          style={{ backgroundColor: carnation.color }}
-                        ></div>
-                        <span className="text-xs">{carnation.label}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
+                      {/* Âge - Liste déroulante */}
+                      <div>
+                        <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('modele.age.title')}</h3>
+                        <div className="relative">
+                          <select
+                            value={config.age}
+                            onChange={(e) => updateConfig('age', e.target.value)}
+                            className="w-full p-1.5 sm:p-2 bg-white border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none transition-all duration-200 appearance-none cursor-pointer"
+                          >
+                            <option value="auto">{t('modele.age.options.auto')}</option>
+                            <option value="18-25">{t('modele.age.options.18-25')}</option>
+                            <option value="26-35">{t('modele.age.options.26-35')}</option>
+                            <option value="36-50">{t('modele.age.options.36-50')}</option>
+                          </select>
+                          <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                            <div className="w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-transparent border-t-black"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
-                {/* Morphologie */}
-                <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('modele.morphology.title')}</h3>
-                  <div className="grid grid-cols-3 gap-2">
-                    {[
-                      { id: 'S', label: t('modele.morphology.options.s') },
-                      { id: 'M', label: t('modele.morphology.options.m') },
-                      { id: 'L', label: t('modele.morphology.options.l') }
-                    ].map((size) => (
-                      <button
-                        key={size.id}
-                        onClick={() => updateConfig('morphology', size.id)}
-                        className={`p-2 border-3 border-black font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                          config.morphology === size.id
-                            ? 'bg-mint text-black transform rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                            : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                        }`}
-                      >
-                        {size.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
+                    {/* Mode Visage */}
+                    <div>
+                      <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('modele.faceMode.title')}</h3>
+                      <div className="grid grid-cols-3 gap-1.5">
+                        {[
+                          { id: 'visible', label: t('modele.faceMode.options.visible') },
+                          { id: 'blur', label: t('modele.faceMode.options.blur') },
+                          { id: 'phone', label: t('modele.faceMode.options.phone') }
+                        ].map((mode) => (
+                          <button
+                            key={mode.id}
+                            onClick={() => updateConfig('faceMode', mode.id)}
+                            className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                              config.faceMode === mode.id
+                                ? 'bg-vinted text-white transform rotate-1'
+                                : 'bg-white text-black hover:bg-cream'
+                            }`}
+                          >
+                            {mode.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
 
-                {/* Âge */}
-                <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('modele.age.title')}</h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    {[
-                      { id: 'auto', label: t('modele.age.options.auto') },
-                      { id: '18-25', label: t('modele.age.options.18-25') },
-                      { id: '26-35', label: t('modele.age.options.26-35') },
-                      { id: '36-50', label: t('modele.age.options.36-50') }
-                    ].map((age) => (
-                      <button
-                        key={age.id}
-                        onClick={() => updateConfig('age', age.id)}
-                        className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                          config.age === age.id
-                            ? 'bg-pink-pastel text-black transform -rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                            : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                        }`}
-                      >
-                        {age.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Mode Visage */}
-                <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('modele.faceMode.title')}</h3>
-                  <div className="grid grid-cols-3 gap-2">
-                    {[
-                      { id: 'visible', label: t('modele.faceMode.options.visible') },
-                      { id: 'blur', label: t('modele.faceMode.options.blur') },
-                      { id: 'phone', label: t('modele.faceMode.options.phone') }
-                    ].map((mode) => (
-                      <button
-                        key={mode.id}
-                        onClick={() => updateConfig('faceMode', mode.id)}
-                        className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                          config.faceMode === mode.id
-                            ? 'bg-vinted text-white transform rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                            : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                        }`}
-                      >
-                        {mode.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
+                    {/* Découpage de la tête */}
+                    <div>
+                      <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('modele.cropHead.title')}</h3>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        <button
+                          onClick={() => updateConfig('cropHead', false)}
+                          className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                            !config.cropHead
+                              ? 'bg-mint text-black transform -rotate-1'
+                              : 'bg-white text-black hover:bg-cream'
+                          }`}
+                        >
+                          {t('modele.cropHead.options.keep')}
+                        </button>
+                        <button
+                          onClick={() => updateConfig('cropHead', true)}
+                          className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                            config.cropHead
+                              ? 'bg-pink-pastel text-black transform rotate-1'
+                              : 'bg-white text-black hover:bg-cream'
+                          }`}
+                        >
+                          {t('modele.cropHead.options.remove')}
+                        </button>
+                      </div>
+                    </div>
                   </>
                 )}
 
@@ -365,16 +381,16 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
             )}
 
             {activeTab === 'style' && (
-              <div className="space-y-4">
+              <div className="space-y-2 sm:space-y-3">
 
                 {/* Type de vêtement */}
                 <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('style.clothingType.title')}</h3>
+                  <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('style.clothingType.title')}</h3>
                   <div className="relative">
                     <select
                       value={config.clothingType}
                       onChange={(e) => updateConfig('clothingType', e.target.value)}
-                      className="w-full p-3 bg-white border-3 border-black font-display font-bold text-sm text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 appearance-none cursor-pointer"
+                      className="w-full p-1.5 sm:p-2 bg-white border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none transition-all duration-200 appearance-none cursor-pointer"
                     >
                       <option value="auto">{t('style.clothingType.options.auto')}</option>
                       <option value="t-shirt">{t('style.clothingType.options.t-shirt')}</option>
@@ -388,63 +404,59 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                       <option value="short">{t('style.clothingType.options.short')}</option>
                       <option value="chaussures">{t('style.clothingType.options.chaussures')}</option>
                     </select>
-                    {/* Flèche personnalisée */}
-                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                      <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
+                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                      <div className="w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-transparent border-t-black"></div>
                     </div>
                   </div>
                 </div>
 
-                {/* Posture */}
-                <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('style.posture.title')}</h3>
-                  <div className="relative">
-                    <select
-                      value={config.posture}
-                      onChange={(e) => updateConfig('posture', e.target.value)}
-                      className="w-full p-3 bg-white border-3 border-black font-display font-bold text-sm text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 appearance-none cursor-pointer"
-                    >
-                      <option value="debout">{t('style.posture.options.debout')}</option>
-                      <option value="cambre">{t('style.posture.options.cambre')}</option>
-                      <option value="accroupi">{t('style.posture.options.accroupi')}</option>
-                      <option value="assis">{t('style.posture.options.assis')}</option>
-                    </select>
-                    {/* Flèche personnalisée */}
-                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                      <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Angle */}
-                <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('style.angle.title')}</h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    {[
-                      { id: 'face', label: t('style.angle.options.face') },
-                      { id: '3-4', label: t('style.angle.options.3-4') },
-                      { id: 'profil', label: t('style.angle.options.profil') },
-                      { id: 'auto', label: t('style.angle.options.auto') }
-                    ].map((angle) => (
-                      <button
-                        key={angle.id}
-                        onClick={() => updateConfig('angle', angle.id)}
-                        className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                          config.angle === angle.id
-                            ? 'bg-mint text-black transform rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                            : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                        }`}
+                {/* Posture + Angle sur la même ligne */}
+                <div className="grid grid-cols-2 gap-2">
+                  {/* Posture */}
+                  <div>
+                    <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('style.posture.title')}</h3>
+                    <div className="relative">
+                      <select
+                        value={config.posture}
+                        onChange={(e) => updateConfig('posture', e.target.value)}
+                        className="w-full p-1.5 sm:p-2 bg-white border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none transition-all duration-200 appearance-none cursor-pointer"
                       >
-                        {angle.label}
-                      </button>
-                    ))}
+                        <option value="debout">{t('style.posture.options.debout')}</option>
+                        <option value="cambre">{t('style.posture.options.cambre')}</option>
+                        <option value="accroupi">{t('style.posture.options.accroupi')}</option>
+                        <option value="assis">{t('style.posture.options.assis')}</option>
+                      </select>
+                      <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                        <div className="w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-transparent border-t-black"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Angle */}
+                  <div>
+                    <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('style.angle.title')}</h3>
+                    <div className="relative">
+                      <select
+                        value={config.angle}
+                        onChange={(e) => updateConfig('angle', e.target.value)}
+                        className="w-full p-1.5 sm:p-2 bg-white border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none transition-all duration-200 appearance-none cursor-pointer"
+                      >
+                        <option value="face">{t('style.angle.options.face')}</option>
+                        <option value="3-4">{t('style.angle.options.3-4')}</option>
+                        <option value="profil">{t('style.angle.options.profil')}</option>
+                        <option value="auto">{t('style.angle.options.auto')}</option>
+                      </select>
+                      <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                        <div className="w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-transparent border-t-black"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Cadrage */}
                 <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('style.framing.title')}</h3>
-                  <div className="grid grid-cols-1 gap-2">
+                  <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('style.framing.title')}</h3>
+                  <div className="grid grid-cols-2 gap-1.5">
                     {[
                       { id: 'corps-entier', label: t('style.framing.options.corps-entier') },
                       { id: 'plan-rapproche', label: t('style.framing.options.plan-rapproche') }
@@ -452,10 +464,10 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                       <button
                         key={framing.id}
                         onClick={() => updateConfig('framing', framing.id)}
-                        className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                        className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                           config.framing === framing.id
-                            ? 'bg-pink-pastel text-black transform -rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                            : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                            ? 'bg-pink-pastel text-black transform -rotate-1'
+                            : 'bg-white text-black hover:bg-cream'
                         }`}
                       >
                         {framing.label}
@@ -468,33 +480,32 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
             )}
 
             {activeTab === 'environnement' && (
-              <div className="space-y-4">
+              <div className="space-y-2 sm:space-y-3">
 
                 {/* Décor */}
                 <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('environnement.decor.title')}</h3>
+                  <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('environnement.decor.title')}</h3>
                   <div className="relative">
                     <select
                       value={config.decor}
                       onChange={(e) => updateConfig('decor', e.target.value)}
-                      className="w-full p-3 bg-white border-3 border-black font-display font-bold text-sm text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 appearance-none cursor-pointer"
+                      className="w-full p-1.5 sm:p-2 bg-white border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none transition-all duration-200 appearance-none cursor-pointer"
                     >
                       <option value="studio-pro">{t('environnement.decor.options.studio-pro')}</option>
                       <option value="chambre">{t('environnement.decor.options.chambre')}</option>
                       <option value="cabine">{t('environnement.decor.options.cabine')}</option>
                       <option value="exterieur">{t('environnement.decor.options.exterieur')}</option>
                     </select>
-                    {/* Flèche personnalisée */}
-                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                      <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
+                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                      <div className="w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-transparent border-t-black"></div>
                     </div>
                   </div>
                 </div>
 
                 {/* Éclairage */}
                 <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('environnement.lighting.title')}</h3>
-                  <div className="grid grid-cols-2 gap-2">
+                  <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('environnement.lighting.title')}</h3>
+                  <div className="grid grid-cols-4 gap-1">
                     {[
                       { id: 'studio', label: t('environnement.lighting.options.studio') },
                       { id: 'naturel', label: t('environnement.lighting.options.naturel') },
@@ -504,10 +515,10 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                       <button
                         key={lighting.id}
                         onClick={() => updateConfig('lighting', lighting.id)}
-                        className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                        className={`p-1 sm:p-1.5 border-2 border-black font-display font-bold text-[8px] sm:text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                           config.lighting === lighting.id
-                            ? 'bg-mint text-black transform rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                            : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                            ? 'bg-mint text-black transform rotate-1'
+                            : 'bg-white text-black hover:bg-cream'
                         }`}
                       >
                         {lighting.label}
@@ -516,70 +527,21 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                   </div>
                 </div>
 
-                {/* Saison */}
-                <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('environnement.season.title')}</h3>
-                  <div className="relative">
-                    <select
-                      value={config.season}
-                      onChange={(e) => updateConfig('season', e.target.value)}
-                      className="w-full p-3 bg-white border-3 border-black font-display font-bold text-sm text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 appearance-none cursor-pointer"
-                    >
-                      <option value="auto">{t('environnement.season.options.auto')}</option>
-                      <option value="printemps">{t('environnement.season.options.printemps')}</option>
-                      <option value="ete">{t('environnement.season.options.ete')}</option>
-                      <option value="automne">{t('environnement.season.options.automne')}</option>
-                      <option value="hiver">{t('environnement.season.options.hiver')}</option>
-                    </select>
-                    {/* Flèche personnalisée */}
-                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                      <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Découpage de la tête */}
-                <div>
-                  <h3 className="font-display font-bold text-sm text-black mb-2">{t('environnement.cropHead.title')}</h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    <button
-                      onClick={() => updateConfig('cropHead', false)}
-                      className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                        !config.cropHead
-                          ? 'bg-mint text-black transform -rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                          : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                      }`}
-                    >
-                      {t('environnement.cropHead.options.keep')}
-                    </button>
-                    <button
-                      onClick={() => updateConfig('cropHead', true)}
-                      className={`p-2 border-3 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                        config.cropHead
-                          ? 'bg-pink-pastel text-black transform rotate-1 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                          : 'bg-white text-black hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                      }`}
-                    >
-                      {t('environnement.cropHead.options.remove')}
-                    </button>
-                  </div>
-                </div>
-
               </div>
             )}
           </div>
 
           {/* Bouton validation */}
-          <div className="pt-2">
+          <div className="pt-1 sm:pt-2">
             <button
               onClick={validateConfig}
-              className={`w-full flex items-center justify-center gap-2 px-4 py-2 font-display font-bold border-3 border-black text-sm transition-all duration-200 ${
+              className={`w-full flex items-center justify-center gap-1.5 px-3 py-1.5 sm:py-2 font-display font-bold border-2 sm:border-3 border-black text-xs sm:text-sm transition-all duration-200 ${
                 isValidated
-                  ? 'bg-mint text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform rotate-1'
-                  : 'bg-vinted text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
+                  ? 'bg-mint text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1'
+                  : 'bg-vinted text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
               }`}
             >
-              <Check className="w-4 h-4" />
+              <Check className="w-3 h-3 sm:w-4 sm:h-4" />
               {isValidated ? t('validation.validated') : t('validation.validate')}
             </button>
           </div>

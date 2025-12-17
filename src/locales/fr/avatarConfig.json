@@ -55,6 +55,13 @@
         "blur": "FLOUTÉ",
         "phone": "TÉLÉPHONE"
       }
+    },
+    "cropHead": {
+      "title": "DÉCOUPAGE",
+      "options": {
+        "keep": "GARDER LA TÊTE",
+        "remove": "SANS TÊTE"
+      }
     }
   },
   "style": {
@@ -118,23 +125,6 @@
         "naturel": "NATUREL",
         "dramatique": "DRAMATIQUE",
         "doux": "DOUX"
-      }
-    },
-    "season": {
-      "title": "SAISON",
-      "options": {
-        "auto": "AUTO",
-        "printemps": "PRINTEMPS",
-        "ete": "ÉTÉ",
-        "automne": "AUTOMNE",
-        "hiver": "HIVER"
-      }
-    },
-    "cropHead": {
-      "title": "DÉCOUPAGE",
-      "options": {
-        "keep": "GARDER LA TÊTE",
-        "remove": "SUPPRIMER LA TÊTE"
       }
     }
   },

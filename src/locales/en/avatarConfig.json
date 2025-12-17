@@ -55,6 +55,13 @@
         "blur": "BLURRED",
         "phone": "PHONE"
       }
+    },
+    "cropHead": {
+      "title": "CROPPING",
+      "options": {
+        "keep": "KEEP HEAD",
+        "remove": "HEADLESS"
+      }
     }
   },
   "style": {
@@ -118,23 +125,6 @@
         "naturel": "NATURAL",
         "dramatique": "DRAMATIC",
         "doux": "SOFT"
-      }
-    },
-    "season": {
-      "title": "SEASON",
-      "options": {
-        "auto": "AUTO",
-        "printemps": "SPRING",
-        "ete": "SUMMER",
-        "automne": "AUTUMN",
-        "hiver": "WINTER"
-      }
-    },
-    "cropHead": {
-      "title": "HEAD CROPPING",
-      "options": {
-        "keep": "KEEP HEAD",
-        "remove": "REMOVE HEAD"
       }
     }
   },

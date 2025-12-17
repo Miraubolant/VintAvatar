@@ -55,6 +55,13 @@
         "blur": "DIFUMINADO",
         "phone": "TELÉFONO"
       }
+    },
+    "cropHead": {
+      "title": "RECORTE",
+      "options": {
+        "keep": "CON CABEZA",
+        "remove": "SIN CABEZA"
+      }
     }
   },
   "style": {
@@ -118,23 +125,6 @@
         "naturel": "NATURAL",
         "dramatique": "DRAMÁTICA",
         "doux": "SUAVE"
-      }
-    },
-    "season": {
-      "title": "TEMPORADA",
-      "options": {
-        "auto": "AUTO",
-        "printemps": "PRIMAVERA",
-        "ete": "VERANO",
-        "automne": "OTOÑO",
-        "hiver": "INVIERNO"
-      }
-    },
-    "cropHead": {
-      "title": "RECORTE DE CABEZA",
-      "options": {
-        "keep": "MANTENER CABEZA",
-        "remove": "QUITAR CABEZA"
       }
     }
   },
