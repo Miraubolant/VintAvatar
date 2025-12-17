@@ -36,6 +36,9 @@ export const HeroSection: React.FC = () => {
     price?: string;
     brand?: string;
     size?: string;
+    color?: string;
+    category?: string;
+    condition?: string;
   } | null>(null);
   const [isScrapingVinted, setIsScrapingVinted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -478,7 +481,7 @@ export const HeroSection: React.FC = () => {
 
                   {/* Infos Vinted */}
                   {vintedImage && vintedArticleInfo && (vintedArticleInfo.title || vintedArticleInfo.price || vintedArticleInfo.brand || vintedArticleInfo.size) && (
-                    <div className="flex flex-col gap-1.5 sm:gap-2 text-left max-w-[200px] sm:max-w-[250px]">
+                    <div className="flex flex-col gap-1.5 sm:gap-2 text-left max-w-[200px] sm:max-w-[280px]">
                       {vintedArticleInfo.title && (
                         <p className="font-display font-bold text-xs sm:text-sm text-black line-clamp-2">
                           {vintedArticleInfo.title}
@@ -498,6 +501,16 @@ export const HeroSection: React.FC = () => {
                         {vintedArticleInfo.size && (
                           <span className="px-2 py-0.5 bg-mint border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
                             {vintedArticleInfo.size}
+                          </span>
+                        )}
+                        {vintedArticleInfo.color && (
+                          <span className="px-2 py-0.5 bg-pink-pastel border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                            {vintedArticleInfo.color}
+                          </span>
+                        )}
+                        {vintedArticleInfo.category && (
+                          <span className="px-2 py-0.5 bg-white border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                            {vintedArticleInfo.category}
                           </span>
                         )}
                       </div>

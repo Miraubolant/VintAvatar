@@ -27,6 +27,9 @@ interface VintedScrapResult {
     price: string;
     brand: string;
     size: string;
+    color: string;
+    category: string;
+    condition: string;
   };
 }
 
@@ -267,38 +270,179 @@ function extractImagesFromHtml(html: string): string[] {
 }
 
 function extractArticleInfo(html: string): any {
+  let title = ''
+  let price = ''
+  let brand = ''
+  let size = ''
+  let color = ''
+  let category = ''
+  let condition = ''
+
   try {
-    // Extract title
-    let title = ''
-    const titleMatch = html.match(/<title[^>]*>([^<]+)</i)
-    if (titleMatch) {
-      title = titleMatch[1].replace(' | Vinted', '').trim()
+    // Strategy 1: Extract from JSON-LD (most reliable)
+    const jsonLdRegex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
+    let jsonLdMatch
+    while ((jsonLdMatch = jsonLdRegex.exec(html)) !== null) {
+      try {
+        const jsonData = JSON.parse(jsonLdMatch[1])
+
+        // Handle Product type
+        if (jsonData['@type'] === 'Product') {
+          if (jsonData.name && !title) title = jsonData.name
+          if (jsonData.brand?.name && !brand) brand = jsonData.brand.name
+          if (jsonData.brand && typeof jsonData.brand === 'string' && !brand) brand = jsonData.brand
+          if (jsonData.color && !color) color = jsonData.color
+          if (jsonData.category && !category) category = jsonData.category
+          if (jsonData.offers?.price && !price) price = jsonData.offers.price
+          if (jsonData.size && !size) size = jsonData.size
+        }
+      } catch {}
     }
 
-    // Extract price
-    let price = ''
-    const priceMatch = html.match(/["']price["']:\s*["']([^"']+)["']/i) || 
-                      html.match(/€\s*(\d+(?:,\d{2})?)/i)
-    if (priceMatch) {
-      price = priceMatch[1]
+    // Strategy 2: Extract from Vinted's inline scripts (window.__INITIAL_STATE__ or similar)
+    const scriptDataRegex = /<script[^>]*>([\s\S]*?)<\/script>/gi
+    let scriptMatch
+    while ((scriptMatch = scriptDataRegex.exec(html)) !== null) {
+      const scriptContent = scriptMatch[1]
+
+      // Look for item data patterns
+      try {
+        // Brand patterns
+        if (!brand) {
+          const brandPatterns = [
+            /"brand_title"\s*:\s*"([^"]+)"/i,
+            /"brandTitle"\s*:\s*"([^"]+)"/i,
+            /brand['"]\s*:\s*{[^}]*['"]title['"]\s*:\s*['"]([^'"]+)['"]/i,
+            /"brand"\s*:\s*"([^"]+)"/i
+          ]
+          for (const pattern of brandPatterns) {
+            const match = scriptContent.match(pattern)
+            if (match && match[1] && match[1] !== 'null') {
+              brand = match[1]
+              break
+            }
+          }
+        }
+
+        // Size patterns
+        if (!size) {
+          const sizePatterns = [
+            /"size_title"\s*:\s*"([^"]+)"/i,
+            /"sizeTitle"\s*:\s*"([^"]+)"/i,
+            /size['"]\s*:\s*{[^}]*['"]title['"]\s*:\s*['"]([^'"]+)['"]/i,
+            /"size"\s*:\s*"([^"]+)"/i
+          ]
+          for (const pattern of sizePatterns) {
+            const match = scriptContent.match(pattern)
+            if (match && match[1] && match[1] !== 'null') {
+              size = match[1]
+              break
+            }
+          }
+        }
+
+        // Price patterns
+        if (!price) {
+          const pricePatterns = [
+            /"price_numeric"\s*:\s*(\d+(?:\.\d+)?)/i,
+            /"priceNumeric"\s*:\s*(\d+(?:\.\d+)?)/i,
+            /"total_item_price"\s*:\s*"([^"]+)"/i,
+            /"price"\s*:\s*"([^"]+)"/i,
+            /"price"\s*:\s*(\d+(?:\.\d+)?)/i
+          ]
+          for (const pattern of pricePatterns) {
+            const match = scriptContent.match(pattern)
+            if (match && match[1]) {
+              price = match[1]
+              break
+            }
+          }
+        }
+
+        // Color patterns
+        if (!color) {
+          const colorPatterns = [
+            /"color1_title"\s*:\s*"([^"]+)"/i,
+            /"colorTitle"\s*:\s*"([^"]+)"/i,
+            /"color"\s*:\s*"([^"]+)"/i
+          ]
+          for (const pattern of colorPatterns) {
+            const match = scriptContent.match(pattern)
+            if (match && match[1] && match[1] !== 'null') {
+              color = match[1]
+              break
+            }
+          }
+        }
+
+        // Category patterns
+        if (!category) {
+          const categoryPatterns = [
+            /"catalog_title"\s*:\s*"([^"]+)"/i,
+            /"catalogTitle"\s*:\s*"([^"]+)"/i,
+            /"category"\s*:\s*"([^"]+)"/i
+          ]
+          for (const pattern of categoryPatterns) {
+            const match = scriptContent.match(pattern)
+            if (match && match[1] && match[1] !== 'null') {
+              category = match[1]
+              break
+            }
+          }
+        }
+
+        // Condition patterns
+        if (!condition) {
+          const conditionPatterns = [
+            /"status"\s*:\s*"([^"]+)"/i,
+            /"condition"\s*:\s*"([^"]+)"/i
+          ]
+          for (const pattern of conditionPatterns) {
+            const match = scriptContent.match(pattern)
+            if (match && match[1] && match[1] !== 'null') {
+              condition = match[1]
+              break
+            }
+          }
+        }
+      } catch {}
     }
 
-    // Extract brand
-    let brand = ''
-    const brandMatch = html.match(/["']brand["']:\s*["']([^"']+)["']/i)
-    if (brandMatch) {
-      brand = brandMatch[1]
+    // Strategy 3: Fallback to meta tags and HTML
+    if (!title) {
+      const titleMatch = html.match(/<title[^>]*>([^<]+)</i)
+      if (titleMatch) {
+        title = titleMatch[1].replace(' | Vinted', '').replace('Vinted', '').trim()
+      }
     }
 
-    // Extract size
-    let size = ''
-    const sizeMatch = html.match(/["']size["']:\s*["']([^"']+)["']/i)
-    if (sizeMatch) {
-      size = sizeMatch[1]
+    // Extract from og:title
+    if (!title) {
+      const ogTitleMatch = html.match(/<meta[^>]*property=["']og:title["'][^>]*content=["']([^"']+)["']/i)
+      if (ogTitleMatch) {
+        title = ogTitleMatch[1]
+      }
     }
 
-    return { title, price, brand, size }
+    // Fallback price from visible HTML
+    if (!price) {
+      const priceMatch = html.match(/(\d+(?:[,\.]\d{2})?)\s*€/i)
+      if (priceMatch) {
+        price = priceMatch[1]
+      }
+    }
+
+    // Clean up values
+    title = title.trim()
+    price = price.toString().replace(',', '.').trim()
+    brand = brand.trim()
+    size = size.trim()
+    color = color.trim()
+    category = category.trim()
+    condition = condition.trim()
+
+    return { title, price, brand, size, color, category, condition }
   } catch {
-    return { title: '', price: '', brand: '', size: '' }
+    return { title: '', price: '', brand: '', size: '', color: '', category: '', condition: '' }
   }
 }
