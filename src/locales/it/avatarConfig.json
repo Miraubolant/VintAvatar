@@ -55,6 +55,13 @@
         "blur": "SFOCATO",
         "phone": "TELEFONO"
       }
+    },
+    "cropHead": {
+      "title": "RITAGLIO",
+      "options": {
+        "keep": "CON TESTA",
+        "remove": "SENZA TESTA"
+      }
     }
   },
   "style": {
@@ -118,23 +125,6 @@
         "naturel": "NATURALE",
         "dramatique": "DRAMMATICA",
         "doux": "SOFFUSA"
-      }
-    },
-    "season": {
-      "title": "STAGIONE",
-      "options": {
-        "auto": "AUTO",
-        "printemps": "PRIMAVERA",
-        "ete": "ESTATE",
-        "automne": "AUTUNNO",
-        "hiver": "INVERNO"
-      }
-    },
-    "cropHead": {
-      "title": "RITAGLIO TESTA",
-      "options": {
-        "keep": "MANTIENI TESTA",
-        "remove": "RIMUOVI TESTA"
       }
     }
   },
