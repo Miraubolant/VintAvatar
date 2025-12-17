@@ -83,23 +83,50 @@ export const useAuth = () => {
           redirectTo: `${window.location.origin}`,
         },
       });
-      
+
       if (error) {
         // console.error('Auth error:', error);
-        
+
         let userMessage = '❌ Erreur de connexion avec Google.';
-        
+
         if (error.message.includes('popup')) {
           userMessage = '🪟 Veuillez autoriser les pop-ups et réessayer.';
         } else if (error.message.includes('network')) {
           userMessage = '🌐 Problème de connexion. Vérifiez votre internet.';
         }
-        
+
         alert(`${userMessage}\n\nCode d'erreur: ${error.message}`);
         throw error;
       }
     } catch (error) {
       // console.error('Sign in error:', error);
+      throw error;
+    }
+  };
+
+  const signInWithFacebook = async () => {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'facebook',
+        options: {
+          redirectTo: `${window.location.origin}`,
+          scopes: 'email,public_profile',
+        },
+      });
+
+      if (error) {
+        let userMessage = 'Erreur de connexion avec Facebook.';
+
+        if (error.message.includes('popup')) {
+          userMessage = 'Veuillez autoriser les pop-ups et réessayer.';
+        } else if (error.message.includes('network')) {
+          userMessage = 'Problème de connexion. Vérifiez votre internet.';
+        }
+
+        alert(`${userMessage}\n\nCode d'erreur: ${error.message}`);
+        throw error;
+      }
+    } catch (error) {
       throw error;
     }
   };
@@ -190,6 +217,7 @@ export const useAuth = () => {
   return {
     ...authState,
     signInWithGoogle,
+    signInWithFacebook,
     signInWithEmail,
     signUpWithEmail,
     signOut,
