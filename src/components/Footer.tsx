@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="bg-white text-black font-display font-bold text-[10px] sm:text-xs uppercase px-2 py-1.5 sm:px-3 sm:py-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-mint hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 text-center"
+                    className="bg-vinted text-white font-display font-bold text-[10px] sm:text-xs uppercase px-2 py-1.5 sm:px-3 sm:py-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-vinted/90 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 text-center"
                   >
                     {t(link.labelKey)}
                   </a>
