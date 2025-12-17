@@ -56,6 +56,58 @@ export const HeroSection: React.FC = () => {
     // L'utilisateur peut maintenant cliquer sur le bouton Guide pour l'activer
   }, []);
 
+  // Track the last extracted URL to avoid duplicate extractions
+  const lastExtractedUrlRef = useRef<string | null>(null);
+
+  // Auto-extract Vinted image when a valid URL is pasted
+  useEffect(() => {
+    // Don't extract if: no URL, already have image, user not logged in
+    if (!vintedUrl || vintedImage || !user || !session) return;
+
+    // Don't extract if we already extracted this URL
+    if (lastExtractedUrlRef.current === vintedUrl) return;
+
+    // Check if it's a valid Vinted URL
+    if (!isValidVintedUrl(vintedUrl)) return;
+
+    const extractVintedImage = async () => {
+      try {
+        setIsScrapingVinted(true);
+        setError(null);
+        lastExtractedUrlRef.current = vintedUrl;
+
+        console.log('Auto-extracting Vinted image from:', vintedUrl);
+
+        const { data: scrapResult, error: scrapError } = await supabase.functions.invoke('vinted-scraper', {
+          body: { vintedUrl },
+          headers: {
+            Authorization: `Bearer ${session?.access_token}`,
+          },
+        });
+
+        if (scrapError || !scrapResult.success || scrapResult.images.length === 0) {
+          console.error('Auto-extraction failed:', scrapResult?.error);
+          lastExtractedUrlRef.current = null; // Reset so user can retry
+          return;
+        }
+
+        // Automatically set the first image
+        setVintedImage(scrapResult.images[0]);
+        console.log('Vinted image auto-extracted');
+
+      } catch (error) {
+        console.error('Error auto-extracting Vinted image:', error);
+        lastExtractedUrlRef.current = null; // Reset so user can retry
+      } finally {
+        setIsScrapingVinted(false);
+      }
+    };
+
+    // Small delay to avoid extracting while user is still typing
+    const timeoutId = setTimeout(extractVintedImage, 500);
+    return () => clearTimeout(timeoutId);
+  }, [vintedUrl, user, session, vintedImage]);
+
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     // Vérifier si l'utilisateur est connecté
     if (!user) {
@@ -142,6 +194,7 @@ export const HeroSection: React.FC = () => {
   const handleRemoveVintedImage = () => {
     setVintedImage(null);
     setVintedUrl('');
+    lastExtractedUrlRef.current = null; // Reset to allow re-extraction
   };
 
   const isValidVintedUrl = (url: string): boolean => {
