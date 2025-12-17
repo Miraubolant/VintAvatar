@@ -481,54 +481,57 @@ export const HeroSection: React.FC = () => {
                     </div>
 
                     {/* Infos à droite */}
-                    <div className="flex-1 min-w-0 flex flex-col justify-center gap-2 sm:gap-3">
-                      {/* Titre et prix */}
+                    <div className="flex-1 min-w-0">
                       {vintedImage && vintedArticleInfo && (vintedArticleInfo.title || vintedArticleInfo.price) ? (
-                        <>
+                        <div className="bg-white border-2 border-black p-2.5 sm:p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                           {vintedArticleInfo.title && (
-                            <p className="font-display font-bold text-sm sm:text-base md:text-lg text-black line-clamp-2 leading-tight">
+                            <p className="font-display font-bold text-xs sm:text-sm md:text-base text-black line-clamp-2 leading-tight mb-1.5 sm:mb-2">
                               {vintedArticleInfo.title}
                             </p>
                           )}
                           {vintedArticleInfo.price && (
-                            <p className="font-display font-bold text-lg sm:text-xl md:text-2xl text-vinted">
+                            <p className="font-display font-bold text-base sm:text-lg md:text-xl text-vinted mb-2 sm:mb-3">
                               {vintedArticleInfo.price.includes('€') ? vintedArticleInfo.price : `${vintedArticleInfo.price} €`}
                             </p>
                           )}
-                          {/* Badges infos */}
+                          {/* Détails article */}
                           {(vintedArticleInfo.brand || vintedArticleInfo.size || vintedArticleInfo.color || vintedArticleInfo.category) && (
-                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                            <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-[10px] sm:text-xs">
                               {vintedArticleInfo.brand && (
-                                <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-white border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                  {vintedArticleInfo.brand}
-                                </span>
+                                <div>
+                                  <span className="text-gray-500">Marque:</span>{' '}
+                                  <span className="font-bold text-black">{vintedArticleInfo.brand}</span>
+                                </div>
                               )}
                               {vintedArticleInfo.size && (
-                                <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-mint border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                  {vintedArticleInfo.size}
-                                </span>
+                                <div>
+                                  <span className="text-gray-500">Taille:</span>{' '}
+                                  <span className="font-bold text-black">{vintedArticleInfo.size}</span>
+                                </div>
                               )}
                               {vintedArticleInfo.color && (
-                                <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-pink-pastel border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                  {vintedArticleInfo.color}
-                                </span>
+                                <div>
+                                  <span className="text-gray-500">Couleur:</span>{' '}
+                                  <span className="font-bold text-black">{vintedArticleInfo.color}</span>
+                                </div>
                               )}
                               {vintedArticleInfo.category && (
-                                <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-vinted/20 border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                  {vintedArticleInfo.category}
-                                </span>
+                                <div>
+                                  <span className="text-gray-500">Catégorie:</span>{' '}
+                                  <span className="font-bold text-black">{vintedArticleInfo.category}</span>
+                                </div>
                               )}
                             </div>
                           )}
-                        </>
+                        </div>
                       ) : (
                         /* Message pour image uploadée sans infos Vinted */
-                        <div className="flex flex-col gap-1">
+                        <div className="bg-white border-2 border-black p-2.5 sm:p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                           <p className="font-display font-bold text-sm sm:text-base text-black">
                             {t('interface.imageReady')}
                           </p>
-                          <p className="font-body text-xs sm:text-sm text-gray-600">
-                            {uploadedImage ? t('interface.uploadedLabel') : 'Vinted'}
+                          <p className="font-body text-xs sm:text-sm text-gray-500 mt-1">
+                            {uploadedImage ? 'Photo uploadée' : 'Vinted'}
                           </p>
                         </div>
                       )}
