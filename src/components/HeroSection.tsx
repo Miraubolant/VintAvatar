@@ -100,7 +100,11 @@ export const HeroSection: React.FC = () => {
           return;
         }
 
-        // Automatically set the first image and article info
+        // Clear uploaded image and set Vinted image
+        setUploadedImage(null);
+        if (fileInputRef.current) {
+          fileInputRef.current.value = '';
+        }
         setVintedImage(scrapResult.images[0]);
         if (scrapResult.article_info) {
           setVintedArticleInfo(scrapResult.article_info);
@@ -585,6 +589,13 @@ export const HeroSection: React.FC = () => {
                         if (!user) {
                           setShowAuthRequiredModal(true);
                           return;
+                        }
+                        // Clear Vinted image if exists before uploading new photo
+                        if (vintedImage) {
+                          setVintedImage(null);
+                          setVintedUrl('');
+                          setVintedArticleInfo(null);
+                          lastExtractedUrlRef.current = null;
                         }
                         fileInputRef.current?.click();
                       }}
