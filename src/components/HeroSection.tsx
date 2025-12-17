@@ -458,64 +458,82 @@ export const HeroSection: React.FC = () => {
 
               {/* Aperçu de l'image avec infos Vinted */}
               {(vintedImage || uploadedImage) && (
-                <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-                  {/* Image */}
-                  <div className="relative group flex-shrink-0">
-                    <div className="relative w-24 h-32 sm:w-32 sm:h-40 md:w-40 md:h-52 lg:w-48 lg:h-64 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
-                      <img
-                        src={vintedImage || uploadedImage || ''}
-                        alt="Photo sélectionnée"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    {/* Bouton supprimer */}
-                    <button
-                      type="button"
-                      onClick={vintedImage ? handleRemoveVintedImage : handleRemoveImage}
-                      className="absolute -top-2 -right-2 w-7 h-7 sm:w-6 sm:h-6 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-red-400 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 z-10"
-                      title="Supprimer"
-                    >
-                      <X className="w-4 h-4 sm:w-3 sm:h-3 text-black" />
-                    </button>
-                  </div>
-
-                  {/* Infos Vinted */}
-                  {vintedImage && vintedArticleInfo && (vintedArticleInfo.title || vintedArticleInfo.price || vintedArticleInfo.brand || vintedArticleInfo.size) && (
-                    <div className="flex flex-col gap-1.5 sm:gap-2 text-left max-w-[200px] sm:max-w-[280px]">
-                      {vintedArticleInfo.title && (
-                        <p className="font-display font-bold text-xs sm:text-sm text-black line-clamp-2">
-                          {vintedArticleInfo.title}
-                        </p>
-                      )}
-                      {vintedArticleInfo.price && (
-                        <p className="font-display font-bold text-sm sm:text-base text-vinted">
-                          {vintedArticleInfo.price.includes('€') ? vintedArticleInfo.price : `${vintedArticleInfo.price} €`}
-                        </p>
-                      )}
-                      <div className="flex flex-wrap gap-1.5">
-                        {vintedArticleInfo.brand && (
-                          <span className="px-2 py-0.5 bg-cream border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                            {vintedArticleInfo.brand}
-                          </span>
-                        )}
-                        {vintedArticleInfo.size && (
-                          <span className="px-2 py-0.5 bg-mint border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                            {vintedArticleInfo.size}
-                          </span>
-                        )}
-                        {vintedArticleInfo.color && (
-                          <span className="px-2 py-0.5 bg-pink-pastel border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                            {vintedArticleInfo.color}
-                          </span>
-                        )}
-                        {vintedArticleInfo.category && (
-                          <span className="px-2 py-0.5 bg-white border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                            {vintedArticleInfo.category}
-                          </span>
-                        )}
+                <div className="bg-cream border-3 border-black p-3 sm:p-4 mb-3 sm:mb-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="flex flex-row items-start gap-3 sm:gap-5">
+                    {/* Image à gauche */}
+                    <div className="relative flex-shrink-0">
+                      <div className="relative w-20 h-28 sm:w-28 sm:h-36 md:w-32 md:h-44 lg:w-36 lg:h-48 border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
+                        <img
+                          src={vintedImage || uploadedImage || ''}
+                          alt="Photo sélectionnée"
+                          className="w-full h-full object-cover"
+                        />
                       </div>
+                      {/* Bouton supprimer */}
+                      <button
+                        type="button"
+                        onClick={vintedImage ? handleRemoveVintedImage : handleRemoveImage}
+                        className="absolute -top-2 -right-2 w-6 h-6 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-red-400 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 z-10"
+                        title="Supprimer"
+                      >
+                        <X className="w-3 h-3 text-black" />
+                      </button>
                     </div>
-                  )}
+
+                    {/* Infos à droite */}
+                    <div className="flex-1 min-w-0 flex flex-col justify-center gap-2 sm:gap-3">
+                      {/* Titre et prix */}
+                      {vintedImage && vintedArticleInfo && (vintedArticleInfo.title || vintedArticleInfo.price) ? (
+                        <>
+                          {vintedArticleInfo.title && (
+                            <p className="font-display font-bold text-sm sm:text-base md:text-lg text-black line-clamp-2 leading-tight">
+                              {vintedArticleInfo.title}
+                            </p>
+                          )}
+                          {vintedArticleInfo.price && (
+                            <p className="font-display font-bold text-lg sm:text-xl md:text-2xl text-vinted">
+                              {vintedArticleInfo.price.includes('€') ? vintedArticleInfo.price : `${vintedArticleInfo.price} €`}
+                            </p>
+                          )}
+                          {/* Badges infos */}
+                          {(vintedArticleInfo.brand || vintedArticleInfo.size || vintedArticleInfo.color || vintedArticleInfo.category) && (
+                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                              {vintedArticleInfo.brand && (
+                                <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-white border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                  {vintedArticleInfo.brand}
+                                </span>
+                              )}
+                              {vintedArticleInfo.size && (
+                                <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-mint border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                  {vintedArticleInfo.size}
+                                </span>
+                              )}
+                              {vintedArticleInfo.color && (
+                                <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-pink-pastel border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                  {vintedArticleInfo.color}
+                                </span>
+                              )}
+                              {vintedArticleInfo.category && (
+                                <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-vinted/20 border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                  {vintedArticleInfo.category}
+                                </span>
+                              )}
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        /* Message pour image uploadée sans infos Vinted */
+                        <div className="flex flex-col gap-1">
+                          <p className="font-display font-bold text-sm sm:text-base text-black">
+                            {t('interface.imageReady')}
+                          </p>
+                          <p className="font-body text-xs sm:text-sm text-gray-600">
+                            {uploadedImage ? t('interface.uploadedLabel') : 'Vinted'}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               )}
 
@@ -539,7 +557,16 @@ export const HeroSection: React.FC = () => {
                       {vintedUrl && (
                         <button
                           type="button"
-                          onClick={() => setVintedUrl('')}
+                          onClick={() => {
+                            setVintedUrl('');
+                            setVintedImage(null);
+                            setVintedArticleInfo(null);
+                            setUploadedImage(null);
+                            lastExtractedUrlRef.current = null;
+                            if (fileInputRef.current) {
+                              fileInputRef.current.value = '';
+                            }
+                          }}
                           className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-pink-pastel border-2 border-black flex items-center justify-center hover:bg-pink-300 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
                           title="Effacer l'URL"
                         >
