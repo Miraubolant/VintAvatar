@@ -156,8 +156,8 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
               onClick={() => setActiveTab('modele')}
               className={`flex-1 py-2 px-2 font-display font-bold text-[10px] sm:text-xs transition-all duration-200 border-2 sm:border-3 border-black ${
                 activeTab === 'modele'
-                  ? 'bg-vinted text-white transform -rotate-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] translate-y-[-2px]'
-                  : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-cream hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                  ? 'bg-vinted text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                  : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-cream'
               }`}
             >
               {t('tabs.modele')}
@@ -166,8 +166,8 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
               onClick={() => setActiveTab('style')}
               className={`flex-1 py-2 px-2 font-display font-bold text-[10px] sm:text-xs transition-all duration-200 border-2 sm:border-3 border-black ${
                 activeTab === 'style'
-                  ? 'bg-pink-pastel text-black transform rotate-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] translate-y-[-2px]'
-                  : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-cream hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                  ? 'bg-pink-pastel text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                  : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-cream'
               }`}
             >
               {t('tabs.style')}
@@ -176,8 +176,8 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
               onClick={() => setActiveTab('environnement')}
               className={`flex-1 py-2 px-2 font-display font-bold text-[10px] sm:text-xs transition-all duration-200 border-2 sm:border-3 border-black ${
                 activeTab === 'environnement'
-                  ? 'bg-mint text-black transform -rotate-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] translate-y-[-2px]'
-                  : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-cream hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                  ? 'bg-mint text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                  : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-cream'
               }`}
             >
               {t('tabs.environnement')}
@@ -197,7 +197,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                       onClick={() => updateConfig('mannequinType', 'humain')}
                       className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                         config.mannequinType === 'humain'
-                          ? 'bg-vinted text-white transform -rotate-1'
+                          ? 'bg-vinted text-white'
                           : 'bg-white text-black hover:bg-cream'
                       }`}
                     >
@@ -207,7 +207,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                       onClick={() => updateConfig('mannequinType', 'mannequin-plastique')}
                       className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                         config.mannequinType === 'mannequin-plastique'
-                          ? 'bg-black text-white transform rotate-1'
+                          ? 'bg-black text-white'
                           : 'bg-white text-black hover:bg-cream'
                       }`}
                     >
@@ -234,8 +234,8 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                         className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                           config.gender === gender.id
                             ? config.mannequinType === 'mannequin-plastique'
-                              ? 'bg-black text-white transform -rotate-1'
-                              : 'bg-mint text-black transform -rotate-1'
+                              ? 'bg-black text-white'
+                              : 'bg-mint text-black'
                             : 'bg-white text-black hover:bg-cream'
                         }`}
                       >
@@ -263,7 +263,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                             onClick={() => updateConfig('carnation', carnation.id)}
                             className={`p-1 sm:p-1.5 border-2 border-black font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center gap-0.5 transition-all duration-200 ${
                               config.carnation === carnation.id
-                                ? 'bg-pink-pastel text-black transform -rotate-1'
+                                ? 'bg-pink-pastel text-black'
                                 : 'bg-white text-black hover:bg-cream'
                             }`}
                           >
@@ -293,7 +293,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                               onClick={() => updateConfig('morphology', size.id)}
                               className={`p-1 sm:p-1.5 border-2 border-black font-display font-bold text-[10px] sm:text-xs shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                                 config.morphology === size.id
-                                  ? 'bg-mint text-black transform rotate-1'
+                                  ? 'bg-mint text-black'
                                   : 'bg-white text-black hover:bg-cream'
                               }`}
                             >
@@ -338,7 +338,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                             onClick={() => updateConfig('faceMode', mode.id)}
                             className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                               config.faceMode === mode.id
-                                ? 'bg-vinted text-white transform rotate-1'
+                                ? 'bg-vinted text-white'
                                 : 'bg-white text-black hover:bg-cream'
                             }`}
                           >
@@ -356,7 +356,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                           onClick={() => updateConfig('cropHead', false)}
                           className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                             !config.cropHead
-                              ? 'bg-mint text-black transform -rotate-1'
+                              ? 'bg-mint text-black'
                               : 'bg-white text-black hover:bg-cream'
                           }`}
                         >
@@ -366,7 +366,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                           onClick={() => updateConfig('cropHead', true)}
                           className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                             config.cropHead
-                              ? 'bg-pink-pastel text-black transform rotate-1'
+                              ? 'bg-pink-pastel text-black'
                               : 'bg-white text-black hover:bg-cream'
                           }`}
                         >
@@ -466,7 +466,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                         onClick={() => updateConfig('framing', framing.id)}
                         className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                           config.framing === framing.id
-                            ? 'bg-pink-pastel text-black transform -rotate-1'
+                            ? 'bg-pink-pastel text-black'
                             : 'bg-white text-black hover:bg-cream'
                         }`}
                       >
@@ -517,7 +517,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                         onClick={() => updateConfig('lighting', lighting.id)}
                         className={`p-1 sm:p-1.5 border-2 border-black font-display font-bold text-[8px] sm:text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                           config.lighting === lighting.id
-                            ? 'bg-mint text-black transform rotate-1'
+                            ? 'bg-mint text-black'
                             : 'bg-white text-black hover:bg-cream'
                         }`}
                       >
@@ -537,7 +537,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
               onClick={validateConfig}
               className={`w-full flex items-center justify-center gap-1.5 px-3 py-1.5 sm:py-2 font-display font-bold border-2 sm:border-3 border-black text-xs sm:text-sm transition-all duration-200 ${
                 isValidated
-                  ? 'bg-mint text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1'
+                  ? 'bg-mint text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
                   : 'bg-vinted text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
               }`}
             >
