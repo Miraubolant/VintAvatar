@@ -31,6 +31,12 @@ export const HeroSection: React.FC = () => {
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [vintedUrl, setVintedUrl] = useState('');
   const [vintedImage, setVintedImage] = useState<string | null>(null);
+  const [vintedArticleInfo, setVintedArticleInfo] = useState<{
+    title?: string;
+    price?: string;
+    brand?: string;
+    size?: string;
+  } | null>(null);
   const [isScrapingVinted, setIsScrapingVinted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hasStoredConfig, setHasStoredConfig] = useState(false);
@@ -91,8 +97,11 @@ export const HeroSection: React.FC = () => {
           return;
         }
 
-        // Automatically set the first image
+        // Automatically set the first image and article info
         setVintedImage(scrapResult.images[0]);
+        if (scrapResult.article_info) {
+          setVintedArticleInfo(scrapResult.article_info);
+        }
         console.log('Vinted image auto-extracted');
 
       } catch (error) {
@@ -194,6 +203,7 @@ export const HeroSection: React.FC = () => {
   const handleRemoveVintedImage = () => {
     setVintedImage(null);
     setVintedUrl('');
+    setVintedArticleInfo(null);
     lastExtractedUrlRef.current = null; // Reset to allow re-extraction
   };
 
@@ -443,12 +453,12 @@ export const HeroSection: React.FC = () => {
           <div className="max-w-3xl mx-auto">
             <div className="bg-white border-3 border-black p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
 
-              {/* Aperçu de l'image - Simple et épuré */}
+              {/* Aperçu de l'image avec infos Vinted */}
               {(vintedImage || uploadedImage) && (
-                <div className="flex justify-center mb-3 sm:mb-4">
-                  <div className="relative group">
-                    {/* Image avec style neo-brutalism */}
-                    <div className="relative w-24 h-32 sm:w-28 sm:h-36 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                  {/* Image */}
+                  <div className="relative group flex-shrink-0">
+                    <div className="relative w-24 h-32 sm:w-32 sm:h-40 md:w-40 md:h-52 lg:w-48 lg:h-64 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
                       <img
                         src={vintedImage || uploadedImage || ''}
                         alt="Photo sélectionnée"
@@ -465,6 +475,34 @@ export const HeroSection: React.FC = () => {
                       <X className="w-4 h-4 sm:w-3 sm:h-3 text-black" />
                     </button>
                   </div>
+
+                  {/* Infos Vinted */}
+                  {vintedImage && vintedArticleInfo && (vintedArticleInfo.title || vintedArticleInfo.price || vintedArticleInfo.brand || vintedArticleInfo.size) && (
+                    <div className="flex flex-col gap-1.5 sm:gap-2 text-left max-w-[200px] sm:max-w-[250px]">
+                      {vintedArticleInfo.title && (
+                        <p className="font-display font-bold text-xs sm:text-sm text-black line-clamp-2">
+                          {vintedArticleInfo.title}
+                        </p>
+                      )}
+                      {vintedArticleInfo.price && (
+                        <p className="font-display font-bold text-sm sm:text-base text-vinted">
+                          {vintedArticleInfo.price.includes('€') ? vintedArticleInfo.price : `${vintedArticleInfo.price} €`}
+                        </p>
+                      )}
+                      <div className="flex flex-wrap gap-1.5">
+                        {vintedArticleInfo.brand && (
+                          <span className="px-2 py-0.5 bg-cream border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                            {vintedArticleInfo.brand}
+                          </span>
+                        )}
+                        {vintedArticleInfo.size && (
+                          <span className="px-2 py-0.5 bg-mint border-2 border-black text-[10px] sm:text-xs font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                            {vintedArticleInfo.size}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
