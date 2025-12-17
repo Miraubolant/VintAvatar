@@ -186,7 +186,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
-      <div className="bg-white border-3 sm:border-4 border-black max-w-md w-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 max-h-[95vh] overflow-y-auto">
+      <div className="bg-white border-3 sm:border-4 border-black max-w-md w-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-h-[95vh] overflow-y-auto">
 
         {/* Header */}
         <div className="flex items-center justify-between p-3 sm:p-4 bg-vinted border-b-3 sm:border-b-4 border-black">
@@ -200,20 +200,20 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
           </div>
           <button
             onClick={handleClose}
-            className="w-7 h-7 sm:w-8 sm:h-8 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] sm:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform hover:rotate-90 transition-all duration-300"
+            className="w-7 h-7 sm:w-8 sm:h-8 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] sm:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:rotate-90 transition-all duration-300"
           >
             <X className="w-3 h-3 sm:w-4 sm:h-4" />
           </button>
         </div>
 
         {/* Tabs */}
-        <div className="flex border-b-3 sm:border-b-4 border-black">
+        <div className="flex gap-1 p-2 sm:p-3 bg-cream border-b-3 sm:border-b-4 border-black">
           <button
             onClick={() => handleTabChange('signin')}
-            className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 font-display font-bold text-xs sm:text-sm transition-all duration-200 ${
+            className={`flex-1 py-2 px-2 sm:px-3 font-display font-bold text-xs sm:text-sm transition-all duration-200 border-2 sm:border-3 border-black ${
               activeTab === 'signin'
-                ? 'bg-mint text-black border-r-2 border-black'
-                : 'bg-cream text-gray-700 border-r-2 border-black hover:bg-gray-100'
+                ? 'bg-vinted text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] translate-y-[-2px]'
+                : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-gray-50 hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
             }`}
           >
             <div className="flex items-center justify-center gap-1 sm:gap-2">
@@ -223,10 +223,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
           </button>
           <button
             onClick={() => handleTabChange('signup')}
-            className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 font-display font-bold text-xs sm:text-sm transition-all duration-200 ${
+            className={`flex-1 py-2 px-2 sm:px-3 font-display font-bold text-xs sm:text-sm transition-all duration-200 border-2 sm:border-3 border-black ${
               activeTab === 'signup'
-                ? 'bg-mint text-black'
-                : 'bg-cream text-gray-700 hover:bg-gray-100'
+                ? 'bg-mint text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] translate-y-[-2px]'
+                : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-gray-50 hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
             }`}
           >
             <div className="flex items-center justify-center gap-1 sm:gap-2">
@@ -389,10 +389,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             <button
               type="submit"
               disabled={isLoading}
-              className={`w-full py-2 sm:py-2.5 px-3 sm:px-4 bg-mint text-black border-2 sm:border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+              className={`w-full py-2 sm:py-2.5 px-3 sm:px-4 bg-pink-pastel text-black border-2 sm:border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                 isLoading
                   ? 'opacity-50 cursor-not-allowed'
-                  : 'hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
+                  : 'hover:bg-pink-300 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
               }`}
             >
               {isLoading ? (
