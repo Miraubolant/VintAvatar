@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, HelpCircle, Sparkles, Images } from 'lucide-react';
+import { Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, HelpCircle, Images } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AvatarConfigModal } from './AvatarConfigModal';
 import { GenerationLoadingModal } from './GenerationLoadingModal';
@@ -443,99 +443,28 @@ export const HeroSection: React.FC = () => {
           <div className="max-w-3xl mx-auto">
             <div className="bg-white border-3 border-black p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
 
-              {/* Aperçu des images - Si présent */}
+              {/* Aperçu de l'image - Simple et épuré */}
               {(vintedImage || uploadedImage) && (
-                <div className="bg-cream border-3 border-black p-3 sm:p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-3 sm:mb-4">
-                  {/* Header avec badge */}
-                  <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      <div className="w-6 h-6 sm:w-7 sm:h-7 bg-vinted border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-                      </div>
-                      <p className="font-display font-bold text-xs sm:text-sm text-black uppercase tracking-wide">
-                        {t('interface.imageReady')}
-                      </p>
+                <div className="flex justify-center mb-3 sm:mb-4">
+                  <div className="relative group">
+                    {/* Image avec style neo-brutalism */}
+                    <div className="relative w-24 h-32 sm:w-28 sm:h-36 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                      <img
+                        src={vintedImage || uploadedImage || ''}
+                        alt="Photo sélectionnée"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                    <div className="px-2 py-1 bg-mint border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                      <span className="font-display font-bold text-xs text-black">
-                        {(vintedImage ? 1 : 0) + (uploadedImage ? 1 : 0)} PHOTO{(vintedImage && uploadedImage) ? 'S' : ''}
-                      </span>
-                    </div>
+                    {/* Bouton supprimer */}
+                    <button
+                      type="button"
+                      onClick={vintedImage ? handleRemoveVintedImage : handleRemoveImage}
+                      className="absolute -top-2 -right-2 w-7 h-7 sm:w-6 sm:h-6 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-red-400 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 z-10"
+                      title="Supprimer"
+                    >
+                      <X className="w-4 h-4 sm:w-3 sm:h-3 text-black" />
+                    </button>
                   </div>
-
-                  {/* Images grid - Mobile first */}
-                  <div className="flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start">
-                    {vintedImage && (
-                      <div className="relative group">
-                        {/* Image container avec effet neo-brutalism */}
-                        <div className="relative w-28 h-36 sm:w-32 sm:h-40 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">
-                          <img
-                            src={vintedImage}
-                            alt="Photo vêtement Vinted"
-                            className="w-full h-full object-cover"
-                          />
-                          {/* Badge VINTED */}
-                          <div className="absolute top-2 left-2 px-2 py-1 bg-vinted border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                            <span className="font-display font-bold text-[10px] sm:text-xs text-white">VINTED</span>
-                          </div>
-                          {/* Indicateur sélectionné */}
-                          <div className="absolute bottom-2 right-2 w-6 h-6 sm:w-7 sm:h-7 bg-mint border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                            <Star className="w-3 h-3 sm:w-4 sm:h-4 text-black fill-black" />
-                          </div>
-                        </div>
-                        {/* Bouton supprimer - visible sur mobile, hover sur desktop */}
-                        <button
-                          type="button"
-                          onClick={handleRemoveVintedImage}
-                          className="absolute -top-2 -right-2 w-7 h-7 sm:w-6 sm:h-6 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:opacity-0 sm:group-hover:opacity-100 hover:bg-red-400 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 z-10"
-                          title="Supprimer"
-                        >
-                          <X className="w-4 h-4 sm:w-3 sm:h-3 text-black" />
-                        </button>
-                      </div>
-                    )}
-
-                    {uploadedImage && (
-                      <div className="relative group">
-                        {/* Image container avec effet neo-brutalism */}
-                        <div className={`relative w-28 h-36 sm:w-32 sm:h-40 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${!vintedImage ? '' : 'opacity-80'}`}>
-                          <img
-                            src={uploadedImage}
-                            alt="Photo uploadée"
-                            className="w-full h-full object-cover"
-                          />
-                          {/* Badge UPLOAD */}
-                          <div className="absolute top-2 left-2 px-2 py-1 bg-pink-pastel border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                            <span className="font-display font-bold text-[10px] sm:text-xs text-black">{t('interface.uploadedLabel')}</span>
-                          </div>
-                          {/* Indicateur sélectionné (seulement si pas d'image Vinted) */}
-                          {!vintedImage && (
-                            <div className="absolute bottom-2 right-2 w-6 h-6 sm:w-7 sm:h-7 bg-mint border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                              <Star className="w-3 h-3 sm:w-4 sm:h-4 text-black fill-black" />
-                            </div>
-                          )}
-                        </div>
-                        {/* Bouton supprimer - visible sur mobile, hover sur desktop */}
-                        <button
-                          type="button"
-                          onClick={handleRemoveImage}
-                          className="absolute -top-2 -right-2 w-7 h-7 sm:w-6 sm:h-6 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:opacity-0 sm:group-hover:opacity-100 hover:bg-red-400 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 z-10"
-                          title="Supprimer"
-                        >
-                          <X className="w-4 h-4 sm:w-3 sm:h-3 text-black" />
-                        </button>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Info texte si 2 images */}
-                  {vintedImage && uploadedImage && (
-                    <div className="mt-3 sm:mt-4 px-2 py-1.5 bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] inline-block">
-                      <p className="font-body text-xs text-gray-700">
-                        {t('interface.vintedPriority')}
-                      </p>
-                    </div>
-                  )}
                 </div>
               )}
 
