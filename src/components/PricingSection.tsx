@@ -152,9 +152,9 @@ export const PricingSection: React.FC = () => {
               {/* Header avec icône et nom */}
               <div className="text-center mb-8">
                 <div className={`w-16 h-16 mx-auto mb-4 border-4 border-black flex items-center justify-center transform ${plan.popular ? 'rotate-6' : 'rotate-12'} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
-                  plan.popular ? 'bg-pink-pastel' : index % 2 === 0 ? 'bg-mint' : 'bg-pink-pastel'
+                  plan.popular ? 'bg-pink-pastel' : index === 2 ? 'bg-vinted' : 'bg-mint'
                 }`}>
-                  <plan.icon className="w-8 h-8 text-black" />
+                  <plan.icon className={`w-8 h-8 ${index === 2 ? 'text-white' : 'text-black'}`} />
                 </div>
                 <h3 className="font-display font-bold text-2xl text-black">{plan.name}</h3>
               </div>
@@ -184,9 +184,9 @@ export const PricingSection: React.FC = () => {
                     className="flex items-start gap-4"
                   >
                     <div className={`w-7 h-7 border-3 border-black flex items-center justify-center flex-shrink-0 transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${
-                      plan.popular ? 'bg-pink-pastel' : 'bg-mint'
+                      plan.popular ? 'bg-pink-pastel' : index === 2 ? 'bg-vinted' : 'bg-mint'
                     }`}>
-                      <Check className="w-4 h-4 text-black" />
+                      <Check className={`w-4 h-4 ${index === 2 ? 'text-white' : 'text-black'}`} />
                     </div>
                     <span className="font-body font-semibold text-black leading-relaxed">{feature}</span>
                   </li>
@@ -197,7 +197,7 @@ export const PricingSection: React.FC = () => {
               <button
                 onClick={() => handleSubscribe(plan.priceId, plan.name)}
                 className={`w-full px-6 py-4 border-4 border-black font-display font-bold text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform ${
-                  plan.popular ? 'bg-pink-pastel text-black scale-105' : index % 2 === 0 ? 'bg-mint text-black' : 'bg-pink-pastel text-black'
+                  plan.popular ? 'bg-pink-pastel text-black scale-105' : index === 2 ? 'bg-vinted text-white' : 'bg-mint text-black'
                 }`}
               >
                 <span className="flex items-center justify-center gap-3">
