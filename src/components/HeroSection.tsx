@@ -50,6 +50,7 @@ export const HeroSection: React.FC = () => {
   const [showImageRequiredModal, setShowImageRequiredModal] = useState(false);
   const [showAuthRequiredModal, setShowAuthRequiredModal] = useState(false);
   const [showOnboardingGuide, setShowOnboardingGuide] = useState(false);
+  const [shouldPulseGenerate, setShouldPulseGenerate] = useState(true);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const { user, session } = useAuth();
@@ -64,6 +65,12 @@ export const HeroSection: React.FC = () => {
     // Ne plus lancer automatiquement le guide
     // L'utilisateur peut maintenant cliquer sur le bouton Guide pour l'activer
   }, []);
+
+
+  // Arrêter l'animation quand l'utilisateur interagit avec le bouton
+  const handleStopPulseAnimation = () => {
+    setShouldPulseGenerate(false);
+  };
 
   // Track the last extracted URL to avoid duplicate extractions
   const lastExtractedUrlRef = useRef<string | null>(null);
@@ -640,9 +647,13 @@ export const HeroSection: React.FC = () => {
                     {/* Générer Avatar - Bouton principal */}
                     <button
                       type="button"
-                      onClick={handleGenerate}
+                      onClick={() => {
+                        handleStopPulseAnimation();
+                        handleGenerate();
+                      }}
+                      onMouseEnter={handleStopPulseAnimation}
                       className={`w-full bg-pink-pastel border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2 px-3 py-2.5 sm:py-3 sm:px-4 ${
-                        (vintedImage || uploadedImage) ? 'animate-pulse' : ''
+                        (vintedImage || uploadedImage) ? 'animate-pulse' : shouldPulseGenerate ? 'animate-pulse-3' : ''
                       }`}
                       data-guide="generate-button"
                     >

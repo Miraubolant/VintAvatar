@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sparkles, Crown, Zap, Check } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../hooks/useAuth';
@@ -6,6 +6,19 @@ import { useAuth } from '../hooks/useAuth';
 export const PricingSection: React.FC = () => {
   const { user } = useAuth();
   const { t } = useTranslation('pricing');
+  const [shouldPulsePopular, setShouldPulsePopular] = useState(false);
+
+  // Animation de pulsation après 3 secondes sur la page
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldPulsePopular(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Arrêter l'animation quand l'utilisateur interagit
+  const handleStopPulsePopular = () => setShouldPulsePopular(false);
 
   const handleSubscribe = async (priceId: string, planName: string) => {
     if (!user) {
@@ -195,10 +208,16 @@ export const PricingSection: React.FC = () => {
 
               {/* Bouton d'abonnement amélioré */}
               <button
-                onClick={() => handleSubscribe(plan.priceId, plan.name)}
+                onClick={() => {
+                  if (plan.popular) handleStopPulsePopular();
+                  handleSubscribe(plan.priceId, plan.name);
+                }}
+                onMouseEnter={() => {
+                  if (plan.popular) handleStopPulsePopular();
+                }}
                 className={`w-full px-6 py-4 border-4 border-black font-display font-bold text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform ${
                   plan.popular ? 'bg-pink-pastel text-black scale-105' : index === 2 ? 'bg-vinted text-white' : 'bg-mint text-black'
-                }`}
+                } ${plan.popular && shouldPulsePopular ? 'animate-pulse-3' : ''}`}
               >
                 <span className="flex items-center justify-center gap-3">
                   <plan.icon className="w-6 h-6" />
