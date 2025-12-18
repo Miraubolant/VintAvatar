@@ -39,6 +39,21 @@ export default {
         'body': ['Inter', 'system-ui', 'sans-serif'],
         sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
+      animation: {
+        'pulse-3': 'pulse-attention 0.6s ease-in-out 3',
+      },
+      keyframes: {
+        'pulse-attention': {
+          '0%, 100%': {
+            transform: 'scale(1)',
+            boxShadow: '3px 3px 0px 0px rgba(0,0,0,1)',
+          },
+          '50%': {
+            transform: 'scale(1.05)',
+            boxShadow: '5px 5px 0px 0px rgba(0,0,0,1)',
+          },
+        },
+      },
     },
   },
   plugins: [],
