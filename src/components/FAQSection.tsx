@@ -12,7 +12,7 @@ export const FAQSection: React.FC = () => {
       {/* Formes décoratives neo-brutalism */}
       <div className="absolute top-16 right-20 w-12 h-12 bg-pink-pastel border-3 border-black transform rotate-45 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="absolute bottom-24 left-12 w-10 h-10 bg-mint border-3 border-black neo-shape-circle shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
-      <div className="absolute top-1/2 left-1/3 w-14 h-14 bg-vinted border-4 border-black transform -rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
+      <div className="absolute top-32 right-1/4 w-14 h-14 bg-vinted border-4 border-black transform -rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hidden lg:block"></div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
