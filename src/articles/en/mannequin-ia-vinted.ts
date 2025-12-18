@@ -129,7 +129,7 @@ VintDress gives you access to this cutting-edge technology at an affordable pric
   date: "December 18, 2025",
   category: "Guide",
   readTime: "6 min",
-  image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=800&h=400&fit=crop",
+  image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&h=400&fit=crop",
   tags: ["AI Mannequin", "Vinted", "Model Photos", "AI", "Online Selling"],
   metaDescription: "Discover how to create professional model photos with an AI mannequin for Vinted. Complete guide to boost your sales with VintDress.",
   keywords: ["ai mannequin vinted", "virtual mannequin vinted", "mannequin vinted", "model photo vinted", "ai vinted", "vinted mannequin", "mannequin photo vinted"],
