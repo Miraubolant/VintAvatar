@@ -118,7 +118,7 @@ The project uses a modern neo-brutalism design with a carefully curated 4-color 
 - **Referral/affiliate system** with unique codes, link sharing, and automatic bonus distribution
 - **Complete authentication system** with Google OAuth via Supabase
 - **Multi-subscription management** supporting both credit packs and monthly plans
-- **Stripe payment processing** with three pricing tiers (€3.49, €6.99, €11.99)
+- **Stripe payment processing** with three pricing tiers (€3.99, €7.99, €12.99)
 - **Credit system** with real-time usage tracking and remaining credits display
 - **Webhook integration** for automatic subscription updates and referral bonuses
 - **Optimized responsive design** with clean interface (no emojis, compact buttons)
@@ -187,7 +187,7 @@ The project uses a modern neo-brutalism design with a carefully curated 4-color 
 - **Responsive design** optimized for mobile and desktop experiences
 
 ### Stripe Products Configuration
-- **Monthly Plan**: €11.99/month with 40 generations limit
-- **25 Credits Pack**: €6.99 one-time payment
-- **10 Credits Pack**: €3.49 one-time payment
+- **Monthly Plan**: €12.99/month with 40 generations limit
+- **25 Credits Pack**: €7.99 one-time payment
+- **10 Credits Pack**: €3.99 one-time payment
 - **Webhook handling**: Automatic subscription updates via Edge Functions

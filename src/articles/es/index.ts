@@ -8,6 +8,9 @@ import { article as tendances } from './tendances-mode-2025';
 import { article as vintage } from './vendre-vintage-vinted-guide';
 import { article as identite } from './identite-visuelle-vinted';
 import { article as erreurs } from './erreurs-ventes-vinted';
+import { article as mannequinIA } from './mannequin-ia-vinted';
+import { article as iaPhotoGratuit } from './ia-photo-vinted-gratuit-vs-payant';
+import { article as algorithmeVinted } from './algorithme-vinted-visibilite';
 
 export const articles = {
   [guidePhotos.slug]: guidePhotos,
@@ -19,10 +22,13 @@ export const articles = {
   [tendances.slug]: tendances,
   [vintage.slug]: vintage,
   [identite.slug]: identite,
-  [erreurs.slug]: erreurs
+  [erreurs.slug]: erreurs,
+  [mannequinIA.slug]: mannequinIA,
+  [iaPhotoGratuit.slug]: iaPhotoGratuit,
+  [algorithmeVinted.slug]: algorithmeVinted
 };
 
 // Articles sorted by date (most recent first)
-export const articlesList = [guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
+export const articlesList = [mannequinIA, iaPhotoGratuit, algorithmeVinted, guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
 
 export type Article = typeof guidePhotos;
