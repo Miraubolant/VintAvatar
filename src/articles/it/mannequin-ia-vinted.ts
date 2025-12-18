@@ -129,7 +129,7 @@ VintDress ti da accesso a questa tecnologia all'avanguardia a un prezzo accessib
   date: "18 Dicembre 2025",
   category: "Guida",
   readTime: "6 min",
-  image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&h=400&fit=crop",
+  image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=400&fit=crop",
   tags: ["Manichino IA", "Vinted", "Foto Indossate", "IA", "Vendita Online"],
   metaDescription: "Scopri come creare foto indossate professionali con un manichino IA per Vinted. Guida completa per aumentare le tue vendite con VintDress.",
   keywords: ["manichino ia vinted", "manichino virtuale vinted", "manichino vinted", "foto indossata vinted", "ia vinted", "vinted manichino", "foto manichino vinted"],
