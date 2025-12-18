@@ -177,7 +177,7 @@ export const BlogSection: React.FC = () => {
 
               <Link
                 to={`/articles/${post.slug}`}
-                className="block w-full py-2 sm:py-3 px-3 sm:px-4 bg-mint border-3 border-black text-black font-display font-bold text-sm transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center transition-all duration-200"
+                className="block w-full py-2 sm:py-3 px-3 sm:px-4 bg-vinted border-3 border-black text-white font-display font-bold text-sm transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center transition-all duration-200"
               >
                 {t('buttons.readMore')}
               </Link>
