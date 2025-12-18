@@ -9,7 +9,7 @@ import { CookieConsent } from './components/CookieConsent';
 import { Breadcrumbs } from './components/Breadcrumbs';
 import { LanguageProvider } from './components/LanguageProvider';
 import { PromoBanner } from './components/PromoBanner';
-import { useSEO, SEO_CONFIGS } from './hooks/useSEO';
+import { useSEO, getHomeConfig } from './hooks/useSEO';
 import { useTranslation } from 'react-i18next';
 import './lib/i18n';
 
@@ -51,7 +51,7 @@ const LoadingComponent = () => {
 };
 
 function HomePage() {
-  useSEO(SEO_CONFIGS.home);
+  useSEO(getHomeConfig());
 
   return (
     <>

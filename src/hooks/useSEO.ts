@@ -1,9 +1,30 @@
 import { useEffect } from 'react';
-import { SITE_CONFIG, SUPPORTED_LANGUAGES, LANGUAGE_META } from '../constants';
+import { SITE_CONFIG, SUPPORTED_LANGUAGES, LANGUAGE_META, SupportedLanguage } from '../constants';
 import type { SEOData, HreflangLink, Article } from '../types';
 
 // Re-export types for backward compatibility
 export type { SEOData };
+
+// Helper to get current language from URL or i18n
+export const getCurrentLanguage = (): SupportedLanguage => {
+  // Check URL parameter first
+  const urlParams = new URLSearchParams(window.location.search);
+  const langParam = urlParams.get('lang');
+  if (langParam && SUPPORTED_LANGUAGES.includes(langParam as SupportedLanguage)) {
+    return langParam as SupportedLanguage;
+  }
+  // Default to French
+  return 'fr';
+};
+
+// Helper to generate canonical URL with language
+export const generateCanonicalUrl = (basePath: string, lang?: SupportedLanguage): string => {
+  const currentLang = lang || getCurrentLanguage();
+  if (currentLang === 'fr') {
+    return `${SITE_CONFIG.url}${basePath}`;
+  }
+  return `${SITE_CONFIG.url}${basePath}${basePath.includes('?') ? '&' : '?'}lang=${currentLang}`;
+};
 
 export const useSEO = (seoData: SEOData) => {
   useEffect(() => {
@@ -157,6 +178,17 @@ export const generateHreflangLinks = (basePath: string): HreflangLink[] => {
   return links;
 };
 
+// Helper to generate SEO config with current language canonical
+export const getHomeConfig = (): SEOData => ({
+  title: 'VintDress - Générateur IA de Photos Portées pour Vinted | +300% de Ventes',
+  description: 'Créez des photos portées réalistes pour Vinted en 30 secondes avec l\'IA. Pas de mannequin nécessaire. +300% de vues, +250% de ventes.',
+  keywords: 'vinted, photo portée, IA, générateur photo, mannequin virtuel, vente vêtements, avatar IA, photo produit, intelligence artificielle, vendre sur vinted',
+  canonical: generateCanonicalUrl('/'),
+  ogImage: SITE_CONFIG.defaultImage,
+  ogType: 'website',
+  hreflangLinks: generateHreflangLinks('/')
+});
+
 // Predefined SEO configurations for common pages
 export const SEO_CONFIGS = {
   home: {
@@ -223,15 +255,16 @@ export const SEO_CONFIGS = {
   }
 };
 
-// Helper function to generate article SEO data
-export const generateArticleSEO = (article: Article): SEOData => {
+// Helper function to generate article SEO data with language-aware canonical
+export const generateArticleSEO = (article: Article, lang?: SupportedLanguage): SEOData => {
   const slug = article.slug;
+  const currentLang = lang || getCurrentLanguage();
 
   return {
     title: `${article.title} - Blog VintDress`,
     description: article.excerpt || `Découvrez nos conseils d'experts pour optimiser vos ventes sur Vinted avec ${article.title}`,
     keywords: `${article.title}, vinted, conseils vente, ${article.category}, blog vintdress, vendre vinted`,
-    canonical: `${SITE_CONFIG.url}/blog/${slug}`,
+    canonical: generateCanonicalUrl(`/blog/${slug}`, currentLang),
     ogTitle: article.title,
     ogDescription: article.excerpt,
     ogImage: article.image || SITE_CONFIG.defaultImage,
