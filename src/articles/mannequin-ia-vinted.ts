@@ -129,7 +129,7 @@ VintDress te permet d'accéder à cette technologie de pointe à un prix accessi
   date: "18 Décembre 2025",
   category: "Guide",
   readTime: "6 min",
-  image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&h=400&fit=crop",
+  image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=800&h=400&fit=crop",
   tags: ["Mannequin IA", "Vinted", "Photos Portées", "IA", "Vente en ligne"],
   metaDescription: "Découvre comment créer des photos portées professionnelles avec un mannequin IA pour Vinted. Guide complet pour booster tes ventes avec VintDress.",
   keywords: ["mannequin ia vinted", "mannequin virtuel vinted", "mannequin vinted", "photo portée vinted", "ia vinted", "vinted mannequin", "photo mannequin vinted"],
