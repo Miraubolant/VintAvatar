@@ -129,7 +129,7 @@ VintDress te da acceso a esta tecnologia de vanguardia a un precio accesible. Si
   date: "18 Diciembre 2025",
   category: "Guia",
   readTime: "6 min",
-  image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&h=400&fit=crop",
+  image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=400&fit=crop",
   tags: ["Maniqui IA", "Vinted", "Fotos Modelo", "IA", "Venta Online"],
   metaDescription: "Descubre como crear fotos de modelo profesionales con un maniqui IA para Vinted. Guia completa para aumentar tus ventas con VintDress.",
   keywords: ["maniqui ia vinted", "maniqui virtual vinted", "maniqui vinted", "foto modelo vinted", "ia vinted", "vinted maniqui", "foto maniqui vinted"],
