@@ -62,7 +62,7 @@ export const BlogSection: React.FC = () => {
         {/* Featured Post - Mobile Optimized */}
         {visiblePosts.filter(post => post.featured).map((post) => (
           <div key={post.id} className="mb-12 sm:mb-16">
-            <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">
+            <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">
               <div className="flex flex-col lg:flex-row">
                 <div className="lg:w-1/2">
                   <img
@@ -77,15 +77,15 @@ export const BlogSection: React.FC = () => {
                 </div>
                 <div className="lg:w-1/2 p-4 sm:p-6 lg:p-8">
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                    <div className="px-2 sm:px-3 py-1 bg-pink-pastel border-2 border-black text-black text-xs font-display font-bold transform rotate-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="px-2 sm:px-3 py-1 bg-pink-pastel border-2 border-black text-black text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                       {t('badges.featured')}
                     </div>
-                    <div className="px-2 sm:px-3 py-1 bg-mint border-2 border-black text-black text-xs font-display font-bold transform -rotate-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="px-2 sm:px-3 py-1 bg-mint border-2 border-black text-black text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                       {post.category}
                     </div>
                   </div>
 
-                  <h3 className="font-display font-bold text-xl sm:text-2xl text-black mb-3 sm:mb-4 transform -rotate-1">
+                  <h3 className="font-display font-bold text-xl sm:text-2xl text-black mb-3 sm:mb-4">
                     {post.title}
                   </h3>
 
@@ -130,9 +130,7 @@ export const BlogSection: React.FC = () => {
               return (
             <div
               key={post.id}
-              className={`${isMobileHidden ? 'hidden sm:block' : ''} bg-white border-4 border-black p-4 sm:p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                index % 3 === 0 ? 'rotate-1' : index % 3 === 1 ? '-rotate-1' : 'rotate-0.5'
-              }`}
+              className={`${isMobileHidden ? 'hidden sm:block' : ''} bg-white border-4 border-black p-4 sm:p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200`}
             >
               <img
                 src={post.image}
@@ -145,7 +143,7 @@ export const BlogSection: React.FC = () => {
               />
 
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                <div className={`px-2 sm:px-3 py-1 border-2 border-black text-black text-xs font-display font-bold transform rotate-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${
+                <div className={`px-2 sm:px-3 py-1 border-2 border-black text-black text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${
                   post.category === 'Technologie' ? 'bg-vinted text-white' :
                   post.category === 'Success Story' ? 'bg-mint' :
                   post.category === 'Stratégie' ? 'bg-pink-pastel' :
@@ -191,7 +189,7 @@ export const BlogSection: React.FC = () => {
           <div className="flex justify-center mb-8">
             <button
               onClick={() => setShowAllArticles(!showAllArticles)}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-vinted text-white border-4 border-black font-display font-bold text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform rotate-1"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-vinted text-white border-4 border-black font-display font-bold text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               {showAllArticles
                 ? t('buttons.showLess', 'Voir moins')
@@ -203,7 +201,7 @@ export const BlogSection: React.FC = () => {
         )}
 
         {/* Stats Banner */}
-        <div className="bg-vinted border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 mb-16">
+        <div className="bg-vinted border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-16">
           <div className="text-center">
             <div className="font-display font-bold text-3xl text-white mb-2">
               {t('stats.availableArticles').replace('{count}', blogPosts.length.toString())}
@@ -216,7 +214,7 @@ export const BlogSection: React.FC = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <div className="inline-block bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+          <div className="inline-block bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-display font-bold text-2xl text-black mb-4">
               {t('cta.section.title')}
             </h3>
