@@ -9,6 +9,66 @@ import { useAuth } from '../hooks/useAuth';
 import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
 
+// Fonction pour compresser et redimensionner les images avec haute qualité
+const compressImage = (file: File, maxWidth = 2000, maxHeight = 2000): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        let { width, height } = img;
+        const originalSize = (e.target?.result as string).length;
+
+        // Redimensionner seulement si nécessaire
+        if (width > maxWidth || height > maxHeight) {
+          const ratio = Math.min(maxWidth / width, maxHeight / height);
+          width = Math.round(width * ratio);
+          height = Math.round(height * ratio);
+        }
+
+        // Créer un canvas pour redimensionner
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          reject(new Error('Could not get canvas context'));
+          return;
+        }
+
+        // Activer le lissage pour une meilleure qualité
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+
+        // Dessiner l'image redimensionnée
+        ctx.drawImage(img, 0, 0, width, height);
+
+        // Compression adaptative : commencer à 92% et réduire si trop lourd
+        let quality = 0.92;
+        let compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+
+        // Si l'image est encore > 2MB, réduire progressivement la qualité
+        const maxSizeBytes = 2 * 1024 * 1024; // 2MB
+        while (compressedBase64.length > maxSizeBytes && quality > 0.6) {
+          quality -= 0.05;
+          compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+        }
+
+        const finalSizeKB = Math.round(compressedBase64.length / 1024);
+        const originalSizeKB = Math.round(originalSize / 1024);
+        console.log(`Image optimisée: ${img.width}x${img.height} → ${width}x${height}, ${originalSizeKB}KB → ${finalSizeKB}KB (qualité: ${Math.round(quality * 100)}%)`);
+
+        resolve(compressedBase64);
+      };
+      img.onerror = () => reject(new Error('Failed to load image'));
+      img.src = e.target?.result as string;
+    };
+    reader.onerror = () => reject(new Error('Failed to read file'));
+    reader.readAsDataURL(file);
+  });
+};
+
 // Valeurs par défaut pour la configuration de l'avatar
 const DEFAULT_AVATAR_CONFIG = {
   gender: 'femme',
@@ -131,7 +191,7 @@ export const HeroSection: React.FC = () => {
     return () => clearTimeout(timeoutId);
   }, [vintedUrl, user, session, vintedImage]);
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     // Vérifier si l'utilisateur est connecté
     if (!user) {
       setShowAuthRequiredModal(true);
@@ -141,16 +201,22 @@ export const HeroSection: React.FC = () => {
       }
       return;
     }
-    
+
     const file = event.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setUploadedImage(reader.result as string);
-        // Ne plus désélectionner automatiquement l'image Vinted
-        // L'utilisateur peut choisir entre les deux images
-      };
-      reader.readAsDataURL(file);
+      try {
+        // Compresser et redimensionner l'image avant de l'utiliser
+        const compressedImage = await compressImage(file);
+        setUploadedImage(compressedImage);
+      } catch (error) {
+        console.error('Erreur lors de la compression:', error);
+        // Fallback : utiliser l'image originale si la compression échoue
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setUploadedImage(reader.result as string);
+        };
+        reader.readAsDataURL(file);
+      }
     }
   };
 
@@ -430,7 +496,8 @@ export const HeroSection: React.FC = () => {
       <div className="hidden md:block absolute top-32 right-20 w-16 h-16 bg-mint border-4 border-black transform -rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="hidden md:block absolute bottom-32 left-20 w-10 h-10 bg-vinted border-4 border-black transform rotate-45 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="hidden md:block absolute bottom-20 right-10 w-14 h-14 bg-pink-pastel border-4 border-black neo-shape-circle shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
-      
+
+
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2 sm:pt-8 lg:pt-12 sm:pb-6 lg:pb-8">
         <div className="text-center space-y-2 sm:space-y-6">
 
