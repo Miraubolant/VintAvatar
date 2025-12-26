@@ -1,5 +1,12 @@
 {
   "pending": [],
-  "processed": [],
-  "lastArticleId": 17
+  "processed": [
+    {
+      "primary": "ia photo vinted gratuit",
+      "secondary": [],
+      "processedAt": "2025-12-26T13:48:36.643Z",
+      "articleSlug": "ia-photo-vinted-gratuit"
+    }
+  ],
+  "lastArticleId": 18
 }
