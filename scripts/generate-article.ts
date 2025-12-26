@@ -16,7 +16,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { SYSTEM_PROMPT, ARTICLE_PROMPT, TRANSLATION_PROMPT, UNSPLASH_KEYWORDS } from './prompts';
+import { SYSTEM_PROMPT, ARTICLE_PROMPT, TRANSLATION_PROMPT, ARTICLE_IMAGES } from './prompts';
 
 // Configuration
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
@@ -148,11 +148,10 @@ function parseArticleJSON(content: string): Partial<Article> {
   return JSON.parse(cleaned.trim());
 }
 
-function getRandomUnsplashImage(): string {
-  const keyword = UNSPLASH_KEYWORDS[Math.floor(Math.random() * UNSPLASH_KEYWORDS.length)];
-  // Using a deterministic approach based on current timestamp
-  const seed = Date.now();
-  return `https://images.unsplash.com/photo-${1500000000000 + (seed % 100000000)}?w=800&h=400&fit=crop`;
+function getRandomArticleImage(): string {
+  // Pick a random image from the curated list
+  const randomIndex = Math.floor(Math.random() * ARTICLE_IMAGES.length);
+  return ARTICLE_IMAGES[randomIndex];
 }
 
 function getCurrentDate(): { fr: string; en: string; es: string; it: string } {
@@ -504,7 +503,7 @@ async function main(): Promise<void> {
   // 4. Compléter l'article
   const dates = getCurrentDate();
   const newId = keywords.lastArticleId + 1;
-  const imageUrl = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop';
+  const imageUrl = getRandomArticleImage();
 
   const completeArticle: Article = {
     id: newId,
