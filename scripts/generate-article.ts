@@ -259,15 +259,33 @@ function updateSitemap(slug: string, imageUrl: string, imageTitle: string): void
   fs.writeFileSync(SITEMAP_FILE, content, 'utf-8');
 }
 
-function gitCommitAndPush(slug: string): void {
+function isGitAvailable(): boolean {
+  try {
+    execSync('git --version', { cwd: ROOT_DIR, stdio: 'pipe' });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function gitCommitAndPush(slug: string): boolean {
+  // Vérifier si git est disponible
+  if (!isGitAvailable()) {
+    log('Git non disponible dans ce container. Les fichiers ont été créés mais non poussés.', 'warn');
+    log('Pour activer le push automatique, ajoutez git au Dockerfile ou utilisez --no-push', 'warn');
+    return false;
+  }
+
   try {
     execSync('git add .', { cwd: ROOT_DIR, stdio: 'inherit' });
     execSync(`git commit -m "Add new article: ${slug}"`, { cwd: ROOT_DIR, stdio: 'inherit' });
     execSync('git push', { cwd: ROOT_DIR, stdio: 'inherit' });
     log('Changements poussés sur GitHub', 'success');
+    return true;
   } catch (error) {
-    log('Erreur lors du push Git. Vérifiez votre configuration.', 'error');
-    throw error;
+    log('Erreur lors du push Git. Les fichiers ont été créés localement.', 'error');
+    log('Vous pouvez commiter manuellement ou vérifier la configuration Git.', 'warn');
+    return false;
   }
 }
 
