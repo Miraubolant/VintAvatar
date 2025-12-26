@@ -175,3 +175,27 @@ export const UNSPLASH_KEYWORDS = [
   'fashion flat lay',
   'clothing photography white background'
 ];
+
+// Real Unsplash image URLs for article headers (fashion/clothing theme)
+export const ARTICLE_IMAGES = [
+  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop', // Clothing rack
+  'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop', // Fashion store
+  'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=800&h=400&fit=crop', // Colorful clothes
+  'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&h=400&fit=crop', // Clothes hanging
+  'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?w=800&h=400&fit=crop', // Fashion retail
+  'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=400&fit=crop', // Woman fashion
+  'https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&h=400&fit=crop', // Fashion shopping
+  'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&h=400&fit=crop', // Clothes on rack
+  'https://images.unsplash.com/photo-1560243563-062bfc001d68?w=800&h=400&fit=crop', // Clothing store display
+  'https://images.unsplash.com/photo-1558618047-3c8c4d7c9d8a?w=800&h=400&fit=crop', // Minimalist fashion
+  'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&h=400&fit=crop', // Wardrobe
+  'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&h=400&fit=crop', // Shopping bags
+  'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=400&fit=crop', // Shopping woman
+  'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=400&fit=crop', // Fashion model
+  'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&h=400&fit=crop', // Folded clothes
+  'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=800&h=400&fit=crop', // Clothes detail
+  'https://images.unsplash.com/photo-1558171820-8d58d8b66d43?w=800&h=400&fit=crop', // White clothing
+  'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&h=400&fit=crop', // Clothing shop
+  'https://images.unsplash.com/photo-1485968579169-8aafd3b0bb31?w=800&h=400&fit=crop', // Fashion photography
+  'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&h=400&fit=crop', // Colorful clothing
+];
