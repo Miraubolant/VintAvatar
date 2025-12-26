@@ -8,35 +8,6 @@
       "addedAt": "2025-12-26T14:27:42.078Z"
     }
   ],
-  "processed": [
-    {
-      "primary": "ia photo vinted gratuit",
-      "secondary": [],
-      "processedAt": "2025-12-26T13:48:36.643Z",
-      "articleSlug": "ia-photo-vinted-gratuit"
-    },
-    {
-      "primary": "description vinted ia gratuit",
-      "secondary": [],
-      "processedAt": "2025-12-26T14:33:03.895Z",
-      "articleSlug": "description-vinted-ia-gratuit"
-    },
-    {
-      "primary": "generateur description vinted",
-      "secondary": [
-        "ia description annonce"
-      ],
-      "processedAt": "2025-12-26T14:41:19.404Z",
-      "articleSlug": "generateur-description-vinted"
-    },
-    {
-      "primary": "description optimisee vinted ia",
-      "secondary": [
-        "texte annonce vinted"
-      ],
-      "processedAt": "2025-12-26T14:50:18.055Z",
-      "articleSlug": "description-optimisee-vinted-ia"
-    }
-  ],
-  "lastArticleId": 21
+  "processed": [],
+  "lastArticleId": 17
 }
