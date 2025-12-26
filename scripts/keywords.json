@@ -1,13 +1,6 @@
 {
   "pending": [
     {
-      "primary": "generateur description vinted",
-      "secondary": [
-        "ia description annonce"
-      ],
-      "addedAt": "2025-12-26T14:27:40.218Z"
-    },
-    {
       "primary": "description optimisee vinted ia",
       "secondary": [
         "texte annonce vinted"
@@ -34,7 +27,15 @@
       "secondary": [],
       "processedAt": "2025-12-26T14:33:03.895Z",
       "articleSlug": "description-vinted-ia-gratuit"
+    },
+    {
+      "primary": "generateur description vinted",
+      "secondary": [
+        "ia description annonce"
+      ],
+      "processedAt": "2025-12-26T14:41:19.404Z",
+      "articleSlug": "generateur-description-vinted"
     }
   ],
-  "lastArticleId": 19
+  "lastArticleId": 20
 }
