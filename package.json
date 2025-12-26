@@ -11,6 +11,7 @@
     "serve": "vite preview --host 0.0.0.0 --port 4173",
     "article:add-keyword": "npx tsx scripts/add-keyword.ts",
     "article:list-keywords": "npx tsx scripts/add-keyword.ts --list",
+    "article:clear-keywords": "npx tsx scripts/add-keyword.ts --clear",
     "article:generate": "npx tsx scripts/generate-article.ts",
     "article:generate:dry": "npx tsx scripts/generate-article.ts --dry-run",
     "article:generate:local": "npx tsx scripts/generate-article.ts --no-push"
