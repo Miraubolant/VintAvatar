@@ -122,6 +122,21 @@ function removeKeyword(index: number): void {
   console.log(`\x1b[32m[OK]\x1b[0m Mot-clé supprimé: "${removed.primary}"`);
 }
 
+function clearAllKeywords(): void {
+  const data = loadKeywords();
+  const count = data.pending.length;
+
+  if (count === 0) {
+    console.log('\x1b[33m[INFO]\x1b[0m Aucun mot-clé en attente à supprimer.');
+    return;
+  }
+
+  data.pending = [];
+  saveKeywords(data);
+
+  console.log(`\x1b[32m[OK]\x1b[0m ${count} mot(s)-clé(s) supprimé(s) de la file d'attente.`);
+}
+
 // Main
 const args = process.argv.slice(2);
 
@@ -134,12 +149,14 @@ if (args.length === 0 || args[0] === '--help' || args[0] === '-h') {
   npx tsx scripts/add-keyword.ts <principal> <second>   Ajouter avec secondaires
   npx tsx scripts/add-keyword.ts --list                 Lister tous les mots-clés
   npx tsx scripts/add-keyword.ts --remove <index>       Supprimer un mot-clé
+  npx tsx scripts/add-keyword.ts --clear                Supprimer TOUS les mots-clés en attente
 
 \x1b[4mExemples:\x1b[0m
   npx tsx scripts/add-keyword.ts "vinted ia photo"
   npx tsx scripts/add-keyword.ts "mannequin virtuel" "ia vetement"
   npx tsx scripts/add-keyword.ts --list
   npx tsx scripts/add-keyword.ts --remove 2
+  npx tsx scripts/add-keyword.ts --clear
 `);
   process.exit(0);
 }
@@ -156,6 +173,11 @@ if (args[0] === '--remove' || args[0] === '-r') {
     process.exit(1);
   }
   removeKeyword(index);
+  process.exit(0);
+}
+
+if (args[0] === '--clear' || args[0] === '-c') {
+  clearAllKeywords();
   process.exit(0);
 }
 
