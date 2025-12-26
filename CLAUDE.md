@@ -32,6 +32,41 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `stripe customers list` - List customers
 - `stripe products list` - List products and prices
 
+### Blog Article Generation (Automated SEO)
+Automated article generation system using OpenAI GPT-4o-mini with GitHub API push.
+
+**Keyword Management:**
+- `npm run article:add-keyword "mot clé"` - Add a keyword to the queue
+- `npm run article:add-keyword "principal" "secondaire"` - Add with secondary keywords
+- `npm run article:list-keywords` - List all pending and processed keywords
+- `npm run article:clear-keywords` - Clear all pending keywords
+
+**Article Generation:**
+- `npm run article:generate` - Generate article from first pending keyword + push to GitHub
+- `npm run article:generate:dry` - Dry run (simulate without creating files)
+- `npm run article:generate:local` - Generate locally without pushing to GitHub
+
+**Environment Variables Required (Coolify):**
+- `OPENAI_API_KEY` - OpenAI API key for article generation
+- `GITHUB_TOKEN` - GitHub token with `repo` scope for pushing
+- `GITHUB_OWNER` - GitHub username (e.g., `Miraubolant`)
+- `GITHUB_REPO` - Repository name (e.g., `VintAvatar`)
+- `GITHUB_BRANCH` - Target branch (default: `main`)
+
+**Script Files:**
+- `scripts/generate-article.ts` - Main generation script (OpenAI + GitHub API)
+- `scripts/add-keyword.ts` - Keyword queue management CLI
+- `scripts/prompts.ts` - OpenAI prompt templates with VintDress context
+- `scripts/keywords.json` - Keyword queue storage (pending/processed)
+
+**Features:**
+- Generates articles in 4 languages (FR, EN, ES, IT)
+- Updates all index files automatically
+- Updates sitemap.xml with new article
+- Pushes directly to GitHub via API (no git CLI required)
+- Designed for Coolify cron jobs (1 article/week)
+- SEO-optimized with FAQ, meta descriptions, keywords
+
 ## Project Architecture
 
 This is a React TypeScript application built with Vite, focusing on a Vinted-related photo enhancement service. The architecture follows a component-based structure:
@@ -73,7 +108,15 @@ This is a React TypeScript application built with Vite, focusing on a Vinted-rel
   - `useAffiliation.ts` - Referral system management with code generation and tracking
 - `lib/` - Utility libraries:
   - `supabase.ts` - Supabase client configuration and TypeScript types
-- `articles/` - Content management for blog articles
+- `articles/` - Blog articles in TypeScript format:
+  - `index.ts` - French articles exports and list
+  - `en/`, `es/`, `it/` - Translated articles by language
+  - Generated automatically via `scripts/generate-article.ts`
+- `scripts/` - Automation scripts:
+  - `generate-article.ts` - OpenAI article generation + GitHub push
+  - `add-keyword.ts` - SEO keyword queue management
+  - `prompts.ts` - OpenAI prompt templates
+  - `keywords.json` - Keyword queue (pending/processed)
 - `styles/` - Custom CSS including neo-brutalism design system and scrollbar styling
 - `supabase/functions/` - Supabase Edge Functions:
   - `analyze-and-generate/` - Complete AI image generation pipeline
@@ -122,7 +165,8 @@ The project uses a modern neo-brutalism design with a carefully curated 4-color 
 - **Credit system** with real-time usage tracking and remaining credits display
 - **Webhook integration** for automatic subscription updates and referral bonuses
 - **Optimized responsive design** with clean interface (no emojis, compact buttons)
-- **Blog/article system** for content marketing
+- **Automated blog/article system** with OpenAI generation and GitHub API push
+- **Multi-language article support** (FR, EN, ES, IT) with automatic translation
 - **Error handling** with comprehensive user feedback
 
 ### Database Architecture (Supabase)
