@@ -1,13 +1,6 @@
 {
   "pending": [
     {
-      "primary": "description optimisee vinted ia",
-      "secondary": [
-        "texte annonce vinted"
-      ],
-      "addedAt": "2025-12-26T14:27:41.137Z"
-    },
-    {
       "primary": "chatgpt description vinted",
       "secondary": [
         "ia ecrire annonce vinted"
@@ -35,7 +28,15 @@
       ],
       "processedAt": "2025-12-26T14:41:19.404Z",
       "articleSlug": "generateur-description-vinted"
+    },
+    {
+      "primary": "description optimisee vinted ia",
+      "secondary": [
+        "texte annonce vinted"
+      ],
+      "processedAt": "2025-12-26T14:50:18.055Z",
+      "articleSlug": "description-optimisee-vinted-ia"
     }
   ],
-  "lastArticleId": 20
+  "lastArticleId": 21
 }
