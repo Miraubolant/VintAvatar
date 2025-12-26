@@ -387,4 +387,22 @@
     </image:image>
   </url>
 
+
+  <!-- Améliore tes ventes sur Vinted avec un mannequin IA -->
+  <url>
+    <loc>https://vintdress.com/blog/mannequin-ia-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/blog/mannequin-ia-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/blog/mannequin-ia-vinted?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/blog/mannequin-ia-vinted?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/blog/mannequin-ia-vinted?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/blog/mannequin-ia-vinted"/>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&amp;h=400&amp;fit=crop</image:loc>
+      <image:title>Améliore tes ventes sur Vinted avec un mannequin IA</image:title>
+    </image:image>
+  </url>
+
 </urlset>

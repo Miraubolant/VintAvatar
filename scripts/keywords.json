@@ -1,5 +1,41 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "primary": "photo porté vinted",
+      "secondary": [
+        "photo portée vinted,mettre vetement sur mannequin"
+      ],
+      "addedAt": "2025-12-26T15:55:18.684Z"
+    },
+    {
+      "primary": "générateur annonce vinted",
+      "secondary": [
+        "créer annonce vinted,annonce vinted automatique"
+      ],
+      "addedAt": "2025-12-26T15:55:19.568Z"
+    },
+    {
+      "primary": "avatar vinted",
+      "secondary": [
+        "créer avatar vinted,mannequin virtuel vinted"
+      ],
+      "addedAt": "2025-12-26T15:55:20.531Z"
+    },
+    {
+      "primary": "ia photo vinted",
+      "secondary": [
+        "photo ia vinted,photo vinted ia"
+      ],
+      "addedAt": "2025-12-26T15:55:36.003Z"
+    },
+    {
+      "primary": "ai vinted",
+      "secondary": [
+        "vinted ai photo,artificial intelligence vinted"
+      ],
+      "addedAt": "2025-12-26T15:55:36.883Z"
+    }
+  ],
   "processed": [
     {
       "primary": "chatgpt description vinted",
@@ -14,7 +50,15 @@
       "secondary": [],
       "processedAt": "2025-12-26T15:47:53.554Z",
       "articleSlug": "description-vinted-ia-gratuit"
+    },
+    {
+      "primary": "mannequin ia vinted",
+      "secondary": [
+        "mannequin virtuel vinted,ia pour photo vinted"
+      ],
+      "processedAt": "2025-12-26T15:58:13.376Z",
+      "articleSlug": "mannequin-ia-vinted"
     }
   ],
-  "lastArticleId": 19
+  "lastArticleId": 20
 }
