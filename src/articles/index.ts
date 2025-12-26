@@ -18,8 +18,8 @@ import { article as iaPhotoGratuit } from './ia-photo-vinted-gratuit-vs-payant';
 import { article as algorithmeVinted } from './algorithme-vinted-visibilite';
 import { article as iaVintedGratuit } from './ia-vinted-gratuit-pourquoi-payer';
 import { article as vintedLookGratuit } from './vinted-look-gratuit-alternative-pro';
-
 import { article as chatgptDescriptionVinted } from './chatgpt-description-vinted';
+
 // Import multilingual articles
 import * as frArticles from './fr/index';
 import * as enArticles from './en/index';
@@ -44,7 +44,7 @@ const frenchArticles = {
   [iaPhotoGratuit.slug]: iaPhotoGratuit,
   [algorithmeVinted.slug]: algorithmeVinted,
   [iaVintedGratuit.slug]: iaVintedGratuit,
-  [vintedLookGratuit.slug]: vintedLookGratuit,,
+  [vintedLookGratuit.slug]: vintedLookGratuit,
   [chatgptDescriptionVinted.slug]: chatgptDescriptionVinted,
 };
 

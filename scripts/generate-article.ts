@@ -207,11 +207,10 @@ function updateIndexFile(slug: string, varName: string, lang: string): void {
     ? path.join(ARTICLES_DIR, 'index.ts')
     : path.join(ARTICLES_DIR, lang, 'index.ts');
 
-  let lines = fs.readFileSync(indexPath, 'utf-8').split('\n');
+  let content = fs.readFileSync(indexPath, 'utf-8');
+  const lines = content.split('\n');
 
   // Find the correct position to insert the new import
-  // For FR: before "// Import multilingual articles"
-  // For EN/ES/IT: before the blank line before "export const articles"
   let importInsertIndex = -1;
 
   if (lang === 'fr') {
@@ -223,7 +222,7 @@ function updateIndexFile(slug: string, varName: string, lang: string): void {
       }
     }
   } else {
-    // Find the line before "export const articles"
+    // Find the blank line before "export const articles"
     for (let i = 0; i < lines.length; i++) {
       if (lines[i].startsWith('export const articles = {')) {
         importInsertIndex = i;
@@ -232,26 +231,23 @@ function updateIndexFile(slug: string, varName: string, lang: string): void {
     }
   }
 
-  // Insert the new import
+  // Insert the new import at the correct position
   const newImport = `import { article as ${varName} } from './${slug}';`;
   if (importInsertIndex > 0) {
     lines.splice(importInsertIndex, 0, newImport);
   }
 
-  // Now find and update the articles object
-  let content = lines.join('\n');
+  // Rebuild content after import insertion
+  content = lines.join('\n');
 
+  // Add to articles object - find the last entry and add after it
+  // Pattern: match the last property line ending with comma before };
   if (lang === 'fr') {
-    // Add to frenchArticles object (before the closing brace)
-    const frenchArticlesMatch = content.match(/const frenchArticles = \{[\s\S]*?\n\};/);
-    if (frenchArticlesMatch) {
-      const oldBlock = frenchArticlesMatch[0];
-      const newBlock = oldBlock.replace(
-        /\n\};/,
-        `,\n  [${varName}.slug]: ${varName},\n};`
-      );
-      content = content.replace(oldBlock, newBlock);
-    }
+    // For frenchArticles object - replace last entry's comma with new entry
+    content = content.replace(
+      /(\[[\w]+\.slug\]: [\w]+),(\s*\n};[\s\S]*?const frenchArticlesList)/,
+      `$1,\n  [${varName}.slug]: ${varName},$2`
+    );
 
     // Add to frenchArticlesList (at the beginning of the array)
     content = content.replace(
@@ -259,16 +255,11 @@ function updateIndexFile(slug: string, varName: string, lang: string): void {
       `const frenchArticlesList = [${varName}, `
     );
   } else {
-    // Add to articles object (before the closing brace)
-    const articlesMatch = content.match(/export const articles = \{[\s\S]*?\n\};/);
-    if (articlesMatch) {
-      const oldBlock = articlesMatch[0];
-      const newBlock = oldBlock.replace(
-        /\n\};/,
-        `,\n  [${varName}.slug]: ${varName},\n};`
-      );
-      content = content.replace(oldBlock, newBlock);
-    }
+    // For export const articles object - replace last entry with new entry appended
+    content = content.replace(
+      /(\[[\w]+\.slug\]: [\w]+),(\s*\n};[\s\S]*?export const articlesList)/,
+      `$1,\n  [${varName}.slug]: ${varName},$2`
+    );
 
     // Add to articlesList (at the beginning of the array)
     content = content.replace(
