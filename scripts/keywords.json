@@ -1,12 +1,40 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "primary": "generateur description vinted",
+      "secondary": [
+        "ia description annonce"
+      ],
+      "addedAt": "2025-12-26T14:27:40.218Z"
+    },
+    {
+      "primary": "description optimisee vinted ia",
+      "secondary": [
+        "texte annonce vinted"
+      ],
+      "addedAt": "2025-12-26T14:27:41.137Z"
+    },
+    {
+      "primary": "chatgpt description vinted",
+      "secondary": [
+        "ia ecrire annonce vinted"
+      ],
+      "addedAt": "2025-12-26T14:27:42.078Z"
+    }
+  ],
   "processed": [
     {
       "primary": "ia photo vinted gratuit",
       "secondary": [],
       "processedAt": "2025-12-26T13:48:36.643Z",
       "articleSlug": "ia-photo-vinted-gratuit"
+    },
+    {
+      "primary": "description vinted ia gratuit",
+      "secondary": [],
+      "processedAt": "2025-12-26T14:33:03.895Z",
+      "articleSlug": "description-vinted-ia-gratuit"
     }
   ],
-  "lastArticleId": 18
+  "lastArticleId": 19
 }
