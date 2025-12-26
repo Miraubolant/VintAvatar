@@ -21,6 +21,7 @@ import { article as vintedLookGratuit } from './vinted-look-gratuit-alternative-
 import { article as chatgptDescriptionVinted } from './chatgpt-description-vinted';
 
 import { article as descriptionVintedIaGratuit } from './description-vinted-ia-gratuit';
+import { article as mannequinIaVinted } from './mannequin-ia-vinted';
 // Import multilingual articles
 import * as frArticles from './fr/index';
 import * as enArticles from './en/index';
@@ -48,10 +49,11 @@ const frenchArticles = {
   [vintedLookGratuit.slug]: vintedLookGratuit,
   [chatgptDescriptionVinted.slug]: chatgptDescriptionVinted,
   [descriptionVintedIaGratuit.slug]: descriptionVintedIaGratuit,
+  [mannequinIaVinted.slug]: mannequinIaVinted,
 };
 
 // Articles sorted by date (most recent first)
-const frenchArticlesList = [descriptionVintedIaGratuit, chatgptDescriptionVinted, iaVintedGratuit, vintedLookGratuit, mannequinIA, iaPhotoGratuit, algorithmeVinted, commentPhotos, comparatif, guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
+const frenchArticlesList = [mannequinIaVinted, descriptionVintedIaGratuit, chatgptDescriptionVinted, iaVintedGratuit, vintedLookGratuit, mannequinIA, iaPhotoGratuit, algorithmeVinted, commentPhotos, comparatif, guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
 
 // Get articles based on current language
 export const getArticles = () => {

@@ -16,6 +16,7 @@ import { article as vintedLookGratuit } from './vinted-look-gratuit-alternative-
 import { article as chatgptDescriptionVinted } from './chatgpt-description-vinted';
 
 import { article as descriptionVintedIaGratuit } from './description-vinted-ia-gratuit';
+import { article as mannequinIaVinted } from './mannequin-ia-vinted';
 export const articles = {
   [guidePhotos.slug]: guidePhotos,
   [astuces.slug]: astuces,
@@ -34,9 +35,10 @@ export const articles = {
   [vintedLookGratuit.slug]: vintedLookGratuit,
   [chatgptDescriptionVinted.slug]: chatgptDescriptionVinted,
   [descriptionVintedIaGratuit.slug]: descriptionVintedIaGratuit,
+  [mannequinIaVinted.slug]: mannequinIaVinted,
 };
 
 // Articles sorted by date (most recent first)
-export const articlesList = [descriptionVintedIaGratuit, chatgptDescriptionVinted, iaVintedGratuit, vintedLookGratuit, mannequinIA, iaPhotoGratuit, algorithmeVinted, guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
+export const articlesList = [mannequinIaVinted, descriptionVintedIaGratuit, chatgptDescriptionVinted, iaVintedGratuit, vintedLookGratuit, mannequinIA, iaPhotoGratuit, algorithmeVinted, guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
 
 export type Article = typeof guidePhotos;
