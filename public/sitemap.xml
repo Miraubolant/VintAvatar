@@ -351,4 +351,22 @@
   </url>
 
 
+
+  <!-- Comment rédiger une description Vinted percutante avec ChatGPT -->
+  <url>
+    <loc>https://vintdress.com/blog/chatgpt-description-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/blog/chatgpt-description-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/blog/chatgpt-description-vinted?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/blog/chatgpt-description-vinted?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/blog/chatgpt-description-vinted?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/blog/chatgpt-description-vinted"/>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&amp;h=400&amp;fit=crop</image:loc>
+      <image:title>Comment rédiger une description Vinted percutante avec ChatGPT</image:title>
+    </image:image>
+  </url>
+
 </urlset>
