@@ -13,15 +13,13 @@ import { article as iaPhotoGratuit } from './ia-photo-vinted-gratuit-vs-payant';
 import { article as algorithmeVinted } from './algorithme-vinted-visibilite';
 import { article as iaVintedGratuit } from './ia-vinted-gratuit-pourquoi-payer';
 import { article as vintedLookGratuit } from './vinted-look-gratuit-alternative-pro';
-
 import { article as iaPhotoVintedGratuit } from './ia-photo-vinted-gratuit';
+import { article as descriptionVintedIaGratuit } from './description-vinted-ia-gratuit';
+import { article as generateurDescriptionVinted } from './generateur-description-vinted';
+import { article as descriptionOptimiseeVintedIa } from './description-optimisee-vinted-ia';
 
-import { article as descriptionVintedIaGratuit } from './description-vinted-ia-gratuit';export const articles = {
-
-import { article as generateurDescriptionVinted,   [generateurDescriptionVinted.slug]: generateurDescriptionVinted,
-
-import { article as descriptionOptimiseeVintedIa,   [descriptionOptimiseeVintedIa.slug]: descriptionOptimiseeVintedIa,
-} from './description-optimisee-vinted-ia';} from './generateur-description-vinted';  [guidePhotos.slug]: guidePhotos,
+export const articles = {
+  [guidePhotos.slug]: guidePhotos,
   [astuces.slug]: astuces,
   [strategie.slug]: strategie,
   [tendances.slug]: tendances,
@@ -38,6 +36,8 @@ import { article as descriptionOptimiseeVintedIa,   [descriptionOptimiseeVintedI
   [vintedLookGratuit.slug]: vintedLookGratuit,
   [iaPhotoVintedGratuit.slug]: iaPhotoVintedGratuit,
   [descriptionVintedIaGratuit.slug]: descriptionVintedIaGratuit,
+  [generateurDescriptionVinted.slug]: generateurDescriptionVinted,
+  [descriptionOptimiseeVintedIa.slug]: descriptionOptimiseeVintedIa,
 };
 
 // Articles sorted by date (most recent first)

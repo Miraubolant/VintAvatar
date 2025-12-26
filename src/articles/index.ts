@@ -18,14 +18,14 @@ import { article as iaPhotoGratuit } from './ia-photo-vinted-gratuit-vs-payant';
 import { article as algorithmeVinted } from './algorithme-vinted-visibilite';
 import { article as iaVintedGratuit } from './ia-vinted-gratuit-pourquoi-payer';
 import { article as vintedLookGratuit } from './vinted-look-gratuit-alternative-pro';
-
 import { article as iaPhotoVintedGratuit } from './ia-photo-vinted-gratuit';
+import { article as descriptionVintedIaGratuit } from './description-vinted-ia-gratuit';
+import { article as generateurDescriptionVinted } from './generateur-description-vinted';
+import { article as descriptionOptimiseeVintedIa } from './description-optimisee-vinted-ia';
 
-import { article as descriptionVintedIaGratuit } from './description-vinted-ia-gratuit';// Import multilingual articles
-
-import { article as generateurDescriptionVinted } from './generateur-description-vinted';import * as frArticles from './fr/index';
-
-import { article as descriptionOptimiseeVintedIa } from './description-optimisee-vinted-ia';import * as enArticles from './en/index';
+// Import multilingual articles
+import * as frArticles from './fr/index';
+import * as enArticles from './en/index';
 import * as esArticles from './es/index';
 import * as itArticles from './it/index';
 

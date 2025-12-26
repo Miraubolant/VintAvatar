@@ -208,63 +208,74 @@ function updateIndexFile(slug: string, varName: string, lang: string): void {
     ? path.join(ARTICLES_DIR, 'index.ts')
     : path.join(ARTICLES_DIR, lang, 'index.ts');
 
-  let content = fs.readFileSync(indexPath, 'utf-8');
+  let lines = fs.readFileSync(indexPath, 'utf-8').split('\n');
 
-  // Helper function to add comma to the last entry before closing brace
-  const addCommaBeforeClosingBrace = (text: string, objectStart: number): string => {
-    const closingBrace = text.indexOf('}', objectStart);
-    // Find the last non-whitespace character before the closing brace
-    let i = closingBrace - 1;
-    while (i >= 0 && (text[i] === ' ' || text[i] === '\n' || text[i] === '\r' || text[i] === '\t')) {
-      i--;
-    }
-    // If the last non-whitespace char is not a comma, add one
-    if (i >= 0 && text[i] !== ',' && text[i] !== '{') {
-      return text.slice(0, i + 1) + ',' + text.slice(i + 1);
-    }
-    return text;
-  };
+  // Find the correct position to insert the new import
+  // For FR: before "// Import multilingual articles"
+  // For EN/ES/IT: before the blank line before "export const articles"
+  let importInsertIndex = -1;
 
   if (lang === 'fr') {
-    // Pour le fichier principal français
-    // Ajouter l'import
-    const lastImport = content.lastIndexOf("import { article as ");
-    const importEndLine = content.indexOf('\n', lastImport);
-    const newImport = `\nimport { article as ${varName} } from './${slug}';`;
-    content = content.slice(0, importEndLine + 1) + newImport + content.slice(importEndLine + 1);
-
-    // Ajouter une virgule à la dernière entrée si nécessaire
-    const frenchArticlesStart = content.indexOf('const frenchArticles = {');
-    content = addCommaBeforeClosingBrace(content, frenchArticlesStart);
-
-    // Ajouter dans frenchArticles
-    const articlesEnd = content.indexOf('}', content.indexOf('const frenchArticles = {'));
-    const newEntry = `  [${varName}.slug]: ${varName},\n`;
-    content = content.slice(0, articlesEnd) + newEntry + content.slice(articlesEnd);
-
-    // Ajouter dans frenchArticlesList (au début)
-    const listStart = content.indexOf('const frenchArticlesList = [') + 'const frenchArticlesList = ['.length;
-    content = content.slice(0, listStart) + `${varName}, ` + content.slice(listStart);
+    // Find the line with "// Import multilingual articles"
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i].includes('// Import multilingual articles')) {
+        importInsertIndex = i;
+        break;
+      }
+    }
   } else {
-    // Pour les fichiers de langue (en, es, it)
-    // Ajouter l'import
-    const lastImport = content.lastIndexOf("import { article as ");
-    const importEndLine = content.indexOf('\n', lastImport);
-    const newImport = `\nimport { article as ${varName} } from './${slug}';`;
-    content = content.slice(0, importEndLine + 1) + newImport + content.slice(importEndLine + 1);
+    // Find the line before "export const articles"
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i].startsWith('export const articles = {')) {
+        importInsertIndex = i;
+        break;
+      }
+    }
+  }
 
-    // Ajouter une virgule à la dernière entrée si nécessaire
-    const articlesStart = content.indexOf('export const articles = {');
-    content = addCommaBeforeClosingBrace(content, articlesStart);
+  // Insert the new import
+  const newImport = `import { article as ${varName} } from './${slug}';`;
+  if (importInsertIndex > 0) {
+    lines.splice(importInsertIndex, 0, newImport);
+  }
 
-    // Ajouter dans articles object
-    const articlesEnd = content.indexOf('}', content.indexOf('export const articles = {'));
-    const newEntry = `  [${varName}.slug]: ${varName},\n`;
-    content = content.slice(0, articlesEnd) + newEntry + content.slice(articlesEnd);
+  // Now find and update the articles object
+  let content = lines.join('\n');
 
-    // Ajouter dans articlesList (au début)
-    const listStart = content.indexOf('export const articlesList = [') + 'export const articlesList = ['.length;
-    content = content.slice(0, listStart) + `${varName}, ` + content.slice(listStart);
+  if (lang === 'fr') {
+    // Add to frenchArticles object (before the closing brace)
+    const frenchArticlesMatch = content.match(/const frenchArticles = \{[\s\S]*?\n\};/);
+    if (frenchArticlesMatch) {
+      const oldBlock = frenchArticlesMatch[0];
+      const newBlock = oldBlock.replace(
+        /\n\};/,
+        `,\n  [${varName}.slug]: ${varName},\n};`
+      );
+      content = content.replace(oldBlock, newBlock);
+    }
+
+    // Add to frenchArticlesList (at the beginning of the array)
+    content = content.replace(
+      /const frenchArticlesList = \[/,
+      `const frenchArticlesList = [${varName}, `
+    );
+  } else {
+    // Add to articles object (before the closing brace)
+    const articlesMatch = content.match(/export const articles = \{[\s\S]*?\n\};/);
+    if (articlesMatch) {
+      const oldBlock = articlesMatch[0];
+      const newBlock = oldBlock.replace(
+        /\n\};/,
+        `,\n  [${varName}.slug]: ${varName},\n};`
+      );
+      content = content.replace(oldBlock, newBlock);
+    }
+
+    // Add to articlesList (at the beginning of the array)
+    content = content.replace(
+      /export const articlesList = \[/,
+      `export const articlesList = [${varName}, `
+    );
   }
 
   fs.writeFileSync(indexPath, content, 'utf-8');
