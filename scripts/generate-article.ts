@@ -5,16 +5,34 @@
  * Options:
  *   --dry-run   Simule la génération sans créer de fichiers
  *   --no-push   Crée les fichiers mais ne pousse pas sur Git
+ *
+ * Variables d'environnement requises:
+ *   OPENAI_API_KEY - Clé API OpenAI
+ *   GITHUB_TOKEN   - Token GitHub avec scope 'repo' (pour le push)
+ *   GITHUB_OWNER   - Propriétaire du repo (ex: 'username')
+ *   GITHUB_REPO    - Nom du repo (ex: 'porte-vinted')
+ *   GITHUB_BRANCH  - Branche cible (défaut: 'main')
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { execSync } from 'child_process';
 import { SYSTEM_PROMPT, ARTICLE_PROMPT, TRANSLATION_PROMPT, UNSPLASH_KEYWORDS } from './prompts';
 
 // Configuration
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const OPENAI_MODEL = 'gpt-4o-mini';
+
+// GitHub API Configuration
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const GITHUB_OWNER = process.env.GITHUB_OWNER;
+const GITHUB_REPO = process.env.GITHUB_REPO;
+const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
+
+// Interface pour les fichiers à pousser sur GitHub
+interface GitHubFile {
+  path: string;  // Chemin relatif depuis la racine du repo
+  content: string;
+}
 
 // Paths
 const ROOT_DIR = path.join(__dirname, '..');
@@ -259,32 +277,128 @@ function updateSitemap(slug: string, imageUrl: string, imageTitle: string): void
   fs.writeFileSync(SITEMAP_FILE, content, 'utf-8');
 }
 
-function isGitAvailable(): boolean {
-  try {
-    execSync('git --version', { cwd: ROOT_DIR, stdio: 'pipe' });
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function gitCommitAndPush(slug: string): boolean {
-  // Vérifier si git est disponible
-  if (!isGitAvailable()) {
-    log('Git non disponible dans ce container. Les fichiers ont été créés mais non poussés.', 'warn');
-    log('Pour activer le push automatique, ajoutez git au Dockerfile ou utilisez --no-push', 'warn');
+/**
+ * Push des fichiers vers GitHub via l'API REST
+ * Crée un seul commit avec tous les fichiers modifiés
+ */
+async function pushToGitHub(files: GitHubFile[], commitMessage: string): Promise<boolean> {
+  if (!GITHUB_TOKEN || !GITHUB_OWNER || !GITHUB_REPO) {
+    log('Variables GITHUB_TOKEN, GITHUB_OWNER, GITHUB_REPO requises pour le push', 'error');
+    log('Configurez ces variables dans Coolify pour activer le push automatique', 'warn');
     return false;
   }
 
+  const headers = {
+    'Authorization': `token ${GITHUB_TOKEN}`,
+    'Accept': 'application/vnd.github.v3+json',
+    'Content-Type': 'application/json',
+    'User-Agent': 'VintDress-Article-Generator'
+  };
+
+  const apiBase = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`;
+
   try {
-    execSync('git add .', { cwd: ROOT_DIR, stdio: 'inherit' });
-    execSync(`git commit -m "Add new article: ${slug}"`, { cwd: ROOT_DIR, stdio: 'inherit' });
-    execSync('git push', { cwd: ROOT_DIR, stdio: 'inherit' });
-    log('Changements poussés sur GitHub', 'success');
+    log(`Push vers ${GITHUB_OWNER}/${GITHUB_REPO} (branche: ${GITHUB_BRANCH})...`, 'info');
+
+    // 1. Récupérer le SHA du dernier commit
+    const refResponse = await fetch(`${apiBase}/git/ref/heads/${GITHUB_BRANCH}`, { headers });
+    if (!refResponse.ok) {
+      throw new Error(`Impossible de récupérer la ref: ${refResponse.status} ${await refResponse.text()}`);
+    }
+    const refData = await refResponse.json();
+    const currentCommitSha = refData.object.sha;
+    log(`Commit actuel: ${currentCommitSha.substring(0, 7)}`, 'info');
+
+    // 2. Récupérer le tree SHA du commit actuel
+    const commitResponse = await fetch(`${apiBase}/git/commits/${currentCommitSha}`, { headers });
+    if (!commitResponse.ok) {
+      throw new Error(`Impossible de récupérer le commit: ${commitResponse.status}`);
+    }
+    const commitData = await commitResponse.json();
+    const currentTreeSha = commitData.tree.sha;
+
+    // 3. Créer des blobs pour chaque fichier
+    const treeItems: Array<{ path: string; mode: string; type: string; sha: string }> = [];
+
+    for (const file of files) {
+      log(`  Création blob: ${file.path}`, 'info');
+
+      const blobResponse = await fetch(`${apiBase}/git/blobs`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          content: Buffer.from(file.content).toString('base64'),
+          encoding: 'base64'
+        })
+      });
+
+      if (!blobResponse.ok) {
+        throw new Error(`Impossible de créer le blob pour ${file.path}: ${blobResponse.status}`);
+      }
+
+      const blobData = await blobResponse.json();
+      treeItems.push({
+        path: file.path,
+        mode: '100644',
+        type: 'blob',
+        sha: blobData.sha
+      });
+    }
+
+    // 4. Créer un nouveau tree avec tous les fichiers
+    const treeResponse = await fetch(`${apiBase}/git/trees`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        base_tree: currentTreeSha,
+        tree: treeItems
+      })
+    });
+
+    if (!treeResponse.ok) {
+      throw new Error(`Impossible de créer le tree: ${treeResponse.status}`);
+    }
+    const treeData = await treeResponse.json();
+
+    // 5. Créer le commit
+    const newCommitResponse = await fetch(`${apiBase}/git/commits`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        message: commitMessage,
+        tree: treeData.sha,
+        parents: [currentCommitSha]
+      })
+    });
+
+    if (!newCommitResponse.ok) {
+      throw new Error(`Impossible de créer le commit: ${newCommitResponse.status}`);
+    }
+    const newCommitData = await newCommitResponse.json();
+    log(`Nouveau commit créé: ${newCommitData.sha.substring(0, 7)}`, 'success');
+
+    // 6. Mettre à jour la référence de la branche
+    const updateRefResponse = await fetch(`${apiBase}/git/refs/heads/${GITHUB_BRANCH}`, {
+      method: 'PATCH',
+      headers,
+      body: JSON.stringify({
+        sha: newCommitData.sha
+      })
+    });
+
+    if (!updateRefResponse.ok) {
+      throw new Error(`Impossible de mettre à jour la ref: ${updateRefResponse.status}`);
+    }
+
+    log(`Branche ${GITHUB_BRANCH} mise à jour avec succès`, 'success');
+    log(`Voir le commit: https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/commit/${newCommitData.sha}`, 'info');
+
     return true;
+
   } catch (error) {
-    log('Erreur lors du push Git. Les fichiers ont été créés localement.', 'error');
-    log('Vous pouvez commiter manuellement ou vérifier la configuration Git.', 'warn');
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    log(`Erreur GitHub API: ${errorMessage}`, 'error');
+    log('Les fichiers ont été créés localement mais non poussés sur GitHub.', 'warn');
     return false;
   }
 }
@@ -405,21 +519,32 @@ async function main(): Promise<void> {
     log(`Traduction ${lang.toUpperCase()} terminée`, 'success');
   }
 
-  // 6. Créer les fichiers
+  // 6. Créer les fichiers et collecter pour GitHub
   if (!dryRun) {
     const varName = slugToVarName(completeArticle.slug);
+    const filesToPush: GitHubFile[] = [];
 
     // Fichier FR principal
+    const frFileContent = generateArticleFile(translations.fr);
     const frFilePath = path.join(ARTICLES_DIR, `${completeArticle.slug}.ts`);
-    fs.writeFileSync(frFilePath, generateArticleFile(translations.fr), 'utf-8');
+    fs.writeFileSync(frFilePath, frFileContent, 'utf-8');
     log(`Fichier créé: src/articles/${completeArticle.slug}.ts`, 'success');
+    filesToPush.push({
+      path: `src/articles/${completeArticle.slug}.ts`,
+      content: frFileContent
+    });
 
     // Fichiers traduits
     for (const lang of ['en', 'es', 'it']) {
+      const langFileContent = generateArticleFile(translations[lang], lang);
       const langDir = path.join(ARTICLES_DIR, lang);
       const langFilePath = path.join(langDir, `${completeArticle.slug}.ts`);
-      fs.writeFileSync(langFilePath, generateArticleFile(translations[lang], lang), 'utf-8');
+      fs.writeFileSync(langFilePath, langFileContent, 'utf-8');
       log(`Fichier créé: src/articles/${lang}/${completeArticle.slug}.ts`, 'success');
+      filesToPush.push({
+        path: `src/articles/${lang}/${completeArticle.slug}.ts`,
+        content: langFileContent
+      });
     }
 
     // 7. Mettre à jour les index
@@ -430,10 +555,28 @@ async function main(): Promise<void> {
     }
     log('Fichiers index mis à jour', 'success');
 
+    // Collecter les fichiers index mis à jour
+    const frIndexPath = path.join(ARTICLES_DIR, 'index.ts');
+    filesToPush.push({
+      path: 'src/articles/index.ts',
+      content: fs.readFileSync(frIndexPath, 'utf-8')
+    });
+    for (const lang of ['en', 'es', 'it']) {
+      const langIndexPath = path.join(ARTICLES_DIR, lang, 'index.ts');
+      filesToPush.push({
+        path: `src/articles/${lang}/index.ts`,
+        content: fs.readFileSync(langIndexPath, 'utf-8')
+      });
+    }
+
     // 8. Mettre à jour le sitemap
     log('Mise à jour du sitemap...', 'info');
     updateSitemap(completeArticle.slug, imageUrl, completeArticle.title);
     log('Sitemap mis à jour', 'success');
+    filesToPush.push({
+      path: 'public/sitemap.xml',
+      content: fs.readFileSync(SITEMAP_FILE, 'utf-8')
+    });
 
     // 9. Mettre à jour keywords.json
     keywords.pending.shift();
@@ -445,11 +588,16 @@ async function main(): Promise<void> {
     });
     keywords.lastArticleId = newId;
     saveKeywords(keywords);
+    filesToPush.push({
+      path: 'scripts/keywords.json',
+      content: fs.readFileSync(KEYWORDS_FILE, 'utf-8')
+    });
 
-    // 10. Git push
+    // 10. Push sur GitHub via API
     if (!noPush) {
-      log('Push sur GitHub...', 'info');
-      gitCommitAndPush(completeArticle.slug);
+      log('Push sur GitHub via API...', 'info');
+      const commitMessage = `Add new article: ${completeArticle.slug}\n\nKeyword: ${keyword.primary}\nGenerated automatically by VintDress Article Generator`;
+      await pushToGitHub(filesToPush, commitMessage);
     } else {
       log('Mode --no-push: les fichiers ont été créés mais pas poussés', 'warn');
     }
