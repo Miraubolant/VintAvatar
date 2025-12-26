@@ -44,7 +44,7 @@ const frenchArticles = {
   [iaPhotoGratuit.slug]: iaPhotoGratuit,
   [algorithmeVinted.slug]: algorithmeVinted,
   [iaVintedGratuit.slug]: iaVintedGratuit,
-  [vintedLookGratuit.slug]: vintedLookGratuit
+  [vintedLookGratuit.slug]: vintedLookGratuit,
   [iaPhotoVintedGratuit.slug]: iaPhotoVintedGratuit,
 };
 
