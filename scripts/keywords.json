@@ -1,14 +1,5 @@
 {
   "pending": [],
-  "processed": [
-    {
-      "primary": "chatgpt description vinted",
-      "secondary": [
-        "ia ecrire annonce vinted"
-      ],
-      "processedAt": "2025-12-26T15:37:11.192Z",
-      "articleSlug": "chatgpt-description-vinted"
-    }
-  ],
-  "lastArticleId": 18
+  "processed": [],
+  "lastArticleId": 16
 }
