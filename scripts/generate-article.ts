@@ -210,6 +210,21 @@ function updateIndexFile(slug: string, varName: string, lang: string): void {
 
   let content = fs.readFileSync(indexPath, 'utf-8');
 
+  // Helper function to add comma to the last entry before closing brace
+  const addCommaBeforeClosingBrace = (text: string, objectStart: number): string => {
+    const closingBrace = text.indexOf('}', objectStart);
+    // Find the last non-whitespace character before the closing brace
+    let i = closingBrace - 1;
+    while (i >= 0 && (text[i] === ' ' || text[i] === '\n' || text[i] === '\r' || text[i] === '\t')) {
+      i--;
+    }
+    // If the last non-whitespace char is not a comma, add one
+    if (i >= 0 && text[i] !== ',' && text[i] !== '{') {
+      return text.slice(0, i + 1) + ',' + text.slice(i + 1);
+    }
+    return text;
+  };
+
   if (lang === 'fr') {
     // Pour le fichier principal français
     // Ajouter l'import
@@ -217,6 +232,10 @@ function updateIndexFile(slug: string, varName: string, lang: string): void {
     const importEndLine = content.indexOf('\n', lastImport);
     const newImport = `\nimport { article as ${varName} } from './${slug}';`;
     content = content.slice(0, importEndLine + 1) + newImport + content.slice(importEndLine + 1);
+
+    // Ajouter une virgule à la dernière entrée si nécessaire
+    const frenchArticlesStart = content.indexOf('const frenchArticles = {');
+    content = addCommaBeforeClosingBrace(content, frenchArticlesStart);
 
     // Ajouter dans frenchArticles
     const articlesEnd = content.indexOf('}', content.indexOf('const frenchArticles = {'));
@@ -233,6 +252,10 @@ function updateIndexFile(slug: string, varName: string, lang: string): void {
     const importEndLine = content.indexOf('\n', lastImport);
     const newImport = `\nimport { article as ${varName} } from './${slug}';`;
     content = content.slice(0, importEndLine + 1) + newImport + content.slice(importEndLine + 1);
+
+    // Ajouter une virgule à la dernière entrée si nécessaire
+    const articlesStart = content.indexOf('export const articles = {');
+    content = addCommaBeforeClosingBrace(content, articlesStart);
 
     // Ajouter dans articles object
     const articlesEnd = content.indexOf('}', content.indexOf('export const articles = {'));
