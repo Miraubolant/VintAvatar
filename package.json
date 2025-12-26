@@ -8,7 +8,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "npm run preview",
-    "serve": "vite preview --host 0.0.0.0 --port 4173"
+    "serve": "vite preview --host 0.0.0.0 --port 4173",
+    "article:add-keyword": "npx tsx scripts/add-keyword.ts",
+    "article:list-keywords": "npx tsx scripts/add-keyword.ts --list",
+    "article:generate": "npx tsx scripts/generate-article.ts",
+    "article:generate:dry": "npx tsx scripts/generate-article.ts --dry-run",
+    "article:generate:local": "npx tsx scripts/generate-article.ts --no-push"
   },
   "dependencies": {
     "@stripe/stripe-js": "^7.9.0",
@@ -40,6 +45,7 @@
     "supabase-mcp": "^1.5.0",
     "tailwindcss": "^3.4.1",
     "terser": "^5.44.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
     "vite": "^5.4.2"
