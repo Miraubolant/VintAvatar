@@ -186,7 +186,7 @@ Teste différentes versions :
 
 **🚀 Prêt à révolutionner tes photos Vinted ? Teste notre IA dès maintenant !**
   `,
-  author: "Équipe VintedAvatar",
+  author: "Équipe VintDress",
   date: "15 Novembre 2025",
   category: "Guide",
   readTime: "12 min",

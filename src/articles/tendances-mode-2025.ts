@@ -268,7 +268,7 @@ Passion + Timing + Qualité = Success story Vinted !
 
 **🎯 Prête à conquérir 2025 ? Lance-toi maintenant !**
   `,
-  author: "Équipe VintedAvatar",
+  author: "Équipe VintDress",
   date: "10 Novembre 2025",
   category: "Tendance",
   readTime: "18 min",

@@ -60,7 +60,7 @@ Avec ces 5 astuces, tu devrais voir tes ventes décoller ! Et n'oublie pas : des
 
 **Prêt(e) à transformer tes ventes ? Essaie notre générateur IA maintenant !**
   `,
-  author: "Équipe VintedAvatar",
+  author: "Équipe VintDress",
   date: "28 Novembre 2025",
   category: "Conseils",
   readTime: "5 min",

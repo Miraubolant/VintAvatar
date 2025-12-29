@@ -2,21 +2,21 @@ export const article = {
   id: 3,
   slug: "temoignage-300-pourcent-vues-une-semaine",
   title: "Testimonianza: +300% di Visualizzazioni in Una Settimana",
-  excerpt: "Maria ci racconta come VintedAvatar ha trasformato il suo business di rivendita.",
+  excerpt: "Maria ci racconta come VintDress ha trasformato il suo business di rivendita.",
   content: `
 # Storia di Successo: Come Maria Ha Trasformato il Suo Business Vinted
 
 *Testimonianza raccolta il 5 marzo 2025*
 
-Oggi, diamo la parola a Maria Rossi, 28 anni, milanese e venditrice appassionata su Vinted. La sua storia con VintedAvatar è semplicemente straordinaria.
+Oggi, diamo la parola a Maria Rossi, 28 anni, milanese e venditrice appassionata su Vinted. La sua storia con VintDress è semplicemente straordinaria.
 
 ## Il Momento Chiave
 
-**"Ho scoperto VintedAvatar per caso su Instagram"**
+**"Ho scoperto VintDress per caso su Instagram"**
 
 Maria ci racconta: *"Avevo un guardaroba pieno di vestiti che non riuscivo a vendere. Le mie foto erano buone, ma niente di eccezionale. Quando ho visto i risultati possibili con l'IA, ho voluto provare."*
 
-## Prima di VintedAvatar: La Lotta
+## Prima di VintDress: La Lotta
 
 **I numeri parlano da soli:**
 - 📊 Media di 12 visualizzazioni per articolo
@@ -30,7 +30,7 @@ Maria ci racconta: *"Avevo un guardaroba pieno di vestiti che non riuscivo a ven
 
 **Primo tentativo: Un vestito nero di Zara**
 
-Maria decide di testare VintedAvatar su un vestito nero di Zara che non riusciva a vendere da 2 mesi.
+Maria decide di testare VintDress su un vestito nero di Zara che non riusciva a vendere da 2 mesi.
 
 **Risultati in 48h:**
 - 🚀 **67 visualizzazioni** (vs 8 con la foto precedente)
@@ -41,7 +41,7 @@ Maria decide di testare VintedAvatar su un vestito nero di Zara che non riusciva
 
 ## La Trasformazione Completa
 
-**Settimana 1 con VintedAvatar:**
+**Settimana 1 con VintDress:**
 
 Maria decide di rifare tutte le sue foto più importanti:
 
@@ -92,15 +92,15 @@ Maria decide di rifare tutte le sue foto più importanti:
 
 ## La Parola Finale
 
-**Maria conclude:** *"VintedAvatar non ha solo migliorato le mie foto, ha trasformato il mio modo di vedere la vendita online. Lo raccomando a occhi chiusi a tutti i venditori Vinted che vogliono passare al livello successivo."*
+**Maria conclude:** *"VintDress non ha solo migliorato le mie foto, ha trasformato il mio modo di vedere la vendita online. Lo raccomando a occhi chiusi a tutti i venditori Vinted che vogliono passare al livello successivo."*
 
-**Il suo consiglio finale:** *"Non aspettate! Ogni giorno senza VintedAvatar sono vendite perse."*
+**Il suo consiglio finale:** *"Non aspettate! Ogni giorno senza VintDress sono vendite perse."*
 
 ---
 
 **💡 E tu, sei pronto/a a unirti a Maria e alle migliaia di utenti che hanno trasformato le loro vendite?**
 
-**🚀 [Prova VintedAvatar ora - È gratis per iniziare!](#generatore)**
+**🚀 [Prova VintDress ora - È gratis per iniziare!](#generatore)**
 
 ---
 
@@ -112,6 +112,6 @@ Maria decide di rifare tutte le sue foto più importanti:
   readTime: "8 min",
   image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&h=400&fit=crop",
   tags: ["Testimonianza", "Storia di Successo", "Vendite", "Trasformazione", "Risultati"],
-  metaDescription: "Scopri come Maria ha moltiplicato le sue visualizzazioni per 3 in una settimana grazie a VintedAvatar. Testimonianza completa e risultati con cifre.",
+  metaDescription: "Scopri come Maria ha moltiplicato le sue visualizzazioni per 3 in una settimana grazie a VintDress. Testimonianza completa e risultati con cifre.",
   keywords: ["testimonianza vinted", "storia di successo", "aumentare visualizzazioni vinted", "trasformazione vendite", "maria rossi"]
 };

@@ -5,8 +5,8 @@ import { Upload, Cpu, Sparkles, TrendingUp, Clock, DollarSign, Users, Zap, Eye, 
 
 export default function IAServiceModeRevolutionPage() {
   useSEO({
-    title: "L'IA au Service de la Mode : Notre Révolution | VintedAvatar",
-    description: "Découvre comment l'IA révolutionne la vente de mode en ligne. VintedAvatar transforme tes photos avec une technologie de pointe.",
+    title: "L'IA au Service de la Mode : Notre Révolution | VintDress",
+    description: "Découvre comment l'IA révolutionne la vente de mode en ligne. VintDress transforme tes photos avec une technologie de pointe.",
     keywords: "IA mode, photos IA, technologie vinted, innovation mode, intelligence artificielle",
   });
 
@@ -38,7 +38,7 @@ export default function IAServiceModeRevolutionPage() {
           </div>
 
           <h1 className="text-4xl lg:text-5xl font-space-grotesk font-bold mb-6 leading-tight">
-            L'Intelligence Artificielle au Service de la Mode : La Révolution VintedAvatar
+            L'Intelligence Artificielle au Service de la Mode : La Révolution VintDress
           </h1>
 
           <p className="text-xl text-gray-700 mb-12">
@@ -173,7 +173,7 @@ export default function IAServiceModeRevolutionPage() {
               Les Chiffres qui Parlent
             </h2>
 
-            <p className="text-lg mb-6">Depuis le lancement de VintedAvatar :</p>
+            <p className="text-lg mb-6">Depuis le lancement de VintDress :</p>
 
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-vinted text-white border-4 border-black p-6">
@@ -371,7 +371,7 @@ export default function IAServiceModeRevolutionPage() {
               to="/"
               className="inline-block bg-white text-vinted px-8 py-4 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all font-space-grotesk font-bold text-lg"
             >
-              Teste VintedAvatar Maintenant !
+              Teste VintDress Maintenant !
             </Link>
           </div>
 

@@ -20,7 +20,7 @@ export const article = {
 **Le problème :** Ses photos étaient amateur, ses articles traînaient des mois sans acheteurs.
 
 ### Le Moment Révélateur
-*"J'ai découvert VintedAvatar en scrollant sur Instagram. Au début, j'étais sceptique : des photos IA pour mes vêtements ? Mais j'avais tout essayé..."*
+*"J'ai découvert VintDress en scrollant sur Instagram. Au début, j'étais sceptique : des photos IA pour mes vêtements ? Mais j'avais tout essayé..."*
 
 **Premier test :** Une robe Zara qui traînait depuis 6 mois
 - **Avant IA** : 12 vues en 6 mois, 0 vente
@@ -128,7 +128,7 @@ export const article = {
 
 ### Setup Technique
 - **Smartphone** iPhone 13 Pro
-- **VintedAvatar** pour les photos IA
+- **VintDress** pour les photos IA
 - **Excel** pour la gestion des stocks
 - **Etiquettes** personnalisées premium
 
@@ -226,9 +226,9 @@ export const article = {
 
 **🌟 Inspiré(e) par l'histoire de Marie ? Lance-toi maintenant !**
 
-*Marie utilise VintedAvatar depuis plus d'un an. Résultats non garantis, variables selon l'investissement personnel.*
+*Marie utilise VintDress depuis plus d'un an. Résultats non garantis, variables selon l'investissement personnel.*
   `,
-  author: "Équipe VintedAvatar",
+  author: "Équipe VintDress",
   date: "18 Novembre 2025",
   category: "Success Story",
   readTime: "12 min",

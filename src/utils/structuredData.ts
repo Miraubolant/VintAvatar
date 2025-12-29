@@ -155,7 +155,7 @@ export const generateProductSchema = () => {
     "description": "Service de génération d'avatars IA pour créer des photos portées réalistes pour vos ventes Vinted",
     "brand": {
       "@type": "Brand",
-      "name": "VintedAvatar"
+      "name": "VintDress"
     },
     "offers": [
       {
@@ -167,7 +167,7 @@ export const generateProductSchema = () => {
         "url": "https://vintdress.com/#tarifs",
         "seller": {
           "@type": "Organization",
-          "name": "VintedAvatar"
+          "name": "VintDress"
         }
       },
       {
@@ -179,7 +179,7 @@ export const generateProductSchema = () => {
         "url": "https://vintdress.com/#tarifs",
         "seller": {
           "@type": "Organization",
-          "name": "VintedAvatar"
+          "name": "VintDress"
         }
       },
       {
@@ -191,7 +191,7 @@ export const generateProductSchema = () => {
         "url": "https://vintdress.com/#tarifs",
         "seller": {
           "@type": "Organization",
-          "name": "VintedAvatar"
+          "name": "VintDress"
         }
       }
     ],

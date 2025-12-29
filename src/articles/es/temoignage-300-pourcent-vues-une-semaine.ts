@@ -2,21 +2,21 @@ export const article = {
   id: 3,
   slug: "temoignage-300-pourcent-vues-une-semaine",
   title: "Testimonio: +300% de Vistas en Una Semana",
-  excerpt: "María nos cuenta cómo VintedAvatar transformó su negocio de reventa.",
+  excerpt: "María nos cuenta cómo VintDress transformó su negocio de reventa.",
   content: `
 # Historia de Éxito: Cómo María Transformó su Negocio Vinted
 
 *Testimonio recogido el 5 de marzo de 2025*
 
-Hoy, damos la palabra a María López, 28 años, madrileña y vendedora apasionada en Vinted. Su historia con VintedAvatar es simplemente impresionante.
+Hoy, damos la palabra a María López, 28 años, madrileña y vendedora apasionada en Vinted. Su historia con VintDress es simplemente impresionante.
 
 ## El Momento Clave
 
-**"Descubrí VintedAvatar por casualidad en Instagram"**
+**"Descubrí VintDress por casualidad en Instagram"**
 
 María nos cuenta: *"Tenía un armario lleno de ropa que no conseguía vender. Mis fotos estaban bien, pero nada excepcional. Cuando vi los resultados posibles con la IA, quise probarlo."*
 
-## Antes de VintedAvatar: La Lucha
+## Antes de VintDress: La Lucha
 
 **Las cifras hablan por sí solas:**
 - 📊 Promedio de 12 vistas por artículo
@@ -30,7 +30,7 @@ María nos cuenta: *"Tenía un armario lleno de ropa que no conseguía vender. M
 
 **Primer intento: Un vestido negro de Zara**
 
-María decide probar VintedAvatar en un vestido negro de Zara que no conseguía vender desde hacía 2 meses.
+María decide probar VintDress en un vestido negro de Zara que no conseguía vender desde hacía 2 meses.
 
 **Resultados en 48h:**
 - 🚀 **67 vistas** (vs 8 con la foto anterior)
@@ -41,7 +41,7 @@ María decide probar VintedAvatar en un vestido negro de Zara que no conseguía 
 
 ## La Transformación Completa
 
-**Semana 1 con VintedAvatar:**
+**Semana 1 con VintDress:**
 
 María decide rehacer todas sus fotos más importantes:
 
@@ -92,15 +92,15 @@ María decide rehacer todas sus fotos más importantes:
 
 ## La Palabra Final
 
-**María concluye:** *"VintedAvatar no solo ha mejorado mis fotos, ha transformado mi forma de ver la venta online. Lo recomiendo con los ojos cerrados a todos los vendedores de Vinted que quieren pasar al siguiente nivel."*
+**María concluye:** *"VintDress no solo ha mejorado mis fotos, ha transformado mi forma de ver la venta online. Lo recomiendo con los ojos cerrados a todos los vendedores de Vinted que quieren pasar al siguiente nivel."*
 
-**Su consejo final:** *"¡No esperéis! Cada día sin VintedAvatar son ventas perdidas."*
+**Su consejo final:** *"¡No esperéis! Cada día sin VintDress son ventas perdidas."*
 
 ---
 
 **💡 ¿Y tú, estás listo/a para unirte a María y los miles de usuarios que han transformado sus ventas?**
 
-**🚀 [Prueba VintedAvatar ahora - ¡Es gratis para empezar!](#generador)**
+**🚀 [Prueba VintDress ahora - ¡Es gratis para empezar!](#generador)**
 
 ---
 
@@ -112,6 +112,6 @@ María decide rehacer todas sus fotos más importantes:
   readTime: "8 min",
   image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&h=400&fit=crop",
   tags: ["Testimonio", "Historia de Éxito", "Ventas", "Transformación", "Resultados"],
-  metaDescription: "Descubre cómo María multiplicó sus vistas por 3 en una semana gracias a VintedAvatar. Testimonio completo y resultados con cifras.",
+  metaDescription: "Descubre cómo María multiplicó sus vistas por 3 en una semana gracias a VintDress. Testimonio completo y resultados con cifras.",
   keywords: ["testimonio vinted", "historia de éxito", "aumentar vistas vinted", "transformación ventas", "maría lópez"]
 };

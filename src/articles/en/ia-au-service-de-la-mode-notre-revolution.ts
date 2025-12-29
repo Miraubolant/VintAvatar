@@ -4,7 +4,7 @@ export const article = {
   title: "AI in Service of Fashion: Our Revolution",
   excerpt: "How our AI technology transforms the way you present your fashion items.",
   content: `
-# Artificial Intelligence in Service of Fashion: The VintedAvatar Revolution
+# Artificial Intelligence in Service of Fashion: The VintDress Revolution
 
 The second-hand fashion industry is experiencing a silent revolution. Behind every perfect photo you see on Vinted, there's now a technology that's changing the game: Artificial Intelligence.
 
@@ -35,7 +35,7 @@ In seconds, you get a professional worn photo, as if a professional photographer
 
 ## The Numbers That Speak
 
-Since the launch of VintedAvatar:
+Since the launch of VintDress:
 
 **📈 +280% views on average**
 Listings with AI photos generate 2.8x more views than traditional photos.
@@ -86,7 +86,7 @@ AI isn't here to replace human creativity, but to democratize it. Today, every V
 
 Are you ready to join this revolution?
 
-**🚀 Try VintedAvatar now and transform your sales!**
+**🚀 Try VintDress now and transform your sales!**
   `,
   author: "Tech Team",
   date: "November 22, 2025",
@@ -94,6 +94,6 @@ Are you ready to join this revolution?
   readTime: "7 min",
   image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop",
   tags: ["AI", "Technology", "Innovation", "Fashion", "E-commerce"],
-  metaDescription: "Discover how AI revolutionizes online fashion selling. VintedAvatar transforms your photos with cutting-edge technology.",
+  metaDescription: "Discover how AI revolutionizes online fashion selling. VintDress transforms your photos with cutting-edge technology.",
   keywords: ["AI fashion", "AI photos", "vinted technology", "fashion innovation", "artificial intelligence"]
 };
