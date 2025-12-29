@@ -69,7 +69,7 @@ export const Header: React.FC = () => {
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="px-4 py-2.5 font-display font-bold text-sm uppercase border-2 border-transparent hover:bg-mint hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                className="px-4 py-2.5 font-display font-bold text-sm uppercase border-2 border-transparent hover:bg-vinted hover:text-white hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
                 {link.label}
               </button>
@@ -86,7 +86,7 @@ export const Header: React.FC = () => {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               aria-expanded={mobileMenuOpen}
-              className="lg:hidden p-2 sm:p-2.5 bg-mint border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+              className="lg:hidden p-2 sm:p-2.5 bg-mint border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-vinted hover:text-white hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               {mobileMenuOpen ? (
                 <X className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -106,7 +106,7 @@ export const Header: React.FC = () => {
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="block w-full text-left px-3 py-2.5 bg-cream border-2 border-black font-display font-bold text-sm uppercase hover:bg-mint hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform opacity-0 animate-fade-in"
+                className="block w-full text-left px-3 py-2.5 bg-cream border-2 border-black font-display font-bold text-sm uppercase hover:bg-vinted hover:text-white hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform opacity-0 animate-fade-in"
                 style={{
                   animationDelay: `${index * 100}ms`,
                   animationFillMode: 'forwards'
