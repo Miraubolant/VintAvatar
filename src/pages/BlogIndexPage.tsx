@@ -18,10 +18,16 @@ export default function BlogIndexPage() {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero Section */}
-      <div className="relative bg-cream py-12 lg:py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <section className="relative bg-cream overflow-hidden">
+        {/* Formes décoratives neo-brutalism */}
+        <div className="hidden md:block absolute top-20 left-10 w-12 h-12 bg-pink-pastel border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
+        <div className="hidden md:block absolute top-32 right-20 w-16 h-16 bg-mint border-4 border-black transform -rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
+        <div className="hidden md:block absolute bottom-32 left-20 w-10 h-10 bg-vinted border-4 border-black transform rotate-45 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
+        <div className="hidden md:block absolute bottom-20 right-10 w-14 h-14 bg-pink-pastel border-4 border-black rounded-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 sm:pt-12 lg:pt-16 sm:pb-16 lg:pb-20">
           {/* Back Button */}
-          <div className="mb-6">
+          <div className="mb-8">
             <Link
               to="/"
               className="inline-flex items-center gap-2 px-4 py-2 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all font-space-grotesk font-bold"
@@ -31,21 +37,38 @@ export default function BlogIndexPage() {
             </Link>
           </div>
 
-          {/* Title */}
-          <div className="text-center mb-6">
-            <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-7xl mb-4 sm:mb-6 inline-block">
-              <span className="inline-block bg-vinted text-white border-4 border-black px-4 sm:px-6 py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                BLOG
-              </span>
-            </h1>
-          </div>
+          <div className="text-center space-y-6">
+            {/* Titre multi-lignes style Hero */}
+            <div className="space-y-2">
+              <h1 className="font-display font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+                <div className="mb-2">
+                  <span className="inline-block bg-white text-black border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                    Tous nos
+                  </span>
+                </div>
+                <div className="mb-2">
+                  <span className="inline-block bg-vinted text-white border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+                    Articles & Guides
+                  </span>
+                </div>
+                <div>
+                  <span className="inline-block bg-mint text-black border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                    Vinted
+                  </span>
+                </div>
+              </h1>
+            </div>
 
-          {/* Subtitle */}
-          <p className="text-center text-lg lg:text-xl text-black font-space-grotesk max-w-3xl mx-auto">
-            Tous nos guides, conseils et success stories pour réussir sur Vinted avec l'IA !
-          </p>
+            {/* Description */}
+            <div className="pt-4">
+              <p className="font-body text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+                Découvre tous nos conseils et success stories pour{' '}
+                <span className="text-vinted font-bold">booster tes ventes avec l'IA !</span>
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Articles Grid */}
       <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
