@@ -33,6 +33,7 @@ const AlgorithmeVintedVisibilitePage = React.lazy(() => import('./pages/Algorith
 const GuideCompletPhotosVinted2025Page = React.lazy(() => import('./pages/GuideCompletPhotosVinted2025Page').then(module => ({ default: module.default })));
 const CinqAstucesVendrePlusVitePage = React.lazy(() => import('./pages/CinqAstucesVendrePlusVitePage').then(module => ({ default: module.default })));
 const StrategieVenteVinted2025Page = React.lazy(() => import('./pages/StrategieVenteVinted2025Page').then(module => ({ default: module.default })));
+const CommentPrendrePhotoVintedPage = React.lazy(() => import('./pages/CommentPrendrePhotoVintedPage').then(module => ({ default: module.default })));
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 const ResultPage = React.lazy(() => import('./pages/ResultPage').then(module => ({ default: module.ResultPage })));
@@ -165,6 +166,11 @@ function App() {
               <Route path="/articles/strategie-vente-vinted-2025" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <StrategieVenteVinted2025Page />
+                </Suspense>
+              } />
+              <Route path="/articles/comment-prendre-bonnes-photos-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <CommentPrendrePhotoVintedPage />
                 </Suspense>
               } />
               <Route path="/articles/:slug" element={
