@@ -211,8 +211,8 @@ export const ResultPage: React.FC = () => {
 
           {/* Success badge */}
           <div className="text-center mb-6">
-            <div className="inline-block bg-mint border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-              <span className="font-display font-bold text-base sm:text-lg text-vinted">
+            <div className="inline-block bg-vinted border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+              <span className="font-display font-bold text-base sm:text-lg text-white">
                 {t('success', 'AVATAR GENERE AVEC SUCCES')}
               </span>
             </div>
