@@ -11,7 +11,6 @@ import {
   AlertTriangle,
   RefreshCw,
   ArrowLeft,
-  Share2,
   Scissors
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
@@ -41,7 +40,6 @@ export const ResultPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [copiedTitle, setCopiedTitle] = useState(false);
   const [copiedDescription, setCopiedDescription] = useState(false);
-  const [copiedLink, setCopiedLink] = useState(false);
   const [isCropping, setIsCropping] = useState(false);
   const [croppedImageUrl, setCroppedImageUrl] = useState<string | null>(null);
   const [showCropped, setShowCropped] = useState(false);
@@ -146,31 +144,6 @@ export const ResultPage: React.FC = () => {
     }
   };
 
-  const handleShare = async () => {
-    const url = window.location.href;
-
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: t('share.title', 'Mon avatar VintDress'),
-          text: t('share.text', 'Regarde mon avatar genere par IA !'),
-          url: url
-        });
-      } catch (err) {
-        // User cancelled or error
-        copyToClipboard(url);
-      }
-    } else {
-      copyToClipboard(url);
-    }
-  };
-
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedLink(true);
-    setTimeout(() => setCopiedLink(false), 2000);
-  };
-
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('fr-FR', {
       year: 'numeric',
@@ -220,23 +193,13 @@ export const ResultPage: React.FC = () => {
     <div className="min-h-screen bg-cream py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header with back button */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="mb-6">
           <button
             onClick={() => navigate('/')}
             className="flex items-center gap-2 px-4 py-2 bg-white border-3 border-black font-display font-bold text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
           >
             <ArrowLeft className="w-4 h-4" />
             {t('back', 'RETOUR')}
-          </button>
-
-          <button
-            onClick={handleShare}
-            className={`flex items-center gap-2 px-4 py-2 border-3 border-black font-display font-bold text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-              copiedLink ? 'bg-mint text-black' : 'bg-white text-black'
-            }`}
-          >
-            {copiedLink ? <Check className="w-4 h-4" /> : <Share2 className="w-4 h-4" />}
-            {copiedLink ? t('linkCopied', 'LIEN COPIE !') : t('share.button', 'PARTAGER')}
           </button>
         </div>
 
@@ -249,7 +212,7 @@ export const ResultPage: React.FC = () => {
           {/* Success badge */}
           <div className="text-center mb-6">
             <div className="inline-block bg-mint border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-              <span className="font-display font-bold text-base sm:text-lg text-black">
+              <span className="font-display font-bold text-base sm:text-lg text-vinted">
                 {t('success', 'AVATAR GENERE AVEC SUCCES')}
               </span>
             </div>
