@@ -284,48 +284,48 @@ export const AccountPage: React.FC = () => {
         </div>
 
         {/* Tabs Navigation */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8">
+        <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-row sm:gap-4 mb-8">
           <button
             onClick={() => {
               setActiveTab('stats');
               setSearchParams({}); // Remove query params for stats tab
             }}
-            className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-3 font-display font-bold text-sm sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${
+            className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-2 sm:px-6 py-2 sm:py-3 font-display font-bold text-xs sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${
               activeTab === 'stats'
                 ? 'bg-vinted text-white'
                 : 'bg-white text-black'
             }`}
           >
-            <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5" />
-            {t('tabs.stats')}
+            <BarChart3 className="w-5 h-5 sm:w-5 sm:h-5" />
+            <span className="text-center leading-tight">{t('tabs.stats')}</span>
           </button>
           <button
             onClick={() => {
               setActiveTab('history');
               setSearchParams({ tab: 'history' });
             }}
-            className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-3 font-display font-bold text-sm sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${
+            className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-2 sm:px-6 py-2 sm:py-3 font-display font-bold text-xs sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${
               activeTab === 'history'
                 ? 'bg-vinted text-white'
                 : 'bg-white text-black'
             }`}
           >
-            <Image className="w-4 h-4 sm:w-5 sm:h-5" />
-            {t('tabs.history')}
+            <Image className="w-5 h-5 sm:w-5 sm:h-5" />
+            <span className="text-center leading-tight">{t('tabs.history')}</span>
           </button>
           <button
             onClick={() => {
               setActiveTab('affiliate');
               setSearchParams({ tab: 'affiliate' });
             }}
-            className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-3 font-display font-bold text-sm sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${
+            className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-2 sm:px-6 py-2 sm:py-3 font-display font-bold text-xs sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${
               activeTab === 'affiliate'
                 ? 'bg-vinted text-white'
                 : 'bg-white text-black'
             }`}
           >
-            <Users className="w-4 h-4 sm:w-5 sm:h-5" />
-            {t('tabs.affiliate')}
+            <Users className="w-5 h-5 sm:w-5 sm:h-5" />
+            <span className="text-center leading-tight">{t('tabs.affiliate')}</span>
           </button>
         </div>
 
