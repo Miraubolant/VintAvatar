@@ -30,6 +30,7 @@ const MannequinIAVintedPage = React.lazy(() => import('./pages/MannequinIAVinted
 const VintedLookGratuitAlternativeProPage = React.lazy(() => import('./pages/VintedLookGratuitAlternativeProPage').then(module => ({ default: module.default })));
 const IAPhotoVintedGratuitVsPayantPage = React.lazy(() => import('./pages/IAPhotoVintedGratuitVsPayantPage').then(module => ({ default: module.default })));
 const AlgorithmeVintedVisibilitePage = React.lazy(() => import('./pages/AlgorithmeVintedVisibilitePage').then(module => ({ default: module.default })));
+const GuideCompletPhotosVinted2025Page = React.lazy(() => import('./pages/GuideCompletPhotosVinted2025Page').then(module => ({ default: module.default })));
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 const ResultPage = React.lazy(() => import('./pages/ResultPage').then(module => ({ default: module.ResultPage })));
@@ -147,6 +148,11 @@ function App() {
               <Route path="/articles/algorithme-vinted-visibilite" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <AlgorithmeVintedVisibilitePage />
+                </Suspense>
+              } />
+              <Route path="/articles/guide-complet-photos-vinted-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <GuideCompletPhotosVinted2025Page />
                 </Suspense>
               } />
               <Route path="/articles/:slug" element={
