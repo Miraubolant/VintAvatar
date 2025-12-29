@@ -47,7 +47,7 @@ const getStoredConfig = (): AvatarConfig => {
     angle: 'face',
     framing: 'corps-entier',
     decor: 'fond-blanc',
-    lighting: 'studio',
+    lighting: 'naturel',
     clothingType: 'auto',
     faceMode: 'visible',
     cropHead: false
@@ -527,31 +527,6 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                         }`}
                       >
                         {decor.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Éclairage */}
-                <div>
-                  <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('environnement.lighting.title')}</h3>
-                  <div className="grid grid-cols-2 gap-1.5">
-                    {[
-                      { id: 'studio', label: t('environnement.lighting.options.studio') },
-                      { id: 'naturel', label: t('environnement.lighting.options.naturel') },
-                      { id: 'doux', label: t('environnement.lighting.options.doux') },
-                      { id: 'dramatique', label: t('environnement.lighting.options.dramatique') }
-                    ].map((lighting) => (
-                      <button
-                        key={lighting.id}
-                        onClick={() => updateConfig('lighting', lighting.id)}
-                        className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                          config.lighting === lighting.id
-                            ? 'bg-pink-pastel text-black'
-                            : 'bg-white text-black hover:bg-cream'
-                        }`}
-                      >
-                        {lighting.label}
                       </button>
                     ))}
                   </div>
