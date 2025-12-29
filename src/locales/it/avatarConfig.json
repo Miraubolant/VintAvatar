@@ -109,12 +109,22 @@
     }
   },
   "environnement": {
+    "fondsUnis": {
+      "title": "SFONDI UNITI"
+    },
+    "decors": {
+      "title": "SFONDI"
+    },
     "decor": {
       "title": "SFONDO",
       "options": {
+        "fond-blanc": "BIANCO",
+        "fond-gris": "GRIGIO CHIARO",
+        "fond-beige": "BEIGE",
         "studio-pro": "STUDIO PRO",
-        "chambre": "CAMERA CASUAL",
-        "cabine": "CAMERINO",
+        "chambre-moderne": "CAMERA MODERNA",
+        "chambre-cosy": "CAMERA ACCOGLIENTE",
+        "mur-brique": "MURO DI MATTONI",
         "exterieur": "ESTERNO NATURALE"
       }
     },

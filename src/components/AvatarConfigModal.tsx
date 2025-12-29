@@ -46,7 +46,7 @@ const getStoredConfig = (): AvatarConfig => {
     posture: 'debout',
     angle: 'face',
     framing: 'corps-entier',
-    decor: 'chambre',
+    decor: 'fond-blanc',
     lighting: 'studio',
     clothingType: 'auto',
     faceMode: 'visible',
@@ -482,42 +482,72 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
             {activeTab === 'environnement' && (
               <div className="space-y-2 sm:space-y-3">
 
-                {/* Décor */}
+                {/* Fonds Unis */}
                 <div>
-                  <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('environnement.decor.title')}</h3>
-                  <div className="relative">
-                    <select
-                      value={config.decor}
-                      onChange={(e) => updateConfig('decor', e.target.value)}
-                      className="w-full p-1.5 sm:p-2 bg-white border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none transition-all duration-200 appearance-none cursor-pointer"
-                    >
-                      <option value="studio-pro">{t('environnement.decor.options.studio-pro')}</option>
-                      <option value="chambre">{t('environnement.decor.options.chambre')}</option>
-                      <option value="cabine">{t('environnement.decor.options.cabine')}</option>
-                      <option value="exterieur">{t('environnement.decor.options.exterieur')}</option>
-                    </select>
-                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                      <div className="w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-transparent border-t-black"></div>
-                    </div>
+                  <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('environnement.fondsUnis.title')}</h3>
+                  <div className="grid grid-cols-3 gap-1.5">
+                    {[
+                      { id: 'fond-blanc', label: t('environnement.decor.options.fond-blanc') },
+                      { id: 'fond-gris', label: t('environnement.decor.options.fond-gris') },
+                      { id: 'fond-beige', label: t('environnement.decor.options.fond-beige') }
+                    ].map((fond) => (
+                      <button
+                        key={fond.id}
+                        onClick={() => updateConfig('decor', fond.id)}
+                        className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                          config.decor === fond.id
+                            ? 'bg-vinted text-white'
+                            : 'bg-white text-black hover:bg-cream'
+                        }`}
+                      >
+                        {fond.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Décors */}
+                <div>
+                  <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('environnement.decors.title')}</h3>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    {[
+                      { id: 'studio-pro', label: t('environnement.decor.options.studio-pro') },
+                      { id: 'chambre-moderne', label: t('environnement.decor.options.chambre-moderne') },
+                      { id: 'chambre-cosy', label: t('environnement.decor.options.chambre-cosy') },
+                      { id: 'mur-brique', label: t('environnement.decor.options.mur-brique') },
+                      { id: 'exterieur', label: t('environnement.decor.options.exterieur') }
+                    ].map((decor) => (
+                      <button
+                        key={decor.id}
+                        onClick={() => updateConfig('decor', decor.id)}
+                        className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                          config.decor === decor.id
+                            ? 'bg-mint text-black'
+                            : 'bg-white text-black hover:bg-cream'
+                        }`}
+                      >
+                        {decor.label}
+                      </button>
+                    ))}
                   </div>
                 </div>
 
                 {/* Éclairage */}
                 <div>
                   <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('environnement.lighting.title')}</h3>
-                  <div className="grid grid-cols-4 gap-1">
+                  <div className="grid grid-cols-2 gap-1.5">
                     {[
                       { id: 'studio', label: t('environnement.lighting.options.studio') },
                       { id: 'naturel', label: t('environnement.lighting.options.naturel') },
-                      { id: 'dramatique', label: t('environnement.lighting.options.dramatique') },
-                      { id: 'doux', label: t('environnement.lighting.options.doux') }
+                      { id: 'doux', label: t('environnement.lighting.options.doux') },
+                      { id: 'dramatique', label: t('environnement.lighting.options.dramatique') }
                     ].map((lighting) => (
                       <button
                         key={lighting.id}
                         onClick={() => updateConfig('lighting', lighting.id)}
-                        className={`p-1 sm:p-1.5 border-2 border-black font-display font-bold text-[8px] sm:text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                        className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                           config.lighting === lighting.id
-                            ? 'bg-mint text-black'
+                            ? 'bg-pink-pastel text-black'
                             : 'bg-white text-black hover:bg-cream'
                         }`}
                       >

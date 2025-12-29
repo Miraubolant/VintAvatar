@@ -109,12 +109,22 @@
     }
   },
   "environnement": {
+    "fondsUnis": {
+      "title": "SOLID BACKGROUNDS"
+    },
+    "decors": {
+      "title": "BACKGROUNDS"
+    },
     "decor": {
       "title": "BACKGROUND",
       "options": {
+        "fond-blanc": "WHITE",
+        "fond-gris": "LIGHT GRAY",
+        "fond-beige": "BEIGE",
         "studio-pro": "PRO STUDIO",
-        "chambre": "CASUAL BEDROOM",
-        "cabine": "FITTING ROOM",
+        "chambre-moderne": "MODERN ROOM",
+        "chambre-cosy": "COZY ROOM",
+        "mur-brique": "BRICK WALL",
         "exterieur": "NATURAL OUTDOOR"
       }
     },
