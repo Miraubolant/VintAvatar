@@ -275,7 +275,7 @@ export const AccountPage: React.FC = () => {
         {/* Header */}
         <div className="mb-8">
           <div className="text-center">
-            <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-7xl text-black transform -rotate-2 mb-4 sm:mb-6 inline-block">
+            <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-7xl text-black mb-4 sm:mb-6 inline-block">
               <span className="inline-block bg-white border-4 border-black px-4 sm:px-6 py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                 {t('navigation.title')}
               </span>
@@ -290,10 +290,10 @@ export const AccountPage: React.FC = () => {
               setActiveTab('stats');
               setSearchParams({}); // Remove query params for stats tab
             }}
-            className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-3 font-display font-bold text-sm sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
+            className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-3 font-display font-bold text-sm sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${
               activeTab === 'stats'
-                ? 'bg-vinted text-white transform -rotate-1'
-                : 'bg-white text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]'
+                ? 'bg-vinted text-white'
+                : 'bg-white text-black'
             }`}
           >
             <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -304,10 +304,10 @@ export const AccountPage: React.FC = () => {
               setActiveTab('history');
               setSearchParams({ tab: 'history' });
             }}
-            className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-3 font-display font-bold text-sm sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
+            className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-3 font-display font-bold text-sm sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${
               activeTab === 'history'
-                ? 'bg-vinted text-white transform -rotate-1'
-                : 'bg-white text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]'
+                ? 'bg-vinted text-white'
+                : 'bg-white text-black'
             }`}
           >
             <Image className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -318,10 +318,10 @@ export const AccountPage: React.FC = () => {
               setActiveTab('affiliate');
               setSearchParams({ tab: 'affiliate' });
             }}
-            className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-3 font-display font-bold text-sm sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
+            className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-3 font-display font-bold text-sm sm:text-base border-4 border-black transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${
               activeTab === 'affiliate'
-                ? 'bg-vinted text-white transform -rotate-1'
-                : 'bg-white text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]'
+                ? 'bg-vinted text-white'
+                : 'bg-white text-black'
             }`}
           >
             <Users className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -333,9 +333,9 @@ export const AccountPage: React.FC = () => {
         {activeTab === 'stats' && (
           <>
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {/* Profile Card */}
-          <div className="bg-mint border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+          <div className="bg-mint border-4 border-black p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-white border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                 <User className="w-6 h-6 text-black" />
@@ -359,7 +359,7 @@ export const AccountPage: React.FC = () => {
           </div>
 
           {/* Credits Summary Card */}
-          <div className="bg-pink-pastel border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+          <div className="bg-pink-pastel border-4 border-black p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-white border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                 <CreditCard className="w-6 h-6 text-black" />
@@ -384,7 +384,7 @@ export const AccountPage: React.FC = () => {
           </div>
 
           {/* Total Generations Card */}
-          <div className="bg-vinted border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-0.5">
+          <div className="bg-vinted border-4 border-black p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-white border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                 <TrendingUp className="w-6 h-6 text-black" />
@@ -406,7 +406,7 @@ export const AccountPage: React.FC = () => {
 
         {/* Detailed Subscriptions */}
         {stats.subscriptions.length > 0 && (
-          <div className="bg-white border-4 border-black p-6 mb-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+          <div className="bg-white border-4 border-black p-6 mb-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 bg-vinted border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                 <CreditCard className="w-6 h-6 text-white" />
@@ -452,7 +452,7 @@ export const AccountPage: React.FC = () => {
 
         {/* Monthly Subscription Status */}
         {monthlySubscription && (
-          <div className="bg-white border-4 border-black p-6 mb-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+          <div className="bg-white border-4 border-black p-6 mb-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 bg-vinted border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                 <Target className="w-6 h-6 text-white" />
@@ -497,8 +497,8 @@ export const AccountPage: React.FC = () => {
               </div>
               
               {totalCredits === 0 && (
-                <div className="bg-yellow-100 border-2 border-yellow-500 p-3 shadow-[2px_2px_0px_0px_rgba(234,179,8,1)]">
-                  <p className="font-display font-bold text-xs text-yellow-800">SYSTÈME ACTUEL</p>
+                <div className="bg-cream border-3 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <p className="font-display font-bold text-xs text-black">SYSTÈME ACTUEL</p>
                 </div>
               )}
             </div>
@@ -508,14 +508,14 @@ export const AccountPage: React.FC = () => {
 
         {/* Last Generation */}
         {stats.last_generation_date && (
-          <div className="bg-pink-300 border-4 border-slate-900 p-6 mb-8 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)]">
+          <div className="bg-pink-pastel border-4 border-black p-6 mb-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-white border-2 border-slate-900">
-                <Clock className="w-6 h-6 text-slate-900" />
+              <div className="p-2 bg-white border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <Clock className="w-6 h-6 text-black" />
               </div>
-              <h3 className="text-xl font-black text-slate-900">{t('statsTab.lastGeneration')}</h3>
+              <h3 className="text-xl font-display font-bold text-black">{t('statsTab.lastGeneration')}</h3>
             </div>
-            <p className="font-bold text-slate-900">
+            <p className="font-body font-semibold text-black">
               {formatDateTime(stats.last_generation_date)}
             </p>
           </div>
@@ -523,7 +523,7 @@ export const AccountPage: React.FC = () => {
 
         {/* No Subscription Message */}
         {totalCredits === 0 && !monthlySubscription && (
-          <div className="bg-white border-4 border-black p-6 mb-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+          <div className="bg-white border-4 border-black p-6 mb-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             <div className="text-center">
               <div className="p-4 bg-vinted border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] inline-block mb-4">
                 <CreditCard className="w-8 h-8 text-white" />
@@ -544,13 +544,13 @@ export const AccountPage: React.FC = () => {
 
         {/* No Activity Message */}
         {stats.total_generations === 0 && (
-          <div className="bg-yellow-100 border-4 border-slate-900 p-6 mb-8 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)]">
+          <div className="bg-cream border-4 border-black p-6 mb-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             <div className="text-center">
-              <div className="p-4 bg-yellow-300 border-2 border-slate-900 inline-block mb-4">
-                <Zap className="w-8 h-8 text-slate-900" />
+              <div className="p-4 bg-mint border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] inline-block mb-4">
+                <Zap className="w-8 h-8 text-black" />
               </div>
-              <h3 className="text-2xl font-black text-slate-900 mb-2">{t('common.firstVisit')}</h3>
-              <p className="font-bold text-slate-900 mb-4">
+              <h3 className="text-2xl font-display font-bold text-black mb-2">{t('common.firstVisit')}</h3>
+              <p className="font-body font-semibold text-black mb-4">
                 {t('statsTab.usageHistory.noGenerations')}
               </p>
               <button
@@ -654,7 +654,7 @@ export const AccountPage: React.FC = () => {
                 </div>
               </div>
             ) : history.length === 0 ? (
-              <div className="bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1 text-center">
+              <div className="bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-center">
                 <div className="p-4 bg-cream border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] inline-block mb-4">
                   <Image className="w-8 h-8 text-black" />
                 </div>
@@ -671,15 +671,9 @@ export const AccountPage: React.FC = () => {
               </div>
             ) : (
               <div className="space-y-6">
-                <div className="text-center mb-8">
-                  <h2 className="font-display font-bold text-2xl text-black bg-mint border-4 border-black px-6 py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform -rotate-1">
-                    {t('historyTab.titleWithCount')}
-                  </h2>
-                </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {history.map((item) => (
-                    <div key={item.id} className="bg-white border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform hover:rotate-1 transition-transform duration-300">
+                    <div key={item.id} className="bg-white border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                       <div className="space-y-4">
                         {/* Date et Info */}
                         <div className="flex justify-between items-start gap-4">
@@ -852,7 +846,7 @@ export const AccountPage: React.FC = () => {
               <div className="space-y-8">
                 {/* Referral Code Section */}
                 {affiliation && (
-                  <div className="bg-white border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+                  <div className="bg-white border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-2 bg-mint border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                         <Link className="w-6 h-6 text-black" />
@@ -899,7 +893,7 @@ export const AccountPage: React.FC = () => {
 
                 {/* Statistics */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-mint border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                  <div className="bg-mint border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-2 bg-white border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                         <Users className="w-6 h-6 text-black" />
@@ -916,7 +910,7 @@ export const AccountPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="bg-yellow-300 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+                  <div className="bg-pink-pastel border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-2 bg-white border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                         <Gift className="w-6 h-6 text-black" />
@@ -971,7 +965,7 @@ export const AccountPage: React.FC = () => {
                 )}
 
                 {/* How it works */}
-                <div className="bg-cream border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                <div className="bg-cream border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                   <h3 className="font-display font-bold text-xl text-black mb-4 text-center">
                     COMMENT ÇA MARCHE ?
                   </h3>
@@ -1008,19 +1002,19 @@ export const AccountPage: React.FC = () => {
         )}
 
         {/* Zone Danger */}
-        <div className="bg-white border-4 border-red-500 p-6 mt-12 shadow-[6px_6px_0px_0px_rgba(239,68,68,1)]">
+        <div className="bg-white border-4 border-black p-6 mt-12 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-red-500 border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            <div className="p-2 bg-black border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
               <AlertTriangle className="w-6 h-6 text-white" />
             </div>
-            <h3 className="font-display font-bold text-xl text-red-600">ZONE DANGER</h3>
+            <h3 className="font-display font-bold text-xl text-black">ZONE DANGER</h3>
           </div>
 
           <div className="space-y-4">
             {/* Cancel Subscription Button - only show for monthly plans */}
             {monthlySubscription && monthlySubscription.status === 'active' && (
-              <div className="bg-red-50 border-2 border-red-300 p-4 shadow-[2px_2px_0px_0px_rgba(239,68,68,1)]">
-                <h4 className="font-display font-bold text-red-600 mb-2">{t('dangerZone.cancelSubscription.title')}</h4>
+              <div className="bg-cream border-3 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <h4 className="font-display font-bold text-black mb-2">{t('dangerZone.cancelSubscription.title')}</h4>
                 <p className="font-body text-sm text-gray-700 mb-4">
                   {t('dangerZone.cancelSubscription.description')}
                 </p>
@@ -1030,7 +1024,7 @@ export const AccountPage: React.FC = () => {
                     setIsDangerModalOpen(true);
                   }}
                   disabled={isActionLoading}
-                  className="px-6 py-3 bg-orange-400 text-black border-4 border-black font-display font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-vinted text-white border-4 border-black font-display font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isActionLoading ? t('dangerZone.cancelSubscription.processing') : t('dangerZone.cancelSubscription.button')}
                 </button>
@@ -1038,8 +1032,8 @@ export const AccountPage: React.FC = () => {
             )}
 
             {/* Delete Account Button */}
-            <div className="bg-red-100 border-2 border-red-400 p-4 shadow-[2px_2px_0px_0px_rgba(239,68,68,1)]">
-              <h4 className="font-display font-bold text-red-600 mb-2">{t('dangerZone.deleteAccount.title')}</h4>
+            <div className="bg-cream border-3 border-black p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <h4 className="font-display font-bold text-black mb-2">{t('dangerZone.deleteAccount.title')}</h4>
               <p className="font-body text-sm text-gray-700 mb-4">
                 {t('dangerZone.deleteAccount.description')}
               </p>
@@ -1049,7 +1043,7 @@ export const AccountPage: React.FC = () => {
                   setIsDangerModalOpen(true);
                 }}
                 disabled={isActionLoading}
-                className="px-6 py-3 bg-red-500 text-white border-4 border-black font-display font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-3 bg-black text-white border-4 border-black font-display font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isActionLoading ? t('dangerZone.deleteAccount.processing') : t('dangerZone.deleteAccount.button')}
               </button>
@@ -1088,8 +1082,8 @@ export const AccountPage: React.FC = () => {
               
               {/* Affichage d'erreur si applicable */}
               {cropError && (
-                <div className="p-3 bg-red-100 border-b-2 border-red-400 text-center">
-                  <p className="text-sm font-body text-red-600">{cropError}</p>
+                <div className="p-3 bg-cream border-b-3 border-black text-center">
+                  <p className="text-sm font-body font-semibold text-black">{cropError}</p>
                 </div>
               )}
               
