@@ -191,11 +191,12 @@ export const HistoryTab: React.FC<HistoryTabProps> = ({
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div className="flex justify-center items-center gap-2 mt-8">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-8">
+          {/* Bouton Précédent */}
           <button
             onClick={prevPage}
             disabled={!hasPrevPage}
-            className={`px-4 py-2 border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+            className={`w-full sm:w-auto px-3 sm:px-4 py-2 border-3 border-black font-display font-bold text-sm sm:text-base shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
               hasPrevPage
                 ? 'bg-vinted text-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
@@ -204,26 +205,95 @@ export const HistoryTab: React.FC<HistoryTabProps> = ({
             PRÉCÉDENT
           </button>
 
-          <div className="flex gap-1">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-              <button
-                key={page}
-                onClick={() => goToPage(page)}
-                className={`w-10 h-10 border-3 border-black font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                  currentPage === page
-                    ? 'bg-vinted text-white'
-                    : 'bg-white text-black hover:bg-mint'
-                }`}
-              >
-                {page}
-              </button>
-            ))}
+          {/* Numéros de page - Version adaptative */}
+          <div className="flex gap-1 overflow-x-auto max-w-full px-2 sm:px-0">
+            {(() => {
+              // Sur mobile, afficher max 5 pages, sur desktop toutes les pages
+              const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+              const maxVisiblePages = isMobile ? 5 : totalPages;
+
+              let startPage = 1;
+              let endPage = totalPages;
+
+              if (totalPages > maxVisiblePages) {
+                const halfVisible = Math.floor(maxVisiblePages / 2);
+                startPage = Math.max(1, currentPage - halfVisible);
+                endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+                // Ajuster si on est trop proche de la fin
+                if (endPage - startPage + 1 < maxVisiblePages) {
+                  startPage = Math.max(1, endPage - maxVisiblePages + 1);
+                }
+              }
+
+              const pages = [];
+
+              // Première page si pas visible
+              if (startPage > 1) {
+                pages.push(
+                  <button
+                    key={1}
+                    onClick={() => goToPage(1)}
+                    className="w-8 h-8 sm:w-10 sm:h-10 border-3 border-black font-display font-bold text-xs sm:text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 bg-white text-black hover:bg-mint flex-shrink-0"
+                  >
+                    1
+                  </button>
+                );
+                if (startPage > 2) {
+                  pages.push(
+                    <span key="ellipsis-start" className="px-2 font-display font-bold text-black flex items-center">
+                      ...
+                    </span>
+                  );
+                }
+              }
+
+              // Pages visibles
+              for (let page = startPage; page <= endPage; page++) {
+                pages.push(
+                  <button
+                    key={page}
+                    onClick={() => goToPage(page)}
+                    className={`w-8 h-8 sm:w-10 sm:h-10 border-3 border-black font-display font-bold text-xs sm:text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex-shrink-0 ${
+                      currentPage === page
+                        ? 'bg-vinted text-white'
+                        : 'bg-white text-black hover:bg-mint'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                );
+              }
+
+              // Dernière page si pas visible
+              if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                  pages.push(
+                    <span key="ellipsis-end" className="px-2 font-display font-bold text-black flex items-center">
+                      ...
+                    </span>
+                  );
+                }
+                pages.push(
+                  <button
+                    key={totalPages}
+                    onClick={() => goToPage(totalPages)}
+                    className="w-8 h-8 sm:w-10 sm:h-10 border-3 border-black font-display font-bold text-xs sm:text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 bg-white text-black hover:bg-mint flex-shrink-0"
+                  >
+                    {totalPages}
+                  </button>
+                );
+              }
+
+              return pages;
+            })()}
           </div>
 
+          {/* Bouton Suivant */}
           <button
             onClick={nextPage}
             disabled={!hasNextPage}
-            className={`px-4 py-2 border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+            className={`w-full sm:w-auto px-3 sm:px-4 py-2 border-3 border-black font-display font-bold text-sm sm:text-base shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
               hasNextPage
                 ? 'bg-vinted text-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
