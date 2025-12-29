@@ -30,21 +30,27 @@ export const PromoBanner: React.FC = () => {
     return () => window.removeEventListener('resize', updateHeight);
   }, []);
 
-  // Sticky behavior on scroll
+  // Sticky behavior using IntersectionObserver (no forced reflows)
   useEffect(() => {
-    const handleScroll = () => {
-      if (!placeholderRef.current) return;
+    if (!placeholderRef.current) return;
 
-      const headerHeight = window.innerWidth >= 1024 ? 96 : window.innerWidth >= 640 ? 80 : 64;
-      const placeholderTop = placeholderRef.current.getBoundingClientRect().top;
+    const headerHeight = window.innerWidth >= 1024 ? 96 : window.innerWidth >= 640 ? 80 : 64;
 
-      setIsSticky(placeholderTop <= headerHeight);
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Banner becomes sticky when placeholder is no longer visible at the top
+        setIsSticky(!entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: `-${headerHeight}px 0px 0px 0px`,
+        threshold: [0, 1]
+      }
+    );
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    observer.observe(placeholderRef.current);
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => observer.disconnect();
   }, []);
 
   // Marquee animation
