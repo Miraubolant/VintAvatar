@@ -71,13 +71,7 @@ export default function BlogIndexPage() {
       </section>
 
       {/* Articles Grid */}
-      <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
-        <div className="flex items-center justify-between mb-12">
-          <h2 className="text-3xl lg:text-4xl font-space-grotesk font-bold">
-            Tous les Articles ({articlesList.length})
-          </h2>
-        </div>
-
+      <div className="max-w-6xl mx-auto px-6 py-8 lg:py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sortedArticles.map((article) => (
             <Link
@@ -127,7 +121,7 @@ export default function BlogIndexPage() {
                   {article.tags.slice(0, 3).map((tag, index) => (
                     <span
                       key={index}
-                      className="bg-pink-pastel px-2 py-1 border-2 border-black font-space-grotesk font-semibold text-xs flex items-center gap-1"
+                      className="bg-vinted text-white px-2 py-1 border-2 border-black font-space-grotesk font-semibold text-xs flex items-center gap-1"
                     >
                       <Tag className="w-3 h-3" />
                       {tag}
