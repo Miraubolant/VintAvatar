@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, XCircle, TrendingUp, Target, DollarSign, FileText, Users, BarChart, Calendar, Zap } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
+import { ArticleNavigation } from '../components/ArticleNavigation';
 
 export const StrategieVenteVinted2025Page: React.FC = () => {
   useSEO({
@@ -11,7 +12,7 @@ export const StrategieVenteVinted2025Page: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream -mt-16 sm:-mt-20 lg:-mt-24 pt-16 sm:pt-20 lg:pt-24">
       {/* Hero Image Section */}
       <div className="relative h-[400px] lg:h-[500px] overflow-hidden border-b-4 border-black">
         <img
@@ -34,6 +35,7 @@ export const StrategieVenteVinted2025Page: React.FC = () => {
 
       {/* Article Content */}
       <div className="max-w-4xl mx-auto px-4 py-12 lg:py-20">
+        <ArticleNavigation />
 
         {/* Article Header */}
         <div className="mb-8">

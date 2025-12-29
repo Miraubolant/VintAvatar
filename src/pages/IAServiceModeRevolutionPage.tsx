@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
-import { ArrowLeft, Upload, Cpu, Sparkles, TrendingUp, Clock, DollarSign, Users, Zap, Eye, Target, Shield, CheckCircle2 } from 'lucide-react';
+import { ArticleNavigation } from '../components/ArticleNavigation';
+import { Upload, Cpu, Sparkles, TrendingUp, Clock, DollarSign, Users, Zap, Eye, Target, Shield, CheckCircle2 } from 'lucide-react';
 
 export default function IAServiceModeRevolutionPage() {
   useSEO({
@@ -10,7 +11,7 @@ export default function IAServiceModeRevolutionPage() {
   });
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream -mt-16 sm:-mt-20 lg:-mt-24 pt-16 sm:pt-20 lg:pt-24">
       {/* Hero Image */}
       <div className="w-full h-[400px] relative overflow-hidden">
         <img
@@ -23,14 +24,7 @@ export default function IAServiceModeRevolutionPage() {
 
       {/* Article Container */}
       <div className="max-w-4xl mx-auto px-6 py-12">
-        {/* Back Button */}
-        <Link
-          to="/blog"
-          className="inline-flex items-center gap-2 text-black hover:text-vinted transition-colors mb-8 font-space-grotesk font-semibold"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          Retour au blog
-        </Link>
+        <ArticleNavigation />
 
         {/* Article Header */}
         <article className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 lg:p-12 mb-12">
