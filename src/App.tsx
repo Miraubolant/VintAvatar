@@ -24,6 +24,7 @@ const SuccessPage = React.lazy(() => import('./pages/SuccessPage').then(module =
 const CancelPage = React.lazy(() => import('./pages/CancelPage').then(module => ({ default: module.CancelPage })));
 const AccountPage = React.lazy(() => import('./pages/AccountPage').then(module => ({ default: module.AccountPage })));
 const FAQPage = React.lazy(() => import('./pages/FAQPage').then(module => ({ default: module.FAQPage })));
+const BlogIndexPage = React.lazy(() => import('./pages/BlogIndexPage').then(module => ({ default: module.default })));
 const ArticlePage = React.lazy(() => import('./pages/ArticlePage').then(module => ({ default: module.ArticlePage })));
 const PhotoPorteeVintedPage = React.lazy(() => import('./pages/PhotoPorteeVintedPage').then(module => ({ default: module.PhotoPorteeVintedPage })));
 const MannequinIAVintedPage = React.lazy(() => import('./pages/MannequinIAVintedPage').then(module => ({ default: module.MannequinIAVintedPage })));
@@ -134,6 +135,11 @@ function App() {
               <Route path="/account" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <AccountPage />
+                </Suspense>
+              } />
+              <Route path="/blog" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <BlogIndexPage />
                 </Suspense>
               } />
               <Route path="/articles/photo-porte-vinted" element={
