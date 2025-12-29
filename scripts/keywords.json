@@ -1,31 +1,153 @@
 {
   "pending": [
     {
-      "primary": "photo porté vinted",
-      "secondary": ["photo portée vinted", "mettre vetement sur mannequin"],
-      "addedAt": "2025-12-26T15:55:18.684Z"
-    },
-    {
       "primary": "générateur annonce vinted",
-      "secondary": ["créer annonce vinted", "annonce vinted automatique"],
+      "secondary": [
+        "créer annonce vinted",
+        "annonce vinted automatique"
+      ],
       "addedAt": "2025-12-26T15:55:19.568Z"
     },
     {
       "primary": "avatar vinted",
-      "secondary": ["créer avatar vinted", "mannequin virtuel vinted"],
+      "secondary": [
+        "créer avatar vinted",
+        "mannequin virtuel vinted"
+      ],
       "addedAt": "2025-12-26T15:55:20.531Z"
     },
     {
       "primary": "ia photo vinted",
-      "secondary": ["photo ia vinted", "photo vinted ia"],
+      "secondary": [
+        "photo ia vinted",
+        "photo vinted ia"
+      ],
       "addedAt": "2025-12-26T15:55:36.003Z"
     },
     {
       "primary": "ai vinted",
-      "secondary": ["vinted ai photo", "artificial intelligence vinted"],
+      "secondary": [
+        "vinted ai photo",
+        "artificial intelligence vinted"
+      ],
       "addedAt": "2025-12-26T15:55:36.883Z"
+    },
+    {
+      "primary": "vendre plus vite vinted",
+      "secondary": [
+        "augmenter ventes vinted,booster vinted"
+      ],
+      "addedAt": "2025-12-26T16:16:58.134Z"
+    },
+    {
+      "primary": "photo professionnelle vinted",
+      "secondary": [
+        "photo pro vinted,qualité photo vinted"
+      ],
+      "addedAt": "2025-12-26T16:16:59.036Z"
+    },
+    {
+      "primary": "mettre vêtement sur mannequin",
+      "secondary": [
+        "habiller mannequin virtuel,vêtement sur modèle"
+      ],
+      "addedAt": "2025-12-26T16:16:59.949Z"
+    },
+    {
+      "primary": "application photo vinted",
+      "secondary": [
+        "app photo vinted,outil photo vinted"
+      ],
+      "addedAt": "2025-12-26T16:17:00.963Z"
+    },
+    {
+      "primary": "photo à plat vinted",
+      "secondary": [
+        "flat lay vinted,présentation vêtement vinted"
+      ],
+      "addedAt": "2025-12-26T16:17:02.015Z"
+    },
+    {
+      "primary": "fond blanc vinted",
+      "secondary": [
+        "arrière plan vinted,background photo vinted"
+      ],
+      "addedAt": "2025-12-26T16:17:03.106Z"
+    },
+    {
+      "primary": "retouche photo vinted",
+      "secondary": [
+        "éditer photo vinted,améliorer photo vinted"
+      ],
+      "addedAt": "2025-12-26T16:17:04.290Z"
+    },
+    {
+      "primary": "vinted conseils vendeur",
+      "secondary": [
+        "astuces vendeur vinted,tips vinted"
+      ],
+      "addedAt": "2025-12-26T16:17:05.262Z"
+    },
+    {
+      "primary": "modèle virtuel vêtement",
+      "secondary": [
+        "mannequin numérique,avatar mode"
+      ],
+      "addedAt": "2025-12-26T16:17:06.186Z"
+    },
+    {
+      "primary": "optimiser annonce vinted",
+      "secondary": [
+        "améliorer annonce vinted,annonce performante"
+      ],
+      "addedAt": "2025-12-26T16:17:07.155Z"
+    },
+    {
+      "primary": "visibilité vinted 2025",
+      "secondary": [
+        "être visible vinted,apparaître vinted"
+      ],
+      "addedAt": "2025-12-26T16:17:08.142Z"
+    },
+    {
+      "primary": "photo vêtement sans mannequin",
+      "secondary": [
+        "photographier vêtement seul,présenter vêtement"
+      ],
+      "addedAt": "2025-12-26T16:17:09.153Z"
+    },
+    {
+      "primary": "vinted pro astuce",
+      "secondary": [
+        "vendeur pro vinted,devenir pro vinted"
+      ],
+      "addedAt": "2025-12-26T16:17:10.172Z"
+    },
+    {
+      "primary": "intelligence artificielle mode",
+      "secondary": [
+        "ia fashion,ai vêtement"
+      ],
+      "addedAt": "2025-12-26T16:17:11.150Z"
+    },
+    {
+      "primary": "essayage virtuel vinted",
+      "secondary": [
+        "try on virtuel,virtual fitting"
+      ],
+      "addedAt": "2025-12-26T16:17:12.112Z"
     }
   ],
-  "processed": [],
-  "lastArticleId": 16
+  "processed": [
+    {
+      "primary": "photo porté vinted",
+      "secondary": [
+        "photo portée vinted",
+        "mettre vetement sur mannequin"
+      ],
+      "processedAt": "2025-12-29T09:02:44.776Z",
+      "articleSlug": "photo-porte-vinted"
+    }
+  ],
+  "lastArticleId": 17
 }

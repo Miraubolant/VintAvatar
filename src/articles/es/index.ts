@@ -13,6 +13,7 @@ import { article as iaPhotoGratuit } from './ia-photo-vinted-gratuit-vs-payant';
 import { article as algorithmeVinted } from './algorithme-vinted-visibilite';
 import { article as vintedLookGratuit } from './vinted-look-gratuit-alternative-pro';
 
+import { article as photoPorteVinted } from './photo-porte-vinted';
 export const articles = {
   [guidePhotos.slug]: guidePhotos,
   [astuces.slug]: astuces,
@@ -28,9 +29,10 @@ export const articles = {
   [iaPhotoGratuit.slug]: iaPhotoGratuit,
   [algorithmeVinted.slug]: algorithmeVinted,
   [vintedLookGratuit.slug]: vintedLookGratuit,
+  [photoPorteVinted.slug]: photoPorteVinted,
 };
 
 // Articles sorted by date (most recent first)
-export const articlesList = [vintedLookGratuit, mannequinIA, iaPhotoGratuit, algorithmeVinted, guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
+export const articlesList = [photoPorteVinted, vintedLookGratuit, mannequinIA, iaPhotoGratuit, algorithmeVinted, guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
 
 export type Article = typeof guidePhotos;

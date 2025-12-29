@@ -18,6 +18,7 @@ import { article as iaPhotoGratuit } from './ia-photo-vinted-gratuit-vs-payant';
 import { article as algorithmeVinted } from './algorithme-vinted-visibilite';
 import { article as vintedLookGratuit } from './vinted-look-gratuit-alternative-pro';
 
+import { article as photoPorteVinted } from './photo-porte-vinted';
 // Import multilingual articles
 import * as frArticles from './fr/index';
 import * as enArticles from './en/index';
@@ -42,10 +43,11 @@ const frenchArticles = {
   [iaPhotoGratuit.slug]: iaPhotoGratuit,
   [algorithmeVinted.slug]: algorithmeVinted,
   [vintedLookGratuit.slug]: vintedLookGratuit,
+  [photoPorteVinted.slug]: photoPorteVinted,
 };
 
 // Articles sorted by date (most recent first)
-const frenchArticlesList = [vintedLookGratuit, mannequinIA, iaPhotoGratuit, algorithmeVinted, commentPhotos, comparatif, guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
+const frenchArticlesList = [photoPorteVinted, vintedLookGratuit, mannequinIA, iaPhotoGratuit, algorithmeVinted, commentPhotos, comparatif, guidePhotos, strategie, tendances, vintage, identite, erreurs, successStory, astuces, ia, temoignage];
 
 // Get articles based on current language
 export const getArticles = () => {
