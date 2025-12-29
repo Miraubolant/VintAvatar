@@ -43,7 +43,7 @@ export const GuideCompletPhotosVinted2025Page: React.FC = () => {
             <span className="inline-block px-3 py-1 bg-vinted text-white border-3 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
               GUIDE
             </span>
-            <span className="font-body text-sm text-gray-600">Par Équipe VintedAvatar</span>
+            <span className="font-body text-sm text-gray-600">Par Équipe VintDress</span>
             <span className="font-body text-sm text-gray-600">•</span>
             <span className="font-body text-sm text-gray-600">15 Novembre 2025</span>
             <span className="font-body text-sm text-gray-600">•</span>

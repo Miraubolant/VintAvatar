@@ -45,7 +45,7 @@ export default function TendancesMode2025Page() {
             <span className="text-black">•</span>
             <span className="text-black">18 min de lecture</span>
             <span className="text-black">•</span>
-            <span className="text-black">Par Équipe VintedAvatar</span>
+            <span className="text-black">Par Équipe VintDress</span>
           </div>
 
           <div className="flex flex-wrap gap-2 mt-4">

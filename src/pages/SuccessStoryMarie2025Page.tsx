@@ -34,7 +34,7 @@ export default function SuccessStoryMarie2025Page() {
             </span>
             <span className="font-space-grotesk">18 Novembre 2025</span>
             <span className="font-space-grotesk">12 min de lecture</span>
-            <span className="font-space-grotesk font-semibold">Par Équipe VintedAvatar</span>
+            <span className="font-space-grotesk font-semibold">Par Équipe VintDress</span>
           </div>
 
           <h1 className="text-4xl lg:text-5xl font-space-grotesk font-bold mb-6 leading-tight">
@@ -99,7 +99,7 @@ export default function SuccessStoryMarie2025Page() {
                   Le Moment Révélateur
                 </h3>
                 <p className="italic mb-4">
-                  "J'ai découvert VintedAvatar en scrollant sur Instagram. Au début, j'étais sceptique : des photos IA pour mes vêtements ? Mais j'avais tout essayé..."
+                  "J'ai découvert VintDress en scrollant sur Instagram. Au début, j'étais sceptique : des photos IA pour mes vêtements ? Mais j'avais tout essayé..."
                 </p>
                 <div className="bg-white border-2 border-green-500 p-4">
                   <p className="font-semibold mb-2">Premier test : Robe Zara</p>
@@ -421,7 +421,7 @@ export default function SuccessStoryMarie2025Page() {
                 </h3>
                 <ul className="space-y-2">
                   <li>• Smartphone iPhone 13 Pro</li>
-                  <li>• VintedAvatar pour les photos IA</li>
+                  <li>• VintDress pour les photos IA</li>
                   <li>• Excel pour la gestion des stocks</li>
                   <li>• Étiquettes personnalisées premium</li>
                 </ul>
@@ -669,7 +669,7 @@ export default function SuccessStoryMarie2025Page() {
           {/* Disclaimer */}
           <div className="bg-gray-100 border-2 border-gray-400 p-4 mb-8">
             <p className="text-xs text-gray-600 italic">
-              Marie utilise VintedAvatar depuis plus d'un an. Résultats non garantis, variables selon l'investissement personnel.
+              Marie utilise VintDress depuis plus d'un an. Résultats non garantis, variables selon l'investissement personnel.
             </p>
           </div>
 

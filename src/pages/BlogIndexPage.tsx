@@ -5,7 +5,7 @@ import { articlesList } from '../articles';
 
 export default function BlogIndexPage() {
   useSEO({
-    title: "Blog VintedAvatar : Tous les Articles et Guides pour Vinted | Conseils, Astuces & Success Stories",
+    title: "Blog VintDress : Tous les Articles et Guides pour Vinted | Conseils, Astuces & Success Stories",
     description: "Découvre tous nos articles, guides et conseils pour réussir sur Vinted. Photos IA, stratégies de vente, témoignages et astuces pour booster tes ventes !",
     keywords: "blog vinted, articles vinted, guides vinted, conseils vente, astuces vinted, photos vinted, success stories, stratégie vente",
   });

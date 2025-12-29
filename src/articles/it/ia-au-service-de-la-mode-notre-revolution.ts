@@ -4,7 +4,7 @@ export const article = {
   title: "L'IA al Servizio della Moda: La Nostra Rivoluzione",
   excerpt: "Come la nostra tecnologia IA trasforma il modo in cui presenti i tuoi articoli di moda.",
   content: `
-# L'Intelligenza Artificiale al Servizio della Moda: La Rivoluzione VintedAvatar
+# L'Intelligenza Artificiale al Servizio della Moda: La Rivoluzione VintDress
 
 L'industria della moda second hand sta vivendo una rivoluzione silenziosa. Dietro ogni foto perfetta che vedi su Vinted, ora c'è una tecnologia che sta cambiando le regole del gioco: l'Intelligenza Artificiale.
 
@@ -35,7 +35,7 @@ In pochi secondi, ottieni una foto indossata professionale, come se un fotografo
 
 ## I Numeri che Parlano
 
-Dal lancio di VintedAvatar:
+Dal lancio di VintDress:
 
 **📈 +280% di visualizzazioni in media**
 Gli annunci con foto IA generano 2,8x più visualizzazioni delle foto tradizionali.
@@ -86,7 +86,7 @@ L'IA non è qui per sostituire la creatività umana, ma per democratizzarla. Ogg
 
 E tu, sei pronto/a a unirti a questa rivoluzione?
 
-**🚀 Prova VintedAvatar subito e trasforma le tue vendite!**
+**🚀 Prova VintDress subito e trasforma le tue vendite!**
   `,
   author: "Team Tecnico",
   date: "22 novembre 2025",
@@ -94,6 +94,6 @@ E tu, sei pronto/a a unirti a questa rivoluzione?
   readTime: "7 min",
   image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop",
   tags: ["IA", "Tecnologia", "Innovazione", "Moda", "E-commerce"],
-  metaDescription: "Scopri come l'IA rivoluziona la vendita di moda online. VintedAvatar trasforma le tue foto con tecnologia all'avanguardia.",
+  metaDescription: "Scopri come l'IA rivoluziona la vendita di moda online. VintDress trasforma le tue foto con tecnologia all'avanguardia.",
   keywords: ["IA moda", "foto IA", "tecnologia vinted", "innovazione moda", "intelligenza artificiale"]
 };

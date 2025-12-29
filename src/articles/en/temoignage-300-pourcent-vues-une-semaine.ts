@@ -2,21 +2,21 @@ export const article = {
   id: 3,
   slug: "temoignage-300-pourcent-vues-une-semaine",
   title: "Testimonial: +300% Views in One Week",
-  excerpt: "Marie tells us how VintedAvatar transformed her reselling business.",
+  excerpt: "Marie tells us how VintDress transformed her reselling business.",
   content: `
 # Success Story: How Marie Transformed Her Vinted Business
 
 *Testimonial collected on March 5, 2025*
 
-Today, we give the floor to Marie Johnson, 28 years old, from London and passionate seller on Vinted. Her story with VintedAvatar is simply stunning.
+Today, we give the floor to Marie Johnson, 28 years old, from London and passionate seller on Vinted. Her story with VintDress is simply stunning.
 
 ## The Key Moment
 
-**"I discovered VintedAvatar by chance on Instagram"**
+**"I discovered VintDress by chance on Instagram"**
 
 Marie tells us: *"I had a wardrobe full of clothes I couldn't sell. My photos were decent, but nothing exceptional. When I saw the possible results with AI, I wanted to test it."*
 
-## Before VintedAvatar: The Struggle
+## Before VintDress: The Struggle
 
 **The numbers speak for themselves:**
 - 📊 Average of 12 views per item
@@ -30,7 +30,7 @@ Marie tells us: *"I had a wardrobe full of clothes I couldn't sell. My photos we
 
 **First attempt: A black Zara dress**
 
-Marie decides to test VintedAvatar on a black Zara dress she couldn't sell for 2 months.
+Marie decides to test VintDress on a black Zara dress she couldn't sell for 2 months.
 
 **Results in 48h:**
 - 🚀 **67 views** (vs 8 with the old photo)
@@ -41,7 +41,7 @@ Marie decides to test VintedAvatar on a black Zara dress she couldn't sell for 2
 
 ## The Complete Transformation
 
-**Week 1 with VintedAvatar:**
+**Week 1 with VintDress:**
 
 Marie decides to redo all her most important photos:
 
@@ -92,15 +92,15 @@ Marie decides to redo all her most important photos:
 
 ## The Final Word
 
-**Marie concludes:** *"VintedAvatar didn't just improve my photos, it transformed my way of seeing online selling. I recommend it with my eyes closed to all Vinted sellers who want to move to the next level."*
+**Marie concludes:** *"VintDress didn't just improve my photos, it transformed my way of seeing online selling. I recommend it with my eyes closed to all Vinted sellers who want to move to the next level."*
 
-**Her final advice:** *"Don't wait! Every day without VintedAvatar is lost sales."*
+**Her final advice:** *"Don't wait! Every day without VintDress is lost sales."*
 
 ---
 
 **💡 And you, are you ready to join Marie and the thousands of users who have transformed their sales?**
 
-**🚀 [Try VintedAvatar now - It's free to start!](#generator)**
+**🚀 [Try VintDress now - It's free to start!](#generator)**
 
 ---
 
@@ -112,6 +112,6 @@ Marie decides to redo all her most important photos:
   readTime: "8 min",
   image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&h=400&fit=crop",
   tags: ["Testimonial", "Success Story", "Sales", "Transformation", "Results"],
-  metaDescription: "Discover how Marie multiplied her views by 3 in one week thanks to VintedAvatar. Complete testimonial with concrete results.",
+  metaDescription: "Discover how Marie multiplied her views by 3 in one week thanks to VintDress. Complete testimonial with concrete results.",
   keywords: ["vinted testimonial", "success story", "increase vinted views", "sales transformation", "marie johnson"]
 };

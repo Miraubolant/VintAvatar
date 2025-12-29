@@ -2,21 +2,21 @@ export const article = {
   id: 3,
   slug: "temoignage-300-pourcent-vues-une-semaine",
   title: "Témoignage : +300% de Vues en Une Semaine",
-  excerpt: "Marie nous raconte comment VintedAvatar a transformé son business de revente.",
+  excerpt: "Marie nous raconte comment VintDress a transformé son business de revente.",
   content: `
 # Success Story : Comment Marie a Transformé son Business Vinted
 
 *Témoignage recueilli le 5 Mars 2025*
 
-Aujourd'hui, nous donnons la parole à Marie Laurent, 28 ans, parisienne et vendeuse passionnée sur Vinted. Son histoire avec VintedAvatar est tout simplement bluffante.
+Aujourd'hui, nous donnons la parole à Marie Laurent, 28 ans, parisienne et vendeuse passionnée sur Vinted. Son histoire avec VintDress est tout simplement bluffante.
 
 ## Le Déclic
 
-**"J'ai découvert VintedAvatar par hasard sur Instagram"**
+**"J'ai découvert VintDress par hasard sur Instagram"**
 
 Marie nous raconte : *"J'avais une garde-robe pleine de vêtements que je n'arrivais pas à vendre. Mes photos étaient correctes, mais rien d'exceptionnel. Quand j'ai vu les résultats possibles avec l'IA, j'ai voulu tester."*
 
-## Avant VintedAvatar : La Galère
+## Avant VintDress : La Galère
 
 **Les chiffres parlent d'eux-mêmes :**
 - 📊 Moyenne de 12 vues par article
@@ -30,7 +30,7 @@ Marie nous raconte : *"J'avais une garde-robe pleine de vêtements que je n'arri
 
 **Premier essai : Une robe Zara noire**
 
-Marie décide de tester VintedAvatar sur une robe noire Zara qu'elle n'arrivait pas à vendre depuis 2 mois.
+Marie décide de tester VintDress sur une robe noire Zara qu'elle n'arrivait pas à vendre depuis 2 mois.
 
 **Résultats en 48h :**
 - 🚀 **67 vues** (vs 8 avec l'ancienne photo)
@@ -41,7 +41,7 @@ Marie décide de tester VintedAvatar sur une robe noire Zara qu'elle n'arrivait 
 
 ## La Transformation Complète
 
-**Semaine 1 avec VintedAvatar :**
+**Semaine 1 avec VintDress :**
 
 Marie décide de refaire toutes ses photos les plus importantes :
 
@@ -92,15 +92,15 @@ Marie décide de refaire toutes ses photos les plus importantes :
 
 ## Le Mot de la Fin
 
-**Marie conclut :** *"VintedAvatar n'a pas juste amélioré mes photos, ça a transformé ma façon de voir la vente en ligne. Je recommande les yeux fermés à tous les vendeurs Vinted qui veulent passer au niveau supérieur."*
+**Marie conclut :** *"VintDress n'a pas juste amélioré mes photos, ça a transformé ma façon de voir la vente en ligne. Je recommande les yeux fermés à tous les vendeurs Vinted qui veulent passer au niveau supérieur."*
 
-**Son conseil final :** *"N'attendez pas ! Chaque jour sans VintedAvatar, c'est des ventes perdues."*
+**Son conseil final :** *"N'attendez pas ! Chaque jour sans VintDress, c'est des ventes perdues."*
 
 ---
 
 **💡 Et toi, es-tu prêt(e) à rejoindre Marie et les milliers d'utilisateurs qui ont transformé leurs ventes ?**
 
-**🚀 [Teste VintedAvatar maintenant - C'est gratuit pour commencer !](#generateur)**
+**🚀 [Teste VintDress maintenant - C'est gratuit pour commencer !](#generateur)**
 
 ---
 
@@ -112,6 +112,6 @@ Marie décide de refaire toutes ses photos les plus importantes :
   readTime: "8 min",
   image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&h=400&fit=crop",
   tags: ["Témoignage", "Success Story", "Ventes", "Transformation", "Résultats"],
-  metaDescription: "Découvre comment Marie a multiplié ses vues par 3 en une semaine grâce à VintedAvatar. Témoignage complet et résultats chiffrés.",
+  metaDescription: "Découvre comment Marie a multiplié ses vues par 3 en une semaine grâce à VintDress. Témoignage complet et résultats chiffrés.",
   keywords: ["témoignage vinted", "success story", "augmenter vues vinted", "transformation ventes", "marie laurent"]
 };

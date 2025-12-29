@@ -5,8 +5,8 @@ import { TrendingUp, Clock, DollarSign, Star, Eye, MessageSquare, Zap, Heart, Th
 
 export default function Temoignage300PourcentVuesPage() {
   useSEO({
-    title: "Témoignage : +300% de Vues en Une Semaine | Success Story VintedAvatar",
-    description: "Découvre comment Marie a multiplié ses vues par 3 en une semaine grâce à VintedAvatar. Témoignage complet et résultats chiffrés.",
+    title: "Témoignage : +300% de Vues en Une Semaine | Success Story VintDress",
+    description: "Découvre comment Marie a multiplié ses vues par 3 en une semaine grâce à VintDress. Témoignage complet et résultats chiffrés.",
     keywords: "témoignage vinted, success story, augmenter vues vinted, transformation ventes, marie laurent",
   });
 
@@ -46,7 +46,7 @@ export default function Temoignage300PourcentVuesPage() {
           </p>
 
           <p className="text-lg text-gray-700 mb-12">
-            Aujourd'hui, nous donnons la parole à Marie Laurent, 28 ans, parisienne et vendeuse passionnée sur Vinted. Son histoire avec VintedAvatar est tout simplement bluffante.
+            Aujourd'hui, nous donnons la parole à Marie Laurent, 28 ans, parisienne et vendeuse passionnée sur Vinted. Son histoire avec VintDress est tout simplement bluffante.
           </p>
 
           {/* Stats Hero */}
@@ -81,7 +81,7 @@ export default function Temoignage300PourcentVuesPage() {
 
             <div className="bg-pink-pastel border-4 border-black p-8">
               <p className="text-2xl font-space-grotesk font-bold mb-4">
-                "J'ai découvert VintedAvatar par hasard sur Instagram"
+                "J'ai découvert VintDress par hasard sur Instagram"
               </p>
               <p className="text-lg italic text-gray-700">
                 Marie nous raconte : "J'avais une garde-robe pleine de vêtements que je n'arrivais pas à vendre. Mes photos étaient correctes, mais rien d'exceptionnel. Quand j'ai vu les résultats possibles avec l'IA, j'ai voulu tester."
@@ -89,10 +89,10 @@ export default function Temoignage300PourcentVuesPage() {
             </div>
           </div>
 
-          {/* Avant VintedAvatar */}
+          {/* Avant VintDress */}
           <div className="mb-12">
             <h2 className="text-3xl font-space-grotesk font-bold mb-6">
-              Avant VintedAvatar : La Galère
+              Avant VintDress : La Galère
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -131,7 +131,7 @@ export default function Temoignage300PourcentVuesPage() {
                 Premier essai : Une robe Zara noire
               </h3>
               <p className="mb-6">
-                Marie décide de tester VintedAvatar sur une robe noire Zara qu'elle n'arrivait pas à vendre depuis 2 mois.
+                Marie décide de tester VintDress sur une robe noire Zara qu'elle n'arrivait pas à vendre depuis 2 mois.
               </p>
 
               <h4 className="font-space-grotesk font-bold text-xl mb-4">
@@ -168,7 +168,7 @@ export default function Temoignage300PourcentVuesPage() {
             </h2>
 
             <p className="text-lg mb-6">
-              <strong>Semaine 1 avec VintedAvatar :</strong> Marie décide de refaire toutes ses photos les plus importantes.
+              <strong>Semaine 1 avec VintDress :</strong> Marie décide de refaire toutes ses photos les plus importantes.
             </p>
 
             <div className="overflow-x-auto mb-6">
@@ -377,16 +377,16 @@ export default function Temoignage300PourcentVuesPage() {
               Le Mot de la Fin
             </h2>
             <p className="text-white text-xl mb-6 italic">
-              "VintedAvatar n'a pas juste amélioré mes photos, ça a transformé ma façon de voir la vente en ligne. Je recommande les yeux fermés à tous les vendeurs Vinted qui veulent passer au niveau supérieur."
+              "VintDress n'a pas juste amélioré mes photos, ça a transformé ma façon de voir la vente en ligne. Je recommande les yeux fermés à tous les vendeurs Vinted qui veulent passer au niveau supérieur."
             </p>
             <p className="text-white text-lg font-semibold mb-8">
-              Son conseil final : "N'attendez pas ! Chaque jour sans VintedAvatar, c'est des ventes perdues."
+              Son conseil final : "N'attendez pas ! Chaque jour sans VintDress, c'est des ventes perdues."
             </p>
             <Link
               to="/"
               className="inline-block bg-white text-vinted px-8 py-4 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all font-space-grotesk font-bold text-lg"
             >
-              Teste VintedAvatar Maintenant !
+              Teste VintDress Maintenant !
             </Link>
           </div>
 
