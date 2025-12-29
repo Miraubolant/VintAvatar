@@ -31,7 +31,6 @@ export const AccountPage: React.FC = () => {
   const [isDangerModalOpen, setIsDangerModalOpen] = useState(false);
   const [dangerAction, setDangerAction] = useState<'cancel_subscription' | 'delete_account' | null>(null);
   const [isActionLoading, setIsActionLoading] = useState(false);
-  const [usageHistoryPage, setUsageHistoryPage] = useState(1);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [selectedImageUrl, setSelectedImageUrl] = useState<string>('');
   const [croppedImageUrl, setCroppedImageUrl] = useState<string | null>(null);
@@ -48,22 +47,13 @@ export const AccountPage: React.FC = () => {
     history,
     loading: historyLoading,
     error: historyError,
-    formatDateTime: formatHistoryDateTime,
-    currentPage,
-    totalPages,
-    nextPage,
-    prevPage,
-    goToPage,
-    hasNextPage,
-    hasPrevPage
+    formatDateTime: formatHistoryDateTime
   } = useGenerationHistory();
-  const { 
-    subscription, 
-    subscriptions, 
-    totalCredits, 
-    monthlySubscription, 
-    creditPacks, 
-    cancelMonthlySubscription 
+  const {
+    totalCredits,
+    monthlySubscription,
+    creditPacks,
+    cancelMonthlySubscription
   } = useSubscription();
   const { 
     affiliation, 
@@ -112,24 +102,6 @@ export const AccountPage: React.FC = () => {
       </div>
     );
   }
-
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'active': return 'bg-mint';
-      case 'canceled': return 'bg-pink-pastel';
-      case 'past_due': return 'bg-cream';
-      default: return 'bg-white';
-    }
-  };
-
-  const formatSubscriptionType = (planType: string) => {
-    switch (planType) {
-      case 'monthly': return t('subscriptionTypes.monthly');
-      case 'credits': return t('subscriptionTypes.credits');
-      default: return t('subscriptionTypes.unknown');
-    }
-  };
 
   const getSubscriptionEndDate = () => {
     if (!monthlySubscription) return undefined;
@@ -259,10 +231,10 @@ export const AccountPage: React.FC = () => {
     <div className="min-h-screen bg-cream py-12 relative">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-6">
           <div className="text-center">
-            <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-7xl text-black mb-4 sm:mb-6 inline-block">
-              <span className="inline-block bg-white border-4 border-black px-4 sm:px-6 py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+            <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-7xl mb-4 sm:mb-6 inline-block">
+              <span className="inline-block bg-vinted text-white border-4 border-black px-4 sm:px-6 py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                 {t('navigation.title')}
               </span>
             </h1>
@@ -334,13 +306,6 @@ export const AccountPage: React.FC = () => {
             historyLoading={historyLoading}
             historyError={historyError}
             formatHistoryDateTime={formatHistoryDateTime}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            goToPage={goToPage}
-            hasNextPage={hasNextPage}
-            hasPrevPage={hasPrevPage}
             onViewImage={handleViewImage}
             onDownloadImage={handleDownloadImage}
             onViewListing={(listing) => {
