@@ -6,7 +6,6 @@ import {
   CreditCard,
   TrendingUp,
   Zap,
-  ArrowLeft,
   Clock,
   Target,
   BarChart3,
@@ -19,7 +18,6 @@ import {
   X,
   Copy,
   Gift,
-  Scissors,
   FileText,
   Sparkles,
   Check
@@ -67,7 +65,6 @@ export const AccountPage: React.FC = () => {
     formatDateTime: formatHistoryDateTime,
     currentPage,
     totalPages,
-    totalCount,
     nextPage,
     prevPage,
     goToPage,
@@ -277,14 +274,6 @@ export const AccountPage: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="mb-8">
-          <button
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2 px-4 py-2 bg-vinted text-white border-4 border-black font-display font-bold transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-6"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            {t('navigation.back')}
-          </button>
-          
           <div className="text-center">
             <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-7xl text-black transform -rotate-2 mb-4 sm:mb-6 inline-block">
               <span className="inline-block bg-white border-4 border-black px-4 sm:px-6 py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
@@ -684,7 +673,7 @@ export const AccountPage: React.FC = () => {
               <div className="space-y-6">
                 <div className="text-center mb-8">
                   <h2 className="font-display font-bold text-2xl text-black bg-mint border-4 border-black px-6 py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform -rotate-1">
-                    {t('historyTab.titleWithCount')} ({totalCount})
+                    {t('historyTab.titleWithCount')}
                   </h2>
                 </div>
 
@@ -762,19 +751,19 @@ export const AccountPage: React.FC = () => {
                         )}
 
                         {/* Actions */}
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-col sm:flex-row flex-wrap gap-2">
                           {item.generated_image_url && (
                             <>
                               <button
                                 onClick={() => handleViewImage(item.generated_image_url)}
-                                className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-vinted text-white border-3 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                                className="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-3 py-2 bg-vinted text-white border-3 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                               >
                                 <Eye className="w-4 h-4" />
                                 <span>{t('imageModal.viewAndCrop')}</span>
                               </button>
                               <button
                                 onClick={() => handleDownloadImage(item.generated_image_url, `avatar-${item.id}.jpg`)}
-                                className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-mint text-black border-3 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                                className="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-3 py-2 bg-pink-pastel text-black border-3 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                               >
                                 <Download className="w-4 h-4" />
                                 {t('historyTab.downloadImage')}
@@ -789,7 +778,7 @@ export const AccountPage: React.FC = () => {
                                 setCopiedListingTitle(false);
                                 setCopiedListingDescription(false);
                               }}
-                              className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-r from-vinted to-teal-500 text-white border-3 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                              className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-vinted text-white border-3 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                             >
                               <FileText className="w-4 h-4" />
                               <span>{t('historyTab.viewListing', 'VOIR TITRE & DESCRIPTION')}</span>
@@ -1114,18 +1103,18 @@ export const AccountPage: React.FC = () => {
               </div>
               
               {/* Actions */}
-              <div className="p-4 bg-cream border-t-4 border-black flex gap-3">
+              <div className="p-4 bg-cream border-t-4 border-black flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={() => handleDownloadImage(
                     showCroppedVersion && croppedImageUrl ? croppedImageUrl : selectedImageUrl,
                     `avatar-${showCroppedVersion ? 'sans-tete' : 'original'}.jpg`
                   )}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-mint text-black border-3 border-black font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-pink-pastel text-black border-3 border-black font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                 >
                   <Download className="w-4 h-4" />
                   {t('historyTab.downloadImage')}
                 </button>
-                
+
                 {!croppedImageUrl ? (
                   <button
                     onClick={handleCropImage}
@@ -1141,8 +1130,8 @@ export const AccountPage: React.FC = () => {
                       </>
                     ) : (
                       <>
-                        <Scissors className="w-4 h-4" />
-                        <span>{t('imageModal.cropHead')}</span>
+                        <Eye className="w-4 h-4" />
+                        <span>{t('imageModal.viewAndCrop')}</span>
                       </>
                     )}
                   </button>
