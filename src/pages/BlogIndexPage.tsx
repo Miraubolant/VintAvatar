@@ -18,26 +18,30 @@ export default function BlogIndexPage() {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero Section */}
-      <div className="relative bg-vinted border-b-4 border-black py-16 lg:py-24 overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute top-10 right-10 w-20 h-20 bg-pink-pastel border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-12 hidden lg:block"></div>
-        <div className="absolute bottom-16 left-10 w-16 h-16 bg-mint border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-6 hidden lg:block"></div>
-        <div className="absolute top-1/2 right-1/4 w-12 h-12 rounded-full bg-cream border-4 border-black hidden lg:block"></div>
+      <div className="relative bg-cream py-12 lg:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          {/* Back Button */}
+          <div className="mb-6">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all font-space-grotesk font-bold"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Retour à l'accueil
+            </Link>
+          </div>
 
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all mb-8 font-space-grotesk font-bold"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Retour à l'accueil
-          </Link>
+          {/* Title */}
+          <div className="text-center mb-6">
+            <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-7xl mb-4 sm:mb-6 inline-block">
+              <span className="inline-block bg-vinted text-white border-4 border-black px-4 sm:px-6 py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                BLOG
+              </span>
+            </h1>
+          </div>
 
-          <h1 className="text-4xl lg:text-6xl font-space-grotesk font-bold text-white mb-6 relative inline-block">
-            Blog VintedAvatar
-            <div className="absolute -bottom-2 left-0 w-full h-2 bg-pink-pastel"></div>
-          </h1>
-          <p className="text-xl lg:text-2xl text-white font-space-grotesk max-w-3xl">
+          {/* Subtitle */}
+          <p className="text-center text-lg lg:text-xl text-black font-space-grotesk max-w-3xl mx-auto">
             Tous nos guides, conseils et success stories pour réussir sur Vinted avec l'IA !
           </p>
         </div>
