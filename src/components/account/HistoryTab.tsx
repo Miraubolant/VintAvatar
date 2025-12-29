@@ -205,88 +205,99 @@ export const HistoryTab: React.FC<HistoryTabProps> = ({
             PRÉCÉDENT
           </button>
 
-          {/* Numéros de page - Version adaptative */}
-          <div className="flex gap-1 overflow-x-auto max-w-full px-2 sm:px-0">
-            {(() => {
-              // Sur mobile, afficher max 5 pages, sur desktop toutes les pages
-              const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
-              const maxVisiblePages = isMobile ? 5 : totalPages;
+          {/* Numéros de page - Affichage simplifié sur mobile */}
+          <div className="flex items-center gap-1">
+            {/* Sur mobile: afficher seulement page courante */}
+            <div className="sm:hidden px-3 py-2 bg-mint border-3 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              {currentPage} / {totalPages}
+            </div>
 
-              let startPage = 1;
-              let endPage = totalPages;
+            {/* Sur desktop: afficher toutes les pages si <= 7, sinon avec ellipses */}
+            <div className="hidden sm:flex gap-1 flex-wrap justify-center">
+              {(() => {
+                const pages = [];
+                const maxVisible = 7; // Maximum de pages visibles
 
-              if (totalPages > maxVisiblePages) {
-                const halfVisible = Math.floor(maxVisiblePages / 2);
-                startPage = Math.max(1, currentPage - halfVisible);
-                endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+                if (totalPages <= maxVisible) {
+                  // Afficher toutes les pages
+                  for (let page = 1; page <= totalPages; page++) {
+                    pages.push(
+                      <button
+                        key={page}
+                        onClick={() => goToPage(page)}
+                        className={`w-10 h-10 border-3 border-black font-display font-bold text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                          currentPage === page
+                            ? 'bg-vinted text-white'
+                            : 'bg-white text-black hover:bg-mint'
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    );
+                  }
+                } else {
+                  // Logique avec ellipses
+                  const showFirst = currentPage > 3;
+                  const showLast = currentPage < totalPages - 2;
 
-                // Ajuster si on est trop proche de la fin
-                if (endPage - startPage + 1 < maxVisiblePages) {
-                  startPage = Math.max(1, endPage - maxVisiblePages + 1);
+                  if (showFirst) {
+                    pages.push(
+                      <button
+                        key={1}
+                        onClick={() => goToPage(1)}
+                        className="w-10 h-10 border-3 border-black font-display font-bold text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 bg-white text-black hover:bg-mint"
+                      >
+                        1
+                      </button>
+                    );
+                    pages.push(
+                      <span key="ellipsis-start" className="px-2 font-display font-bold text-black flex items-center">
+                        ...
+                      </span>
+                    );
+                  }
+
+                  // Pages autour de la page courante
+                  const start = Math.max(1, currentPage - 1);
+                  const end = Math.min(totalPages, currentPage + 1);
+
+                  for (let page = start; page <= end; page++) {
+                    pages.push(
+                      <button
+                        key={page}
+                        onClick={() => goToPage(page)}
+                        className={`w-10 h-10 border-3 border-black font-display font-bold text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                          currentPage === page
+                            ? 'bg-vinted text-white'
+                            : 'bg-white text-black hover:bg-mint'
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    );
+                  }
+
+                  if (showLast) {
+                    pages.push(
+                      <span key="ellipsis-end" className="px-2 font-display font-bold text-black flex items-center">
+                        ...
+                      </span>
+                    );
+                    pages.push(
+                      <button
+                        key={totalPages}
+                        onClick={() => goToPage(totalPages)}
+                        className="w-10 h-10 border-3 border-black font-display font-bold text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 bg-white text-black hover:bg-mint"
+                      >
+                        {totalPages}
+                      </button>
+                    );
+                  }
                 }
-              }
 
-              const pages = [];
-
-              // Première page si pas visible
-              if (startPage > 1) {
-                pages.push(
-                  <button
-                    key={1}
-                    onClick={() => goToPage(1)}
-                    className="w-8 h-8 sm:w-10 sm:h-10 border-3 border-black font-display font-bold text-xs sm:text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 bg-white text-black hover:bg-mint flex-shrink-0"
-                  >
-                    1
-                  </button>
-                );
-                if (startPage > 2) {
-                  pages.push(
-                    <span key="ellipsis-start" className="px-2 font-display font-bold text-black flex items-center">
-                      ...
-                    </span>
-                  );
-                }
-              }
-
-              // Pages visibles
-              for (let page = startPage; page <= endPage; page++) {
-                pages.push(
-                  <button
-                    key={page}
-                    onClick={() => goToPage(page)}
-                    className={`w-8 h-8 sm:w-10 sm:h-10 border-3 border-black font-display font-bold text-xs sm:text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex-shrink-0 ${
-                      currentPage === page
-                        ? 'bg-vinted text-white'
-                        : 'bg-white text-black hover:bg-mint'
-                    }`}
-                  >
-                    {page}
-                  </button>
-                );
-              }
-
-              // Dernière page si pas visible
-              if (endPage < totalPages) {
-                if (endPage < totalPages - 1) {
-                  pages.push(
-                    <span key="ellipsis-end" className="px-2 font-display font-bold text-black flex items-center">
-                      ...
-                    </span>
-                  );
-                }
-                pages.push(
-                  <button
-                    key={totalPages}
-                    onClick={() => goToPage(totalPages)}
-                    className="w-8 h-8 sm:w-10 sm:h-10 border-3 border-black font-display font-bold text-xs sm:text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 bg-white text-black hover:bg-mint flex-shrink-0"
-                  >
-                    {totalPages}
-                  </button>
-                );
-              }
-
-              return pages;
-            })()}
+                return pages;
+              })()}
+            </div>
           </div>
 
           {/* Bouton Suivant */}
