@@ -60,7 +60,20 @@ export const AccountPage: React.FC = () => {
   const [copiedListingDescription, setCopiedListingDescription] = useState(false);
   const { user, loading: authLoading, deleteUserAccount } = useAuth();
   const { stats, loading, error, formatDate, formatDateTime } = useAccountStats();
-  const { history, loading: historyLoading, error: historyError, formatDateTime: formatHistoryDateTime } = useGenerationHistory();
+  const {
+    history,
+    loading: historyLoading,
+    error: historyError,
+    formatDateTime: formatHistoryDateTime,
+    currentPage,
+    totalPages,
+    totalCount,
+    nextPage,
+    prevPage,
+    goToPage,
+    hasNextPage,
+    hasPrevPage
+  } = useGenerationHistory();
   const { 
     subscription, 
     subscriptions, 
@@ -671,7 +684,7 @@ export const AccountPage: React.FC = () => {
               <div className="space-y-6">
                 <div className="text-center mb-8">
                   <h2 className="font-display font-bold text-2xl text-black bg-mint border-4 border-black px-6 py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform -rotate-1">
-                    {t('historyTab.titleWithCount')} ({history.length})
+                    {t('historyTab.titleWithCount')} ({totalCount})
                   </h2>
                 </div>
 
@@ -787,6 +800,51 @@ export const AccountPage: React.FC = () => {
                     </div>
                   ))}
                 </div>
+
+                {/* Pagination */}
+                {totalPages > 1 && (
+                  <div className="flex justify-center items-center gap-2 mt-8">
+                    <button
+                      onClick={prevPage}
+                      disabled={!hasPrevPage}
+                      className={`px-4 py-2 border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                        hasPrevPage
+                          ? 'bg-vinted text-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
+                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      }`}
+                    >
+                      PRÉCÉDENT
+                    </button>
+
+                    <div className="flex gap-1">
+                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                        <button
+                          key={page}
+                          onClick={() => goToPage(page)}
+                          className={`w-10 h-10 border-3 border-black font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                            currentPage === page
+                              ? 'bg-vinted text-white'
+                              : 'bg-white text-black hover:bg-mint'
+                          }`}
+                        >
+                          {page}
+                        </button>
+                      ))}
+                    </div>
+
+                    <button
+                      onClick={nextPage}
+                      disabled={!hasNextPage}
+                      className={`px-4 py-2 border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                        hasNextPage
+                          ? 'bg-vinted text-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
+                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      }`}
+                    >
+                      SUIVANT
+                    </button>
+                  </div>
+                )}
               </div>
             )}
           </>

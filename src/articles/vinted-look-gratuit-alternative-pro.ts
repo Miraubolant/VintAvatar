@@ -154,7 +154,7 @@ VintDress te permet de créer des looks professionnels pour tes annonces Vinted 
   date: "26 Décembre 2025",
   category: "Guide",
   readTime: "5 min",
-  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop",
+  image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=400&fit=crop",
   tags: ["Vinted Look", "Photo Vinted", "Style Vinted", "Vente en ligne", "Mode"],
   metaDescription: "Crée des looks Vinted professionnels qui vendent. Découvre pourquoi les top vendeurs choisissent VintDress plutôt que les outils gratuits.",
   keywords: ["vinted look gratuit", "look vinted", "style vinted", "photo look vinted", "creer look vinted", "vinted style gratuit", "tenue vinted"],

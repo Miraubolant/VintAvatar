@@ -80,7 +80,7 @@ Buscabas soluciones gratuitas para mejorar tus fotos en Vinted, pero encontraste
   date: "26 de diciembre de 2025",
   category: "Guía",
   readTime: "8 min",
-  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop",
+  image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=400&fit=crop",
   tags: ["mannequin ia","vinted","fotos vinted","e-commerce","venta en línea"],
   metaDescription: "Optimiza tus ventas en Vinted con un mannequin IA. Descubre cómo VintDress puede transformar tus fotos.",
   keywords: ["mannequin ia vinted","mannequin virtual vinted","ia para foto vinted"],

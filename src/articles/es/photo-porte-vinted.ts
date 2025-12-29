@@ -79,7 +79,7 @@ Sí, VintDress te permite personalizar completamente tu maniquí según tus nece
   date: "29 de diciembre de 2025",
   category: "Consejos",
   readTime: "8 min",
-  image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&h=400&fit=crop",
+  image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=400&fit=crop",
   tags: ["foto llevada vinted","maniquí IA","venta Vinted","fotos profesionales","VintDress"],
   metaDescription: "Mejora tus ventas en Vinted gracias a fotos llevadas profesionales. Descubre VintDress, la solución premium para tus anuncios.",
   keywords: ["foto llevada vinted","foto llevada","poner prenda en maniquí","fotos profesionales vinted"],

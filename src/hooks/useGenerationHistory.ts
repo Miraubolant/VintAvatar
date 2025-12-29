@@ -25,6 +25,9 @@ export const useGenerationHistory = () => {
   const [history, setHistory] = useState<GenerationHistoryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+  const itemsPerPage = 10;
 
   useEffect(() => {
     if (!user) {
@@ -34,7 +37,7 @@ export const useGenerationHistory = () => {
     }
 
     fetchGenerationHistory();
-  }, [user]);
+  }, [user, currentPage]);
 
   // Écouter les mises à jour de l'historique
   useEffect(() => {
@@ -58,14 +61,27 @@ export const useGenerationHistory = () => {
       setLoading(true);
       setError(null);
 
-      // Fetch generation history with images and metadata
+      // Compter le nombre total de générations
+      const { count } = await supabase
+        .from('usage_tracking')
+        .select('*', { count: 'exact', head: true })
+        .eq('user_id', user.id)
+        .eq('generation_type', 'avatar');
+
+      setTotalCount(count || 0);
+
+      // Calculer l'offset pour la pagination
+      const from = (currentPage - 1) * itemsPerPage;
+      const to = from + itemsPerPage - 1;
+
+      // Fetch generation history with pagination
       const { data, error } = await supabase
         .from('usage_tracking')
         .select('*')
         .eq('user_id', user.id)
         .eq('generation_type', 'avatar')
         .order('created_at', { ascending: false })
-        .limit(50); // Limiter à 50 générations récentes
+        .range(from, to);
 
       if (error) throw error;
       
@@ -127,11 +143,39 @@ export const useGenerationHistory = () => {
     });
   };
 
+  const totalPages = Math.ceil(totalCount / itemsPerPage);
+
+  const goToPage = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
   return {
     history,
     loading,
     error,
     refetch: fetchGenerationHistory,
     formatDateTime,
+    currentPage,
+    totalPages,
+    totalCount,
+    goToPage,
+    nextPage,
+    prevPage,
+    hasNextPage: currentPage < totalPages,
+    hasPrevPage: currentPage > 1,
   };
 };
