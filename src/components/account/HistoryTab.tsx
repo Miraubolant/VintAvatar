@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Image, Download, Eye, FileText } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -8,13 +8,6 @@ interface HistoryTabProps {
   historyLoading: boolean;
   historyError: string | null;
   formatHistoryDateTime: (date: string) => string;
-  currentPage: number;
-  totalPages: number;
-  nextPage: () => void;
-  prevPage: () => void;
-  goToPage: (page: number) => void;
-  hasNextPage: boolean;
-  hasPrevPage: boolean;
   onViewImage: (imageUrl: string) => void;
   onDownloadImage: (imageUrl: string, filename: string) => void;
   onViewListing: (listing: { title: string; description: string }) => void;
@@ -25,19 +18,20 @@ export const HistoryTab: React.FC<HistoryTabProps> = ({
   historyLoading,
   historyError,
   formatHistoryDateTime,
-  currentPage,
-  totalPages,
-  nextPage,
-  prevPage,
-  goToPage,
-  hasNextPage,
-  hasPrevPage,
   onViewImage,
   onDownloadImage,
   onViewListing
 }) => {
   const { t } = useTranslation('account');
   const navigate = useNavigate();
+  const [visibleCount, setVisibleCount] = useState(10);
+
+  const visibleHistory = history.slice(0, visibleCount);
+  const hasMore = visibleCount < history.length;
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + 10);
+  };
 
   if (historyLoading) {
     return (
@@ -82,7 +76,7 @@ export const HistoryTab: React.FC<HistoryTabProps> = ({
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {history.map((item) => (
+        {visibleHistory.map((item) => (
           <div key={item.id} className="bg-white border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             <div className="space-y-4">
               {/* Date et Info */}
@@ -189,128 +183,14 @@ export const HistoryTab: React.FC<HistoryTabProps> = ({
         ))}
       </div>
 
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-8">
-          {/* Bouton Précédent */}
+      {/* Bouton Charger Plus */}
+      {hasMore && (
+        <div className="flex justify-center mt-8">
           <button
-            onClick={prevPage}
-            disabled={!hasPrevPage}
-            className={`w-full sm:w-auto px-3 sm:px-4 py-2 border-3 border-black font-display font-bold text-sm sm:text-base shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-              hasPrevPage
-                ? 'bg-vinted text-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}
+            onClick={handleLoadMore}
+            className="px-8 py-3 bg-vinted text-white border-4 border-black font-display font-bold text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
           >
-            PRÉCÉDENT
-          </button>
-
-          {/* Numéros de page - Affichage simplifié sur mobile */}
-          <div className="flex items-center gap-1">
-            {/* Sur mobile: afficher seulement page courante */}
-            <div className="sm:hidden px-3 py-2 bg-mint border-3 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-              {currentPage} / {totalPages}
-            </div>
-
-            {/* Sur desktop: afficher toutes les pages si <= 7, sinon avec ellipses */}
-            <div className="hidden sm:flex gap-1 flex-wrap justify-center">
-              {(() => {
-                const pages = [];
-                const maxVisible = 7; // Maximum de pages visibles
-
-                if (totalPages <= maxVisible) {
-                  // Afficher toutes les pages
-                  for (let page = 1; page <= totalPages; page++) {
-                    pages.push(
-                      <button
-                        key={page}
-                        onClick={() => goToPage(page)}
-                        className={`w-10 h-10 border-3 border-black font-display font-bold text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                          currentPage === page
-                            ? 'bg-vinted text-white'
-                            : 'bg-white text-black hover:bg-mint'
-                        }`}
-                      >
-                        {page}
-                      </button>
-                    );
-                  }
-                } else {
-                  // Logique avec ellipses
-                  const showFirst = currentPage > 3;
-                  const showLast = currentPage < totalPages - 2;
-
-                  if (showFirst) {
-                    pages.push(
-                      <button
-                        key={1}
-                        onClick={() => goToPage(1)}
-                        className="w-10 h-10 border-3 border-black font-display font-bold text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 bg-white text-black hover:bg-mint"
-                      >
-                        1
-                      </button>
-                    );
-                    pages.push(
-                      <span key="ellipsis-start" className="px-2 font-display font-bold text-black flex items-center">
-                        ...
-                      </span>
-                    );
-                  }
-
-                  // Pages autour de la page courante
-                  const start = Math.max(1, currentPage - 1);
-                  const end = Math.min(totalPages, currentPage + 1);
-
-                  for (let page = start; page <= end; page++) {
-                    pages.push(
-                      <button
-                        key={page}
-                        onClick={() => goToPage(page)}
-                        className={`w-10 h-10 border-3 border-black font-display font-bold text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                          currentPage === page
-                            ? 'bg-vinted text-white'
-                            : 'bg-white text-black hover:bg-mint'
-                        }`}
-                      >
-                        {page}
-                      </button>
-                    );
-                  }
-
-                  if (showLast) {
-                    pages.push(
-                      <span key="ellipsis-end" className="px-2 font-display font-bold text-black flex items-center">
-                        ...
-                      </span>
-                    );
-                    pages.push(
-                      <button
-                        key={totalPages}
-                        onClick={() => goToPage(totalPages)}
-                        className="w-10 h-10 border-3 border-black font-display font-bold text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 bg-white text-black hover:bg-mint"
-                      >
-                        {totalPages}
-                      </button>
-                    );
-                  }
-                }
-
-                return pages;
-              })()}
-            </div>
-          </div>
-
-          {/* Bouton Suivant */}
-          <button
-            onClick={nextPage}
-            disabled={!hasNextPage}
-            className={`w-full sm:w-auto px-3 sm:px-4 py-2 border-3 border-black font-display font-bold text-sm sm:text-base shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-              hasNextPage
-                ? 'bg-vinted text-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}
-          >
-            SUIVANT
+            CHARGER PLUS ({history.length - visibleCount} RESTANTES)
           </button>
         </div>
       )}
