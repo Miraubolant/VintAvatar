@@ -26,17 +26,6 @@ export default function BlogIndexPage() {
         <div className="hidden md:block absolute bottom-20 right-10 w-14 h-14 bg-pink-pastel border-4 border-black rounded-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 sm:pt-12 lg:pt-16 sm:pb-16 lg:pb-20">
-          {/* Back Button */}
-          <div className="mb-8">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all font-space-grotesk font-bold"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              Retour à l'accueil
-            </Link>
-          </div>
-
           <div className="text-center space-y-6">
             {/* Titre multi-lignes style Hero */}
             <div className="space-y-2">
@@ -65,6 +54,17 @@ export default function BlogIndexPage() {
                 Découvre tous nos conseils et success stories pour{' '}
                 <span className="text-vinted font-bold">booster tes ventes avec l'IA !</span>
               </p>
+            </div>
+
+            {/* Back Button */}
+            <div className="pt-6">
+              <Link
+                to="/"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all font-space-grotesk font-bold"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                Retour à l'accueil
+              </Link>
             </div>
           </div>
         </div>
