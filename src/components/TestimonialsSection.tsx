@@ -49,13 +49,11 @@ export const TestimonialsSection: React.FC = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`bg-white border-3 sm:border-4 border-black p-4 sm:p-6 lg:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                index % 5 === 0 ? 'rotate-1' : index % 5 === 1 ? '-rotate-1' : index % 5 === 2 ? 'rotate-0.5' : index % 5 === 3 ? '-rotate-0.5' : 'rotate-2'
-              }`}
+              className="bg-white border-3 sm:border-4 border-black p-4 sm:p-6 lg:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               {/* Quote Icon */}
               <div className="mb-3 sm:mb-4 lg:mb-6">
-                <div className={`w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 border-3 sm:border-4 border-black flex items-center justify-center transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] ${
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 border-3 sm:border-4 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] ${
                   index % 2 === 0 ? 'bg-vinted' : 'bg-mint'
                 }`}>
                   <Quote className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 ${index % 2 === 0 ? 'text-white' : 'text-black'}`} />
