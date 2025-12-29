@@ -2,6 +2,7 @@ import React from 'react';
 import { Sparkles, RefreshCw, AlertCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useBeforeAfter } from '../hooks/useBeforeAfter';
+import { OptimizedImage } from './OptimizedImage';
 
 export const BeforeAfterSection: React.FC = () => {
   const { items, loading, error, refetch } = useBeforeAfter();
@@ -76,8 +77,8 @@ export const BeforeAfterSection: React.FC = () => {
               {/* Side by Side Images */}
               <div className="flex h-64 md:h-80">
                 <div className="flex-1 relative border-r-2 border-black">
-                  <img
-                    src={item.before_image_url}
+                  <OptimizedImage
+                    imageName={item.before_image_name}
                     alt={`Photo Vinted avant transformation IA - ${item.category}`}
                     className="w-full h-full object-cover"
                     loading={index === 0 ? "eager" : "lazy"}
@@ -93,8 +94,8 @@ export const BeforeAfterSection: React.FC = () => {
                 </div>
 
                 <div className="flex-1 relative">
-                  <img
-                    src={item.after_image_url}
+                  <OptimizedImage
+                    imageName={item.after_image_name}
                     alt={`Avatar IA après génération automatique - ${item.category} portée`}
                     className="w-full h-full object-cover"
                     loading={index === 0 ? "eager" : "lazy"}

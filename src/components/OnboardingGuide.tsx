@@ -75,29 +75,35 @@ export const OnboardingGuide: React.FC<OnboardingGuideProps> = ({
   const updateElementBounds = useCallback(() => {
     if (!isOpen || !steps[currentStep]?.elementSelector) return;
 
-    const element = document.querySelector(steps[currentStep].elementSelector!);
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      setElementBounds(rect);
+    // Use requestAnimationFrame to batch layout reads (prevents forced reflows)
+    requestAnimationFrame(() => {
+      const element = document.querySelector(steps[currentStep].elementSelector!);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        setElementBounds(rect);
 
-      // Scroll element into view if needed (with extra padding for mobile)
-      const isMobile = window.innerWidth < 640;
-      const scrollPadding = isMobile ? 150 : 100;
-      const elementTop = rect.top + window.scrollY;
-      const elementBottom = elementTop + rect.height;
-      const viewportTop = window.scrollY;
-      const viewportBottom = viewportTop + window.innerHeight;
+        // Scroll element into view if needed (with extra padding for mobile)
+        const isMobile = window.innerWidth < 640;
+        const scrollPadding = isMobile ? 150 : 100;
+        const elementTop = rect.top + window.scrollY;
+        const elementBottom = elementTop + rect.height;
+        const viewportTop = window.scrollY;
+        const viewportBottom = viewportTop + window.innerHeight;
 
-      if (elementTop < viewportTop + scrollPadding || elementBottom > viewportBottom - scrollPadding) {
-        window.scrollTo({
-          top: elementTop - scrollPadding,
-          behavior: 'smooth'
-        });
+        if (elementTop < viewportTop + scrollPadding || elementBottom > viewportBottom - scrollPadding) {
+          // Use requestAnimationFrame for scroll too (smoother performance)
+          requestAnimationFrame(() => {
+            window.scrollTo({
+              top: elementTop - scrollPadding,
+              behavior: 'smooth'
+            });
+          });
+        }
+      } else {
+        console.warn('Element not found:', steps[currentStep].elementSelector);
+        setElementBounds(null);
       }
-    } else {
-      console.warn('Element not found:', steps[currentStep].elementSelector);
-      setElementBounds(null);
-    }
+    });
   }, [currentStep, isOpen]);
 
   useEffect(() => {
@@ -106,14 +112,23 @@ export const OnboardingGuide: React.FC<OnboardingGuideProps> = ({
     // Immediate update without delay
     updateElementBounds();
 
-    // Update on scroll and resize
-    const handleUpdate = () => updateElementBounds();
-    window.addEventListener('scroll', handleUpdate);
-    window.addEventListener('resize', handleUpdate);
+    // Throttle scroll/resize updates to prevent excessive layout reads
+    let rafId: number | null = null;
+    const handleUpdate = () => {
+      if (rafId !== null) return; // Skip if already scheduled
+      rafId = requestAnimationFrame(() => {
+        updateElementBounds();
+        rafId = null;
+      });
+    };
+
+    window.addEventListener('scroll', handleUpdate, { passive: true });
+    window.addEventListener('resize', handleUpdate, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleUpdate);
       window.removeEventListener('resize', handleUpdate);
+      if (rafId !== null) cancelAnimationFrame(rafId);
     };
   }, [updateElementBounds, isOpen]);
 
