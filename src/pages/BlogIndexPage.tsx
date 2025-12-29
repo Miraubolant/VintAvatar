@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
 import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
-import { articles } from '../articles';
+import { articlesList } from '../articles';
 
 export default function BlogIndexPage() {
   useSEO({
@@ -11,7 +11,7 @@ export default function BlogIndexPage() {
   });
 
   // Trier les articles par date (plus récent d'abord)
-  const sortedArticles = [...articles].sort((a, b) => {
+  const sortedArticles = [...articlesList].sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
@@ -41,7 +41,7 @@ export default function BlogIndexPage() {
       <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-3xl lg:text-4xl font-space-grotesk font-bold">
-            Tous les Articles ({articles.length})
+            Tous les Articles ({articlesList.length})
           </h2>
         </div>
 
