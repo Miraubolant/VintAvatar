@@ -111,11 +111,34 @@ export const HeroSection: React.FC = () => {
   const [showAuthRequiredModal, setShowAuthRequiredModal] = useState(false);
   const [showOnboardingGuide, setShowOnboardingGuide] = useState(false);
   const [shouldPulseGenerate, setShouldPulseGenerate] = useState(true);
+  const [counterValue, setCounterValue] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const { user, session } = useAuth();
   const navigate = useNavigate();
   const { t } = useTranslation('hero');
+
+  // Animation du compteur de photos au chargement
+  useEffect(() => {
+    const targetValue = 10000;
+    const duration = 2000; // 2 secondes pour l'animation
+    const steps = 60; // Nombre d'étapes pour l'animation
+    const increment = targetValue / steps;
+    const stepDuration = duration / steps;
+
+    let currentStep = 0;
+    const timer = setInterval(() => {
+      currentStep++;
+      if (currentStep >= steps) {
+        setCounterValue(targetValue);
+        clearInterval(timer);
+      } else {
+        setCounterValue(Math.floor(increment * currentStep));
+      }
+    }, stepDuration);
+
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     // Check if config exists
@@ -754,7 +777,9 @@ export const HeroSection: React.FC = () => {
 
               {/* Compteur */}
               <div className="flex flex-col items-center gap-0.5 sm:gap-1">
-                <span className="font-display font-bold text-lg sm:text-3xl text-black">+10 000</span>
+                <span className="font-display font-bold text-lg sm:text-3xl text-black">
+                  +{counterValue.toLocaleString('fr-FR')}
+                </span>
                 <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">photos transformées</span>
               </div>
 
