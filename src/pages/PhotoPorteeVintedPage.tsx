@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, User, Tag, CheckCircle, AlertTriangle, Star, ArrowRight } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
+import { ArticleNavigation } from '../components/ArticleNavigation';
 
 export const PhotoPorteeVintedPage: React.FC = () => {
   useSEO({
@@ -24,6 +25,7 @@ export const PhotoPorteeVintedPage: React.FC = () => {
 
       {/* Article Content */}
       <article className="max-w-4xl mx-auto px-4 py-12">
+        <ArticleNavigation />
 
         {/* Header */}
         <header className="mb-12">

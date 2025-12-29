@@ -9,6 +9,7 @@ import { CookieConsent } from './components/CookieConsent';
 import { Breadcrumbs } from './components/Breadcrumbs';
 import { LanguageProvider } from './components/LanguageProvider';
 import { PromoBanner } from './components/PromoBanner';
+import { ScrollToTopOnMount } from './components/ScrollToTopOnMount';
 import { useSEO, getHomeConfig } from './hooks/useSEO';
 import { useTranslation } from 'react-i18next';
 import './lib/i18n';
@@ -107,6 +108,7 @@ function App() {
             >
               Aller au contenu principal
             </a>
+            <ScrollToTopOnMount />
             <Header />
             <Breadcrumbs />
             <main id="main-content" role="main" className="pt-16 sm:pt-20 lg:pt-24">
