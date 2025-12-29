@@ -283,7 +283,14 @@ Style: professional fashion photography with sharp focus on the ${clothingType},
   }
 
   if (result.status === 'failed') {
-    throw new Error(`Replicate generation failed: ${result.error || 'Unknown error'}`)
+    const errorMessage = result.error || 'Unknown error'
+    // Detect sensitive content error (E005)
+    if (errorMessage.includes('E005') || errorMessage.toLowerCase().includes('sensitive') || errorMessage.toLowerCase().includes('flagged')) {
+      const sensitiveError = new Error('SENSITIVE_CONTENT')
+      sensitiveError.name = 'SensitiveContentError'
+      throw sensitiveError
+    }
+    throw new Error(`Replicate generation failed: ${errorMessage}`)
   }
 
   if (result.status !== 'succeeded') {
@@ -369,6 +376,18 @@ Deno.serve(async (req) => {
 
   } catch (error) {
     console.error('Generation error:', error)
+
+    // Handle sensitive content error
+    if (error.name === 'SensitiveContentError' || error.message === 'SENSITIVE_CONTENT') {
+      return new Response(
+        JSON.stringify({
+          error: 'Votre photo a été refusée par notre système de sécurité. Cela peut arriver si la photo contient des éléments sensibles ou inappropriés, si le vêtement est trop transparent ou révélateur, ou s\'il y a des éléments visibles non conformes à nos conditions. Essayez avec une autre photo de votre vêtement.',
+          errorCode: 'SENSITIVE_CONTENT'
+        }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
     return new Response(
       JSON.stringify({ error: error.message || 'Internal server error' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
