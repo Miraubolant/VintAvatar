@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, User, Tag, Zap, TrendingUp, Star, Shield, ArrowRight, CheckCircle, AlertTriangle } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
+import { ArticleNavigation } from '../components/ArticleNavigation';
 
 export const MannequinIAVintedPage: React.FC = () => {
   useSEO({
@@ -11,7 +12,7 @@ export const MannequinIAVintedPage: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream -mt-16 sm:-mt-20 lg:-mt-24 pt-16 sm:pt-20 lg:pt-24">
       {/* Hero Image */}
       <div className="relative h-[300px] md:h-[400px] border-b-4 border-black overflow-hidden">
         <img
@@ -24,6 +25,7 @@ export const MannequinIAVintedPage: React.FC = () => {
 
       {/* Article Content */}
       <article className="max-w-4xl mx-auto px-4 py-12">
+        <ArticleNavigation />
 
         {/* Header */}
         <header className="mb-12">

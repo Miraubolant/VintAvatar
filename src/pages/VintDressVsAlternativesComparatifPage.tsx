@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSEO } from '../hooks/useSEO';
+import { ArticleNavigation } from '../components/ArticleNavigation';
 import { TrendingUp, Target, Award, Scale, Users, MessageCircle, Trophy, ArrowRight, Check, X, AlertCircle } from 'lucide-react';
 
 export default function VintDressVsAlternativesComparatifPage() {
@@ -10,7 +11,7 @@ export default function VintDressVsAlternativesComparatifPage() {
   });
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream -mt-16 sm:-mt-20 lg:-mt-24 pt-16 sm:pt-20 lg:pt-24">
       {/* Hero Image Section */}
       <div className="relative h-[400px] overflow-hidden border-b-4 border-black">
         <img
@@ -33,6 +34,8 @@ export default function VintDressVsAlternativesComparatifPage() {
 
       {/* Article Header */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <ArticleNavigation />
+
         <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <div className="flex flex-wrap items-center gap-4 text-sm font-display font-semibold">
             <span className="bg-vinted border-2 border-black px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-white">
