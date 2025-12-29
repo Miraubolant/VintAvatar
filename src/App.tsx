@@ -40,6 +40,7 @@ const VendreVintageVintedGuidePage = React.lazy(() => import('./pages/VendreVint
 const IdentiteVisuelleVintedPage = React.lazy(() => import('./pages/IdentiteVisuelleVintedPage').then(module => ({ default: module.default })));
 const ErreursVentesVintedPage = React.lazy(() => import('./pages/ErreursVentesVintedPage').then(module => ({ default: module.default })));
 const SuccessStoryMarie2025Page = React.lazy(() => import('./pages/SuccessStoryMarie2025Page').then(module => ({ default: module.default })));
+const IAServiceModeRevolutionPage = React.lazy(() => import('./pages/IAServiceModeRevolutionPage').then(module => ({ default: module.default })));
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 const ResultPage = React.lazy(() => import('./pages/ResultPage').then(module => ({ default: module.ResultPage })));
@@ -207,6 +208,11 @@ function App() {
               <Route path="/articles/success-story-marie-2025" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <SuccessStoryMarie2025Page />
+                </Suspense>
+              } />
+              <Route path="/articles/ia-au-service-de-la-mode-notre-revolution" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <IAServiceModeRevolutionPage />
                 </Suspense>
               } />
               <Route path="/articles/:slug" element={
