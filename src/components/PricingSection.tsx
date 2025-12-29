@@ -235,7 +235,7 @@ export const PricingSection: React.FC = () => {
             const textColors = ["text-black", "text-black", "text-white", "text-black"];
             return (
             <div key={idx} className="text-center h-full">
-              <div className={`${backgrounds[idx]} ${textColors[idx]} border-4 border-black p-3 sm:p-4 lg:p-6 transform ${idx % 2 === 0 ? 'rotate-1' : '-rotate-1'} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 h-full min-h-[120px] sm:min-h-[140px] flex flex-col justify-center`}>
+              <div className={`${backgrounds[idx]} ${textColors[idx]} border-4 border-black p-3 sm:p-4 lg:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 h-full min-h-[120px] sm:min-h-[140px] flex flex-col justify-center`}>
                 <div className="font-display font-bold text-lg sm:text-2xl lg:text-3xl mb-1 sm:mb-2 leading-tight">
                   {stat.value}
                 </div>
@@ -250,7 +250,7 @@ export const PricingSection: React.FC = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <div className="inline-block bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+          <div className="inline-block bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-display font-bold text-2xl text-black mb-4">
               {t('cta.title')}
             </h3>
