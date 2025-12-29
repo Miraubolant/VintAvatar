@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Search, ArrowLeft } from 'lucide-react';
+import { Home, RefreshCw, ArrowLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useSEO } from '../hooks/useSEO';
 import { SITE_CONFIG } from '../constants';
@@ -46,6 +46,14 @@ export const NotFoundPage: React.FC = () => {
             <Home className="w-5 h-5" />
             {t('buttons.backToHome', 'Retour à l\'accueil')}
           </Link>
+
+          <button
+            onClick={() => window.location.reload()}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-pink-pastel text-black border-3 border-black font-display font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+          >
+            <RefreshCw className="w-5 h-5" />
+            {t('buttons.refresh', 'Rafraîchir')}
+          </button>
 
           <button
             onClick={() => window.history.back()}
