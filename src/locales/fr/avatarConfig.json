@@ -109,12 +109,22 @@
     }
   },
   "environnement": {
+    "fondsUnis": {
+      "title": "FONDS UNIS"
+    },
+    "decors": {
+      "title": "DÉCORS"
+    },
     "decor": {
       "title": "DÉCOR",
       "options": {
+        "fond-blanc": "BLANC",
+        "fond-gris": "GRIS CLAIR",
+        "fond-beige": "BEIGE",
         "studio-pro": "STUDIO PRO",
-        "chambre": "CHAMBRE DÉCONTRACTÉE",
-        "cabine": "CABINE D'ESSAYAGE",
+        "chambre-moderne": "CHAMBRE MODERNE",
+        "chambre-cosy": "CHAMBRE COSY",
+        "mur-brique": "MUR DE BRIQUE",
         "exterieur": "EXTÉRIEUR NATUREL"
       }
     },

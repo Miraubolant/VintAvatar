@@ -143,10 +143,14 @@ async function generateWithReplicate(imageUrl: string, config: GenerationConfig)
   }
 
   const decorMap: { [key: string]: string } = {
-    'studio-pro': 'professional white studio backdrop with soft lighting',
-    'chambre': 'modern clean bedroom interior',
-    'cabine': 'fitting room with mirror and good lighting',
-    'exterieur': 'natural outdoor setting with soft daylight'
+    'fond-blanc': 'clean pure white background, professional solid white backdrop',
+    'fond-gris': 'clean light gray background, professional solid gray backdrop',
+    'fond-beige': 'clean beige/cream background, warm neutral solid backdrop',
+    'studio-pro': 'professional white studio backdrop with softbox lighting setup',
+    'chambre-moderne': 'modern minimalist bedroom with clean white walls and simple decor',
+    'chambre-cosy': 'cozy warm bedroom with wooden furniture and soft textiles',
+    'mur-brique': 'industrial exposed brick wall background, urban loft style',
+    'exterieur': 'natural outdoor setting with soft daylight, urban or park background'
   }
 
   const postureMap: { [key: string]: string } = {

@@ -109,12 +109,22 @@
     }
   },
   "environnement": {
+    "fondsUnis": {
+      "title": "FONDOS LISOS"
+    },
+    "decors": {
+      "title": "FONDOS"
+    },
     "decor": {
       "title": "FONDO",
       "options": {
+        "fond-blanc": "BLANCO",
+        "fond-gris": "GRIS CLARO",
+        "fond-beige": "BEIGE",
         "studio-pro": "ESTUDIO PRO",
-        "chambre": "DORMITORIO CASUAL",
-        "cabine": "PROBADOR",
+        "chambre-moderne": "HABITACIÓN MODERNA",
+        "chambre-cosy": "HABITACIÓN ACOGEDORA",
+        "mur-brique": "PARED DE LADRILLO",
         "exterieur": "EXTERIOR NATURAL"
       }
     },
