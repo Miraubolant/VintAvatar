@@ -61,7 +61,9 @@
       "Bash(del:*)",
       "Bash(git fetch:*)",
       "Bash($env:SUPABASE_ACCESS_TOKEN=\"***REMOVED***\")",
-      "Bash(export SUPABASE_ACCESS_TOKEN=***REMOVED***)"
+      "Bash(export SUPABASE_ACCESS_TOKEN=***REMOVED***)",
+      "Bash(git pull:*)",
+      "Bash(ls:*)"
     ],
     "deny": [],
     "ask": []

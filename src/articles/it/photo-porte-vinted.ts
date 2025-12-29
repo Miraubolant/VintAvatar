@@ -79,7 +79,7 @@ Sì, VintDress ti consente di personalizzare completamente il tuo mannequin in b
   date: "29 dicembre 2025",
   category: "Consigli",
   readTime: "8 min",
-  image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&h=400&fit=crop",
+  image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=400&fit=crop",
   tags: ["foto indossate vinted","mannequin IA","vendita Vinted","foto professionali","VintDress"],
   metaDescription: "Migliora le tue vendite su Vinted grazie a foto indossate professionali. Scopri VintDress, la soluzione premium per le tue inserzioni.",
   keywords: ["foto indossate vinted","foto indossate","mettere vestito su mannequin","foto professionali vinted"],

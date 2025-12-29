@@ -79,7 +79,7 @@ Yes, VintDress allows you to fully customize your model according to your needs:
   date: "December 29, 2025",
   category: "Tips",
   readTime: "8 min",
-  image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&h=400&fit=crop",
+  image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=400&fit=crop",
   tags: ["model photo vinted","AI model","Vinted sales","professional photos","VintDress"],
   metaDescription: "Boost your sales on Vinted with professional model photos. Discover VintDress, the premium solution for your listings.",
   keywords: ["model photo vinted","model photo","put clothing on model","professional photos vinted"],
