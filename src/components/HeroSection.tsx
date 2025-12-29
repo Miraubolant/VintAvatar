@@ -5,6 +5,7 @@ import { AvatarConfigModal } from './AvatarConfigModal';
 import { GenerationLoadingModal } from './GenerationLoadingModal';
 import { AuthModal } from './AuthModal';
 import { OnboardingGuide } from './OnboardingGuide';
+import { InvalidFileModal } from './InvalidFileModal';
 import { useAuth } from '../hooks/useAuth';
 import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
@@ -109,6 +110,8 @@ export const HeroSection: React.FC = () => {
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   const [showImageRequiredModal, setShowImageRequiredModal] = useState(false);
   const [showAuthRequiredModal, setShowAuthRequiredModal] = useState(false);
+  const [showInvalidFileModal, setShowInvalidFileModal] = useState(false);
+  const [invalidFileName, setInvalidFileName] = useState<string>('');
   const [showOnboardingGuide, setShowOnboardingGuide] = useState(false);
   const [shouldPulseGenerate, setShouldPulseGenerate] = useState(true);
   const [counterValue, setCounterValue] = useState(0);
@@ -227,6 +230,18 @@ export const HeroSection: React.FC = () => {
 
     const file = event.target.files?.[0];
     if (file) {
+      // Vérifier que c'est bien une image
+      const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
+      if (!validImageTypes.includes(file.type)) {
+        setInvalidFileName(file.name);
+        setShowInvalidFileModal(true);
+        // Reset file input
+        if (fileInputRef.current) {
+          fileInputRef.current.value = '';
+        }
+        return;
+      }
+
       try {
         // Compresser et redimensionner l'image avant de l'utiliser
         const compressedImage = await compressImage(file);
@@ -939,6 +954,16 @@ export const HeroSection: React.FC = () => {
       <AuthModal
         isOpen={showAuthRequiredModal}
         onClose={() => setShowAuthRequiredModal(false)}
+      />
+
+      {/* Invalid File Modal */}
+      <InvalidFileModal
+        isOpen={showInvalidFileModal}
+        onClose={() => {
+          setShowInvalidFileModal(false);
+          setInvalidFileName('');
+        }}
+        fileName={invalidFileName}
       />
 
       {/* Onboarding Guide */}
