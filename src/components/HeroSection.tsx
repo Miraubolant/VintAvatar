@@ -528,7 +528,7 @@ export const HeroSection: React.FC = () => {
 
 
   return (
-    <section id="hero" className="relative bg-cream overflow-hidden">
+    <section id="hero" className="relative bg-cream overflow-hidden -mt-16 sm:-mt-20 lg:-mt-24 pt-16 sm:pt-20 lg:pt-24">
       {/* Formes décoratives neo-brutalism - cachées sur mobile pour éviter débordement */}
       <div className="hidden md:block absolute top-20 left-10 w-12 h-12 bg-pink-pastel border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="hidden md:block absolute top-32 right-20 w-16 h-16 bg-mint border-4 border-black transform -rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
