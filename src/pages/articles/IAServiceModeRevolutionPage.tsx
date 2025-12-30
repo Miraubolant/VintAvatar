@@ -11,7 +11,7 @@ export default function IAServiceModeRevolutionPage() {
   });
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen">
       {/* Hero Image */}
       <div className="w-full h-[400px] relative overflow-hidden">
         <img

@@ -12,7 +12,7 @@ export const AlgorithmeVintedVisibilitePage: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen">
       {/* Hero Image Section */}
       <div className="relative h-[400px] lg:h-[500px] overflow-hidden border-b-4 border-black">
         <img
