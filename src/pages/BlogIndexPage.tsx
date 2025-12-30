@@ -30,19 +30,19 @@ export default function BlogIndexPage() {
           <div className="text-center space-y-6">
             {/* Titre multi-lignes style Hero */}
             <div className="space-y-2">
-              <h1 className="font-display font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
+              <h1 className="font-display font-semibold text-[1.75rem] xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 <div className="mb-2">
-                  <span className="inline-block bg-white text-black border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                  <span className="inline-block bg-white text-black border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
                     Tous nos
                   </span>
                 </div>
                 <div className="mb-2">
-                  <span className="inline-block bg-vinted text-white border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+                  <span className="inline-block bg-vinted text-white border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
                     Articles & Guides
                   </span>
                 </div>
                 <div>
-                  <span className="inline-block bg-mint text-black border-3 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                  <span className="inline-block bg-mint text-black border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
                     Vinted
                   </span>
                 </div>
