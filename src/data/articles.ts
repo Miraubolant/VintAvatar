@@ -36,7 +36,7 @@ export const articles: Article[] = [
     readingTime: '8 min',
     readTime: '8 min',
     category: 'Guide',
-    image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&h=800&fit=crop'
   },
   {
     id: 'mannequin-ia-vinted',
@@ -51,7 +51,7 @@ export const articles: Article[] = [
     readingTime: '6 min',
     readTime: '6 min',
     category: 'Technologie',
-    image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&h=800&fit=crop'
   },
   {
     id: 'vinted-look-gratuit-alternative-pro',
@@ -66,7 +66,7 @@ export const articles: Article[] = [
     readingTime: '7 min',
     readTime: '7 min',
     category: 'Comparatif',
-    image: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=1200&h=800&fit=crop'
   },
   {
     id: 'ia-photo-vinted-gratuit-vs-payant',
@@ -81,7 +81,7 @@ export const articles: Article[] = [
     readingTime: '9 min',
     readTime: '9 min',
     category: 'Comparatif',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop'
   },
   {
     id: 'algorithme-vinted-visibilite',
@@ -96,7 +96,7 @@ export const articles: Article[] = [
     readingTime: '10 min',
     readTime: '10 min',
     category: 'Stratégie',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop'
   },
   {
     id: 'guide-complet-photos-vinted-2025',
@@ -111,7 +111,7 @@ export const articles: Article[] = [
     readingTime: '12 min',
     readTime: '12 min',
     category: 'Guide',
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=800&fit=crop'
   },
   {
     id: '5-astuces-pour-vendre-plus-vite-sur-vinted',
@@ -126,7 +126,7 @@ export const articles: Article[] = [
     readingTime: '5 min',
     readTime: '5 min',
     category: 'Conseils',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&h=800&fit=crop'
   },
   {
     id: 'strategie-vente-vinted-2025',
@@ -141,7 +141,7 @@ export const articles: Article[] = [
     readingTime: '11 min',
     readTime: '11 min',
     category: 'Stratégie',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop'
   },
   {
     id: 'comment-prendre-bonnes-photos-vinted',
@@ -156,7 +156,7 @@ export const articles: Article[] = [
     readingTime: '8 min',
     readTime: '8 min',
     category: 'Guide',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop'
   },
   {
     id: 'vintdress-vs-alternatives-comparatif-2025',
@@ -171,7 +171,7 @@ export const articles: Article[] = [
     readingTime: '9 min',
     readTime: '9 min',
     category: 'Comparatif',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop'
   },
   {
     id: 'tendances-mode-2025',
@@ -186,7 +186,7 @@ export const articles: Article[] = [
     readingTime: '7 min',
     readTime: '7 min',
     category: 'Tendance',
-    image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200&h=800&fit=crop'
   },
   {
     id: 'vendre-vintage-vinted-guide',
@@ -201,7 +201,7 @@ export const articles: Article[] = [
     readingTime: '10 min',
     readTime: '10 min',
     category: 'Guide',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop'
   },
   {
     id: 'identite-visuelle-vinted',
@@ -216,7 +216,7 @@ export const articles: Article[] = [
     readingTime: '6 min',
     readTime: '6 min',
     category: 'Stratégie',
-    image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&h=800&fit=crop'
   },
   {
     id: 'erreurs-ventes-vinted',
@@ -231,7 +231,7 @@ export const articles: Article[] = [
     readingTime: '8 min',
     readTime: '8 min',
     category: 'Conseils',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop'
   },
   {
     id: 'success-story-marie-2025',
@@ -246,7 +246,7 @@ export const articles: Article[] = [
     readingTime: '7 min',
     readTime: '7 min',
     category: 'Success Story',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200&h=800&fit=crop'
   },
   {
     id: 'ia-au-service-de-la-mode-notre-revolution',
@@ -261,7 +261,7 @@ export const articles: Article[] = [
     readingTime: '9 min',
     readTime: '9 min',
     category: 'Technologie',
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=800&fit=crop'
   },
   {
     id: 'temoignage-300-pourcent-vues-une-semaine',
@@ -276,7 +276,7 @@ export const articles: Article[] = [
     readingTime: '6 min',
     readTime: '6 min',
     category: 'Success Story',
-    image: 'https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=800&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=1200&h=800&fit=crop'
   }
 ];
 
