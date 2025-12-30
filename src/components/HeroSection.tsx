@@ -578,8 +578,8 @@ export const HeroSection: React.FC = () => {
                   <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 bg-pink-pastel border-2 border-black flex items-center justify-center transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     <Gift className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 text-black" strokeWidth={2.5} />
                   </div>
-                  <span className="font-display font-bold text-white text-xs sm:text-sm md:text-base tracking-wide uppercase">
-                    Promo New Year : 1 Avatar généré = 1 Description Vinted Offerte
+                  <span className="font-display font-bold text-white text-sm sm:text-base md:text-lg tracking-wide uppercase">
+                    1 Description Vinted Offerte
                   </span>
                   <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 bg-pink-pastel border-2 border-black flex items-center justify-center transform -rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     <Gift className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 text-black" strokeWidth={2.5} />
