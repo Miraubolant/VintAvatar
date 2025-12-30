@@ -11,9 +11,9 @@ export default function VintDressVsAlternativesComparatifPage() {
   });
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Hero Image Section */}
-      <div className="relative h-[400px] overflow-hidden border-b-4 border-black">
+      <div className="relative -mt-1 h-[400px] overflow-hidden border-b-4 border-black">
         <img
           src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=400&fit=crop"
           alt="VintDress vs Alternatives Comparatif 2025"
