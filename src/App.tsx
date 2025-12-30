@@ -112,7 +112,7 @@ function App() {
             <ScrollToTopOnMount />
             <Header />
             <Breadcrumbs />
-            <main id="main-content" role="main">
+            <main id="main-content" role="main" className="pt-16 sm:pt-20 lg:pt-24">
               <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/auth/callback" element={
