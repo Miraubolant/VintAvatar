@@ -147,10 +147,10 @@ export const ArticlePage: React.FC = () => {
       
       {/* Image de l'article */}
       {article.image && (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white border-4 border-black p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-            <img 
-              src={article.image} 
+            <img
+              src={article.image}
               alt={`${article.title} - Article conseils Vinted génération avatar IA`}
               className="w-full h-64 sm:h-80 lg:h-96 object-cover border-3 border-black"
             />
