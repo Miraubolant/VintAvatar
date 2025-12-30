@@ -13,7 +13,7 @@ export default function VendreVintageVintedGuidePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Image Section */}
-      <div className="relative -mt-1 h-[400px] overflow-hidden border-b-4 border-black">
+      <div className="relative -mt-1 mx-4 sm:mx-6 lg:mx-8 h-[400px] overflow-hidden border-b-4 border-black">
         <img
           src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=400&fit=crop"
           alt="Vendre du Vintage sur Vinted"
