@@ -12,9 +12,9 @@ export const VintedLookGratuitAlternativeProPage: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-cream">
       {/* Hero Image Section */}
-      <div className="relative -mt-1 mx-4 sm:mx-6 lg:mx-8 h-[400px] lg:h-[500px] overflow-hidden border-b-4 border-black">
+      <div className="relative -mt-1 h-[400px] lg:h-[500px] overflow-hidden border-b-4 border-black">
         <img
           src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=1200&h=500&fit=crop"
           alt="Vinted Look Professionnel"
