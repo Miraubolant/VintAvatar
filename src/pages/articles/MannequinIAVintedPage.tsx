@@ -12,9 +12,9 @@ export const MannequinIAVintedPage: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-cream pt-16 sm:pt-20 lg:pt-24">
+    <div className="min-h-screen bg-cream">
       {/* Hero Image */}
-      <div className="relative h-[300px] md:h-[400px] border-b-4 border-black overflow-hidden">
+      <div className="relative mt-16 sm:mt-20 lg:mt-24 h-[300px] md:h-[400px] border-b-4 border-black overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&h=400&fit=crop"
           alt="Mannequin IA pour photos Vinted professionnelles"

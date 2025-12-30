@@ -11,9 +11,9 @@ export default function IAServiceModeRevolutionPage() {
   });
 
   return (
-    <div className="min-h-screen bg-cream pt-16 sm:pt-20 lg:pt-24">
+    <div className="min-h-screen bg-cream">
       {/* Hero Image */}
-      <div className="w-full h-[400px] relative overflow-hidden">
+      <div className="w-full mt-16 sm:mt-20 lg:mt-24 h-[400px] relative overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop"
           alt="Intelligence Artificielle et Mode"

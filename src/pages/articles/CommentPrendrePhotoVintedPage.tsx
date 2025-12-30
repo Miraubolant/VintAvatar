@@ -11,9 +11,9 @@ export default function CommentPrendrePhotoVintedPage() {
   });
 
   return (
-    <div className="min-h-screen bg-cream pt-16 sm:pt-20 lg:pt-24">
+    <div className="min-h-screen bg-cream">
       {/* Hero Image Section */}
-      <div className="relative h-[400px] overflow-hidden border-b-4 border-black">
+      <div className="relative mt-16 sm:mt-20 lg:mt-24 h-[400px] overflow-hidden border-b-4 border-black">
         <img
           src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&h=400&fit=crop"
           alt="Comment prendre de bonnes photos pour Vinted"

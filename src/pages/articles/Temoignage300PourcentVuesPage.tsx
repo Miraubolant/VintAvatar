@@ -11,9 +11,9 @@ export default function Temoignage300PourcentVuesPage() {
   });
 
   return (
-    <div className="min-h-screen bg-cream pt-16 sm:pt-20 lg:pt-24">
+    <div className="min-h-screen bg-cream">
       {/* Hero Image */}
-      <div className="w-full h-[400px] relative overflow-hidden">
+      <div className="w-full mt-16 sm:mt-20 lg:mt-24 h-[400px] relative overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&h=400&fit=crop"
           alt="Témoignage Success Story"
