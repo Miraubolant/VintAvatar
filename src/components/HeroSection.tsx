@@ -570,7 +570,14 @@ export const HeroSection: React.FC = () => {
           {/* Interface d'upload compacte */}
           <div className="pt-4 sm:pt-6">
           <div className="max-w-3xl mx-auto">
-            <div className="bg-white border-3 border-black p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div className="relative bg-white border-3 border-black p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+
+              {/* Ruban diagonal - Description offerte */}
+              <div className="absolute top-0 right-0 w-28 h-28 sm:w-32 sm:h-32 overflow-hidden pointer-events-none z-20">
+                <div className="absolute top-4 right-[-35px] sm:top-5 sm:right-[-30px] bg-mint text-black font-display font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 w-[140px] sm:w-[150px] text-center transform rotate-45 border-y-2 border-black shadow-[0_2px_4px_rgba(0,0,0,0.2)]">
+                  + DESCRIPTION
+                </div>
+              </div>
 
               {/* Aperçu de l'image avec infos Vinted */}
               {(vintedImage || uploadedImage) && (
