@@ -573,16 +573,16 @@ export const HeroSection: React.FC = () => {
             <div className="bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
 
               {/* Bandeau promo New Year */}
-              <div className="bg-vinted border-b-3 border-black py-2 sm:py-2.5">
-                <div className="flex items-center justify-center gap-2 sm:gap-3 px-3">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-pink-pastel border-2 border-black flex items-center justify-center transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    <Gift className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-black" strokeWidth={2.5} />
+              <div className="bg-vinted border-b-3 border-black py-2.5 sm:py-3">
+                <div className="flex items-center justify-center gap-3 sm:gap-4 px-3">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 bg-pink-pastel border-2 border-black flex items-center justify-center transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <Gift className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 text-black" strokeWidth={2.5} />
                   </div>
-                  <span className="font-display font-bold text-white text-xs sm:text-sm tracking-wide uppercase">
+                  <span className="font-display font-bold text-white text-xs sm:text-sm md:text-base tracking-wide uppercase">
                     Promo New Year : 1 Avatar généré = 1 Description Vinted Offerte
                   </span>
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-mint border-2 border-black flex items-center justify-center transform -rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-black" strokeWidth={2.5} />
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 bg-pink-pastel border-2 border-black flex items-center justify-center transform -rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <Gift className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 text-black" strokeWidth={2.5} />
                   </div>
                 </div>
               </div>
