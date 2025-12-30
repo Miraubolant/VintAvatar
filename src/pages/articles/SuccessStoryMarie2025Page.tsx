@@ -23,7 +23,7 @@ export default function SuccessStoryMarie2025Page() {
       </div>
 
       {/* Article Container */}
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className="max-w-4xl mx-auto px-6 pb-12">
         <ArticleNavigation />
 
         {/* Article Header */}

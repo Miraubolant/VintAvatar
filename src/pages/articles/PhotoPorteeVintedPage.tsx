@@ -24,7 +24,7 @@ export const PhotoPorteeVintedPage: React.FC = () => {
       </div>
 
       {/* Article Content */}
-      <article className="max-w-4xl mx-auto px-4 py-12">
+      <article className="max-w-4xl mx-auto px-4 pb-12">
         <ArticleNavigation />
 
         {/* Header */}

@@ -33,7 +33,7 @@ export default function CommentPrendrePhotoVintedPage() {
       </div>
 
       {/* Article Header */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
         <ArticleNavigation />
 
         <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
