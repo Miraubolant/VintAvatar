@@ -34,7 +34,7 @@ export const IAPhotoVintedGratuitVsPayantPage: React.FC = () => {
       </div>
 
       {/* Article Content */}
-      <div className="max-w-4xl mx-auto px-4 py-12 lg:py-20">
+      <div className="max-w-4xl mx-auto px-4 pb-12 lg:pb-20">
         <ArticleNavigation />
 
         {/* Article Header */}
