@@ -14,7 +14,7 @@ export const IAPhotoVintedGratuitVsPayantPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Image Section */}
-      <div className="relative -mt-1 h-[400px] lg:h-[500px] overflow-hidden border-b-4 border-black">
+      <div className="relative -mt-1 mx-4 sm:mx-6 lg:mx-8 h-[400px] lg:h-[500px] overflow-hidden border-b-4 border-black">
         <img
           src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=500&fit=crop"
           alt="IA Photo Vinted Gratuit vs Payant"
