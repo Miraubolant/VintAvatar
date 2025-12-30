@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, HelpCircle, Images } from 'lucide-react';
+import { Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, HelpCircle, Images, Sparkles, Gift } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AvatarConfigModal } from './AvatarConfigModal';
 import { GenerationLoadingModal } from './GenerationLoadingModal';
@@ -575,11 +575,15 @@ export const HeroSection: React.FC = () => {
               {/* Bandeau promo New Year */}
               <div className="bg-vinted border-b-3 border-black py-2 sm:py-2.5">
                 <div className="flex items-center justify-center gap-2 sm:gap-3 px-3">
-                  <span className="text-lg sm:text-xl">🎉</span>
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-pink-pastel border-2 border-black flex items-center justify-center transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <Gift className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-black" strokeWidth={2.5} />
+                  </div>
                   <span className="font-display font-bold text-white text-xs sm:text-sm tracking-wide uppercase">
                     Promo New Year : 1 Avatar généré = 1 Description Vinted Offerte
                   </span>
-                  <span className="text-lg sm:text-xl">🎉</span>
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-mint border-2 border-black flex items-center justify-center transform -rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-black" strokeWidth={2.5} />
+                  </div>
                 </div>
               </div>
 
