@@ -12,7 +12,7 @@ export const MannequinIAVintedPage: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream pt-16 sm:pt-20 lg:pt-24">
       {/* Hero Image */}
       <div className="relative h-[300px] md:h-[400px] border-b-4 border-black overflow-hidden">
         <img
