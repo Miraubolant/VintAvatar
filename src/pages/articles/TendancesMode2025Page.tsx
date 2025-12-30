@@ -11,7 +11,7 @@ export default function TendancesMode2025Page() {
   });
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream pt-16 sm:pt-20 lg:pt-24">
       {/* Hero Image Section */}
       <div className="relative h-[400px] overflow-hidden border-b-4 border-black">
         <img
