@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight, Home } from 'lucide-react';
 import { generateBreadcrumbSchema, injectStructuredData, removeStructuredData, BreadcrumbItem } from '../utils/structuredData';
-import { articles } from '../articles';
 
 interface BreadcrumbsProps {
   customItems?: BreadcrumbItem[];
@@ -71,17 +70,18 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ customItems }) => {
           name: 'Blog',
           url: 'https://vintdress.com/#blog'
         });
-        
-        // Handle specific blog article
+
+        // Handle specific blog article - use slug as title
         if (pathSegments[1]) {
           const articleSlug = pathSegments[1];
-          const article = articles[articleSlug];
-          if (article) {
-            breadcrumbs.push({
-              name: article.title,
-              url: `https://vintdress.com/blog/${articleSlug}`
-            });
-          }
+          const articleTitle = articleSlug
+            .split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+          breadcrumbs.push({
+            name: articleTitle,
+            url: `https://vintdress.com/blog/${articleSlug}`
+          });
         }
         break;
 
@@ -91,16 +91,17 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ customItems }) => {
           name: 'Blog',
           url: 'https://vintdress.com/#blog'
         });
-        
+
         if (pathSegments[1]) {
           const articleSlug = pathSegments[1];
-          const article = articles[articleSlug];
-          if (article) {
-            breadcrumbs.push({
-              name: article.title,
-              url: `https://vintdress.com/blog/${articleSlug}`
-            });
-          }
+          const articleTitle = articleSlug
+            .split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+          breadcrumbs.push({
+            name: articleTitle,
+            url: `https://vintdress.com/blog/${articleSlug}`
+          });
         }
         break;
 
