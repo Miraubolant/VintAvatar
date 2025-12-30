@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, User, ArrowRight, Tag, Lightbulb, ChevronDown, ChevronUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { getArticlesList } from '../articles';
+import { getArticlesList } from '../data/articles';
 
 const ARTICLES_TO_SHOW = 7; // 1 featured + 6 in grid
 

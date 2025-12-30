@@ -63,7 +63,8 @@
       "Bash($env:SUPABASE_ACCESS_TOKEN=\"***REMOVED***\")",
       "Bash(export SUPABASE_ACCESS_TOKEN=***REMOVED***)",
       "Bash(git pull:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(npm run images:optimize:*)"
     ],
     "deny": [],
     "ask": []

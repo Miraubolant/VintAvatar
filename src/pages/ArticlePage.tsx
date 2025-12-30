@@ -3,7 +3,7 @@ import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import DOMPurify from 'dompurify';
-import { getArticles } from '../articles';
+import { getArticleBySlug, getArticlesList } from '../data/articles';
 import { useSEO, generateArticleSEO } from '../hooks/useSEO';
 import { generateArticleSchema, generateBreadcrumbSchema, generateHowToSchema, generateFAQSchema } from '../utils/structuredData';
 import { Link } from 'react-router-dom';
@@ -18,13 +18,11 @@ export const ArticlePage: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const articles = getArticles();
+  const article = slug ? getArticleBySlug(slug) : undefined;
 
-  if (!slug || !articles[slug]) {
+  if (!slug || !article) {
     return <Navigate to="/" replace />;
   }
-
-  const article = articles[slug];
 
   // Cast article to any for optional fields
   const articleData = article as typeof article & {
@@ -37,10 +35,13 @@ export const ArticlePage: React.FC = () => {
   const relatedArticlesList = useMemo(() => {
     if (!articleData.relatedArticles) return [];
     return articleData.relatedArticles
-      .filter((relSlug: string) => articles[relSlug])
-      .map((relSlug: string) => ({ relatedSlug: relSlug, ...articles[relSlug] }))
+      .map((relSlug: string) => {
+        const relArticle = getArticleBySlug(relSlug);
+        return relArticle ? { relatedSlug: relSlug, ...relArticle } : null;
+      })
+      .filter((item): item is NonNullable<typeof item> => item !== null)
       .slice(0, 3);
-  }, [articleData, articles]);
+  }, [articleData]);
 
   // Generate combined structured data for SEO
   const structuredData = useMemo(() => {
