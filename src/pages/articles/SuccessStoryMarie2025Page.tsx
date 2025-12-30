@@ -13,7 +13,7 @@ export default function SuccessStoryMarie2025Page() {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero Image */}
-      <div className="w-full mt-16 sm:mt-20 lg:mt-24 h-[400px] relative overflow-hidden">
+      <div className="w-full h-[400px] relative overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=400&fit=crop"
           alt="Success Story Marie"
