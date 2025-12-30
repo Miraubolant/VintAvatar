@@ -570,15 +570,20 @@ export const HeroSection: React.FC = () => {
           {/* Interface d'upload compacte */}
           <div className="pt-4 sm:pt-6">
           <div className="max-w-3xl mx-auto">
-            <div className="relative bg-white border-3 border-black p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+            <div className="bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
 
-              {/* Ruban diagonal - Description IA Offerte */}
-              <div className="absolute top-0 left-0 w-32 h-32 sm:w-36 sm:h-36 overflow-hidden pointer-events-none z-20">
-                <div className="absolute top-[18px] left-[-42px] sm:top-[22px] sm:left-[-38px] bg-vinted text-white font-display font-bold text-[9px] sm:text-[11px] py-1.5 sm:py-2 w-[165px] sm:w-[180px] text-center transform -rotate-45 border-y-2 border-black shadow-[0_3px_8px_rgba(0,0,0,0.25)] uppercase tracking-wide">
-                  Description IA Offerte
+              {/* Bandeau promo New Year */}
+              <div className="bg-vinted border-b-3 border-black py-2 sm:py-2.5">
+                <div className="flex items-center justify-center gap-2 sm:gap-3 px-3">
+                  <span className="text-lg sm:text-xl">🎉</span>
+                  <span className="font-display font-bold text-white text-xs sm:text-sm tracking-wide uppercase">
+                    Promo New Year : 1 Avatar généré = 1 Description Vinted Offerte
+                  </span>
+                  <span className="text-lg sm:text-xl">🎉</span>
                 </div>
               </div>
 
+              <div className="p-3 sm:p-5">
               {/* Aperçu de l'image avec infos Vinted */}
               {(vintedImage || uploadedImage) && (
                 <div className="bg-cream border-3 border-black p-3 sm:p-4 mb-3 sm:mb-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
@@ -773,6 +778,7 @@ export const HeroSection: React.FC = () => {
                     </button>
                   </div>
                 </form>
+              </div>
               </div>
             </div>
           </div>
