@@ -724,7 +724,7 @@ export const HeroSection: React.FC = () => {
                         fileInputRef.current?.click();
                       }}
                       title="Ouvrir la galerie"
-                      className="bg-mint border-3 border-black font-display font-bold text-xs sm:text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center px-3 py-2 sm:px-4 sm:py-3"
+                      className="bg-vinted border-3 border-black font-display font-bold text-xs sm:text-sm text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center px-3 py-2 sm:px-4 sm:py-3"
                       data-guide="upload-button"
                     >
                       <Images className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -953,7 +953,7 @@ export const HeroSection: React.FC = () => {
                   setShowImageRequiredModal(false);
                   fileInputRef.current?.click();
                 }}
-                className="flex-1 px-2 py-2 sm:px-3 sm:py-2.5 bg-mint border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-1 sm:gap-2"
+                className="flex-1 px-2 py-2 sm:px-3 sm:py-2.5 bg-vinted border-3 border-black font-display font-bold text-xs sm:text-sm text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-1 sm:gap-2"
               >
                 <Images className="w-3 h-3 sm:w-4 sm:h-4" strokeWidth={3} />
                 <span className="font-bold">{t('interface.galleryButton')}</span>
