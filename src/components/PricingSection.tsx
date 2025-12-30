@@ -113,11 +113,11 @@ export const PricingSection: React.FC = () => {
 
   return (
     <section id="tarifs" className="relative py-20 lg:py-24 bg-cream overflow-hidden">
-      {/* Formes décoratives neo-brutalism */}
-      <div className="absolute top-16 left-12 w-12 h-12 bg-vinted border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
-      <div className="absolute top-1/3 right-8 w-10 h-10 bg-mint border-3 border-black neo-shape-circle shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
-      <div className="absolute bottom-32 left-20 w-14 h-14 bg-pink-pastel border-4 border-black transform -rotate-45 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
-      <div className="absolute bottom-20 right-1/4 w-8 h-8 bg-cream border-3 border-black transform rotate-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
+      {/* Formes décoratives neo-brutalism - hidden on mobile to avoid overlap */}
+      <div className="hidden md:block absolute top-16 left-12 w-12 h-12 bg-vinted border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-none"></div>
+      <div className="hidden md:block absolute top-1/3 right-8 w-10 h-10 bg-mint border-3 border-black neo-shape-circle shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] pointer-events-none"></div>
+      <div className="hidden md:block absolute bottom-32 left-20 w-14 h-14 bg-pink-pastel border-4 border-black transform -rotate-45 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-none"></div>
+      <div className="hidden md:block absolute bottom-20 right-1/4 w-8 h-8 bg-cream border-3 border-black transform rotate-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
