@@ -13,7 +13,7 @@ export default function TendancesMode2025Page() {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero Image Section */}
-      <div className="relative mt-16 sm:mt-20 lg:mt-24 h-[400px] overflow-hidden border-b-4 border-black">
+      <div className="relative h-[400px] overflow-hidden border-b-4 border-black">
         <img
           src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200&h=400&fit=crop"
           alt="Tendances Mode 2025"

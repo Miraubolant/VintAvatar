@@ -13,7 +13,7 @@ export default function ErreursVentesVintedPage() {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero Image */}
-      <div className="w-full mt-16 sm:mt-20 lg:mt-24 h-[400px] relative overflow-hidden">
+      <div className="w-full h-[400px] relative overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop"
           alt="Erreurs Vinted à éviter"

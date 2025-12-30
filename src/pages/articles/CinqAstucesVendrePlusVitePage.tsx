@@ -14,7 +14,7 @@ export const CinqAstucesVendrePlusVitePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero Image Section */}
-      <div className="relative mt-16 sm:mt-20 lg:mt-24 h-[400px] lg:h-[500px] overflow-hidden border-b-4 border-black">
+      <div className="relative h-[400px] lg:h-[500px] overflow-hidden border-b-4 border-black">
         <img
           src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=500&fit=crop"
           alt="5 Astuces Vendre Vinted"
