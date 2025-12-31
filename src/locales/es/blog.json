@@ -14,7 +14,9 @@
     "startNow": "EMPEZAR AHORA",
     "viewAll": "VER TODOS LOS ARTÍCULOS",
     "showLess": "VER MENOS",
-    "showMore": "VER MÁS ARTÍCULOS"
+    "showMore": "VER MÁS ARTÍCULOS",
+    "backToHome": "Volver al inicio",
+    "generatePhotos": "Generar mis Fotos IA"
   },
   "metadata": {
     "readTime": "lectura",
@@ -34,5 +36,16 @@
       "subtitle": "¡Genera fotos portadas perfectas en 30 segundos con nuestra IA!",
       "button": "EMPEZAR AHORA"
     }
+  },
+  "indexPage": {
+    "title": {
+      "line1": "TODOS NUESTROS",
+      "line2": "ARTÍCULOS Y GUÍAS",
+      "line3": "VINTED"
+    },
+    "description": "Descubre todos nuestros consejos e historias de éxito para",
+    "descriptionHighlight": "¡impulsar tus ventas con IA!",
+    "ctaTitle": "¿Listo para Impulsar tus Ventas en Vinted?",
+    "ctaDescription": "¡Descubre cómo nuestras fotos IA pueden transformar tus ventas en segundos!"
   }
 }

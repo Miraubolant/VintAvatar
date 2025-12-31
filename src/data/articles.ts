@@ -280,11 +280,242 @@ export const articles: Article[] = [
   }
 ];
 
+// Traductions des métadonnées d'articles (pour les 9 premiers articles traduits)
+const articleTranslations: Record<string, Record<string, Partial<Article>>> = {
+  'photo-porte-vinted': {
+    en: {
+      title: 'Worn Photos on Vinted: The Complete 2025 Guide',
+      excerpt: 'Discover how to create professional worn photos for Vinted and increase your sales by 300%.',
+      description: 'Discover how to create professional worn photos for Vinted and increase your sales by 300%.',
+      date: 'Jan 15, 2025',
+      category: 'Guide',
+    },
+    es: {
+      title: 'Fotos Puestas en Vinted: La Guía Completa 2025',
+      excerpt: 'Descubre cómo crear fotos puestas profesionales para Vinted y aumentar tus ventas en un 300%.',
+      description: 'Descubre cómo crear fotos puestas profesionales para Vinted y aumentar tus ventas en un 300%.',
+      date: '15 ene. 2025',
+      category: 'Guía',
+    },
+    it: {
+      title: 'Foto Indossate su Vinted: La Guida Completa 2025',
+      excerpt: 'Scopri come creare foto indossate professionali per Vinted e aumentare le tue vendite del 300%.',
+      description: 'Scopri come creare foto indossate professionali per Vinted e aumentare le tue vendite del 300%.',
+      date: '15 gen. 2025',
+      category: 'Guida',
+    },
+  },
+  'mannequin-ia-vinted': {
+    en: {
+      title: 'AI Mannequin for Vinted: How Does It Work?',
+      excerpt: 'Everything you need to know about AI virtual mannequins and how they revolutionize selling on Vinted.',
+      description: 'Everything you need to know about AI virtual mannequins and how they revolutionize selling on Vinted.',
+      date: 'Jan 12, 2025',
+      category: 'Technology',
+    },
+    es: {
+      title: 'Maniquí IA para Vinted: ¿Cómo Funciona?',
+      excerpt: 'Todo lo que necesitas saber sobre los maniquíes virtuales con IA y cómo revolucionan las ventas en Vinted.',
+      description: 'Todo lo que necesitas saber sobre los maniquíes virtuales con IA y cómo revolucionan las ventas en Vinted.',
+      date: '12 ene. 2025',
+      category: 'Tecnología',
+    },
+    it: {
+      title: 'Manichino IA per Vinted: Come Funziona?',
+      excerpt: 'Tutto quello che devi sapere sui manichini virtuali IA e come rivoluzionano la vendita su Vinted.',
+      description: 'Tutto quello che devi sapere sui manichini virtuali IA e come rivoluzionano la vendita su Vinted.',
+      date: '12 gen. 2025',
+      category: 'Tecnologia',
+    },
+  },
+  'vinted-look-gratuit-alternative-pro': {
+    en: {
+      title: 'Vinted Look Free vs Pro Alternative',
+      excerpt: 'Complete comparison between free and paid solutions to create your Vinted photos.',
+      description: 'Complete comparison between free and paid solutions to create your Vinted photos.',
+      date: 'Jan 10, 2025',
+      category: 'Comparison',
+    },
+    es: {
+      title: 'Vinted Look Gratis vs Alternativa Pro',
+      excerpt: 'Comparativa completa entre soluciones gratuitas y de pago para crear tus fotos de Vinted.',
+      description: 'Comparativa completa entre soluciones gratuitas y de pago para crear tus fotos de Vinted.',
+      date: '10 ene. 2025',
+      category: 'Comparativa',
+    },
+    it: {
+      title: 'Vinted Look Gratis vs Alternativa Pro',
+      excerpt: 'Confronto completo tra soluzioni gratuite e a pagamento per creare le tue foto Vinted.',
+      description: 'Confronto completo tra soluzioni gratuite e a pagamento per creare le tue foto Vinted.',
+      date: '10 gen. 2025',
+      category: 'Confronto',
+    },
+  },
+  'ia-photo-vinted-gratuit-vs-payant': {
+    en: {
+      title: 'AI Photo Vinted: Free vs Paid',
+      excerpt: 'Analysis of different AI solutions to generate your Vinted photos: which one to choose?',
+      description: 'Analysis of different AI solutions to generate your Vinted photos: which one to choose?',
+      date: 'Jan 8, 2025',
+      category: 'Comparison',
+    },
+    es: {
+      title: 'IA Foto Vinted: Gratis vs Pago',
+      excerpt: 'Análisis de las diferentes soluciones de IA para generar tus fotos de Vinted: ¿cuál elegir?',
+      description: 'Análisis de las diferentes soluciones de IA para generar tus fotos de Vinted: ¿cuál elegir?',
+      date: '8 ene. 2025',
+      category: 'Comparativa',
+    },
+    it: {
+      title: 'IA Foto Vinted: Gratis vs Pagamento',
+      excerpt: 'Analisi delle diverse soluzioni IA per generare le tue foto Vinted: quale scegliere?',
+      description: 'Analisi delle diverse soluzioni IA per generare le tue foto Vinted: quale scegliere?',
+      date: '8 gen. 2025',
+      category: 'Confronto',
+    },
+  },
+  'algorithme-vinted-visibilite': {
+    en: {
+      title: 'Vinted Algorithm: Maximize Your Visibility',
+      excerpt: 'Understand and master the Vinted algorithm to boost your sales in 2025.',
+      description: 'Understand and master the Vinted algorithm to boost your sales in 2025.',
+      date: 'Jan 5, 2025',
+      category: 'Strategy',
+    },
+    es: {
+      title: 'Algoritmo Vinted: Maximiza Tu Visibilidad',
+      excerpt: 'Comprende y domina el algoritmo de Vinted para impulsar tus ventas en 2025.',
+      description: 'Comprende y domina el algoritmo de Vinted para impulsar tus ventas en 2025.',
+      date: '5 ene. 2025',
+      category: 'Estrategia',
+    },
+    it: {
+      title: 'Algoritmo Vinted: Massimizza la Tua Visibilità',
+      excerpt: 'Comprendi e padroneggia l\'algoritmo di Vinted per aumentare le tue vendite nel 2025.',
+      description: 'Comprendi e padroneggia l\'algoritmo di Vinted per aumentare le tue vendite nel 2025.',
+      date: '5 gen. 2025',
+      category: 'Strategia',
+    },
+  },
+  'guide-complet-photos-vinted-2025': {
+    en: {
+      title: 'Complete Guide Vinted Photos 2025',
+      excerpt: 'The ultimate guide to successful Vinted photos and selling faster.',
+      description: 'The ultimate guide to successful Vinted photos and selling faster.',
+      date: 'Jan 3, 2025',
+      category: 'Guide',
+    },
+    es: {
+      title: 'Guía Completa Fotos Vinted 2025',
+      excerpt: 'La guía definitiva para lograr fotos de Vinted exitosas y vender más rápido.',
+      description: 'La guía definitiva para lograr fotos de Vinted exitosas y vender más rápido.',
+      date: '3 ene. 2025',
+      category: 'Guía',
+    },
+    it: {
+      title: 'Guida Completa Foto Vinted 2025',
+      excerpt: 'La guida definitiva per foto Vinted di successo e vendere più velocemente.',
+      description: 'La guida definitiva per foto Vinted di successo e vendere più velocemente.',
+      date: '3 gen. 2025',
+      category: 'Guida',
+    },
+  },
+  '5-astuces-pour-vendre-plus-vite-sur-vinted': {
+    en: {
+      title: '5 Tips to Sell Faster on Vinted',
+      excerpt: 'Discover the 5 proven techniques to accelerate your sales on Vinted.',
+      description: 'Discover the 5 proven techniques to accelerate your sales on Vinted.',
+      date: 'Jan 1, 2025',
+      category: 'Tips',
+    },
+    es: {
+      title: '5 Consejos para Vender Más Rápido en Vinted',
+      excerpt: 'Descubre las 5 técnicas probadas para acelerar tus ventas en Vinted.',
+      description: 'Descubre las 5 técnicas probadas para acelerar tus ventas en Vinted.',
+      date: '1 ene. 2025',
+      category: 'Consejos',
+    },
+    it: {
+      title: '5 Consigli per Vendere Più Velocemente su Vinted',
+      excerpt: 'Scopri le 5 tecniche comprovate per accelerare le tue vendite su Vinted.',
+      description: 'Scopri le 5 tecniche comprovate per accelerare le tue vendite su Vinted.',
+      date: '1 gen. 2025',
+      category: 'Consigli',
+    },
+  },
+  'strategie-vente-vinted-2025': {
+    en: {
+      title: 'Vinted Sales Strategy 2025',
+      excerpt: 'The complete strategy to succeed on Vinted in 2025: from A to Z.',
+      description: 'The complete strategy to succeed on Vinted in 2025: from A to Z.',
+      date: 'Dec 28, 2024',
+      category: 'Strategy',
+    },
+    es: {
+      title: 'Estrategia de Venta Vinted 2025',
+      excerpt: 'La estrategia completa para triunfar en Vinted en 2025: de la A a la Z.',
+      description: 'La estrategia completa para triunfar en Vinted en 2025: de la A a la Z.',
+      date: '28 dic. 2024',
+      category: 'Estrategia',
+    },
+    it: {
+      title: 'Strategia di Vendita Vinted 2025',
+      excerpt: 'La strategia completa per avere successo su Vinted nel 2025: dalla A alla Z.',
+      description: 'La strategia completa per avere successo su Vinted nel 2025: dalla A alla Z.',
+      date: '28 dic. 2024',
+      category: 'Strategia',
+    },
+  },
+  'comment-prendre-bonnes-photos-vinted': {
+    en: {
+      title: 'How to Take Good Vinted Photos',
+      excerpt: 'Techniques and tips for taking Vinted photos that sell.',
+      description: 'Techniques and tips for taking Vinted photos that sell.',
+      date: 'Dec 25, 2024',
+      category: 'Guide',
+    },
+    es: {
+      title: 'Cómo Tomar Buenas Fotos para Vinted',
+      excerpt: 'Técnicas y consejos para realizar fotos de Vinted que venden.',
+      description: 'Técnicas y consejos para realizar fotos de Vinted que venden.',
+      date: '25 dic. 2024',
+      category: 'Guía',
+    },
+    it: {
+      title: 'Come Fare Belle Foto per Vinted',
+      excerpt: 'Tecniche e consigli per realizzare foto Vinted che vendono.',
+      description: 'Tecniche e consigli per realizzare foto Vinted che vendono.',
+      date: '25 dic. 2024',
+      category: 'Guida',
+    },
+  },
+};
+
 /**
- * Retourne la liste des articles
+ * Retourne la liste des articles (version française par défaut)
  */
 export function getArticlesList(): Article[] {
   return articles;
+}
+
+/**
+ * Retourne la liste des articles traduits selon la langue
+ */
+export function getArticlesListByLanguage(language: 'fr' | 'en' | 'es' | 'it'): Article[] {
+  if (language === 'fr') {
+    return articles;
+  }
+
+  return articles.map(article => {
+    const translation = articleTranslations[article.id]?.[language];
+    if (translation) {
+      return {
+        ...article,
+        ...translation,
+      };
+    }
+    return article;
+  });
 }
 
 /**

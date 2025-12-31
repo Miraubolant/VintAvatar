@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
 import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
-import { getArticlesList } from '../data/articles';
+import { getArticlesListByLanguage } from '../data/articles';
 import { useTranslation } from 'react-i18next';
 import { getArticleUrlBySlugAndLanguage } from '../lib/articleTranslations';
 import { Language } from '../lib/i18n';
 
 export default function BlogIndexPage() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation('blog');
   const currentLanguage = (i18n.language || 'fr') as Language;
 
   useSEO({
@@ -17,7 +17,7 @@ export default function BlogIndexPage() {
   });
 
   // Trier les articles par date (plus récent d'abord)
-  const articlesList = getArticlesList();
+  const articlesList = getArticlesListByLanguage(currentLanguage);
   const sortedArticles = [...articlesList].sort((a, b) => {
     return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
   });
@@ -39,17 +39,17 @@ export default function BlogIndexPage() {
               <h1 className="font-display font-semibold text-[1.75rem] xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 <div className="mb-2">
                   <span className="inline-block bg-white text-black border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-                    TOUS NOS
+                    {t('indexPage.title.line1')}
                   </span>
                 </div>
                 <div className="mb-2">
                   <span className="inline-block bg-vinted text-white border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
-                    ARTICLES & GUIDES
+                    {t('indexPage.title.line2')}
                   </span>
                 </div>
                 <div>
                   <span className="inline-block bg-mint text-black border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-                    VINTED
+                    {t('indexPage.title.line3')}
                   </span>
                 </div>
               </h1>
@@ -58,8 +58,8 @@ export default function BlogIndexPage() {
             {/* Description */}
             <div className="pt-4">
               <p className="font-body text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
-                Découvre tous nos conseils et success stories pour{' '}
-                <span className="text-vinted font-bold">booster tes ventes avec l'IA !</span>
+                {t('indexPage.description')}{' '}
+                <span className="text-vinted font-bold">{t('indexPage.descriptionHighlight')}</span>
               </p>
             </div>
 
@@ -70,7 +70,7 @@ export default function BlogIndexPage() {
                 className="inline-flex items-center gap-2 px-4 py-2 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all font-space-grotesk font-bold"
               >
                 <ArrowLeft className="w-5 h-5" />
-                Retour à l'accueil
+                {t('buttons.backToHome')}
               </Link>
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function BlogIndexPage() {
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
-                    <span>{article.readTime}</span>
+                    <span>{article.readTime} {t('metadata.readTime')}</span>
                   </div>
                 </div>
 
@@ -143,16 +143,16 @@ export default function BlogIndexPage() {
         {/* CTA Section */}
         <div className="mt-16 bg-mint border-4 border-black p-8 lg:p-12 text-center">
           <h2 className="text-3xl lg:text-4xl font-space-grotesk font-bold mb-4">
-            Prêt(e) à Booster tes Ventes Vinted ?
+            {t('indexPage.ctaTitle')}
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-            Découvre comment nos photos IA peuvent transformer tes ventes en quelques secondes !
+            {t('indexPage.ctaDescription')}
           </p>
           <Link
             to="/"
             className="inline-block bg-vinted text-white px-8 py-4 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all font-space-grotesk font-bold text-lg"
           >
-            Générer mes Photos IA
+            {t('buttons.generatePhotos')}
           </Link>
         </div>
       </div>

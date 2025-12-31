@@ -14,7 +14,9 @@
     "startNow": "START NOW",
     "viewAll": "VIEW ALL ARTICLES",
     "showLess": "SHOW LESS",
-    "showMore": "SHOW MORE ARTICLES"
+    "showMore": "SHOW MORE ARTICLES",
+    "backToHome": "Back to Home",
+    "generatePhotos": "Generate my AI Photos"
   },
   "metadata": {
     "readTime": "read",
@@ -34,5 +36,16 @@
       "subtitle": "Generate perfect worn photos in 30 seconds with our AI!",
       "button": "START NOW"
     }
+  },
+  "indexPage": {
+    "title": {
+      "line1": "ALL OUR",
+      "line2": "ARTICLES & GUIDES",
+      "line3": "VINTED"
+    },
+    "description": "Discover all our tips and success stories to",
+    "descriptionHighlight": "boost your sales with AI!",
+    "ctaTitle": "Ready to Boost Your Vinted Sales?",
+    "ctaDescription": "Discover how our AI photos can transform your sales in seconds!"
   }
 }

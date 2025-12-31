@@ -2,24 +2,20 @@ import React, { useState } from 'react';
 import { Calendar, User, ArrowRight, Tag, Lightbulb, ChevronDown, ChevronUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { getArticlesList } from '../data/articles';
+import { getArticlesListByLanguage } from '../data/articles';
 import { getArticleUrlBySlugAndLanguage } from '../lib/articleTranslations';
 import { Language } from '../lib/i18n';
 
 const ARTICLES_TO_SHOW = 7; // 1 featured + 6 in grid
 
-const getBlogPosts = () => {
-  const articlesList = getArticlesList();
-  return articlesList.map((article, index) => ({
-    ...article,
-    featured: index === 0 // Premier article en featured
-  }));
-};
-
 export const BlogSection: React.FC = () => {
   const { t, i18n } = useTranslation('blog');
   const currentLanguage = (i18n.language || 'fr') as Language;
-  const blogPosts = getBlogPosts();
+
+  const blogPosts = getArticlesListByLanguage(currentLanguage).map((article, index) => ({
+    ...article,
+    featured: index === 0
+  }));
   const [showAllArticles, setShowAllArticles] = useState(false);
 
   // Calculate visible articles (1 featured + 6 others = 7 total, or all if expanded)
