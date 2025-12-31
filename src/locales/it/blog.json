@@ -14,7 +14,9 @@
     "startNow": "INIZIA ORA",
     "viewAll": "VEDI TUTTI GLI ARTICOLI",
     "showLess": "MOSTRA MENO",
-    "showMore": "MOSTRA PIÙ ARTICOLI"
+    "showMore": "MOSTRA PIÙ ARTICOLI",
+    "backToHome": "Torna alla Home",
+    "generatePhotos": "Genera le mie Foto IA"
   },
   "metadata": {
     "readTime": "lettura",
@@ -34,5 +36,16 @@
       "subtitle": "Genera foto indossate perfette in 30 secondi con la nostra IA!",
       "button": "INIZIA ORA"
     }
+  },
+  "indexPage": {
+    "title": {
+      "line1": "TUTTI I NOSTRI",
+      "line2": "ARTICOLI E GUIDE",
+      "line3": "VINTED"
+    },
+    "description": "Scopri tutti i nostri consigli e storie di successo per",
+    "descriptionHighlight": "aumentare le tue vendite con l'IA!",
+    "ctaTitle": "Pronto a Potenziare le tue Vendite su Vinted?",
+    "ctaDescription": "Scopri come le nostre foto IA possono trasformare le tue vendite in pochi secondi!"
   }
 }
