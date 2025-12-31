@@ -73,6 +73,62 @@ export const articleTranslations: ArticleTranslation[] = [
     es: '/es/articles/como-tomar-buenas-fotos-vinted',
     it: '/it/articles/come-fare-belle-foto-vinted',
   },
+  {
+    id: 'vintdress-vs-alternatives-comparatif-2025',
+    fr: '/articles/vintdress-vs-alternatives-comparatif-2025',
+    en: '/en/articles/vintdress-vs-alternatives-comparison-2025',
+    es: '/es/articles/vintdress-vs-alternativas-comparativa-2025',
+    it: '/it/articles/vintdress-vs-alternative-confronto-2025',
+  },
+  {
+    id: 'tendances-mode-2025',
+    fr: '/articles/tendances-mode-2025',
+    en: '/en/articles/fashion-trends-2025',
+    es: '/es/articles/tendencias-moda-2025',
+    it: '/it/articles/tendenze-moda-2025',
+  },
+  {
+    id: 'vendre-vintage-vinted-guide',
+    fr: '/articles/vendre-vintage-vinted-guide',
+    en: '/en/articles/sell-vintage-vinted-guide',
+    es: '/es/articles/vender-vintage-vinted-guia',
+    it: '/it/articles/vendere-vintage-vinted-guida',
+  },
+  {
+    id: 'identite-visuelle-vinted',
+    fr: '/articles/identite-visuelle-vinted',
+    en: '/en/articles/visual-identity-vinted',
+    es: '/es/articles/identidad-visual-vinted',
+    it: '/it/articles/identita-visiva-vinted',
+  },
+  {
+    id: 'erreurs-ventes-vinted',
+    fr: '/articles/erreurs-ventes-vinted',
+    en: '/en/articles/sales-mistakes-vinted',
+    es: '/es/articles/errores-ventas-vinted',
+    it: '/it/articles/errori-vendite-vinted',
+  },
+  {
+    id: 'success-story-marie-2025',
+    fr: '/articles/success-story-marie-2025',
+    en: '/en/articles/success-story-marie-2025',
+    es: '/es/articles/historia-exito-marie-2025',
+    it: '/it/articles/storia-successo-marie-2025',
+  },
+  {
+    id: 'ia-au-service-de-la-mode-notre-revolution',
+    fr: '/articles/ia-au-service-de-la-mode-notre-revolution',
+    en: '/en/articles/ai-fashion-revolution',
+    es: '/es/articles/ia-servicio-moda-revolucion',
+    it: '/it/articles/ia-servizio-moda-rivoluzione',
+  },
+  {
+    id: 'temoignage-300-pourcent-vues-une-semaine',
+    fr: '/articles/temoignage-300-pourcent-vues-une-semaine',
+    en: '/en/articles/testimonial-300-percent-views-one-week',
+    es: '/es/articles/testimonio-300-porciento-vistas-una-semana',
+    it: '/it/articles/testimonianza-300-percento-visualizzazioni-una-settimana',
+  },
 ];
 
 // Fonction pour trouver la traduction d'un article à partir de son URL actuelle

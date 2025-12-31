@@ -74,6 +74,38 @@ const GuidaCompletaFotoVinted2025PageIT = React.lazy(() => import('./pages/artic
 const CinqueConsigliVendereVelocementeVintedPageIT = React.lazy(() => import('./pages/articles/it/CinqueConsigliVendereVelocementeVintedPage').then(module => ({ default: module.default })));
 const StrategiaVenditaVinted2025PageIT = React.lazy(() => import('./pages/articles/it/StrategiaVenditaVinted2025Page').then(module => ({ default: module.default })));
 const ComeFareBelleFotoVintedPageIT = React.lazy(() => import('./pages/articles/it/ComeFareBelleFotoVintedPage').then(module => ({ default: module.default })));
+// Translated articles - Article #10
+const VintDressVsAlternativesComparisonPageEN = React.lazy(() => import('./pages/articles/en/VintDressVsAlternativesComparisonPage').then(module => ({ default: module.default })));
+const VintDressVsAlternativasComparativaPageES = React.lazy(() => import('./pages/articles/es/VintDressVsAlternativasComparativaPage').then(module => ({ default: module.default })));
+const VintDressVsAlternativeConfrontoPageIT = React.lazy(() => import('./pages/articles/it/VintDressVsAlternativeConfrontoPage').then(module => ({ default: module.default })));
+// Translated articles - Article #11
+const FashionTrends2025PageEN = React.lazy(() => import('./pages/articles/en/FashionTrends2025Page').then(module => ({ default: module.default })));
+const TendenciasModa2025PageES = React.lazy(() => import('./pages/articles/es/TendenciasModa2025Page').then(module => ({ default: module.default })));
+const TendenzeModa2025PageIT = React.lazy(() => import('./pages/articles/it/TendenzeModa2025Page').then(module => ({ default: module.default })));
+// Translated articles - Article #12
+const SellVintageVintedGuidePageEN = React.lazy(() => import('./pages/articles/en/SellVintageVintedGuidePage').then(module => ({ default: module.default })));
+const VenderVintageVintedGuiaPageES = React.lazy(() => import('./pages/articles/es/VenderVintageVintedGuiaPage').then(module => ({ default: module.default })));
+const VendereVintageVintedGuidaPageIT = React.lazy(() => import('./pages/articles/it/VendereVintageVintedGuidaPage').then(module => ({ default: module.default })));
+// Translated articles - Article #13
+const VisualIdentityVintedPageEN = React.lazy(() => import('./pages/articles/en/VisualIdentityVintedPage').then(module => ({ default: module.default })));
+const IdentidadVisualVintedPageES = React.lazy(() => import('./pages/articles/es/IdentidadVisualVintedPage').then(module => ({ default: module.default })));
+const IdentitaVisivaVintedPageIT = React.lazy(() => import('./pages/articles/it/IdentitaVisivaVintedPage').then(module => ({ default: module.default })));
+// Translated articles - Article #14
+const SalesMistakesVintedPageEN = React.lazy(() => import('./pages/articles/en/SalesMistakesVintedPage').then(module => ({ default: module.default })));
+const ErroresVentasVintedPageES = React.lazy(() => import('./pages/articles/es/ErroresVentasVintedPage').then(module => ({ default: module.default })));
+const ErroriVenditeVintedPageIT = React.lazy(() => import('./pages/articles/it/ErroriVenditeVintedPage').then(module => ({ default: module.default })));
+// Translated articles - Article #15
+const SuccessStoryMarie2025PageEN = React.lazy(() => import('./pages/articles/en/SuccessStoryMarie2025Page').then(module => ({ default: module.default })));
+const HistoriaExitoMarie2025PageES = React.lazy(() => import('./pages/articles/es/HistoriaExitoMarie2025Page').then(module => ({ default: module.default })));
+const StoriaSuccessoMarie2025PageIT = React.lazy(() => import('./pages/articles/it/StoriaSuccessoMarie2025Page').then(module => ({ default: module.default })));
+// Translated articles - Article #16
+const AIFashionRevolutionPageEN = React.lazy(() => import('./pages/articles/en/AIFashionRevolutionPage').then(module => ({ default: module.default })));
+const IAServicioModaRevolucionPageES = React.lazy(() => import('./pages/articles/es/IAServicioModaRevolucionPage').then(module => ({ default: module.default })));
+const IAServizioModaRivoluzionePageIT = React.lazy(() => import('./pages/articles/it/IAServizioModaRivoluzionePage').then(module => ({ default: module.default })));
+// Translated articles - Article #17
+const Testimonial300PercentViewsPageEN = React.lazy(() => import('./pages/articles/en/Testimonial300PercentViewsPage').then(module => ({ default: module.default })));
+const Testimonio300PorcientoVistasPageES = React.lazy(() => import('./pages/articles/es/Testimonio300PorcientoVistasPage').then(module => ({ default: module.default })));
+const Testimonianza300PercentoVisualizzazioniPageIT = React.lazy(() => import('./pages/articles/it/Testimonianza300PercentoVisualizzazioniPage').then(module => ({ default: module.default })));
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 const ResultPage = React.lazy(() => import('./pages/ResultPage').then(module => ({ default: module.ResultPage })));
@@ -394,6 +426,134 @@ function App() {
               <Route path="/it/articles/come-fare-belle-foto-vinted" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <ComeFareBelleFotoVintedPageIT />
+                </Suspense>
+              } />
+              {/* Translated articles - Article #10 */}
+              <Route path="/en/articles/vintdress-vs-alternatives-comparison-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintDressVsAlternativesComparisonPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/vintdress-vs-alternativas-comparativa-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintDressVsAlternativasComparativaPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/vintdress-vs-alternative-confronto-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintDressVsAlternativeConfrontoPageIT />
+                </Suspense>
+              } />
+              {/* Translated articles - Article #11 */}
+              <Route path="/en/articles/fashion-trends-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <FashionTrends2025PageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/tendencias-moda-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <TendenciasModa2025PageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/tendenze-moda-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <TendenzeModa2025PageIT />
+                </Suspense>
+              } />
+              {/* Translated articles - Article #12 */}
+              <Route path="/en/articles/sell-vintage-vinted-guide" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <SellVintageVintedGuidePageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/vender-vintage-vinted-guia" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VenderVintageVintedGuiaPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/vendere-vintage-vinted-guida" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VendereVintageVintedGuidaPageIT />
+                </Suspense>
+              } />
+              {/* Translated articles - Article #13 */}
+              <Route path="/en/articles/visual-identity-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VisualIdentityVintedPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/identidad-visual-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <IdentidadVisualVintedPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/identita-visiva-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <IdentitaVisivaVintedPageIT />
+                </Suspense>
+              } />
+              {/* Translated articles - Article #14 */}
+              <Route path="/en/articles/sales-mistakes-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <SalesMistakesVintedPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/errores-ventas-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ErroresVentasVintedPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/errori-vendite-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ErroriVenditeVintedPageIT />
+                </Suspense>
+              } />
+              {/* Translated articles - Article #15 */}
+              <Route path="/en/articles/success-story-marie-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <SuccessStoryMarie2025PageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/historia-exito-marie-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <HistoriaExitoMarie2025PageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/storia-successo-marie-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <StoriaSuccessoMarie2025PageIT />
+                </Suspense>
+              } />
+              {/* Translated articles - Article #16 */}
+              <Route path="/en/articles/ai-fashion-revolution" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <AIFashionRevolutionPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/ia-servicio-moda-revolucion" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <IAServicioModaRevolucionPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/ia-servizio-moda-rivoluzione" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <IAServizioModaRivoluzionePageIT />
+                </Suspense>
+              } />
+              {/* Translated articles - Article #17 */}
+              <Route path="/en/articles/testimonial-300-percent-views-one-week" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <Testimonial300PercentViewsPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/testimonio-300-porciento-vistas-una-semana" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <Testimonio300PorcientoVistasPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/testimonianza-300-percento-visualizzazioni-una-settimana" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <Testimonianza300PercentoVisualizzazioniPageIT />
                 </Suspense>
               } />
               <Route path="/articles/:slug" element={
