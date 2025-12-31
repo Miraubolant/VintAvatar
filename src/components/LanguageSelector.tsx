@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ChevronDown, Globe } from 'lucide-react';
 import { languages, Language } from '../lib/i18n';
+import { isArticlePage, getArticleUrlForLanguage } from '../lib/articleTranslations';
 
 interface LanguageSelectorProps {
   compact?: boolean;
@@ -11,12 +13,22 @@ interface LanguageSelectorProps {
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ compact = false, inMobileMenu = false }) => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
 
   const handleLanguageChange = (languageCode: Language) => {
     i18n.changeLanguage(languageCode);
     setIsOpen(false);
+
+    // Si on est sur une page article, rediriger vers la version traduite
+    if (isArticlePage(location.pathname)) {
+      const translatedUrl = getArticleUrlForLanguage(location.pathname, languageCode);
+      if (translatedUrl && translatedUrl !== location.pathname) {
+        navigate(translatedUrl);
+      }
+    }
   };
 
   if (compact) {
