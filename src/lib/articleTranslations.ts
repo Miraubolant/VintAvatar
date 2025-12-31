@@ -66,6 +66,13 @@ export const articleTranslations: ArticleTranslation[] = [
     es: '/es/articles/estrategia-venta-vinted-2025',
     it: '/it/articles/strategia-vendita-vinted-2025',
   },
+  {
+    id: 'comment-prendre-bonnes-photos-vinted',
+    fr: '/articles/comment-prendre-bonnes-photos-vinted',
+    en: '/en/articles/how-to-take-good-vinted-photos',
+    es: '/es/articles/como-tomar-buenas-fotos-vinted',
+    it: '/it/articles/come-fare-belle-foto-vinted',
+  },
 ];
 
 // Fonction pour trouver la traduction d'un article à partir de son URL actuelle
@@ -88,4 +95,17 @@ export function getArticleUrlForLanguage(currentPath: string, targetLanguage: 'f
 // Fonction pour détecter si on est sur une page article
 export function isArticlePage(path: string): boolean {
   return path.includes('/articles/');
+}
+
+// Fonction pour obtenir l'URL d'un article par son slug français et la langue cible
+export function getArticleUrlBySlugAndLanguage(frenchSlug: string, targetLanguage: 'fr' | 'en' | 'es' | 'it'): string {
+  const frenchPath = `/articles/${frenchSlug}`;
+  const article = articleTranslations.find(a => a.fr === frenchPath);
+
+  if (!article) {
+    // Si l'article n'a pas de traduction, retourner l'URL française
+    return frenchPath;
+  }
+
+  return article[targetLanguage];
 }

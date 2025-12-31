@@ -53,6 +53,7 @@ const VintedAlgorithmVisibilityPageEN = React.lazy(() => import('./pages/article
 const CompleteGuideVintedPhotos2025PageEN = React.lazy(() => import('./pages/articles/en/CompleteGuideVintedPhotos2025Page').then(module => ({ default: module.default })));
 const FiveTipsSellFasterVintedPageEN = React.lazy(() => import('./pages/articles/en/FiveTipsSellFasterVintedPage').then(module => ({ default: module.default })));
 const VintedSalesStrategy2025PageEN = React.lazy(() => import('./pages/articles/en/VintedSalesStrategy2025Page').then(module => ({ default: module.default })));
+const HowToTakeGoodVintedPhotosPageEN = React.lazy(() => import('./pages/articles/en/HowToTakeGoodVintedPhotosPage').then(module => ({ default: module.default })));
 // Translated articles - ES
 const FotosPuestasVintedPageES = React.lazy(() => import('./pages/articles/es/FotosPuestasVintedPage').then(module => ({ default: module.default })));
 const ManiquiIAVintedPageES = React.lazy(() => import('./pages/articles/es/ManiquiIAVintedPage').then(module => ({ default: module.default })));
@@ -62,6 +63,7 @@ const AlgoritmoVintedVisibilidadPageES = React.lazy(() => import('./pages/articl
 const GuiaCompletaFotosVinted2025PageES = React.lazy(() => import('./pages/articles/es/GuiaCompletaFotosVinted2025Page').then(module => ({ default: module.default })));
 const CincoConsejosVenderRapidoVintedPageES = React.lazy(() => import('./pages/articles/es/CincoConsejosVenderRapidoVintedPage').then(module => ({ default: module.default })));
 const EstrategiaVentaVinted2025PageES = React.lazy(() => import('./pages/articles/es/EstrategiaVentaVinted2025Page').then(module => ({ default: module.default })));
+const ComoTomarBuenasFotosVintedPageES = React.lazy(() => import('./pages/articles/es/ComoTomarBuenasFotosVintedPage').then(module => ({ default: module.default })));
 // Translated articles - IT
 const FotoIndossateVintedPageIT = React.lazy(() => import('./pages/articles/it/FotoIndossateVintedPage').then(module => ({ default: module.default })));
 const ManichinoIAVintedPageIT = React.lazy(() => import('./pages/articles/it/ManichinoIAVintedPage').then(module => ({ default: module.default })));
@@ -71,6 +73,7 @@ const AlgoritmoVintedVisibilitaPageIT = React.lazy(() => import('./pages/article
 const GuidaCompletaFotoVinted2025PageIT = React.lazy(() => import('./pages/articles/it/GuidaCompletaFotoVinted2025Page').then(module => ({ default: module.default })));
 const CinqueConsigliVendereVelocementeVintedPageIT = React.lazy(() => import('./pages/articles/it/CinqueConsigliVendereVelocementeVintedPage').then(module => ({ default: module.default })));
 const StrategiaVenditaVinted2025PageIT = React.lazy(() => import('./pages/articles/it/StrategiaVenditaVinted2025Page').then(module => ({ default: module.default })));
+const ComeFareBelleFotoVintedPageIT = React.lazy(() => import('./pages/articles/it/ComeFareBelleFotoVintedPage').then(module => ({ default: module.default })));
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 const ResultPage = React.lazy(() => import('./pages/ResultPage').then(module => ({ default: module.ResultPage })));
@@ -296,6 +299,11 @@ function App() {
                   <VintedSalesStrategy2025PageEN />
                 </Suspense>
               } />
+              <Route path="/en/articles/how-to-take-good-vinted-photos" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <HowToTakeGoodVintedPhotosPageEN />
+                </Suspense>
+              } />
               {/* Translated articles - ES */}
               <Route path="/es/articles/fotos-puestas-vinted" element={
                 <Suspense fallback={<LoadingComponent />}>
@@ -337,6 +345,11 @@ function App() {
                   <EstrategiaVentaVinted2025PageES />
                 </Suspense>
               } />
+              <Route path="/es/articles/como-tomar-buenas-fotos-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ComoTomarBuenasFotosVintedPageES />
+                </Suspense>
+              } />
               {/* Translated articles - IT */}
               <Route path="/it/articles/foto-indossate-vinted" element={
                 <Suspense fallback={<LoadingComponent />}>
@@ -376,6 +389,11 @@ function App() {
               <Route path="/it/articles/strategia-vendita-vinted-2025" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <StrategiaVenditaVinted2025PageIT />
+                </Suspense>
+              } />
+              <Route path="/it/articles/come-fare-belle-foto-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ComeFareBelleFotoVintedPageIT />
                 </Suspense>
               } />
               <Route path="/articles/:slug" element={

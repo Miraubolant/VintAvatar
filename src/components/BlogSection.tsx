@@ -3,6 +3,8 @@ import { Calendar, User, ArrowRight, Tag, Lightbulb, ChevronDown, ChevronUp } fr
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { getArticlesList } from '../data/articles';
+import { getArticleUrlBySlugAndLanguage } from '../lib/articleTranslations';
+import { Language } from '../lib/i18n';
 
 const ARTICLES_TO_SHOW = 7; // 1 featured + 6 in grid
 
@@ -15,7 +17,8 @@ const getBlogPosts = () => {
 };
 
 export const BlogSection: React.FC = () => {
-  const { t } = useTranslation('blog');
+  const { t, i18n } = useTranslation('blog');
+  const currentLanguage = (i18n.language || 'fr') as Language;
   const blogPosts = getBlogPosts();
   const [showAllArticles, setShowAllArticles] = useState(false);
 
@@ -108,7 +111,7 @@ export const BlogSection: React.FC = () => {
                   </div>
 
                   <Link
-                    to={`/articles/${post.slug}`}
+                    to={getArticleUrlBySlugAndLanguage(post.slug, currentLanguage)}
                     className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 sm:px-6 py-3 bg-vinted text-white border-3 border-black font-display font-bold text-sm sm:text-base shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                   >
                     {t('buttons.readArticle')}
@@ -174,7 +177,7 @@ export const BlogSection: React.FC = () => {
               </div>
 
               <Link
-                to={`/articles/${post.slug}`}
+                to={getArticleUrlBySlugAndLanguage(post.slug, currentLanguage)}
                 className="block w-full py-2 sm:py-3 px-3 sm:px-4 bg-vinted border-3 border-black text-white font-display font-bold text-sm transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center transition-all duration-200"
               >
                 {t('buttons.readMore')}

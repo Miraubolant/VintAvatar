@@ -2,8 +2,14 @@ import { Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
 import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
 import { getArticlesList } from '../data/articles';
+import { useTranslation } from 'react-i18next';
+import { getArticleUrlBySlugAndLanguage } from '../lib/articleTranslations';
+import { Language } from '../lib/i18n';
 
 export default function BlogIndexPage() {
+  const { i18n } = useTranslation();
+  const currentLanguage = (i18n.language || 'fr') as Language;
+
   useSEO({
     title: "Blog VintDress : Tous les Articles et Guides pour Vinted | Conseils, Astuces & Success Stories",
     description: "Découvre tous nos articles, guides et conseils pour réussir sur Vinted. Photos IA, stratégies de vente, témoignages et astuces pour booster tes ventes !",
@@ -77,7 +83,7 @@ export default function BlogIndexPage() {
           {sortedArticles.map((article) => (
             <Link
               key={article.id}
-              to={`/articles/${article.slug}`}
+              to={getArticleUrlBySlugAndLanguage(article.slug, currentLanguage)}
               className="group bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all"
             >
               {/* Image */}
