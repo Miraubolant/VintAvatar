@@ -336,19 +336,346 @@
 
   <!-- Améliore tes ventes avec des photos portées sur Vinted -->
   <url>
-    <loc>https://vintdress.com/blog/photo-porte-vinted</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/blog/photo-porte-vinted"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/blog/photo-porte-vinted?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/blog/photo-porte-vinted?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/blog/photo-porte-vinted?lang=it"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/blog/photo-porte-vinted"/>
-    <lastmod>2025-12-30</lastmod>
+    <loc>https://vintdress.com/articles/photo-porte-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/photo-porte-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/worn-photos-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/fotos-puestas-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/foto-indossate-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/photo-porte-vinted"/>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&amp;h=800&amp;fit=crop</image:loc>
       <image:title>Améliore tes ventes avec des photos portées sur Vinted</image:title>
     </image:image>
+  </url>
+
+  <!-- Translated articles - English versions -->
+  <url>
+    <loc>https://vintdress.com/en/articles/worn-photos-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/photo-porte-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/worn-photos-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/fotos-puestas-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/foto-indossate-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/photo-porte-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/en/articles/ai-mannequin-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/mannequin-ia-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/ai-mannequin-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/maniqui-ia-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/manichino-ia-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/mannequin-ia-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/en/articles/vinted-look-free-vs-pro-alternative</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vinted-look-gratuit-alternative-pro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vinted-look-free-vs-pro-alternative"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vinted-look-gratis-alternativa-pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/vinted-look-gratis-alternativa-pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vinted-look-gratuit-alternative-pro"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/en/articles/ai-photo-vinted-free-vs-paid</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/ia-photo-vinted-gratuit-vs-payant"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/ai-photo-vinted-free-vs-paid"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/ia-foto-vinted-gratis-vs-pago"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/ia-foto-vinted-gratis-vs-pagamento"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/ia-photo-vinted-gratuit-vs-payant"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/en/articles/vinted-algorithm-visibility-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/algorithme-vinted-visibilite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vinted-algorithm-visibility-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/algoritmo-vinted-visibilidad-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/algoritmo-vinted-visibilita-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/algorithme-vinted-visibilite"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/en/articles/complete-guide-vinted-photos-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/guide-complet-photos-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/complete-guide-vinted-photos-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/guia-completa-fotos-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/guida-completa-foto-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/guide-complet-photos-vinted-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/en/articles/5-tips-sell-faster-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/5-astuces-pour-vendre-plus-vite-sur-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/5-tips-sell-faster-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/5-consejos-vender-rapido-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/5-consigli-vendere-velocemente-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/5-astuces-pour-vendre-plus-vite-sur-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/en/articles/vinted-sales-strategy-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/strategie-vente-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vinted-sales-strategy-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/estrategia-venta-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/strategia-vendita-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/strategie-vente-vinted-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/en/articles/how-to-take-good-vinted-photos</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/comment-prendre-bonnes-photos-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/how-to-take-good-vinted-photos"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/como-tomar-buenas-fotos-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/come-fare-belle-foto-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/comment-prendre-bonnes-photos-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Translated articles - Spanish versions -->
+  <url>
+    <loc>https://vintdress.com/es/articles/fotos-puestas-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/photo-porte-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/worn-photos-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/fotos-puestas-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/foto-indossate-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/photo-porte-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/es/articles/maniqui-ia-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/mannequin-ia-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/ai-mannequin-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/maniqui-ia-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/manichino-ia-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/mannequin-ia-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/es/articles/vinted-look-gratis-alternativa-pro</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vinted-look-gratuit-alternative-pro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vinted-look-free-vs-pro-alternative"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vinted-look-gratis-alternativa-pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/vinted-look-gratis-alternativa-pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vinted-look-gratuit-alternative-pro"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/es/articles/ia-foto-vinted-gratis-vs-pago</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/ia-photo-vinted-gratuit-vs-payant"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/ai-photo-vinted-free-vs-paid"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/ia-foto-vinted-gratis-vs-pago"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/ia-foto-vinted-gratis-vs-pagamento"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/ia-photo-vinted-gratuit-vs-payant"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/es/articles/algoritmo-vinted-visibilidad-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/algorithme-vinted-visibilite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vinted-algorithm-visibility-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/algoritmo-vinted-visibilidad-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/algoritmo-vinted-visibilita-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/algorithme-vinted-visibilite"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/es/articles/guia-completa-fotos-vinted-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/guide-complet-photos-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/complete-guide-vinted-photos-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/guia-completa-fotos-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/guida-completa-foto-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/guide-complet-photos-vinted-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/es/articles/5-consejos-vender-rapido-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/5-astuces-pour-vendre-plus-vite-sur-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/5-tips-sell-faster-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/5-consejos-vender-rapido-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/5-consigli-vendere-velocemente-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/5-astuces-pour-vendre-plus-vite-sur-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/es/articles/estrategia-venta-vinted-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/strategie-vente-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vinted-sales-strategy-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/estrategia-venta-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/strategia-vendita-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/strategie-vente-vinted-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/es/articles/como-tomar-buenas-fotos-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/comment-prendre-bonnes-photos-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/how-to-take-good-vinted-photos"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/como-tomar-buenas-fotos-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/come-fare-belle-foto-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/comment-prendre-bonnes-photos-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Translated articles - Italian versions -->
+  <url>
+    <loc>https://vintdress.com/it/articles/foto-indossate-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/photo-porte-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/worn-photos-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/fotos-puestas-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/foto-indossate-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/photo-porte-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/it/articles/manichino-ia-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/mannequin-ia-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/ai-mannequin-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/maniqui-ia-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/manichino-ia-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/mannequin-ia-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/it/articles/vinted-look-gratis-alternativa-pro</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vinted-look-gratuit-alternative-pro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vinted-look-free-vs-pro-alternative"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vinted-look-gratis-alternativa-pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/vinted-look-gratis-alternativa-pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vinted-look-gratuit-alternative-pro"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/it/articles/ia-foto-vinted-gratis-vs-pagamento</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/ia-photo-vinted-gratuit-vs-payant"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/ai-photo-vinted-free-vs-paid"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/ia-foto-vinted-gratis-vs-pago"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/ia-foto-vinted-gratis-vs-pagamento"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/ia-photo-vinted-gratuit-vs-payant"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/it/articles/algoritmo-vinted-visibilita-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/algorithme-vinted-visibilite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vinted-algorithm-visibility-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/algoritmo-vinted-visibilidad-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/algoritmo-vinted-visibilita-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/algorithme-vinted-visibilite"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/it/articles/guida-completa-foto-vinted-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/guide-complet-photos-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/complete-guide-vinted-photos-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/guia-completa-fotos-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/guida-completa-foto-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/guide-complet-photos-vinted-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/it/articles/5-consigli-vendere-velocemente-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/5-astuces-pour-vendre-plus-vite-sur-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/5-tips-sell-faster-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/5-consejos-vender-rapido-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/5-consigli-vendere-velocemente-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/5-astuces-pour-vendre-plus-vite-sur-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/it/articles/strategia-vendita-vinted-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/strategie-vente-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vinted-sales-strategy-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/estrategia-venta-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/strategia-vendita-vinted-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/strategie-vente-vinted-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/it/articles/come-fare-belle-foto-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/comment-prendre-bonnes-photos-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/how-to-take-good-vinted-photos"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/como-tomar-buenas-fotos-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/come-fare-belle-foto-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/comment-prendre-bonnes-photos-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
