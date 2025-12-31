@@ -140,5 +140,17 @@
     "invalidFormat": "Unsupported format. Use JPG or PNG.",
     "fileTooLarge": "File too large. Max 10MB.",
     "networkError": "Network error. Check your connection."
+  },
+  "promoBanner": "1 Free Vinted Description",
+  "socialProof": {
+    "averageRating": "average rating",
+    "photosTransformed": "photos transformed",
+    "photoQuality": "photo quality"
+  },
+  "articleInfo": {
+    "brand": "Brand",
+    "size": "Size",
+    "color": "Color",
+    "category": "Category"
   }
 }

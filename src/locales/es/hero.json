@@ -140,5 +140,17 @@
     "invalidFormat": "Formato no compatible. Usa JPG o PNG.",
     "fileTooLarge": "Archivo demasiado grande. Máx. 10MB.",
     "networkError": "Error de red. Verifica tu conexión."
+  },
+  "promoBanner": "1 Descripción Vinted Gratis",
+  "socialProof": {
+    "averageRating": "nota media",
+    "photosTransformed": "fotos transformadas",
+    "photoQuality": "calidad foto"
+  },
+  "articleInfo": {
+    "brand": "Marca",
+    "size": "Talla",
+    "color": "Color",
+    "category": "Categoría"
   }
 }
