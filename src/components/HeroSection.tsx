@@ -579,7 +579,7 @@ export const HeroSection: React.FC = () => {
                     <Gift className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 text-black" strokeWidth={2.5} />
                   </div>
                   <span className="font-display font-bold text-white text-sm sm:text-base md:text-lg tracking-wide uppercase">
-                    1 Description Vinted Offerte
+                    {t('promoBanner')}
                   </span>
                   <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 bg-pink-pastel border-2 border-black flex items-center justify-center transform -rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     <Gift className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 text-black" strokeWidth={2.5} />
@@ -631,25 +631,25 @@ export const HeroSection: React.FC = () => {
                             <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-[10px] sm:text-xs">
                               {vintedArticleInfo.brand && (
                                 <div>
-                                  <span className="text-gray-500">Marque:</span>{' '}
+                                  <span className="text-gray-500">{t('articleInfo.brand')}:</span>{' '}
                                   <span className="font-bold text-black">{vintedArticleInfo.brand}</span>
                                 </div>
                               )}
                               {vintedArticleInfo.size && (
                                 <div>
-                                  <span className="text-gray-500">Taille:</span>{' '}
+                                  <span className="text-gray-500">{t('articleInfo.size')}:</span>{' '}
                                   <span className="font-bold text-black">{vintedArticleInfo.size}</span>
                                 </div>
                               )}
                               {vintedArticleInfo.color && (
                                 <div>
-                                  <span className="text-gray-500">Couleur:</span>{' '}
+                                  <span className="text-gray-500">{t('articleInfo.color')}:</span>{' '}
                                   <span className="font-bold text-black">{vintedArticleInfo.color}</span>
                                 </div>
                               )}
                               {vintedArticleInfo.category && (
                                 <div>
-                                  <span className="text-gray-500">Catégorie:</span>{' '}
+                                  <span className="text-gray-500">{t('articleInfo.category')}:</span>{' '}
                                   <span className="font-bold text-black">{vintedArticleInfo.category}</span>
                                 </div>
                               )}
@@ -801,7 +801,7 @@ export const HeroSection: React.FC = () => {
                     ))}
                   </div>
                 </div>
-                <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">note moyenne</span>
+                <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">{t('socialProof.averageRating')}</span>
               </div>
 
               {/* Séparateur */}
@@ -812,7 +812,7 @@ export const HeroSection: React.FC = () => {
                 <span className="font-display font-bold text-lg sm:text-3xl text-black">
                   +{counterValue.toLocaleString('fr-FR')}
                 </span>
-                <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">photos transformées</span>
+                <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">{t('socialProof.photosTransformed')}</span>
               </div>
 
               {/* Séparateur */}
@@ -821,7 +821,7 @@ export const HeroSection: React.FC = () => {
               {/* Qualité HD */}
               <div className="flex flex-col items-center gap-0.5 sm:gap-1">
                 <span className="font-display font-bold text-lg sm:text-3xl text-black">HD</span>
-                <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">qualité photo</span>
+                <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">{t('socialProof.photoQuality')}</span>
               </div>
             </div>
           </div>

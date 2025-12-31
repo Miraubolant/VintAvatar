@@ -140,5 +140,17 @@
     "invalidFormat": "Format non supporté. Utilise JPG ou PNG.",
     "fileTooLarge": "Fichier trop volumineux. Max 10MB.",
     "networkError": "Erreur réseau. Vérifie ta connexion."
+  },
+  "promoBanner": "1 Description Vinted Offerte",
+  "socialProof": {
+    "averageRating": "note moyenne",
+    "photosTransformed": "photos transformées",
+    "photoQuality": "qualité photo"
+  },
+  "articleInfo": {
+    "brand": "Marque",
+    "size": "Taille",
+    "color": "Couleur",
+    "category": "Catégorie"
   }
 }
