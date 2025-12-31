@@ -95,15 +95,15 @@
     </image:image>
   </url>
 
-  <!-- Tendances mode 2025 -->
+  <!-- Tendances mode 2025 - FR -->
   <url>
-    <loc>https://vintdress.com/blog/tendances-mode-2025</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/blog/tendances-mode-2025"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/blog/tendances-mode-2025?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/blog/tendances-mode-2025?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/blog/tendances-mode-2025?lang=it"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/blog/tendances-mode-2025"/>
-    <lastmod>2025-12-30</lastmod>
+    <loc>https://vintdress.com/articles/tendances-mode-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/tendances-mode-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/fashion-trends-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/tendencias-moda-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/tendenze-moda-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/tendances-mode-2025"/>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -112,15 +112,54 @@
     </image:image>
   </url>
 
-  <!-- Guide vintage Vinted -->
+  <!-- Fashion Trends 2025 - EN -->
   <url>
-    <loc>https://vintdress.com/blog/vendre-vintage-vinted-guide</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/blog/vendre-vintage-vinted-guide"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/blog/vendre-vintage-vinted-guide?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/blog/vendre-vintage-vinted-guide?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/blog/vendre-vintage-vinted-guide?lang=it"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/blog/vendre-vintage-vinted-guide"/>
-    <lastmod>2025-12-30</lastmod>
+    <loc>https://vintdress.com/en/articles/fashion-trends-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/tendances-mode-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/fashion-trends-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/tendencias-moda-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/tendenze-moda-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/tendances-mode-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Tendencias Moda 2025 - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/tendencias-moda-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/tendances-mode-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/fashion-trends-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/tendencias-moda-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/tendenze-moda-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/tendances-mode-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Tendenze Moda 2025 - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/tendenze-moda-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/tendances-mode-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/fashion-trends-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/tendencias-moda-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/tendenze-moda-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/tendances-mode-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Vendre Vintage Vinted Guide - FR -->
+  <url>
+    <loc>https://vintdress.com/articles/vendre-vintage-vinted-guide</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vendre-vintage-vinted-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/sell-vintage-vinted-guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vender-vintage-vinted-guia"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/vendere-vintage-vinted-guida"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vendre-vintage-vinted-guide"/>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -129,15 +168,54 @@
     </image:image>
   </url>
 
-  <!-- Identité visuelle Vinted -->
+  <!-- Sell Vintage Vinted Guide - EN -->
   <url>
-    <loc>https://vintdress.com/blog/identite-visuelle-vinted</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/blog/identite-visuelle-vinted"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/blog/identite-visuelle-vinted?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/blog/identite-visuelle-vinted?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/blog/identite-visuelle-vinted?lang=it"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/blog/identite-visuelle-vinted"/>
-    <lastmod>2025-12-30</lastmod>
+    <loc>https://vintdress.com/en/articles/sell-vintage-vinted-guide</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vendre-vintage-vinted-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/sell-vintage-vinted-guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vender-vintage-vinted-guia"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/vendere-vintage-vinted-guida"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vendre-vintage-vinted-guide"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Vender Vintage Vinted Guía - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/vender-vintage-vinted-guia</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vendre-vintage-vinted-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/sell-vintage-vinted-guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vender-vintage-vinted-guia"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/vendere-vintage-vinted-guida"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vendre-vintage-vinted-guide"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Vendere Vintage Vinted Guida - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/vendere-vintage-vinted-guida</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vendre-vintage-vinted-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/sell-vintage-vinted-guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vender-vintage-vinted-guia"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/vendere-vintage-vinted-guida"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vendre-vintage-vinted-guide"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Identité visuelle Vinted - FR -->
+  <url>
+    <loc>https://vintdress.com/articles/identite-visuelle-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/identite-visuelle-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/visual-identity-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/identidad-visual-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/identita-visiva-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/identite-visuelle-vinted"/>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -146,21 +224,99 @@
     </image:image>
   </url>
 
-  <!-- Erreurs ventes Vinted -->
+  <!-- Visual Identity Vinted - EN -->
   <url>
-    <loc>https://vintdress.com/blog/erreurs-ventes-vinted</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/blog/erreurs-ventes-vinted"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/blog/erreurs-ventes-vinted?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/blog/erreurs-ventes-vinted?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/blog/erreurs-ventes-vinted?lang=it"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/blog/erreurs-ventes-vinted"/>
-    <lastmod>2025-12-30</lastmod>
+    <loc>https://vintdress.com/en/articles/visual-identity-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/identite-visuelle-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/visual-identity-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/identidad-visual-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/identita-visiva-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/identite-visuelle-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Identidad Visual Vinted - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/identidad-visual-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/identite-visuelle-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/visual-identity-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/identidad-visual-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/identita-visiva-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/identite-visuelle-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Identità Visiva Vinted - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/identita-visiva-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/identite-visuelle-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/visual-identity-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/identidad-visual-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/identita-visiva-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/identite-visuelle-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Erreurs ventes Vinted - FR -->
+  <url>
+    <loc>https://vintdress.com/articles/erreurs-ventes-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/erreurs-ventes-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/sales-mistakes-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/errores-ventas-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/errori-vendite-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/erreurs-ventes-vinted"/>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&amp;h=800&amp;fit=crop</image:loc>
       <image:title>10 erreurs qui tuent vos ventes Vinted</image:title>
     </image:image>
+  </url>
+
+  <!-- Sales Mistakes Vinted - EN -->
+  <url>
+    <loc>https://vintdress.com/en/articles/sales-mistakes-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/erreurs-ventes-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/sales-mistakes-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/errores-ventas-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/errori-vendite-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/erreurs-ventes-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Errores Ventas Vinted - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/errores-ventas-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/erreurs-ventes-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/sales-mistakes-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/errores-ventas-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/errori-vendite-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/erreurs-ventes-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Errori Vendite Vinted - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/errori-vendite-vinted</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/erreurs-ventes-vinted"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/sales-mistakes-vinted"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/errores-ventas-vinted"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/errori-vendite-vinted"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/erreurs-ventes-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Success story Marie 2025 -->
@@ -673,6 +829,211 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/como-tomar-buenas-fotos-vinted"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/come-fare-belle-foto-vinted"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/comment-prendre-bonnes-photos-vinted"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Article #10 - VintDress vs Alternatives Comparatif - Translated versions -->
+  <url>
+    <loc>https://vintdress.com/en/articles/vintdress-vs-alternatives-comparison-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vintdress-vs-alternatives-comparatif-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintdress-vs-alternatives-comparison-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vintdress-vs-alternativas-comparativa-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/vintdress-vs-alternative-confronto-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vintdress-vs-alternatives-comparatif-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/es/articles/vintdress-vs-alternativas-comparativa-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vintdress-vs-alternatives-comparatif-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintdress-vs-alternatives-comparison-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vintdress-vs-alternativas-comparativa-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/vintdress-vs-alternative-confronto-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vintdress-vs-alternatives-comparatif-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vintdress.com/it/articles/vintdress-vs-alternative-confronto-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vintdress-vs-alternatives-comparatif-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintdress-vs-alternatives-comparison-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vintdress-vs-alternativas-comparativa-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/vintdress-vs-alternative-confronto-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vintdress-vs-alternatives-comparatif-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Article #15 - Success Story Marie 2025 - FR -->
+  <url>
+    <loc>https://vintdress.com/articles/success-story-marie-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/success-story-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/success-story-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/historia-exito-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/storia-successo-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/success-story-marie-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200&amp;h=800&amp;fit=crop</image:loc>
+      <image:title>Success Story Marie - 1000€ par mois sur Vinted</image:title>
+    </image:image>
+  </url>
+
+  <!-- Success Story Marie 2025 - EN -->
+  <url>
+    <loc>https://vintdress.com/en/articles/success-story-marie-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/success-story-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/success-story-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/historia-exito-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/storia-successo-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/success-story-marie-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Historia Éxito Marie 2025 - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/historia-exito-marie-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/success-story-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/success-story-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/historia-exito-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/storia-successo-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/success-story-marie-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Storia Successo Marie 2025 - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/storia-successo-marie-2025</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/success-story-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/success-story-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/historia-exito-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/storia-successo-marie-2025"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/success-story-marie-2025"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Article #16 - IA au Service de la Mode - FR -->
+  <url>
+    <loc>https://vintdress.com/articles/ia-au-service-de-la-mode-notre-revolution</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/ia-au-service-de-la-mode-notre-revolution"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/ai-fashion-revolution"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/ia-servicio-moda-revolucion"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/ia-servizio-moda-rivoluzione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/ia-au-service-de-la-mode-notre-revolution"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&amp;h=800&amp;fit=crop</image:loc>
+      <image:title>L'IA au service de la mode - Notre révolution</image:title>
+    </image:image>
+  </url>
+
+  <!-- AI Fashion Revolution - EN -->
+  <url>
+    <loc>https://vintdress.com/en/articles/ai-fashion-revolution</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/ia-au-service-de-la-mode-notre-revolution"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/ai-fashion-revolution"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/ia-servicio-moda-revolucion"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/ia-servizio-moda-rivoluzione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/ia-au-service-de-la-mode-notre-revolution"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- IA Servicio Moda Revolución - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/ia-servicio-moda-revolucion</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/ia-au-service-de-la-mode-notre-revolution"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/ai-fashion-revolution"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/ia-servicio-moda-revolucion"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/ia-servizio-moda-rivoluzione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/ia-au-service-de-la-mode-notre-revolution"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- IA Servizio Moda Rivoluzione - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/ia-servizio-moda-rivoluzione</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/ia-au-service-de-la-mode-notre-revolution"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/ai-fashion-revolution"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/ia-servicio-moda-revolucion"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/ia-servizio-moda-rivoluzione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/ia-au-service-de-la-mode-notre-revolution"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Article #17 - Témoignage 300% Vues - FR -->
+  <url>
+    <loc>https://vintdress.com/articles/temoignage-300-pourcent-vues-une-semaine</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/temoignage-300-pourcent-vues-une-semaine"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/testimonial-300-percent-views-one-week"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/testimonio-300-porciento-vistas-una-semana"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/testimonianza-300-percento-visualizzazioni-una-settimana"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/temoignage-300-pourcent-vues-une-semaine"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=1200&amp;h=800&amp;fit=crop</image:loc>
+      <image:title>Témoignage +300% de vues en une semaine</image:title>
+    </image:image>
+  </url>
+
+  <!-- Testimonial 300% Views - EN -->
+  <url>
+    <loc>https://vintdress.com/en/articles/testimonial-300-percent-views-one-week</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/temoignage-300-pourcent-vues-une-semaine"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/testimonial-300-percent-views-one-week"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/testimonio-300-porciento-vistas-una-semana"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/testimonianza-300-percento-visualizzazioni-una-settimana"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/temoignage-300-pourcent-vues-une-semaine"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Testimonio 300% Vistas - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/testimonio-300-porciento-vistas-una-semana</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/temoignage-300-pourcent-vues-une-semaine"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/testimonial-300-percent-views-one-week"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/testimonio-300-porciento-vistas-una-semana"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/testimonianza-300-percento-visualizzazioni-una-settimana"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/temoignage-300-pourcent-vues-une-semaine"/>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Testimonianza 300% Visualizzazioni - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/testimonianza-300-percento-visualizzazioni-una-settimana</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/temoignage-300-pourcent-vues-une-semaine"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/testimonial-300-percent-views-one-week"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/testimonio-300-porciento-vistas-una-semana"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/testimonianza-300-percento-visualizzazioni-una-settimana"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/temoignage-300-pourcent-vues-une-semaine"/>
     <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -224,16 +224,16 @@ const WornPhotosVintedPage = lazy(() => import('./pages/articles/en/WornPhotosVi
 | 7 | CinqAstucesVendrePlusVitePage | 5-astuces-pour-vendre-plus-vite-sur-vinted | ✅ | ✅ | ✅ |
 | 8 | StrategieVenteVinted2025Page | strategie-vente-vinted-2025 | ✅ | ✅ | ✅ |
 | 9 | CommentPrendrePhotoVintedPage | comment-prendre-bonnes-photos-vinted | ✅ | ✅ | ✅ |
-| 10 | VintDressVsAlternativesComparatifPage | vintdress-vs-alternatives-comparatif-2025 | ⬜ | ⬜ | ⬜ |
-| 11 | TendancesMode2025Page | tendances-mode-2025 | ⬜ | ⬜ | ⬜ |
-| 12 | VendreVintageVintedGuidePage | vendre-vintage-vinted-guide | ⬜ | ⬜ | ⬜ |
-| 13 | IdentiteVisuelleVintedPage | identite-visuelle-vinted | ⬜ | ⬜ | ⬜ |
-| 14 | ErreursVentesVintedPage | erreurs-ventes-vinted | ⬜ | ⬜ | ⬜ |
-| 15 | SuccessStoryMarie2025Page | success-story-marie-2025 | ⬜ | ⬜ | ⬜ |
-| 16 | IAServiceModeRevolutionPage | ia-au-service-de-la-mode-notre-revolution | ⬜ | ⬜ | ⬜ |
-| 17 | Temoignage300PourcentVuesPage | temoignage-300-pourcent-vues-une-semaine | ⬜ | ⬜ | ⬜ |
+| 10 | VintDressVsAlternativesComparatifPage | vintdress-vs-alternatives-comparatif-2025 | ✅ | ✅ | ✅ |
+| 11 | TendancesMode2025Page | tendances-mode-2025 | ✅ | ✅ | ✅ |
+| 12 | VendreVintageVintedGuidePage | vendre-vintage-vinted-guide | ✅ | ✅ | ✅ |
+| 13 | IdentiteVisuelleVintedPage | identite-visuelle-vinted | ✅ | ✅ | ✅ |
+| 14 | ErreursVentesVintedPage | erreurs-ventes-vinted | ✅ | ✅ | ✅ |
+| 15 | SuccessStoryMarie2025Page | success-story-marie-2025 | ✅ | ✅ | ✅ |
+| 16 | IAServiceModeRevolutionPage | ia-au-service-de-la-mode-notre-revolution | ✅ | ✅ | ✅ |
+| 17 | Temoignage300PourcentVuesPage | temoignage-300-pourcent-vues-une-semaine | ✅ | ✅ | ✅ |
 
-**Progression** : 9/17 articles traduits (27 traductions sur 51)
+**Progression** : 17/17 articles traduits (51 traductions sur 51)
 
 ---
 
