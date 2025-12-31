@@ -44,6 +44,33 @@ const ErreursVentesVintedPage = React.lazy(() => import('./pages/articles/Erreur
 const SuccessStoryMarie2025Page = React.lazy(() => import('./pages/articles/SuccessStoryMarie2025Page').then(module => ({ default: module.default })));
 const IAServiceModeRevolutionPage = React.lazy(() => import('./pages/articles/IAServiceModeRevolutionPage').then(module => ({ default: module.default })));
 const Temoignage300PourcentVuesPage = React.lazy(() => import('./pages/articles/Temoignage300PourcentVuesPage').then(module => ({ default: module.default })));
+// Translated articles - EN
+const WornPhotosVintedPageEN = React.lazy(() => import('./pages/articles/en/WornPhotosVintedPage').then(module => ({ default: module.default })));
+const AImannequinVintedPageEN = React.lazy(() => import('./pages/articles/en/AImannequinVintedPage').then(module => ({ default: module.default })));
+const VintedLookFreeVsProPageEN = React.lazy(() => import('./pages/articles/en/VintedLookFreeVsProPage').then(module => ({ default: module.default })));
+const AIPhotoVintedFreeVsPaidPageEN = React.lazy(() => import('./pages/articles/en/AIPhotoVintedFreeVsPaidPage').then(module => ({ default: module.default })));
+const VintedAlgorithmVisibilityPageEN = React.lazy(() => import('./pages/articles/en/VintedAlgorithmVisibilityPage').then(module => ({ default: module.default })));
+const CompleteGuideVintedPhotos2025PageEN = React.lazy(() => import('./pages/articles/en/CompleteGuideVintedPhotos2025Page').then(module => ({ default: module.default })));
+const FiveTipsSellFasterVintedPageEN = React.lazy(() => import('./pages/articles/en/FiveTipsSellFasterVintedPage').then(module => ({ default: module.default })));
+const VintedSalesStrategy2025PageEN = React.lazy(() => import('./pages/articles/en/VintedSalesStrategy2025Page').then(module => ({ default: module.default })));
+// Translated articles - ES
+const FotosPuestasVintedPageES = React.lazy(() => import('./pages/articles/es/FotosPuestasVintedPage').then(module => ({ default: module.default })));
+const ManiquiIAVintedPageES = React.lazy(() => import('./pages/articles/es/ManiquiIAVintedPage').then(module => ({ default: module.default })));
+const VintedLookGratisAlternativaProPageES = React.lazy(() => import('./pages/articles/es/VintedLookGratisAlternativaProPage').then(module => ({ default: module.default })));
+const IAFotoVintedGratisVsPagoPageES = React.lazy(() => import('./pages/articles/es/IAFotoVintedGratisVsPagoPage').then(module => ({ default: module.default })));
+const AlgoritmoVintedVisibilidadPageES = React.lazy(() => import('./pages/articles/es/AlgoritmoVintedVisibilidadPage').then(module => ({ default: module.default })));
+const GuiaCompletaFotosVinted2025PageES = React.lazy(() => import('./pages/articles/es/GuiaCompletaFotosVinted2025Page').then(module => ({ default: module.default })));
+const CincoConsejosVenderRapidoVintedPageES = React.lazy(() => import('./pages/articles/es/CincoConsejosVenderRapidoVintedPage').then(module => ({ default: module.default })));
+const EstrategiaVentaVinted2025PageES = React.lazy(() => import('./pages/articles/es/EstrategiaVentaVinted2025Page').then(module => ({ default: module.default })));
+// Translated articles - IT
+const FotoIndossateVintedPageIT = React.lazy(() => import('./pages/articles/it/FotoIndossateVintedPage').then(module => ({ default: module.default })));
+const ManichinoIAVintedPageIT = React.lazy(() => import('./pages/articles/it/ManichinoIAVintedPage').then(module => ({ default: module.default })));
+const VintedLookGratisAlternativaProPageIT = React.lazy(() => import('./pages/articles/it/VintedLookGratisAlternativaProPage').then(module => ({ default: module.default })));
+const IAFotoVintedGratisVsPagamentoPageIT = React.lazy(() => import('./pages/articles/it/IAFotoVintedGratisVsPagamentoPage').then(module => ({ default: module.default })));
+const AlgoritmoVintedVisibilitaPageIT = React.lazy(() => import('./pages/articles/it/AlgoritmoVintedVisibilitaPage').then(module => ({ default: module.default })));
+const GuidaCompletaFotoVinted2025PageIT = React.lazy(() => import('./pages/articles/it/GuidaCompletaFotoVinted2025Page').then(module => ({ default: module.default })));
+const CinqueConsigliVendereVelocementeVintedPageIT = React.lazy(() => import('./pages/articles/it/CinqueConsigliVendereVelocementeVintedPage').then(module => ({ default: module.default })));
+const StrategiaVenditaVinted2025PageIT = React.lazy(() => import('./pages/articles/it/StrategiaVenditaVinted2025Page').then(module => ({ default: module.default })));
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 const ResultPage = React.lazy(() => import('./pages/ResultPage').then(module => ({ default: module.ResultPage })));
@@ -226,6 +253,129 @@ function App() {
               <Route path="/articles/temoignage-300-pourcent-vues-une-semaine" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <Temoignage300PourcentVuesPage />
+                </Suspense>
+              } />
+              {/* Translated articles - EN */}
+              <Route path="/en/articles/worn-photos-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <WornPhotosVintedPageEN />
+                </Suspense>
+              } />
+              <Route path="/en/articles/ai-mannequin-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <AImannequinVintedPageEN />
+                </Suspense>
+              } />
+              <Route path="/en/articles/vinted-look-free-vs-pro-alternative" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintedLookFreeVsProPageEN />
+                </Suspense>
+              } />
+              <Route path="/en/articles/ai-photo-vinted-free-vs-paid" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <AIPhotoVintedFreeVsPaidPageEN />
+                </Suspense>
+              } />
+              <Route path="/en/articles/vinted-algorithm-visibility-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintedAlgorithmVisibilityPageEN />
+                </Suspense>
+              } />
+              <Route path="/en/articles/complete-guide-vinted-photos-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <CompleteGuideVintedPhotos2025PageEN />
+                </Suspense>
+              } />
+              <Route path="/en/articles/5-tips-sell-faster-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <FiveTipsSellFasterVintedPageEN />
+                </Suspense>
+              } />
+              <Route path="/en/articles/vinted-sales-strategy-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintedSalesStrategy2025PageEN />
+                </Suspense>
+              } />
+              {/* Translated articles - ES */}
+              <Route path="/es/articles/fotos-puestas-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <FotosPuestasVintedPageES />
+                </Suspense>
+              } />
+              <Route path="/es/articles/maniqui-ia-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ManiquiIAVintedPageES />
+                </Suspense>
+              } />
+              <Route path="/es/articles/vinted-look-gratis-alternativa-pro" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintedLookGratisAlternativaProPageES />
+                </Suspense>
+              } />
+              <Route path="/es/articles/ia-foto-vinted-gratis-vs-pago" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <IAFotoVintedGratisVsPagoPageES />
+                </Suspense>
+              } />
+              <Route path="/es/articles/algoritmo-vinted-visibilidad-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <AlgoritmoVintedVisibilidadPageES />
+                </Suspense>
+              } />
+              <Route path="/es/articles/guia-completa-fotos-vinted-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <GuiaCompletaFotosVinted2025PageES />
+                </Suspense>
+              } />
+              <Route path="/es/articles/5-consejos-vender-rapido-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <CincoConsejosVenderRapidoVintedPageES />
+                </Suspense>
+              } />
+              <Route path="/es/articles/estrategia-venta-vinted-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <EstrategiaVentaVinted2025PageES />
+                </Suspense>
+              } />
+              {/* Translated articles - IT */}
+              <Route path="/it/articles/foto-indossate-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <FotoIndossateVintedPageIT />
+                </Suspense>
+              } />
+              <Route path="/it/articles/manichino-ia-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ManichinoIAVintedPageIT />
+                </Suspense>
+              } />
+              <Route path="/it/articles/vinted-look-gratis-alternativa-pro" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintedLookGratisAlternativaProPageIT />
+                </Suspense>
+              } />
+              <Route path="/it/articles/ia-foto-vinted-gratis-vs-pagamento" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <IAFotoVintedGratisVsPagamentoPageIT />
+                </Suspense>
+              } />
+              <Route path="/it/articles/algoritmo-vinted-visibilita-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <AlgoritmoVintedVisibilitaPageIT />
+                </Suspense>
+              } />
+              <Route path="/it/articles/guida-completa-foto-vinted-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <GuidaCompletaFotoVinted2025PageIT />
+                </Suspense>
+              } />
+              <Route path="/it/articles/5-consigli-vendere-velocemente-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <CinqueConsigliVendereVelocementeVintedPageIT />
+                </Suspense>
+              } />
+              <Route path="/it/articles/strategia-vendita-vinted-2025" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <StrategiaVenditaVinted2025PageIT />
                 </Suspense>
               } />
               <Route path="/articles/:slug" element={
