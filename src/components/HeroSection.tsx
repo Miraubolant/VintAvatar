@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, HelpCircle, Images, Sparkles, Gift } from 'lucide-react';
+import { Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, HelpCircle, Images, Sparkles, Gift, Loader2, Check, Link, ImageIcon, FileSearch } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AvatarConfigModal } from './AvatarConfigModal';
 import { GenerationLoadingModal } from './GenerationLoadingModal';
@@ -102,6 +102,7 @@ export const HeroSection: React.FC = () => {
     condition?: string;
   } | null>(null);
   const [isScrapingVinted, setIsScrapingVinted] = useState(false);
+  const [scrapingStep, setScrapingStep] = useState<'connecting' | 'fetching' | 'extracting' | 'complete'>('connecting');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hasStoredConfig, setHasStoredConfig] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -175,10 +176,14 @@ export const HeroSection: React.FC = () => {
     const extractVintedImage = async () => {
       try {
         setIsScrapingVinted(true);
+        setScrapingStep('connecting');
         setError(null);
         lastExtractedUrlRef.current = vintedUrl;
 
         console.log('Auto-extracting Vinted image from:', vintedUrl);
+
+        // Simulate step progression for better UX
+        setTimeout(() => setScrapingStep('fetching'), 500);
 
         const { data: scrapResult, error: scrapError } = await supabase.functions.invoke('vinted-scraper', {
           body: { vintedUrl },
@@ -187,11 +192,17 @@ export const HeroSection: React.FC = () => {
           },
         });
 
+        setScrapingStep('extracting');
+
         if (scrapError || !scrapResult.success || scrapResult.images.length === 0) {
           console.error('Auto-extraction failed:', scrapResult?.error);
           lastExtractedUrlRef.current = null; // Reset so user can retry
+          setIsScrapingVinted(false);
+          setScrapingStep('connecting');
           return;
         }
+
+        setScrapingStep('complete');
 
         // Clear uploaded image and set Vinted image
         setUploadedImage(null);
@@ -204,11 +215,15 @@ export const HeroSection: React.FC = () => {
         }
         console.log('Vinted image auto-extracted');
 
+        // Small delay to show complete state before hiding
+        await new Promise(resolve => setTimeout(resolve, 300));
+
       } catch (error) {
         console.error('Error auto-extracting Vinted image:', error);
         lastExtractedUrlRef.current = null; // Reset so user can retry
       } finally {
         setIsScrapingVinted(false);
+        setScrapingStep('connecting');
       }
     };
 
@@ -290,10 +305,14 @@ export const HeroSection: React.FC = () => {
 
     try {
       setIsScrapingVinted(true);
+      setScrapingStep('connecting');
       setError(null);
       setVintedImage(null);
 
       console.log('Scraping Vinted URL:', vintedUrl);
+
+      // Simulate step progression for better UX
+      setTimeout(() => setScrapingStep('fetching'), 500);
 
       const { data: scrapResult, error: scrapError } = await supabase.functions.invoke('vinted-scraper', {
         body: { vintedUrl },
@@ -302,19 +321,30 @@ export const HeroSection: React.FC = () => {
         },
       });
 
+      setScrapingStep('extracting');
+
       if (scrapError || !scrapResult.success || scrapResult.images.length === 0) {
         throw new Error(scrapResult?.error || 'Impossible de récupérer les images depuis cette URL Vinted');
       }
 
+      setScrapingStep('complete');
+
       // Prendre automatiquement la première image
       setVintedImage(scrapResult.images[0]);
+      if (scrapResult.article_info) {
+        setVintedArticleInfo(scrapResult.article_info);
+      }
       console.log('Image Vinted récupérée');
+
+      // Small delay to show complete state
+      await new Promise(resolve => setTimeout(resolve, 300));
 
     } catch (error) {
       console.error('Error processing Vinted URL:', error);
       setError(error instanceof Error ? error.message : 'Erreur lors du traitement de l\'URL Vinted');
     } finally {
       setIsScrapingVinted(false);
+      setScrapingStep('connecting');
     }
   };
 
@@ -484,7 +514,11 @@ export const HeroSection: React.FC = () => {
     if (!uploadedImage && !vintedImage && vintedUrl && isValidVintedUrl(vintedUrl)) {
       try {
         setIsScrapingVinted(true);
+        setScrapingStep('connecting');
         setError(null);
+
+        // Simulate step progression for better UX
+        setTimeout(() => setScrapingStep('fetching'), 500);
 
         const { data: scrapResult, error: scrapError } = await supabase.functions.invoke('vinted-scraper', {
           body: { vintedUrl },
@@ -493,13 +527,22 @@ export const HeroSection: React.FC = () => {
           },
         });
 
+        setScrapingStep('extracting');
+
         if (scrapError || !scrapResult.success || scrapResult.images.length === 0) {
           throw new Error(scrapResult?.error || 'Impossible de récupérer les images depuis cette URL Vinted');
         }
 
+        setScrapingStep('complete');
+        await new Promise(resolve => setTimeout(resolve, 300));
+
         // Utiliser directement la première image pour la génération
         setVintedImage(scrapResult.images[0]);
+        if (scrapResult.article_info) {
+          setVintedArticleInfo(scrapResult.article_info);
+        }
         setIsScrapingVinted(false);
+        setScrapingStep('connecting');
 
         // Lancer la génération avec l'image extraite
         await processImageGeneration(scrapResult.images[0], true);
@@ -508,6 +551,7 @@ export const HeroSection: React.FC = () => {
         console.error('Error extracting Vinted image:', error);
         setError(error instanceof Error ? error.message : 'Erreur lors de l\'extraction');
         setIsScrapingVinted(false);
+        setScrapingStep('connecting');
         return;
       }
     }
@@ -677,7 +721,7 @@ export const HeroSection: React.FC = () => {
                 <form onSubmit={handleUrlSubmit} className="space-y-3 sm:space-y-4">
                   {/* Input Vinted avec bouton Upload - Mobile optimisé */}
                   <div className="flex gap-2">
-                    <div className="flex-1 bg-cream border-3 border-black p-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative">
+                    <div className="flex-1 bg-cream border-3 border-black p-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                       <label htmlFor="vinted-url-input" className="sr-only">URL Vinted</label>
                       <input
                         id="vinted-url-input"
@@ -685,11 +729,61 @@ export const HeroSection: React.FC = () => {
                         value={vintedUrl}
                         onChange={(e) => setVintedUrl(e.target.value)}
                         placeholder={t('interface.placeholder')}
-                        className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-10 bg-transparent border-none font-body font-semibold text-sm sm:text-base placeholder-gray-500 focus:outline-none"
+                        className={`w-full px-3 py-2 sm:px-4 sm:py-3 pr-10 bg-transparent border-none font-body font-semibold text-sm sm:text-base placeholder-gray-500 focus:outline-none transition-opacity ${isScrapingVinted ? 'opacity-0' : 'opacity-100'}`}
                         data-guide="vinted-url-input"
                         aria-describedby="vinted-url-help"
+                        disabled={isScrapingVinted}
                       />
-                      {vintedUrl && (
+
+                      {/* Overlay de chargement Vinted */}
+                      {isScrapingVinted && (
+                        <div className="absolute inset-0 bg-cream flex items-center justify-center">
+                          <div className="flex items-center gap-2 sm:gap-3">
+                            {/* Étapes avec icônes */}
+                            <div className="flex items-center gap-1.5 sm:gap-2">
+                              {/* Étape 1: Connexion */}
+                              <div className={`flex items-center gap-1 ${scrapingStep === 'connecting' ? 'text-vinted' : scrapingStep !== 'connecting' ? 'text-green-600' : 'text-gray-400'}`}>
+                                {scrapingStep === 'connecting' ? (
+                                  <Loader2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin" />
+                                ) : (
+                                  <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                )}
+                                <span className="text-[10px] sm:text-xs font-bold hidden xs:inline">{t('scraping.steps.connecting')}</span>
+                              </div>
+
+                              <div className="w-2 sm:w-4 h-0.5 bg-gray-300"></div>
+
+                              {/* Étape 2: Récupération */}
+                              <div className={`flex items-center gap-1 ${scrapingStep === 'fetching' ? 'text-vinted' : ['extracting', 'complete'].includes(scrapingStep) ? 'text-green-600' : 'text-gray-400'}`}>
+                                {scrapingStep === 'fetching' ? (
+                                  <Loader2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin" />
+                                ) : ['extracting', 'complete'].includes(scrapingStep) ? (
+                                  <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                ) : (
+                                  <ImageIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                )}
+                                <span className="text-[10px] sm:text-xs font-bold hidden xs:inline">{t('scraping.steps.fetching')}</span>
+                              </div>
+
+                              <div className="w-2 sm:w-4 h-0.5 bg-gray-300"></div>
+
+                              {/* Étape 3: Extraction */}
+                              <div className={`flex items-center gap-1 ${scrapingStep === 'extracting' ? 'text-vinted' : scrapingStep === 'complete' ? 'text-green-600' : 'text-gray-400'}`}>
+                                {scrapingStep === 'extracting' ? (
+                                  <Loader2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin" />
+                                ) : scrapingStep === 'complete' ? (
+                                  <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                ) : (
+                                  <FileSearch className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                )}
+                                <span className="text-[10px] sm:text-xs font-bold hidden xs:inline">{t('scraping.steps.extracting')}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {vintedUrl && !isScrapingVinted && (
                         <button
                           type="button"
                           onClick={() => {
