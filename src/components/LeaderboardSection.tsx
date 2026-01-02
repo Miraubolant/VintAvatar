@@ -18,11 +18,11 @@ interface LeaderboardData {
 
 // Mock data for demonstration (will be replaced by real data from API)
 const MOCK_LEADERBOARD: LeaderboardEntry[] = [
-  { name: 'Marie L.', count: 12 },
-  { name: 'Thomas D.', count: 8 },
-  { name: 'Sophie M.', count: 6 },
-  { name: 'Lucas P.', count: 5 },
-  { name: 'Emma B.', count: 4 },
+  { name: 'Liora M.', count: 12 },
+  { name: 'Elouan D.', count: 8 },
+  { name: 'Maelys R.', count: 6 },
+  { name: 'Titouan B.', count: 5 },
+  { name: 'Capucine V.', count: 4 },
 ];
 
 const getMonthName = (lang: string): string => {
