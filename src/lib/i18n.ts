@@ -18,6 +18,7 @@ import legalFr from '../locales/fr/legal.json';
 import avatarConfigFr from '../locales/fr/avatarConfig.json';
 import guideFr from '../locales/fr/guide.json';
 import faqFr from '../locales/fr/faq.json';
+import leaderboardFr from '../locales/fr/leaderboard.json';
 
 import commonEn from '../locales/en/common.json';
 import heroEn from '../locales/en/hero.json';
@@ -34,6 +35,7 @@ import legalEn from '../locales/en/legal.json';
 import avatarConfigEn from '../locales/en/avatarConfig.json';
 import guideEn from '../locales/en/guide.json';
 import faqEn from '../locales/en/faq.json';
+import leaderboardEn from '../locales/en/leaderboard.json';
 
 import commonEs from '../locales/es/common.json';
 import heroEs from '../locales/es/hero.json';
@@ -50,6 +52,7 @@ import legalEs from '../locales/es/legal.json';
 import avatarConfigEs from '../locales/es/avatarConfig.json';
 import guideEs from '../locales/es/guide.json';
 import faqEs from '../locales/es/faq.json';
+import leaderboardEs from '../locales/es/leaderboard.json';
 
 import commonIt from '../locales/it/common.json';
 import heroIt from '../locales/it/hero.json';
@@ -66,6 +69,7 @@ import legalIt from '../locales/it/legal.json';
 import avatarConfigIt from '../locales/it/avatarConfig.json';
 import guideIt from '../locales/it/guide.json';
 import faqIt from '../locales/it/faq.json';
+import leaderboardIt from '../locales/it/leaderboard.json';
 
 export const resources = {
   fr: {
@@ -84,6 +88,7 @@ export const resources = {
     avatarConfig: avatarConfigFr,
     guide: guideFr,
     faq: faqFr,
+    leaderboard: leaderboardFr,
   },
   en: {
     common: commonEn,
@@ -101,6 +106,7 @@ export const resources = {
     avatarConfig: avatarConfigEn,
     guide: guideEn,
     faq: faqEn,
+    leaderboard: leaderboardEn,
   },
   es: {
     common: commonEs,
@@ -118,6 +124,7 @@ export const resources = {
     avatarConfig: avatarConfigEs,
     guide: guideEs,
     faq: faqEs,
+    leaderboard: leaderboardEs,
   },
   it: {
     common: commonIt,
@@ -135,6 +142,7 @@ export const resources = {
     avatarConfig: avatarConfigIt,
     guide: guideIt,
     faq: faqIt,
+    leaderboard: leaderboardIt,
   },
 };
 
@@ -163,7 +171,7 @@ i18n
     },
 
     // Namespaces
-    ns: ['common', 'hero', 'header', 'pricing', 'beforeafter', 'howItWorks', 'testimonials', 'account', 'auth', 'generation', 'blog', 'legal', 'avatarConfig', 'guide', 'faq'],
+    ns: ['common', 'hero', 'header', 'pricing', 'beforeafter', 'howItWorks', 'testimonials', 'account', 'auth', 'generation', 'blog', 'legal', 'avatarConfig', 'guide', 'faq', 'leaderboard'],
     defaultNS: 'common',
 
     interpolation: {

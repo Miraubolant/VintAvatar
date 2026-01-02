@@ -1,0 +1,25 @@
+{
+  "title": {
+    "line1": "TOP PARRAINS",
+    "line2": "DU MOIS"
+  },
+  "subtitle": "Les meilleurs parrains de {{month}} !",
+  "referrals": "parrainages",
+  "empty": "Sois le premier a parrainer ce mois-ci !",
+  "cta": {
+    "title": "PARRAINE TES AMIS",
+    "description": "Gagne des credits gratuits pour chaque ami parrainee !",
+    "button": "VOIR MON CODE"
+  },
+  "authModal": {
+    "title": "Connexion requise",
+    "message": "Connecte-toi pour acceder a ton code de parrainage.",
+    "button": "Se connecter avec Google",
+    "cancel": "Annuler"
+  },
+  "subscriptionModal": {
+    "title": "Abonnement requis",
+    "message": "Abonne-toi pour debloquer le systeme de parrainage et gagner des credits gratuits !",
+    "button": "Voir les offres"
+  }
+}

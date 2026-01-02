@@ -90,6 +90,7 @@ This is a React TypeScript application built with Vite, focusing on a Vinted-rel
   - `ImageGenerator.tsx` - Avatar generation interface with credit system integration
   - `BeforeAfterSection.tsx` - Photo comparison showcase
   - `TestimonialsSection.tsx` - User testimonials
+  - `LeaderboardSection.tsx` - Monthly referral leaderboard with conditional CTA (auth/subscription/account)
   - `PricingSection.tsx` - Subscription pricing with Stripe integration
   - `BlogSection.tsx` - Article display
   - `Footer.tsx` - Site footer
@@ -159,6 +160,7 @@ The project uses a modern neo-brutalism design with a carefully curated 4-color 
 - **Complete account interface** with tabbed design for statistics, generation history, and affiliate system
 - **Visual generation history** showing before/after comparisons with download capabilities
 - **Referral/affiliate system** with unique codes, link sharing, and automatic bonus distribution
+- **Monthly referral leaderboard** - Public Top 5 ranking with conditional CTA (auth modal, subscription modal, or account redirect)
 - **Complete authentication system** with Google OAuth via Supabase
 - **Multi-subscription management** supporting both credit packs and monthly plans
 - **Stripe payment processing** with three pricing tiers (€3.99, €7.99, €12.99)
@@ -189,6 +191,7 @@ The project uses a modern neo-brutalism design with a carefully curated 4-color 
   - `analyze-and-generate` - Simplified AI pipeline using Replicate FLUX Kontext Pro
   - `create-checkout-session` - Creates Stripe payment sessions
   - `stripe-webhook` - Processes payment webhooks, updates subscriptions, and handles referral bonuses
+  - `get-leaderboard` - Public API for monthly Top 5 referrers leaderboard (bypass RLS with service role)
 
 ### Routing Structure
 - `/` - Home page with all landing sections

@@ -1,0 +1,25 @@
+{
+  "title": {
+    "line1": "TOP REFERRERS",
+    "line2": "OF THE MONTH"
+  },
+  "subtitle": "Best referrers of {{month}}!",
+  "referrals": "referrals",
+  "empty": "Be the first to refer this month!",
+  "cta": {
+    "title": "REFER YOUR FRIENDS",
+    "description": "Earn free credits for each referred friend!",
+    "button": "SEE MY CODE"
+  },
+  "authModal": {
+    "title": "Login required",
+    "message": "Sign in to access your referral code.",
+    "button": "Sign in with Google",
+    "cancel": "Cancel"
+  },
+  "subscriptionModal": {
+    "title": "Subscription required",
+    "message": "Subscribe to unlock the referral system and earn free credits!",
+    "button": "See offers"
+  }
+}
