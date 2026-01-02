@@ -68,8 +68,8 @@
       "label": "Delivery"
     },
     {
-      "value": "€0",
-      "label": "Hidden fees"
+      "value": "",
+      "label": "Secure payments"
     },
     {
       "value": "30s",
@@ -83,5 +83,11 @@
   "cta": {
     "title": "READY TO CHOOSE YOUR PLAN?",
     "button": "TRY NOW"
+  },
+  "authModal": {
+    "title": "Login required",
+    "message": "Sign in with Google to purchase a credit pack or subscription.",
+    "googleButton": "Sign in with Google",
+    "cancel": "Cancel"
   }
 }

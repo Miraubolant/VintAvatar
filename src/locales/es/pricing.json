@@ -68,8 +68,8 @@
       "label": "Entrega"
     },
     {
-      "value": "0€",
-      "label": "Tasas ocultas"
+      "value": "",
+      "label": "Pagos seguros"
     },
     {
       "value": "30s",
@@ -83,5 +83,11 @@
   "cta": {
     "title": "¿LISTO PARA ELEGIR TU PLAN?",
     "button": "PROBAR AHORA"
+  },
+  "authModal": {
+    "title": "Inicio de sesión requerido",
+    "message": "Inicia sesión con Google para comprar un pack de créditos o una suscripción.",
+    "googleButton": "Iniciar sesión con Google",
+    "cancel": "Cancelar"
   }
 }
