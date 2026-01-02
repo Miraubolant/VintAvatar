@@ -35,48 +35,40 @@ export const FAQSection: React.FC = () => {
 
             {/* Points clés */}
             <div className="grid sm:grid-cols-2 gap-4 mb-8">
-              <div className="bg-cream border-3 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center text-white font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    1
-                  </div>
-                  <p className="font-display font-semibold text-black">
-                    {t('section.point1', 'Comment utiliser l\'outil')}
-                  </p>
+              <div className="flex items-center gap-3 p-3">
+                <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center text-white font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex-shrink-0">
+                  1
                 </div>
+                <p className="font-display font-semibold text-black">
+                  {t('section.point1', 'Comment utiliser l\'outil')}
+                </p>
               </div>
 
-              <div className="bg-cream border-3 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center text-white font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    2
-                  </div>
-                  <p className="font-display font-semibold text-black">
-                    {t('section.point2', 'Tarifs et abonnements')}
-                  </p>
+              <div className="flex items-center gap-3 p-3">
+                <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center text-white font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex-shrink-0">
+                  2
                 </div>
+                <p className="font-display font-semibold text-black">
+                  {t('section.point2', 'Tarifs et abonnements')}
+                </p>
               </div>
 
-              <div className="bg-cream border-3 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center text-white font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    3
-                  </div>
-                  <p className="font-display font-semibold text-black">
-                    {t('section.point3', 'Optimisation des ventes')}
-                  </p>
+              <div className="flex items-center gap-3 p-3">
+                <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center text-white font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex-shrink-0">
+                  3
                 </div>
+                <p className="font-display font-semibold text-black">
+                  {t('section.point3', 'Optimisation des ventes')}
+                </p>
               </div>
 
-              <div className="bg-cream border-3 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center text-white font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    4
-                  </div>
-                  <p className="font-display font-semibold text-black">
-                    {t('section.point4', 'Protection et confidentialité')}
-                  </p>
+              <div className="flex items-center gap-3 p-3">
+                <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center text-white font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex-shrink-0">
+                  4
                 </div>
+                <p className="font-display font-semibold text-black">
+                  {t('section.point4', 'Protection et confidentialité')}
+                </p>
               </div>
             </div>
 
