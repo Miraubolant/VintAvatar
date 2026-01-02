@@ -152,5 +152,12 @@
     "size": "Taille",
     "color": "Couleur",
     "category": "Catégorie"
+  },
+  "scraping": {
+    "steps": {
+      "connecting": "Connexion",
+      "fetching": "Récupération",
+      "extracting": "Extraction"
+    }
   }
 }
