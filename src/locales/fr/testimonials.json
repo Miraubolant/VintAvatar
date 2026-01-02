@@ -6,39 +6,34 @@
   "subtitle": "Découvre comment les vendeurs transforment leurs ventes avec l'IA !",
   "testimonials": [
     {
-      "name": "Marie Laurent",
+      "name": "Marie L.",
       "location": "Paris",
-      "text": "J'ai doublé mes ventes en une semaine ! Les photos IA sont incroyables.",
-      "sales": "+340%",
-      "metric": "Vues"
+      "author": "Vendeuse Vinted depuis 2 ans",
+      "text": "Mes photos sont enfin présentables, je recommande !"
     },
     {
-      "name": "Thomas Dubois",
+      "name": "Thomas D.",
       "location": "Lyon",
-      "text": "L'IA est bluffante. En 30 secondes j'ai une photo ultra-réaliste !",
-      "sales": "+280%",
-      "metric": "Ventes"
+      "author": "Vendeur Vinted depuis 3 ans",
+      "text": "Simple et efficace. Je l'utilise pour toutes mes annonces maintenant."
     },
     {
-      "name": "Sophie Martin",
+      "name": "Sophie M.",
       "location": "Marseille",
-      "text": "Game changer total ! Mes concurrents demandent mon secret.",
-      "sales": "+195%",
-      "metric": "Profits"
+      "author": "Vendeuse Vinted depuis 1 an",
+      "text": "Ça m'évite de poser moi-même, parfait pour les timides comme moi."
     },
     {
-      "name": "Emma Leclerc",
+      "name": "Emma L.",
       "location": "Toulouse",
-      "text": "Plus jamais de photos ratées ! L'IA fait le travail parfaitement.",
-      "sales": "+225%",
-      "metric": "Engagement"
+      "author": "Vendeuse Vinted depuis 4 ans",
+      "text": "J'ai plus de favoris sur mes articles depuis que j'utilise le site."
     },
     {
-      "name": "Lucas Bernard",
+      "name": "Lucas B.",
       "location": "Nantes",
-      "text": "Révolutionnaire ! Mes articles se vendent 3x plus vite maintenant.",
-      "sales": "+310%",
-      "metric": "Rapidité"
+      "author": "Vendeur Vinted depuis 2 ans",
+      "text": "Pratique quand on a pas de mannequin sous la main !"
     }
   ],
   "common": {

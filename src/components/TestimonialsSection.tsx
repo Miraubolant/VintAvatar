@@ -8,6 +8,7 @@ export const TestimonialsSection: React.FC = () => {
   const testimonials = t('testimonials', { returnObjects: true }) as Array<{
     name: string;
     location: string;
+    author: string;
     text: string;
   }>;
 
@@ -68,9 +69,15 @@ export const TestimonialsSection: React.FC = () => {
               </div>
 
               {/* Quote */}
-              <blockquote className="font-body font-semibold text-sm sm:text-base lg:text-lg leading-relaxed">
+              <blockquote className="font-body font-semibold text-sm sm:text-base lg:text-lg leading-relaxed mb-4">
                 "{testimonial.text}"
               </blockquote>
+
+              {/* Author */}
+              <div className="pt-3 border-t-2 border-gray-200">
+                <p className="font-display font-bold text-sm text-black">{testimonial.name}</p>
+                <p className="font-body text-xs text-gray-600">{testimonial.author}</p>
+              </div>
             </div>
           ))}
         </div>

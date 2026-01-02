@@ -6,39 +6,34 @@
   "subtitle": "¡Descubre cómo los vendedores transforman sus ventas con IA!",
   "testimonials": [
     {
-      "name": "Marie Laurent",
-      "location": "Paris",
-      "text": "¡Dupliqué mis ventas en una semana! Las fotos IA son increíbles.",
-      "sales": "+340%",
-      "metric": "Vistas"
+      "name": "Carmen G.",
+      "location": "Madrid",
+      "author": "Vendedora Vinted desde hace 2 años",
+      "text": "Mis fotos por fin se ven profesionales, ¡lo recomiendo!"
     },
     {
-      "name": "Thomas Dubois",
-      "location": "Lyon",
-      "text": "La IA es impresionante. ¡En 30 segundos tengo una foto ultra-realista!",
-      "sales": "+280%",
-      "metric": "Ventas"
+      "name": "Pablo R.",
+      "location": "Barcelona",
+      "author": "Vendedor Vinted desde hace 3 años",
+      "text": "Simple y eficaz. Lo uso para todos mis anuncios ahora."
     },
     {
-      "name": "Sophie Martin",
-      "location": "Marseille",
-      "text": "¡Cambio total! Mis competidores preguntan mi secreto.",
-      "sales": "+195%",
-      "metric": "Ganancias"
+      "name": "Lucía M.",
+      "location": "Valencia",
+      "author": "Vendedora Vinted desde hace 1 año",
+      "text": "Ya no tengo que posar yo misma, perfecto para tímidas como yo."
     },
     {
-      "name": "Emma Leclerc",
-      "location": "Toulouse",
-      "text": "¡No más fotos fallidas! La IA hace el trabajo perfectamente.",
-      "sales": "+225%",
-      "metric": "Engagement"
+      "name": "Javier S.",
+      "location": "Sevilla",
+      "author": "Vendedor Vinted desde hace 4 años",
+      "text": "Recibo más favoritos en mis artículos desde que lo uso."
     },
     {
-      "name": "Lucas Bernard",
-      "location": "Nantes",
-      "text": "¡Revolucionario! Mis artículos se venden 3 veces más rápido.",
-      "sales": "+310%",
-      "metric": "Rapidez"
+      "name": "Ana P.",
+      "location": "Bilbao",
+      "author": "Vendedora Vinted desde hace 2 años",
+      "text": "¡Muy práctico cuando no tienes maniquí a mano!"
     }
   ],
   "common": {
