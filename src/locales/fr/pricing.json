@@ -68,8 +68,8 @@
       "label": "Livraison"
     },
     {
-      "value": "0€",
-      "label": "Frais cachés"
+      "value": "",
+      "label": "Paiements sécurisés"
     },
     {
       "value": "30s",
@@ -83,5 +83,11 @@
   "cta": {
     "title": "PRÊT À CHOISIR TON PLAN ?",
     "button": "ESSAYER MAINTENANT"
+  },
+  "authModal": {
+    "title": "Connexion requise",
+    "message": "Connecte-toi avec Google pour acheter un pack de crédits ou un abonnement.",
+    "googleButton": "Se connecter avec Google",
+    "cancel": "Annuler"
   }
 }

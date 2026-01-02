@@ -68,8 +68,8 @@
       "label": "Consegna"
     },
     {
-      "value": "0€",
-      "label": "Costi nascosti"
+      "value": "",
+      "label": "Pagamenti sicuri"
     },
     {
       "value": "30s",
@@ -83,5 +83,11 @@
   "cta": {
     "title": "PRONTO A SCEGLIERE IL TUO PIANO?",
     "button": "PROVA ORA"
+  },
+  "authModal": {
+    "title": "Accesso richiesto",
+    "message": "Accedi con Google per acquistare un pacchetto crediti o un abbonamento.",
+    "googleButton": "Accedi con Google",
+    "cancel": "Annulla"
   }
 }
