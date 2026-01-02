@@ -1,0 +1,25 @@
+{
+  "title": {
+    "line1": "TOP REFERENTI",
+    "line2": "DEL MESE"
+  },
+  "subtitle": "I migliori referenti di {{month}}!",
+  "referrals": "referimenti",
+  "empty": "Sii il primo a referire questo mese!",
+  "cta": {
+    "title": "REFERISCI I TUOI AMICI",
+    "description": "Guadagna crediti gratuiti per ogni amico referito!",
+    "button": "VEDI IL MIO CODICE"
+  },
+  "authModal": {
+    "title": "Accesso richiesto",
+    "message": "Accedi per accedere al tuo codice di referimento.",
+    "button": "Accedi con Google",
+    "cancel": "Annulla"
+  },
+  "subscriptionModal": {
+    "title": "Abbonamento richiesto",
+    "message": "Abbonati per sbloccare il sistema di referimento e guadagnare crediti gratuiti!",
+    "button": "Vedi le offerte"
+  }
+}
