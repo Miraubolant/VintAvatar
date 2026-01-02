@@ -6,39 +6,34 @@
   "subtitle": "Scopri come i venditori trasformano le loro vendite con l'IA!",
   "testimonials": [
     {
-      "name": "Marie Laurent",
-      "location": "Paris",
-      "text": "Ho raddoppiato le mie vendite in una settimana! Le foto IA sono incredibili.",
-      "sales": "+340%",
-      "metric": "Visualizzazioni"
+      "name": "Giulia R.",
+      "location": "Milano",
+      "author": "Venditrice Vinted da 2 anni",
+      "text": "Le mie foto finalmente sembrano professionali, lo consiglio!"
     },
     {
-      "name": "Thomas Dubois",
-      "location": "Lyon",
-      "text": "L'IA è straordinaria. In 30 secondi ho una foto ultra-realistica!",
-      "sales": "+280%",
-      "metric": "Vendite"
+      "name": "Marco B.",
+      "location": "Roma",
+      "author": "Venditore Vinted da 3 anni",
+      "text": "Semplice ed efficace. Lo uso per tutti i miei annunci ora."
     },
     {
-      "name": "Sophie Martin",
-      "location": "Marseille",
-      "text": "Un vero game changer! I miei concorrenti chiedono il mio segreto.",
-      "sales": "+195%",
-      "metric": "Profitti"
+      "name": "Francesca L.",
+      "location": "Napoli",
+      "author": "Venditrice Vinted da 1 anno",
+      "text": "Non devo più posare io stessa, perfetto per le timide come me."
     },
     {
-      "name": "Emma Leclerc",
-      "location": "Toulouse",
-      "text": "Mai più foto sbagliate! L'IA fa il lavoro perfettamente.",
-      "sales": "+225%",
-      "metric": "Coinvolgimento"
+      "name": "Alessandro M.",
+      "location": "Torino",
+      "author": "Venditore Vinted da 4 anni",
+      "text": "Ricevo più preferiti sui miei articoli da quando lo uso."
     },
     {
-      "name": "Lucas Bernard",
-      "location": "Nantes",
-      "text": "Rivoluzionario! I miei articoli si vendono 3 volte più velocemente.",
-      "sales": "+310%",
-      "metric": "Velocità"
+      "name": "Elena C.",
+      "location": "Firenze",
+      "author": "Venditrice Vinted da 2 anni",
+      "text": "Molto pratico quando non hai un manichino a portata di mano!"
     }
   ],
   "common": {

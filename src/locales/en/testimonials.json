@@ -6,39 +6,34 @@
   "subtitle": "Discover how sellers transform their sales with AI!",
   "testimonials": [
     {
-      "name": "Marie Laurent",
-      "location": "Paris",
-      "text": "I doubled my sales in a week! AI photos are incredible.",
-      "sales": "+340%",
-      "metric": "Views"
+      "name": "Sarah M.",
+      "location": "London",
+      "author": "Vinted seller for 2 years",
+      "text": "My photos finally look professional, highly recommend!"
     },
     {
-      "name": "Thomas Dubois",
-      "location": "Lyon",
-      "text": "The AI is amazing. In 30 seconds I have an ultra-realistic photo!",
-      "sales": "+280%",
-      "metric": "Sales"
+      "name": "James T.",
+      "location": "Manchester",
+      "author": "Vinted seller for 3 years",
+      "text": "Simple and effective. I use it for all my listings now."
     },
     {
-      "name": "Sophie Martin",
-      "location": "Marseille",
-      "text": "Total game changer! My competitors are asking for my secret.",
-      "sales": "+195%",
-      "metric": "Profits"
+      "name": "Emily R.",
+      "location": "Bristol",
+      "author": "Vinted seller for 1 year",
+      "text": "No need to model myself anymore, perfect for shy people like me."
     },
     {
-      "name": "Emma Leclerc",
-      "location": "Toulouse",
-      "text": "No more failed photos! AI does the job perfectly.",
-      "sales": "+225%",
-      "metric": "Engagement"
+      "name": "Oliver P.",
+      "location": "Leeds",
+      "author": "Vinted seller for 4 years",
+      "text": "I get more likes on my items since I started using this."
     },
     {
-      "name": "Lucas Bernard",
-      "location": "Nantes",
-      "text": "Revolutionary! My items sell 3x faster now.",
-      "sales": "+310%",
-      "metric": "Speed"
+      "name": "Charlotte W.",
+      "location": "Birmingham",
+      "author": "Vinted seller for 2 years",
+      "text": "Super handy when you don't have a mannequin!"
     }
   ],
   "common": {
