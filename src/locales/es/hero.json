@@ -128,10 +128,15 @@
       "uploadButton": "SUBIR"
     },
     "subscriptionRequired": {
-      "title": "SUSCRIPCIÓN REQUERIDA",
-      "description": "Debes tener una suscripción activa para generar avatares IA.",
-      "laterButton": "MÁS TARDE",
-      "viewPlans": "VER PRECIOS"
+      "title": "DESBLOQUEA LA IA",
+      "subtitle": "Genera fotos que venden!",
+      "benefit1": "Generacion ultra-rapida en 30 seg",
+      "benefit2": "Calidad fotografica profesional",
+      "benefit3": "+85% mas ventas en promedio",
+      "startingAt": "Desde",
+      "perPack": "/ 10 creditos",
+      "laterButton": "Mas tarde",
+      "viewPlans": "VER OFERTAS"
     }
   },
   "errors": {

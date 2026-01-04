@@ -128,10 +128,15 @@
       "uploadButton": "UPLOAD"
     },
     "subscriptionRequired": {
-      "title": "SUBSCRIPTION REQUIRED",
-      "description": "You must have an active subscription to generate AI avatars.",
-      "laterButton": "LATER",
-      "viewPlans": "VIEW PRICING"
+      "title": "UNLOCK AI",
+      "subtitle": "Generate photos that sell!",
+      "benefit1": "Ultra-fast generation in 30 sec",
+      "benefit2": "Professional photo quality",
+      "benefit3": "+85% more sales on average",
+      "startingAt": "Starting at",
+      "perPack": "/ 10 credits",
+      "laterButton": "Later",
+      "viewPlans": "VIEW OFFERS"
     }
   },
   "errors": {
