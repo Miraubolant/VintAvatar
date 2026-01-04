@@ -945,74 +945,75 @@ export const HeroSection: React.FC = () => {
 
       {/* Modal d'abonnement requis */}
       {showSubscriptionModal && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-3 sm:p-4">
-          <div className="bg-white border-4 border-black max-w-sm sm:max-w-md w-full shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 pt-24 sm:pt-28">
+          <div className="bg-white border-3 border-black max-w-xs sm:max-w-sm w-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
 
-            {/* Header */}
-            <div className="bg-vinted p-4 sm:p-5 relative border-b-4 border-black">
+            {/* Header compact */}
+            <div className="bg-vinted p-3 sm:p-4 relative border-b-3 border-black">
               <button
                 onClick={() => setShowSubscriptionModal(false)}
-                className="absolute top-2 right-2 sm:top-3 sm:right-3 w-7 h-7 sm:w-8 sm:h-8 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                className="absolute top-2 right-2 w-6 h-6 sm:w-7 sm:h-7 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
-                <X className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
+                <X className="w-3 h-3 text-black" />
               </button>
 
-              <div className="flex items-center gap-3 sm:gap-4 pr-8">
-                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white border-3 border-black flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-3 flex-shrink-0">
-                  <Sparkles className="w-5 h-5 sm:w-7 sm:h-7 text-vinted" />
+              <div className="flex items-center gap-2 sm:gap-3 pr-6">
+                {/* Logo identique au header */}
+                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 flex-shrink-0">
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-vinted" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-lg sm:text-2xl text-white">{t('modals.subscriptionRequired.title')}</h3>
-                  <p className="font-body text-white/90 text-xs sm:text-sm">{t('modals.subscriptionRequired.subtitle')}</p>
+                  <h3 className="font-display font-bold text-base sm:text-lg text-white">{t('modals.subscriptionRequired.title')}</h3>
+                  <p className="font-body text-white/90 text-[10px] sm:text-xs">{t('modals.subscriptionRequired.subtitle')}</p>
                 </div>
               </div>
             </div>
 
-            {/* Content */}
-            <div className="p-4 sm:p-6">
+            {/* Content compact */}
+            <div className="p-3 sm:p-4">
               {/* Benefits */}
-              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-mint border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
+              <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+                <div className="flex items-center gap-2 p-2 bg-mint border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="w-6 h-6 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
+                    <Zap className="w-3 h-3 text-black" />
                   </div>
-                  <p className="font-body font-semibold text-xs sm:text-sm text-black">{t('modals.subscriptionRequired.benefit1')}</p>
+                  <p className="font-body font-semibold text-[11px] sm:text-xs text-black">{t('modals.subscriptionRequired.benefit1')}</p>
                 </div>
-                <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-pink-pastel border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <Star className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
+                <div className="flex items-center gap-2 p-2 bg-pink-pastel border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="w-6 h-6 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
+                    <Star className="w-3 h-3 text-black" />
                   </div>
-                  <p className="font-body font-semibold text-xs sm:text-sm text-black">{t('modals.subscriptionRequired.benefit2')}</p>
+                  <p className="font-body font-semibold text-[11px] sm:text-xs text-black">{t('modals.subscriptionRequired.benefit2')}</p>
                 </div>
-                <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-yellow-400 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <Users className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
+                <div className="flex items-center gap-2 p-2 bg-yellow-400 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="w-6 h-6 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
+                    <Users className="w-3 h-3 text-black" />
                   </div>
-                  <p className="font-body font-semibold text-xs sm:text-sm text-black">{t('modals.subscriptionRequired.benefit3')}</p>
+                  <p className="font-body font-semibold text-[11px] sm:text-xs text-black">{t('modals.subscriptionRequired.benefit3')}</p>
                 </div>
               </div>
 
-              {/* Price highlight */}
-              <div className="bg-cream border-3 border-black p-3 sm:p-4 mb-4 sm:mb-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center">
-                <p className="font-body text-gray-600 text-xs sm:text-sm mb-1">{t('modals.subscriptionRequired.startingAt')}</p>
-                <div className="flex items-center justify-center gap-1 sm:gap-2">
-                  <span className="font-display font-bold text-2xl sm:text-3xl text-vinted">3,99€</span>
-                  <span className="font-body text-gray-500 text-xs sm:text-sm">{t('modals.subscriptionRequired.perPack')}</span>
+              {/* Price highlight compact */}
+              <div className="bg-cream border-2 border-black p-2 sm:p-3 mb-3 sm:mb-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-center">
+                <p className="font-body text-gray-600 text-[10px] sm:text-xs">{t('modals.subscriptionRequired.startingAt')}</p>
+                <div className="flex items-center justify-center gap-1">
+                  <span className="font-display font-bold text-xl sm:text-2xl text-vinted">3,99€</span>
+                  <span className="font-body text-gray-500 text-[10px] sm:text-xs">{t('modals.subscriptionRequired.perPack')}</span>
                 </div>
               </div>
 
-              {/* Actions */}
-              <div className="space-y-2 sm:space-y-3">
+              {/* Actions compact */}
+              <div className="space-y-2">
                 <button
                   onClick={handleSubscriptionRedirect}
-                  className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-vinted text-white border-3 sm:border-4 border-black font-display font-bold text-sm sm:text-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2"
+                  className="w-full px-3 py-2.5 sm:py-3 bg-vinted text-white border-2 sm:border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2"
                 >
-                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <Sparkles className="w-4 h-4" />
                   {t('modals.subscriptionRequired.viewPlans')}
                 </button>
                 <button
                   onClick={() => setShowSubscriptionModal(false)}
-                  className="w-full text-center font-body text-gray-500 hover:text-black transition-colors py-1 sm:py-2 text-sm"
+                  className="w-full text-center font-body text-gray-500 hover:text-black transition-colors py-1 text-xs"
                 >
                   {t('modals.subscriptionRequired.laterButton')}
                 </button>
