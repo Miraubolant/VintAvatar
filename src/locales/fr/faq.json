@@ -67,7 +67,7 @@
       "questions": [
         {
           "question": "Quels sont les tarifs de VintDress ?",
-          "answer": "VintDress propose 3 formules flexibles : Pack Starter à 3,49€ pour 10 générations (idéal pour tester), Pack Pro à 6,99€ pour 25 générations (excellent rapport qualité-prix), et Abonnement Premium à 11,99€/mois pour 40 générations mensuelles (pour les vendeurs réguliers). Tous les paiements sont sécurisés via Stripe. Les prix sont fixes, sans frais cachés."
+          "answer": "VintDress propose 3 formules flexibles : Pack Starter à 3,99€ pour 10 générations (idéal pour tester), Pack Pro à 7,99€ pour 25 générations (excellent rapport qualité-prix), et Abonnement Premium à 12,99€/mois pour 40 générations mensuelles (pour les vendeurs réguliers). Tous les paiements sont sécurisés via Stripe. Les prix sont fixes, sans frais cachés."
         },
         {
           "question": "Comment fonctionne le système de crédits ?",
@@ -122,7 +122,7 @@
       "questions": [
         {
           "question": "Comment fonctionne le système de parrainage VintDress ?",
-          "answer": "Le parrainage VintDress est ultra-simple et bénéfique pour tous ! Chaque utilisateur reçoit un code parrain unique à partager. Quand quelqu'un utilise votre code et effectue son PREMIER achat (peu importe le montant : 3,49€, 6,99€ ou 11,99€), vous recevez TOUS LES DEUX instantanément +1 génération gratuite. Pas de limite de parrainages, pas de conditions cachées. Plus vous partagez, plus vous gagnez de générations gratuites !"
+          "answer": "Le parrainage VintDress est ultra-simple et bénéfique pour tous ! Chaque utilisateur reçoit un code parrain unique à partager. Quand quelqu'un utilise votre code et effectue son PREMIER achat (peu importe le montant : 3,99€, 7,99€ ou 12,99€), vous recevez TOUS LES DEUX instantanément +1 génération gratuite. Pas de limite de parrainages, pas de conditions cachées. Plus vous partagez, plus vous gagnez de générations gratuites !"
         },
         {
           "question": "Où trouver et utiliser mon code de parrainage ?",
