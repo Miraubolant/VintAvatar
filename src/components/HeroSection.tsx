@@ -946,7 +946,7 @@ export const HeroSection: React.FC = () => {
       {/* Modal d'abonnement requis */}
       {showSubscriptionModal && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-3 sm:p-4">
-          <div className="bg-white border-4 border-black max-w-sm sm:max-w-md w-full shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+          <div className="bg-white border-4 border-black max-w-sm sm:max-w-md w-full shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
 
             {/* Header */}
             <div className="bg-vinted p-4 sm:p-5 relative border-b-4 border-black">

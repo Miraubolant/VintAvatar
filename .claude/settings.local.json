@@ -64,7 +64,8 @@
       "Bash(export SUPABASE_ACCESS_TOKEN=***REMOVED***)",
       "Bash(git pull:*)",
       "Bash(ls:*)",
-      "Bash(npm run images:optimize:*)"
+      "Bash(npm run images:optimize:*)",
+      "Bash(netstat:*)"
     ],
     "deny": [],
     "ask": []
