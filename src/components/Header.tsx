@@ -15,6 +15,7 @@ export const Header: React.FC = () => {
     { href: '#avant-apres', label: t('navigation.beforeAfter') },
     { href: '#tarifs', label: t('navigation.pricing') },
     { href: '#avis', label: t('navigation.reviews') },
+    { href: '#leaderboard', label: t('navigation.leaderboard') },
     { href: '#blog', label: t('navigation.blog') },
   ];
 

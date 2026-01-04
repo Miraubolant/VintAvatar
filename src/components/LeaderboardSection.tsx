@@ -147,7 +147,7 @@ export const LeaderboardSection: React.FC = () => {
   );
 
   return (
-    <section className="relative py-16 lg:py-20 bg-cream overflow-hidden">
+    <section id="leaderboard" className="relative py-16 lg:py-20 bg-cream overflow-hidden">
       {/* Decorative shapes */}
       <div className="absolute top-20 left-16 w-10 h-10 bg-yellow-400 border-3 border-black transform rotate-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hidden lg:block"></div>
       <div className="absolute bottom-16 right-20 w-12 h-12 bg-mint border-3 border-black neo-shape-circle shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hidden lg:block"></div>
