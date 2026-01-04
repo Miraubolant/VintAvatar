@@ -945,74 +945,74 @@ export const HeroSection: React.FC = () => {
 
       {/* Modal d'abonnement requis */}
       {showSubscriptionModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
-          <div className="bg-white border-4 border-black max-w-md w-full shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-3 sm:p-4">
+          <div className="bg-white border-4 border-black max-w-sm sm:max-w-md w-full shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
 
-            {/* Header avec gradient */}
-            <div className="bg-gradient-to-r from-vinted to-[#07959d] p-6 relative">
+            {/* Header */}
+            <div className="bg-vinted p-4 sm:p-5 relative border-b-4 border-black">
               <button
                 onClick={() => setShowSubscriptionModal(false)}
-                className="absolute top-3 right-3 w-8 h-8 bg-white/20 backdrop-blur border-2 border-white/40 flex items-center justify-center hover:bg-white/30 transition-all duration-200 rounded-sm"
+                className="absolute top-2 right-2 sm:top-3 sm:right-3 w-7 h-7 sm:w-8 sm:h-8 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
-                <X className="w-4 h-4 text-white" />
+                <X className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
               </button>
 
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-white border-3 border-black flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-3">
-                  <Sparkles className="w-7 h-7 text-vinted" />
+              <div className="flex items-center gap-3 sm:gap-4 pr-8">
+                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white border-3 border-black flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-3 flex-shrink-0">
+                  <Sparkles className="w-5 h-5 sm:w-7 sm:h-7 text-vinted" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-2xl text-white">{t('modals.subscriptionRequired.title')}</h3>
-                  <p className="font-body text-white/90 text-sm">{t('modals.subscriptionRequired.subtitle')}</p>
+                  <h3 className="font-display font-bold text-lg sm:text-2xl text-white">{t('modals.subscriptionRequired.title')}</h3>
+                  <p className="font-body text-white/90 text-xs sm:text-sm">{t('modals.subscriptionRequired.subtitle')}</p>
                 </div>
               </div>
             </div>
 
             {/* Content */}
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               {/* Benefits */}
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-3 p-3 bg-mint/30 border-2 border-black rounded-sm">
-                  <div className="w-8 h-8 bg-mint border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-4 h-4 text-black" />
+              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-mint border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
+                    <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
                   </div>
-                  <p className="font-body font-semibold text-sm text-black">{t('modals.subscriptionRequired.benefit1')}</p>
+                  <p className="font-body font-semibold text-xs sm:text-sm text-black">{t('modals.subscriptionRequired.benefit1')}</p>
                 </div>
-                <div className="flex items-center gap-3 p-3 bg-pink-pastel/30 border-2 border-black rounded-sm">
-                  <div className="w-8 h-8 bg-pink-pastel border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <Star className="w-4 h-4 text-black" />
+                <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-pink-pastel border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
+                    <Star className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
                   </div>
-                  <p className="font-body font-semibold text-sm text-black">{t('modals.subscriptionRequired.benefit2')}</p>
+                  <p className="font-body font-semibold text-xs sm:text-sm text-black">{t('modals.subscriptionRequired.benefit2')}</p>
                 </div>
-                <div className="flex items-center gap-3 p-3 bg-yellow-100 border-2 border-black rounded-sm">
-                  <div className="w-8 h-8 bg-yellow-400 border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <Users className="w-4 h-4 text-black" />
+                <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-yellow-400 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
+                    <Users className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
                   </div>
-                  <p className="font-body font-semibold text-sm text-black">{t('modals.subscriptionRequired.benefit3')}</p>
+                  <p className="font-body font-semibold text-xs sm:text-sm text-black">{t('modals.subscriptionRequired.benefit3')}</p>
                 </div>
               </div>
 
               {/* Price highlight */}
-              <div className="bg-cream border-3 border-black p-4 mb-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center">
-                <p className="font-body text-gray-600 text-sm mb-1">{t('modals.subscriptionRequired.startingAt')}</p>
-                <div className="flex items-center justify-center gap-2">
-                  <span className="font-display font-bold text-3xl text-vinted">3,99€</span>
-                  <span className="font-body text-gray-500 text-sm">{t('modals.subscriptionRequired.perPack')}</span>
+              <div className="bg-cream border-3 border-black p-3 sm:p-4 mb-4 sm:mb-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center">
+                <p className="font-body text-gray-600 text-xs sm:text-sm mb-1">{t('modals.subscriptionRequired.startingAt')}</p>
+                <div className="flex items-center justify-center gap-1 sm:gap-2">
+                  <span className="font-display font-bold text-2xl sm:text-3xl text-vinted">3,99€</span>
+                  <span className="font-body text-gray-500 text-xs sm:text-sm">{t('modals.subscriptionRequired.perPack')}</span>
                 </div>
               </div>
 
               {/* Actions */}
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-3">
                 <button
                   onClick={handleSubscriptionRedirect}
-                  className="w-full px-6 py-4 bg-vinted text-white border-4 border-black font-display font-bold text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2"
+                  className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-vinted text-white border-3 sm:border-4 border-black font-display font-bold text-sm sm:text-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2"
                 >
-                  <Sparkles className="w-5 h-5" />
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
                   {t('modals.subscriptionRequired.viewPlans')}
                 </button>
                 <button
                   onClick={() => setShowSubscriptionModal(false)}
-                  className="w-full text-center font-body text-gray-500 hover:text-black transition-colors py-2"
+                  className="w-full text-center font-body text-gray-500 hover:text-black transition-colors py-1 sm:py-2 text-sm"
                 >
                   {t('modals.subscriptionRequired.laterButton')}
                 </button>
