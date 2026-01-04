@@ -15,23 +15,24 @@ export const FAQSection: React.FC = () => {
       <div className="absolute top-32 right-1/4 w-14 h-14 bg-vinted border-4 border-black transform -rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hidden lg:block"></div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Titre style Hero */}
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="font-display font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            <span className="inline-block bg-white text-black border-2 sm:border-3 border-black px-3 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 mb-2">
+              {t('heroTitle.line1', 'DES QUESTIONS')}
+            </span>
+            <br />
+            <span className="inline-block bg-mint text-black border-2 sm:border-3 border-black px-3 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+              {t('heroTitle.line2', 'ON RÉPOND !')}
+            </span>
+          </h2>
+          <p className="font-body font-semibold text-gray-600 text-base sm:text-lg mt-4">
+            {t('section.subtitle', 'Consultez notre FAQ complète pour tout savoir sur VintDress')}
+          </p>
+        </div>
+
         <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <div className="p-8 sm:p-12 lg:p-16">
-            {/* Icon et titre */}
-            <div className="flex flex-col sm:flex-row items-center gap-6 mb-8">
-              <div className="bg-mint border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <MessageCircle className="w-12 h-12 text-black" />
-              </div>
-
-              <div className="text-center sm:text-left flex-1">
-                <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-black mb-4">
-                  {t('section.title', 'Des questions ?')}
-                </h2>
-                <p className="font-body font-semibold text-lg sm:text-xl text-gray-700">
-                  {t('section.subtitle', 'Consultez notre FAQ complète pour tout savoir sur VintDress')}
-                </p>
-              </div>
-            </div>
 
             {/* Points clés */}
             <div className="grid sm:grid-cols-2 gap-4 mb-8">

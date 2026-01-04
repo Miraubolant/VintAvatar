@@ -154,26 +154,26 @@ export const LeaderboardSection: React.FC = () => {
       <div className="absolute top-40 right-1/4 w-8 h-8 bg-pink-pastel border-3 border-black transform -rotate-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hidden lg:block"></div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Titre style Hero */}
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="font-display font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            <span className="inline-block bg-white text-black border-2 sm:border-3 border-black px-3 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 mb-2">
+              {t('heroTitle.line1', 'TOP PARRAINS')}
+            </span>
+            <br />
+            <span className="inline-block bg-yellow-400 text-black border-2 sm:border-3 border-black px-3 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+              {t('heroTitle.line2', 'DU MOIS')}
+            </span>
+          </h2>
+          {leaderboardData?.month && (
+            <p className="font-body font-semibold text-gray-600 text-base sm:text-lg mt-4">
+              {t('subtitle', 'Les meilleurs parrains de {{month}} !', { month: leaderboardData.month })}
+            </p>
+          )}
+        </div>
+
         <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <div className="p-6 sm:p-8 lg:p-12">
-            {/* Header with trophy icon */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-8">
-              <div className="bg-yellow-400 border-4 border-black p-4 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-3">
-                <Trophy className="w-10 h-10 sm:w-12 sm:h-12 text-black" />
-              </div>
-
-              <div className="text-center sm:text-left flex-1">
-                <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-black mb-1">
-                  <span className="block">{t('title.line1', 'TOP PARRAINS')}</span>
-                  <span className="block text-vinted">{t('title.line2', 'DU MOIS')}</span>
-                </h2>
-                {leaderboardData?.month && (
-                  <p className="font-body font-semibold text-gray-600 text-sm sm:text-base">
-                    {t('subtitle', 'Les meilleurs parrains de {{month}} !', { month: leaderboardData.month })}
-                  </p>
-                )}
-              </div>
-            </div>
 
             {/* Leaderboard list */}
             <div className="mb-8">
