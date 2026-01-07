@@ -107,6 +107,48 @@ const IAServizioModaRivoluzionePageIT = React.lazy(() => import('./pages/article
 const Testimonial300PercentViewsPageEN = React.lazy(() => import('./pages/articles/en/Testimonial300PercentViewsPage').then(module => ({ default: module.default })));
 const Testimonio300PorcientoVistasPageES = React.lazy(() => import('./pages/articles/es/Testimonio300PorcientoVistasPage').then(module => ({ default: module.default })));
 const Testimonianza300PercentoVisualizzazioniPageIT = React.lazy(() => import('./pages/articles/it/Testimonianza300PercentoVisualizzazioniPage').then(module => ({ default: module.default })));
+// Article 2 - Photos & Présentation
+const CommentFairePhotosVintedPage = React.lazy(() => import('./pages/articles/CommentFairePhotosVintedPage').then(module => ({ default: module.default })));
+const HowToTakeVintedPhotosPageEN = React.lazy(() => import('./pages/articles/en/HowToTakeVintedPhotosPage').then(module => ({ default: module.default })));
+const ComoHacerFotosVintedPageES = React.lazy(() => import('./pages/articles/es/ComoHacerFotosVintedPage').then(module => ({ default: module.default })));
+const ComeFareFotoVintedPageIT = React.lazy(() => import('./pages/articles/it/ComeFareFotoVintedPage').then(module => ({ default: module.default })));
+// Article 4 - Paiement & Argent
+const PaiementVintedGuidePage = React.lazy(() => import('./pages/articles/PaiementVintedGuidePage').then(module => ({ default: module.default })));
+const VintedPaymentGuidePageEN = React.lazy(() => import('./pages/articles/en/VintedPaymentGuidePage').then(module => ({ default: module.default })));
+const PagoVintedGuiaPageES = React.lazy(() => import('./pages/articles/es/PagoVintedGuiaPage').then(module => ({ default: module.default })));
+const PagamentoVintedGuidaPageIT = React.lazy(() => import('./pages/articles/it/PagamentoVintedGuidaPage').then(module => ({ default: module.default })));
+// Article 1 - Comment Vendre sur Vinted
+const CommentVendreSurVintedPage = React.lazy(() => import('./pages/articles/CommentVendreSurVintedPage').then(module => ({ default: module.default })));
+const HowToSellOnVintedPageEN = React.lazy(() => import('./pages/articles/en/HowToSellOnVintedPage').then(module => ({ default: module.default })));
+const ComoVenderEnVintedPageES = React.lazy(() => import('./pages/articles/es/ComoVenderEnVintedPage').then(module => ({ default: module.default })));
+const ComeVendereSuVintedPageIT = React.lazy(() => import('./pages/articles/it/ComeVendereSuVintedPage').then(module => ({ default: module.default })));
+// Article 3 - Expédition & Livraison
+const ExpeditionVintedGuidePage = React.lazy(() => import('./pages/articles/ExpeditionVintedGuidePage').then(module => ({ default: module.default })));
+const VintedShippingGuidePageEN = React.lazy(() => import('./pages/articles/en/VintedShippingGuidePage').then(module => ({ default: module.default })));
+const EnvioVintedGuiaPageES = React.lazy(() => import('./pages/articles/es/EnvioVintedGuiaPage').then(module => ({ default: module.default })));
+const SpedizioneVintedGuidaPageIT = React.lazy(() => import('./pages/articles/it/SpedizioneVintedGuidaPage').then(module => ({ default: module.default })));
+// Article 5 - Débuter sur Vinted
+const VintedCommentCaMarchePage = React.lazy(() => import('./pages/articles/VintedCommentCaMarchePage').then(module => ({ default: module.default })));
+const HowDoesVintedWorkPageEN = React.lazy(() => import('./pages/articles/en/HowDoesVintedWorkPage').then(module => ({ default: module.default })));
+const ComoFuncionaVintedPageES = React.lazy(() => import('./pages/articles/es/ComoFuncionaVintedPage').then(module => ({ default: module.default })));
+const ComeFunzionaVintedPageIT = React.lazy(() => import('./pages/articles/it/ComeFunzionaVintedPage').then(module => ({ default: module.default })));
+// Article 7 - Problèmes & Solutions
+const ProblemesVintedSolutionsPage = React.lazy(() => import('./pages/articles/ProblemesVintedSolutionsPage').then(module => ({ default: module.default })));
+const VintedProblemsAndSolutionsPageEN = React.lazy(() => import('./pages/articles/en/VintedProblemsAndSolutionsPage').then(module => ({ default: module.default })));
+const ProblemasVintedSolucionesPageES = React.lazy(() => import('./pages/articles/es/ProblemasVintedSolucionesPage').then(module => ({ default: module.default })));
+const ProblemiVintedSoluzioniPageIT = React.lazy(() => import('./pages/articles/it/ProblemiVintedSoluzioniPage').then(module => ({ default: module.default })));
+// Article 6 - Acheter sur Vinted
+const CommentAcheterSurVintedPage = React.lazy(() => import('./pages/articles/CommentAcheterSurVintedPage').then(module => ({ default: module.default })));
+const HowToBuyOnVintedPageEN = React.lazy(() => import('./pages/articles/en/HowToBuyOnVintedPage').then(module => ({ default: module.default })));
+const ComoComprarEnVintedPageES = React.lazy(() => import('./pages/articles/es/ComoComprarEnVintedPage').then(module => ({ default: module.default })));
+const ComeComprareSuVintedPageIT = React.lazy(() => import('./pages/articles/it/ComeComprareSuVintedPage').then(module => ({ default: module.default })));
+
+// Article 8 - Optimiser ses Ventes Vinted
+const OptimiserVentesVintedPage = React.lazy(() => import('./pages/articles/OptimiserVentesVintedPage').then(module => ({ default: module.default })));
+const OptimizeVintedSalesPageEN = React.lazy(() => import('./pages/articles/en/OptimizeVintedSalesPage').then(module => ({ default: module.default })));
+const OptimizarVentasVintedPageES = React.lazy(() => import('./pages/articles/es/OptimizarVentasVintedPage').then(module => ({ default: module.default })));
+const OttimizzareVenditeVintedPageIT = React.lazy(() => import('./pages/articles/it/OttimizzareVenditeVintedPage').then(module => ({ default: module.default })));
+
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 const ResultPage = React.lazy(() => import('./pages/ResultPage').then(module => ({ default: module.ResultPage })));
@@ -558,6 +600,174 @@ function App() {
               <Route path="/it/articles/testimonianza-300-percento-visualizzazioni-una-settimana" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <Testimonianza300PercentoVisualizzazioniPageIT />
+                </Suspense>
+              } />
+              {/* Article 2 - Photos & Présentation */}
+              <Route path="/articles/comment-faire-photos-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <CommentFairePhotosVintedPage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/how-to-take-vinted-photos" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <HowToTakeVintedPhotosPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/como-hacer-fotos-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ComoHacerFotosVintedPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/come-fare-foto-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ComeFareFotoVintedPageIT />
+                </Suspense>
+              } />
+              {/* Article 4 - Paiement & Argent */}
+              <Route path="/articles/paiement-vinted-guide" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <PaiementVintedGuidePage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/vinted-payment-guide" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintedPaymentGuidePageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/pago-vinted-guia" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <PagoVintedGuiaPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/pagamento-vinted-guida" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <PagamentoVintedGuidaPageIT />
+                </Suspense>
+              } />
+              {/* Article 1 - Comment Vendre sur Vinted */}
+              <Route path="/articles/comment-vendre-sur-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <CommentVendreSurVintedPage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/how-to-sell-on-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <HowToSellOnVintedPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/como-vender-en-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ComoVenderEnVintedPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/come-vendere-su-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ComeVendereSuVintedPageIT />
+                </Suspense>
+              } />
+              {/* Article 3 - Expédition & Livraison */}
+              <Route path="/articles/expedition-vinted-guide" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ExpeditionVintedGuidePage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/vinted-shipping-guide" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintedShippingGuidePageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/envio-vinted-guia" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <EnvioVintedGuiaPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/spedizione-vinted-guida" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <SpedizioneVintedGuidaPageIT />
+                </Suspense>
+              } />
+              {/* Article 5 - Débuter sur Vinted */}
+              <Route path="/articles/vinted-comment-ca-marche" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintedCommentCaMarchePage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/how-does-vinted-work" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <HowDoesVintedWorkPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/como-funciona-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ComoFuncionaVintedPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/come-funziona-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ComeFunzionaVintedPageIT />
+                </Suspense>
+              } />
+              {/* Article 7 - Problèmes & Solutions */}
+              <Route path="/articles/problemes-vinted-solutions" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ProblemesVintedSolutionsPage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/vinted-problems-solutions" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintedProblemsAndSolutionsPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/problemas-vinted-soluciones" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ProblemasVintedSolucionesPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/problemi-vinted-soluzioni" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ProblemiVintedSoluzioniPageIT />
+                </Suspense>
+              } />
+              {/* Article 6 - Acheter sur Vinted */}
+              <Route path="/articles/comment-acheter-sur-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <CommentAcheterSurVintedPage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/how-to-buy-on-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <HowToBuyOnVintedPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/como-comprar-en-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ComoComprarEnVintedPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/come-comprare-su-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ComeComprareSuVintedPageIT />
+                </Suspense>
+              } />
+              {/* Article 8 - Optimiser ses Ventes Vinted */}
+              <Route path="/articles/optimiser-ventes-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <OptimiserVentesVintedPage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/optimize-vinted-sales" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <OptimizeVintedSalesPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/optimizar-ventas-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <OptimizarVentasVintedPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/ottimizzare-vendite-vinted" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <OttimizzareVenditeVintedPageIT />
                 </Suspense>
               } />
               <Route path="/articles/:slug" element={
