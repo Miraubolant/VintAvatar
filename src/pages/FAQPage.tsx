@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle, ShoppingBag, CreditCard, Camera, Shield, Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useSEO, generateFaqSEO, SEO_CONFIGS } from '../hooks/useSEO';
@@ -18,8 +18,9 @@ interface FAQCategory {
 
 export const FAQPage: React.FC = () => {
   const { t } = useTranslation('faq');
-  const [expandedCategories, setExpandedCategories] = useState<number[]>([0]);
+  const [expandedCategories, setExpandedCategories] = useState<number[]>([0, 1, 2, 3, 4, 5]);
   const [expandedQuestions, setExpandedQuestions] = useState<string[]>([]);
+  const [initialized, setInitialized] = useState(false);
 
   const getCategoryQuestions = (categoryKey: string): FAQItem[] => {
     try {
@@ -96,6 +97,20 @@ export const FAQPage: React.FC = () => {
       questions: getCategoryQuestions('affiliate')
     }
   ];
+
+  // Expand all questions by default on first load
+  useEffect(() => {
+    if (!initialized && categories.length > 0) {
+      const allQuestionIds: string[] = [];
+      categories.forEach((category, categoryIndex) => {
+        category.questions.forEach((_, questionIndex) => {
+          allQuestionIds.push(`${categoryIndex}-${questionIndex}`);
+        });
+      });
+      setExpandedQuestions(allQuestionIds);
+      setInitialized(true);
+    }
+  }, [categories, initialized]);
 
   const toggleCategory = (index: number) => {
     setExpandedCategories(prev =>

@@ -39,7 +39,7 @@ export const SuccessPage: React.FC = () => {
     } else if (subscription) {
       // Determine price from subscription type
       if (subscription.plan_type === 'monthly') {
-        conversionValue = 11.99;
+        conversionValue = 12.99;
       } else if (subscription.credits_remaining === 25) {
         conversionValue = 6.99;
       } else if (subscription.credits_remaining === 10) {

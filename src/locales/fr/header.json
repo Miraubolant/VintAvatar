@@ -1,12 +1,13 @@
 {
   "navigation": {
-    "features": "Fonctionnalités",
+    "features": "Générer",
     "method": "Méthode",
     "beforeAfter": "Avant/Après",
     "pricing": "Tarifs",
     "reviews": "Avis",
     "leaderboard": "Classement",
     "blog": "Blog",
+    "faq": "FAQ",
     "account": "Mon Compte"
   },
   "auth": {

@@ -185,7 +185,7 @@ export const generateProductSchema = () => {
       {
         "@type": "Offer",
         "name": "Abonnement Mensuel",
-        "price": "11.99",
+        "price": "12.99",
         "priceCurrency": "EUR", 
         "availability": "https://schema.org/InStock",
         "url": "https://vintdress.com/#tarifs",

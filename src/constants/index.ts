@@ -63,7 +63,7 @@ export const PRICING_TIERS = {
     id: 'monthly',
     name: 'Abonnement Mensuel',
     generations: 40,
-    price: 11.99,
+    price: 12.99,
     currency: 'EUR',
   },
 } as const;
