@@ -91,10 +91,29 @@
     <meta name="twitter:image" content="https://vintdress.com/og-image.jpg" />
     <meta name="twitter:image:alt" content="VintDress - Générateur IA de photos portées pour Vinted" />
 
-    <!-- Google Fonts - Space Grotesk -->
+    <!-- Google Fonts - Space Grotesk with optional display to prevent CLS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=optional" rel="stylesheet" />
+
+    <!-- Critical CSS to prevent layout shift (CLS) -->
+    <style>
+      /* Fallback font metrics to match Space Grotesk and prevent CLS */
+      html { font-size: 16px; line-height: 1.5; }
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-synthesis: none;
+        -webkit-font-smoothing: antialiased;
+      }
+      /* Reserve header height to prevent layout shift */
+      header { min-height: 64px; }
+      @media (min-width: 640px) { header { min-height: 80px; } }
+      @media (min-width: 1024px) { header { min-height: 96px; } }
+      /* Prevent image layout shift */
+      img { max-width: 100%; height: auto; }
+      /* Article image container */
+      .aspect-\[16\/9\] { aspect-ratio: 16/9; }
+    </style>
 
     <!-- Performance optimizations -->
     <link rel="preconnect" href="https://iroihdwursjjkadtbyye.supabase.co" crossorigin />

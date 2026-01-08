@@ -156,7 +156,7 @@ export const articles: Article[] = [
     readingTime: '11 min',
     readTime: '11 min',
     category: 'Stratégie',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop'
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=800&fit=crop'
   },
   {
     id: 'comment-prendre-bonnes-photos-vinted',
@@ -186,7 +186,7 @@ export const articles: Article[] = [
     readingTime: '9 min',
     readTime: '9 min',
     category: 'Comparatif',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop'
+    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop'
   },
   {
     id: 'tendances-mode-2025',
@@ -216,7 +216,7 @@ export const articles: Article[] = [
     readingTime: '10 min',
     readTime: '10 min',
     category: 'Guide',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop'
+    image: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=1200&h=800&fit=crop'
   },
   {
     id: 'identite-visuelle-vinted',
@@ -246,7 +246,7 @@ export const articles: Article[] = [
     readingTime: '8 min',
     readTime: '8 min',
     category: 'Conseils',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop'
+    image: 'https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=1200&h=800&fit=crop'
   },
   {
     id: 'success-story-marie-2025',
@@ -321,7 +321,7 @@ export const articles: Article[] = [
     readingTime: '12 min',
     readTime: '12 min',
     category: 'Guide',
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=800&fit=crop'
+    image: 'https://images.unsplash.com/photo-1556742111-a301076d9d18?w=1200&h=800&fit=crop'
   },
   {
     id: 'expedition-vinted-guide',
@@ -381,7 +381,7 @@ export const articles: Article[] = [
     readingTime: '9 min',
     readTime: '9 min',
     category: 'Guide',
-    image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&h=800&fit=crop'
+    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&h=800&fit=crop'
   },
   {
     id: 'optimiser-ventes-vinted',
@@ -396,7 +396,7 @@ export const articles: Article[] = [
     readingTime: '10 min',
     readTime: '10 min',
     category: 'Conseils',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop'
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop'
   }
 ];
 

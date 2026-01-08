@@ -64,15 +64,17 @@ export const BlogSection: React.FC = () => {
             <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">
               <div className="flex flex-col lg:flex-row">
                 <div className="lg:w-1/2">
-                  <img
-                    src={post.image}
-                    alt={`${post.title} - Guide avatar IA pour Vinted`}
-                    className="w-full h-48 sm:h-64 lg:h-full object-cover border-b-4 lg:border-b-0 lg:border-r-4 border-black"
-                    loading="lazy"
-                    fetchPriority="low"
-                    width={800}
-                    height={400}
-                  />
+                  <div className="aspect-[2/1] lg:aspect-auto lg:h-full w-full">
+                    <img
+                      src={post.image}
+                      alt={`${post.title} - Guide avatar IA pour Vinted`}
+                      className="w-full h-full object-cover border-b-4 lg:border-b-0 lg:border-r-4 border-black"
+                      loading="eager"
+                      fetchPriority="high"
+                      width={800}
+                      height={400}
+                    />
+                  </div>
                 </div>
                 <div className="lg:w-1/2 p-4 sm:p-6 lg:p-8">
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
@@ -131,15 +133,17 @@ export const BlogSection: React.FC = () => {
               key={post.id}
               className={`${isMobileHidden ? 'hidden sm:block' : ''} bg-white border-4 border-black p-4 sm:p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200`}
             >
-              <img
-                src={post.image}
-                alt={`${post.title} - Conseils génération photo portée Vinted`}
-                className="w-full h-32 sm:h-40 object-cover border-3 border-black mb-3 sm:mb-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
-                loading="lazy"
-                fetchPriority="low"
-                width={400}
-                height={200}
-              />
+              <div className="aspect-[2/1] w-full mb-3 sm:mb-4">
+                <img
+                  src={post.image}
+                  alt={`${post.title} - Conseils génération photo portée Vinted`}
+                  className="w-full h-full object-cover border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+                  loading="lazy"
+                  fetchPriority="low"
+                  width={400}
+                  height={200}
+                />
+              </div>
 
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <div className={`px-2 sm:px-3 py-1 border-2 border-black text-black text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${

@@ -87,11 +87,14 @@ export default function BlogIndexPage() {
               className="group bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all"
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden border-b-4 border-black">
+              <div className="relative aspect-[2/1] overflow-hidden border-b-4 border-black">
                 <img
                   src={article.image}
                   alt={article.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  width={600}
+                  height={300}
+                  loading="lazy"
                 />
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">

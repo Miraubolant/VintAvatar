@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
 
   const afterDropdownLinks = [
     { href: '/faq', label: t('navigation.faq'), isRoute: true },
-    { href: '#blog', label: t('navigation.blog') },
+    { href: '/blog', label: t('navigation.blog'), isRoute: true },
   ];
 
   // All links for mobile menu
@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
     { href: '#avis', label: t('navigation.reviews') },
     { href: '#leaderboard', label: t('navigation.leaderboard') },
     { href: '/faq', label: t('navigation.faq'), isRoute: true },
-    { href: '#blog', label: t('navigation.blog') },
+    { href: '/blog', label: t('navigation.blog'), isRoute: true },
   ];
 
   const handleNavClick = (href: string, isRoute?: boolean) => {
