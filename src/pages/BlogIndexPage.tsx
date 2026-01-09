@@ -15,7 +15,6 @@ export default function BlogIndexPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useSEO({
     title: "Blog VintDress : Tous les Articles et Guides pour Vinted | Conseils, Astuces & Success Stories",
@@ -129,28 +128,17 @@ export default function BlogIndexPage() {
       <div className="max-w-6xl mx-auto px-6 py-6">
         <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-4 sm:p-6">
           {/* Filter Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-vinted border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                <Filter className="w-5 h-5 text-white" />
-              </div>
-              <h2 className="font-display font-bold text-lg sm:text-xl text-black">
-                {t('filters.title', 'FILTRER LES ARTICLES')}
-              </h2>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 bg-vinted border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <Filter className="w-5 h-5 text-white" />
             </div>
-
-            {/* Mobile filter toggle */}
-            <button
-              onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className="sm:hidden flex items-center gap-2 px-4 py-2 bg-cream border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-sm"
-            >
-              {isFilterOpen ? 'MASQUER' : 'AFFICHER'}
-              <ChevronDown className={`w-4 h-4 transition-transform ${isFilterOpen ? 'rotate-180' : ''}`} />
-            </button>
+            <h2 className="font-display font-bold text-lg sm:text-xl text-black">
+              {t('filters.title', 'FILTRER LES ARTICLES')}
+            </h2>
           </div>
 
-          {/* Filters Content */}
-          <div className={`${isFilterOpen ? 'block' : 'hidden'} sm:block space-y-4`}>
+          {/* Filters Content - Always visible */}
+          <div className="space-y-4">
             {/* Search Bar */}
             <div className="relative">
               <div className="absolute left-3 top-1/2 -translate-y-1/2">
