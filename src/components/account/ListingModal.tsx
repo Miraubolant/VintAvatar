@@ -27,11 +27,11 @@ export const ListingModal: React.FC<ListingModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4 overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="relative bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] w-full max-w-md max-h-[85vh] overflow-y-auto mx-auto"
+        className="relative bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] w-full max-w-md my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
