@@ -717,7 +717,7 @@ export const HeroSection: React.FC = () => {
                             {/* Étapes avec icônes */}
                             <div className="flex items-center gap-1.5 sm:gap-2">
                               {/* Étape 1: Connexion */}
-                              <div className={`flex items-center gap-1 ${scrapingStep === 'connecting' ? 'text-vinted' : scrapingStep !== 'connecting' ? 'text-green-600' : 'text-gray-400'}`}>
+                              <div className={`flex items-center gap-1 ${scrapingStep === 'connecting' ? 'text-vinted' : 'text-green-600'}`}>
                                 {scrapingStep === 'connecting' ? (
                                   <Loader2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin" />
                                 ) : (
@@ -767,38 +767,40 @@ export const HeroSection: React.FC = () => {
                         </div>
                       )}
 
-                      {/* Boutons Valider et Supprimer */}
-                      {vintedUrl && !isScrapingVinted && !vintedImage && !vintedUrlError && (
-                        <button
-                          type="button"
-                          onClick={handleValidateVintedUrl}
-                          className="absolute right-10 top-1/2 w-6 h-6 bg-mint border-2 border-black flex items-center justify-center hover:bg-green-300 z-10 animate-pulse-validate"
-                          title="Valider le lien Vinted"
-                        >
-                          <Check className="w-3 h-3" />
-                        </button>
-                      )}
+                      {/* Boutons Valider et Supprimer - côte à côte */}
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 z-10">
+                        {vintedUrl && !isScrapingVinted && !vintedImage && !vintedUrlError && (
+                          <button
+                            type="button"
+                            onClick={handleValidateVintedUrl}
+                            className="w-6 h-6 bg-mint border-2 border-black flex items-center justify-center hover:bg-green-300 transition-all shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] animate-pulse-validate-inline"
+                            title="Valider le lien Vinted"
+                          >
+                            <Check className="w-3 h-3" />
+                          </button>
+                        )}
 
-                      {(vintedUrl || vintedUrlError) && !isScrapingVinted && (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setVintedUrl('');
-                            setVintedImage(null);
-                            setVintedArticleInfo(null);
-                            setUploadedImage(null);
-                            setVintedUrlError(null);
-                            lastExtractedUrlRef.current = null;
-                            if (fileInputRef.current) {
-                              fileInputRef.current.value = '';
-                            }
-                          }}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-pink-pastel border-2 border-black flex items-center justify-center hover:bg-pink-300 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] z-10"
-                          title="Effacer l'URL"
-                        >
-                          <X className="w-3 h-3" />
-                        </button>
-                      )}
+                        {(vintedUrl || vintedUrlError) && !isScrapingVinted && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setVintedUrl('');
+                              setVintedImage(null);
+                              setVintedArticleInfo(null);
+                              setUploadedImage(null);
+                              setVintedUrlError(null);
+                              lastExtractedUrlRef.current = null;
+                              if (fileInputRef.current) {
+                                fileInputRef.current.value = '';
+                              }
+                            }}
+                            className="w-6 h-6 bg-pink-pastel border-2 border-black flex items-center justify-center hover:bg-pink-300 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+                            title="Effacer l'URL"
+                          >
+                            <X className="w-3 h-3" />
+                          </button>
+                        )}
+                      </div>
                     </div>
                     
                     {/* Gallery Button - Responsive */}
