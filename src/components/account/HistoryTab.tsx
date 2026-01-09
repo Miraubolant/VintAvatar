@@ -1,7 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Image, Download, Eye, FileText } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+
+// Composant d'image optimisé avec lazy loading et placeholder
+interface OptimizedImageProps {
+  src: string | null;
+  alt: string;
+  className?: string;
+  fallbackIcon?: React.ReactNode;
+  bgColor?: string;
+}
+
+const OptimizedImage: React.FC<OptimizedImageProps> = ({
+  src,
+  alt,
+  className = '',
+  fallbackIcon,
+  bgColor = 'bg-cream'
+}) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  const handleLoad = useCallback(() => {
+    setIsLoaded(true);
+  }, []);
+
+  const handleError = useCallback(() => {
+    setHasError(true);
+  }, []);
+
+  if (!src || hasError) {
+    return (
+      <div className={`w-full h-full flex items-center justify-center text-gray-500 ${bgColor}`}>
+        {fallbackIcon || <Image className="w-8 h-8" />}
+      </div>
+    );
+  }
+
+  return (
+    <div className={`relative w-full h-full ${bgColor}`}>
+      {/* Skeleton placeholder */}
+      {!isLoaded && (
+        <div className="absolute inset-0 animate-pulse">
+          <div className={`w-full h-full ${bgColor}`}>
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="w-8 h-8 border-3 border-black/20 border-t-vinted rounded-full animate-spin" />
+            </div>
+          </div>
+        </div>
+      )}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        onLoad={handleLoad}
+        onError={handleError}
+        className={`w-full h-full object-cover transition-opacity duration-300 ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        } ${className}`}
+      />
+    </div>
+  );
+};
 
 // Type definitions for strict typing
 interface GenerationConfig {
@@ -137,17 +199,11 @@ export const HistoryTab: React.FC<HistoryTabProps> = ({
                 <div className="space-y-2">
                   <p className="font-display font-bold text-sm text-black">{t('historyTab.original')}</p>
                   <div className="aspect-square bg-cream border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
-                    {item.original_image_url ? (
-                      <img
-                        src={item.original_image_url}
-                        alt={t('common.originalClothingPhotoAlt')}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-gray-500">
-                        <Image className="w-8 h-8" />
-                      </div>
-                    )}
+                    <OptimizedImage
+                      src={item.original_image_url}
+                      alt={t('common.originalClothingPhotoAlt')}
+                      bgColor="bg-cream"
+                    />
                   </div>
                 </div>
 
@@ -155,17 +211,11 @@ export const HistoryTab: React.FC<HistoryTabProps> = ({
                 <div className="space-y-2">
                   <p className="font-display font-bold text-sm text-black">{t('historyTab.generated')}</p>
                   <div className="aspect-square bg-mint border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
-                    {item.generated_image_url ? (
-                      <img
-                        src={item.generated_image_url}
-                        alt="Avatar IA généré pour photo Vinted portée professionnelle"
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-gray-500">
-                        <Image className="w-8 h-8" />
-                      </div>
-                    )}
+                    <OptimizedImage
+                      src={item.generated_image_url}
+                      alt="Avatar IA généré pour photo Vinted portée professionnelle"
+                      bgColor="bg-mint"
+                    />
                   </div>
                 </div>
               </div>
