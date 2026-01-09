@@ -336,11 +336,94 @@ Deno.serve(async (req) => {
       }
     )
 
-    const { imageData, config, userId, isUrl } = await req.json()
+    const body = await req.json()
+    const { imageData, config, userId, isUrl } = body
 
-    if (!imageData || !config || !userId) {
+    // Validation stricte des paramètres requis
+    if (!imageData || typeof imageData !== 'string') {
       return new Response(
-        JSON.stringify({ error: 'Missing required parameters' }),
+        JSON.stringify({ error: 'Invalid or missing image data' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    if (!userId || typeof userId !== 'string') {
+      return new Response(
+        JSON.stringify({ error: 'Invalid or missing user ID' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    if (!config || typeof config !== 'object') {
+      return new Response(
+        JSON.stringify({ error: 'Invalid or missing configuration' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    // Validation de la taille de l'image (max 10MB en base64)
+    const maxImageSize = 10 * 1024 * 1024 // 10MB
+    if (!isUrl && imageData.length > maxImageSize) {
+      return new Response(
+        JSON.stringify({ error: 'Image too large. Maximum size is 10MB.' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    // Validation des valeurs de config
+    const validGenders = ['femme', 'homme', 'auto']
+    const validMannequinTypes = ['humain', 'mannequin-plastique']
+    const validCarnations = ['claire', 'medium', 'mate', 'foncee']
+    const validPostures = ['debout', 'assis', 'accroupi', 'cambre']
+    const validDecors = ['fond-blanc', 'fond-gris', 'fond-beige', 'studio-pro', 'chambre-moderne', 'chambre-cosy', 'mur-brique', 'exterieur']
+    const validClothingTypes = ['haut', 'bas', 'robe', 'veste', 'ensemble', 'auto']
+    const validFaceModes = ['visible', 'blur', 'phone']
+
+    if (config.gender && !validGenders.includes(config.gender)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid gender value' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    if (config.mannequinType && !validMannequinTypes.includes(config.mannequinType)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid mannequin type' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    if (config.carnation && !validCarnations.includes(config.carnation)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid carnation value' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    if (config.posture && !validPostures.includes(config.posture)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid posture value' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    if (config.decor && !validDecors.includes(config.decor)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid decor value' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    if (config.clothingType && !validClothingTypes.includes(config.clothingType)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid clothing type' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    if (config.faceMode && !validFaceModes.includes(config.faceMode)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid face mode' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
@@ -378,11 +461,14 @@ Deno.serve(async (req) => {
       { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     )
 
-  } catch (error) {
+  } catch (error: unknown) {
+    // Log detailed error server-side only
     console.error('Generation error:', error)
 
+    const err = error as Error & { name?: string; message?: string }
+
     // Handle sensitive content error
-    if (error.name === 'SensitiveContentError' || error.message === 'SENSITIVE_CONTENT') {
+    if (err.name === 'SensitiveContentError' || err.message === 'SENSITIVE_CONTENT') {
       return new Response(
         JSON.stringify({
           error: 'Votre photo a été refusée par notre système de sécurité. Cela peut arriver si la photo contient des éléments sensibles ou inappropriés, si le vêtement est trop transparent ou révélateur, ou s\'il y a des éléments visibles non conformes à nos conditions. Essayez avec une autre photo de votre vêtement.',
@@ -392,8 +478,23 @@ Deno.serve(async (req) => {
       )
     }
 
+    // Handle known user-facing errors
+    const userFacingErrors = [
+      'No subscriptions found',
+      'Monthly limit reached',
+      'No valid subscription found'
+    ]
+
+    if (err.message && userFacingErrors.includes(err.message)) {
+      return new Response(
+        JSON.stringify({ error: err.message }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    // Generic error for all other cases - don't expose internal details
     return new Response(
-      JSON.stringify({ error: error.message || 'Internal server error' }),
+      JSON.stringify({ error: 'An error occurred during generation. Please try again.' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     )
   }

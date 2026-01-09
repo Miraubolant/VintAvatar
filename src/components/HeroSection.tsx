@@ -118,6 +118,27 @@ export const HeroSection: React.FC = () => {
   const [counterValue, setCounterValue] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Ref to track active timeouts for cleanup on unmount
+  const timeoutsRef = useRef<Set<ReturnType<typeof setTimeout>>>(new Set());
+
+  // Helper to create tracked timeouts that auto-cleanup
+  const createTrackedTimeout = (callback: () => void, delay: number) => {
+    const timeoutId = setTimeout(() => {
+      callback();
+      timeoutsRef.current.delete(timeoutId);
+    }, delay);
+    timeoutsRef.current.add(timeoutId);
+    return timeoutId;
+  };
+
+  // Cleanup all timeouts on unmount
+  useEffect(() => {
+    return () => {
+      timeoutsRef.current.forEach((id) => clearTimeout(id));
+      timeoutsRef.current.clear();
+    };
+  }, []);
+
   const { user, session } = useAuth();
   const navigate = useNavigate();
   const { t } = useTranslation('hero');
@@ -183,7 +204,7 @@ export const HeroSection: React.FC = () => {
         console.log('Auto-extracting Vinted image from:', vintedUrl);
 
         // Simulate step progression for better UX
-        setTimeout(() => setScrapingStep('fetching'), 500);
+        createTrackedTimeout(() => setScrapingStep('fetching'), 500);
 
         const { data: scrapResult, error: scrapError } = await supabase.functions.invoke('vinted-scraper', {
           body: { vintedUrl },
@@ -460,12 +481,12 @@ export const HeroSection: React.FC = () => {
         }
       });
 
-      // Simuler les étapes avec des timeouts
-      setTimeout(() => {
+      // Simuler les étapes avec des timeouts trackés (cleanup on unmount)
+      createTrackedTimeout(() => {
         setGenerationStage('generating');
       }, 15000); // 15 secondes pour l'analyse
 
-      setTimeout(() => {
+      createTrackedTimeout(() => {
         setGenerationStage('saving');
       }, 75000); // 75 secondes pour la génération (15 + 60)
 
@@ -480,7 +501,7 @@ export const HeroSection: React.FC = () => {
         setGenerationStage('complete');
 
         // Laisser voir "complete" pendant 2 secondes puis rediriger vers la page résultat
-        setTimeout(() => {
+        createTrackedTimeout(() => {
           setIsGenerating(false);
           // Rediriger vers la page de résultat avec l'ID de la génération
           navigate(`/result/${data.generation_id}`);
@@ -489,10 +510,11 @@ export const HeroSection: React.FC = () => {
         throw new Error(data.error || 'Erreur lors de la génération');
       }
 
-    } catch (error: any) {
+    } catch (error) {
       console.error('Generation error:', error);
-      setError(error.message || 'Erreur lors de la génération');
-      alert(`Erreur: ${error.message || 'Erreur lors de la génération'}`);
+      const errorMessage = error instanceof Error ? error.message : 'Erreur lors de la génération';
+      setError(errorMessage);
+      alert(`Erreur: ${errorMessage}`);
       setIsGenerating(false);
     }
   };
@@ -518,7 +540,7 @@ export const HeroSection: React.FC = () => {
         setError(null);
 
         // Simulate step progression for better UX
-        setTimeout(() => setScrapingStep('fetching'), 500);
+        createTrackedTimeout(() => setScrapingStep('fetching'), 500);
 
         const { data: scrapResult, error: scrapError } = await supabase.functions.invoke('vinted-scraper', {
           body: { vintedUrl },

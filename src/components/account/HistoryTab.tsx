@@ -3,14 +3,49 @@ import { useNavigate } from 'react-router-dom';
 import { Image, Download, Eye, FileText } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
+// Type definitions for strict typing
+interface GenerationConfig {
+  gender?: string;
+  mannequinType?: string;
+  carnation?: string;
+  morphology?: string;
+  age?: string;
+  posture?: string;
+  angle?: string;
+  framing?: string;
+  decor?: string;
+  lighting?: string;
+  season?: string;
+  clothingType?: string;
+  faceMode?: 'visible' | 'blur' | 'phone';
+  cropHead?: boolean;
+}
+
+interface VintedListing {
+  title: string;
+  description: string;
+}
+
+interface HistoryItem {
+  id: string;
+  user_id: string;
+  generation_type: string;
+  credits_used: number;
+  created_at: string;
+  original_image_url: string | null;
+  generated_image_url: string | null;
+  generation_config: GenerationConfig | null;
+  vinted_listing: VintedListing | null;
+}
+
 interface HistoryTabProps {
-  history: any[];
+  history: HistoryItem[];
   historyLoading: boolean;
   historyError: string | null;
   formatHistoryDateTime: (date: string) => string;
   onViewImage: (imageUrl: string) => void;
   onDownloadImage: (imageUrl: string, filename: string) => void;
-  onViewListing: (listing: { title: string; description: string }) => void;
+  onViewListing: (listing: VintedListing) => void;
 }
 
 export const HistoryTab: React.FC<HistoryTabProps> = ({

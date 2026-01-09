@@ -173,21 +173,38 @@ export const ArticlePage: React.FC = () => {
               fontFamily: 'inherit'
             }}
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(
-                article.content
+              __html: (() => {
+                // First apply markdown transformations
+                const transformedContent = article.content
                   .replace(/^# /gm, '<h1 class="font-display font-bold text-3xl text-black mb-6 mt-8 first:mt-0">')
                   .replace(/^## /gm, '<h2 class="font-display font-bold text-2xl text-black mb-4 mt-6">')
                   .replace(/^### /gm, '<h3 class="font-display font-bold text-xl text-black mb-3 mt-5">')
                   .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-vinted">$1</strong>')
                   .replace(/^- /gm, '<li class="mb-2">')
                   .replace(/\n\n/g, '</p><p class="mb-4">')
-                  .replace(/^(.+)$/gm, '<p class="mb-4 leading-relaxed">$1</p>'),
-                {
+                  .replace(/^(.+)$/gm, '<p class="mb-4 leading-relaxed">$1</p>');
+
+                // Then sanitize with strict config and hook
+                return DOMPurify.sanitize(transformedContent, {
                   ALLOWED_TAGS: ['h1', 'h2', 'h3', 'h4', 'p', 'strong', 'em', 'ul', 'ol', 'li', 'a', 'br', 'span'],
                   ALLOWED_ATTR: ['class', 'href', 'target', 'rel'],
                   ALLOW_DATA_ATTR: false,
-                }
-              )
+                  FORBID_ATTR: ['onerror', 'onload', 'onclick', 'onmouseover'],
+                  ADD_ATTR: ['rel'],
+                  RETURN_TRUSTED_TYPE: false,
+                  hooks: {
+                    afterSanitizeAttributes: (node: Element) => {
+                      // Force noopener noreferrer on all links to prevent tabnabbing
+                      if (node.tagName === 'A') {
+                        node.setAttribute('rel', 'noopener noreferrer');
+                        if (node.hasAttribute('target')) {
+                          node.setAttribute('target', '_blank');
+                        }
+                      }
+                    }
+                  }
+                });
+              })()
             }}
           />
         </div>

@@ -2,9 +2,31 @@ import React from 'react';
 import { Link, Copy, Users, Gift, Clock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
+// Type definitions for strict typing
+interface Affiliation {
+  id: string;
+  user_id: string;
+  referral_code: string;
+  referred_by_code: string | null;
+  referred_by_user_id: string | null;
+  status: 'pending' | 'completed';
+  bonus_awarded: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+interface Referral {
+  id: string;
+  user_id: string;
+  status: 'pending' | 'completed';
+  bonus_awarded: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
 interface AffiliateTabProps {
-  affiliation: any;
-  referrals: any[];
+  affiliation: Affiliation | null;
+  referrals: Referral[];
   affiliationLoading: boolean;
   referralCode: string;
   referralLink: string;

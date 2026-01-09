@@ -3,11 +3,43 @@ import { useNavigate } from 'react-router-dom';
 import { User, CreditCard, TrendingUp, Zap, Clock, Target, BarChart3 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
+// Type definitions for strict typing
+interface Subscription {
+  id: string;
+  user_id: string;
+  plan_type: 'monthly' | 'credits';
+  status: 'active' | 'canceled' | 'past_due' | 'incomplete';
+  credits_remaining: number;
+  monthly_generations_used: number;
+  monthly_limit: number;
+  current_period_end: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+interface UsageHistoryItem {
+  id: string;
+  generation_type: string;
+  credits_used: number;
+  date: string;
+}
+
+interface AccountStats {
+  email: string;
+  full_name: string | null;
+  created_at: string;
+  total_generations: number;
+  this_month_generations: number;
+  last_generation_date: string | null;
+  subscriptions: Subscription[];
+  usage_history: UsageHistoryItem[];
+}
+
 interface StatsTabProps {
-  stats: any;
+  stats: AccountStats;
   totalCredits: number;
-  monthlySubscription: any;
-  creditPacks: any[];
+  monthlySubscription: Subscription | null;
+  creditPacks: Subscription[];
   formatDate: (date: string) => string;
   formatDateTime: (date: string) => string;
 }
@@ -125,7 +157,7 @@ export const StatsTab: React.FC<StatsTabProps> = ({
             <h3 className="font-display font-bold text-xl text-black">{t('statsTab.subscriptions.title')}</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {stats.subscriptions.map((subscription: any) => (
+            {stats.subscriptions.map((subscription: Subscription) => (
               <div key={subscription.id} className={`${getStatusColor(subscription.status)} border-3 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]`}>
                 <div className="flex justify-between items-start mb-3">
                   <h4 className="font-display font-bold text-black">{formatSubscriptionType(subscription.plan_type)}</h4>
@@ -291,7 +323,7 @@ export const StatsTab: React.FC<StatsTabProps> = ({
             </div>
 
             <div className="space-y-3 mb-6">
-              {currentPageHistory.map((usage: any, index: number) => (
+              {currentPageHistory.map((usage: UsageHistoryItem, index: number) => (
                 <div key={startIndex + index} className="flex justify-between items-center p-3 bg-cream border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                   <div>
                     <p className="font-display font-bold text-black">
