@@ -337,7 +337,7 @@ Deno.serve(async (req) => {
     )
 
     const body = await req.json()
-    const { imageData, config, userId, isUrl } = body
+    const { imageData, config, userId, isUrl, vintedUrl } = body
 
     // Validation stricte des paramètres requis
     if (!imageData || typeof imageData !== 'string') {
@@ -446,7 +446,7 @@ Deno.serve(async (req) => {
     const finalImageUrl = await saveGeneratedImage(supabaseClient, generatedImageUrl, userId)
 
     // Track usage
-    const generationId = await trackUsage(supabaseClient, userId, originalImageUrl, finalImageUrl, config, vintedListing)
+    const generationId = await trackUsage(supabaseClient, userId, originalImageUrl, finalImageUrl, config, vintedListing, vintedUrl)
 
     // Use credit from subscription
     await useUserCredit(supabaseClient, userId)
@@ -574,7 +574,8 @@ async function trackUsage(
   originalUrl: string,
   generatedUrl: string,
   config: GenerationConfig,
-  vintedListing?: VintedListing
+  vintedListing?: VintedListing,
+  vintedArticleUrl?: string | null
 ): Promise<string> {
   const { data, error } = await supabase
     .from('usage_tracking')
@@ -590,7 +591,8 @@ async function trackUsage(
         model_used: 'flux-2-pro',
         generation_method: 'replicate',
         generation_timestamp: new Date().toISOString(),
-        vinted_listing: vintedListing || null
+        vinted_listing: vintedListing || null,
+        vinted_article_url: vintedArticleUrl || null
       }
     })
     .select('id')

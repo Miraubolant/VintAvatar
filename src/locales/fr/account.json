@@ -99,7 +99,8 @@
     "viewListing": "VOIR TITRE & DESCRIPTION",
     "listingModalTitle": "TITRE & DESCRIPTION IA",
     "titleLabel": "TITRE",
-    "descriptionLabel": "DESCRIPTION"
+    "descriptionLabel": "DESCRIPTION",
+    "viewOnVinted": "Voir sur Vinted"
   },
   "affiliateTab": {
     "referralCode": {

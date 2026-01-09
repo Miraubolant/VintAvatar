@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Image, Download, Eye, FileText } from 'lucide-react';
+import { Image, Download, Eye, FileText, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 // Composant d'image optimisé avec lazy loading et placeholder
@@ -98,6 +98,7 @@ interface HistoryItem {
   generated_image_url: string | null;
   generation_config: GenerationConfig | null;
   vinted_listing: VintedListing | null;
+  vinted_article_url: string | null;
 }
 
 interface HistoryTabProps {
@@ -195,28 +196,53 @@ export const HistoryTab: React.FC<HistoryTabProps> = ({
 
               {/* Images Comparison */}
               <div className="grid grid-cols-2 gap-4">
-                {/* Image Originale */}
+                {/* Image Originale - Cliquable vers Vinted si URL disponible */}
                 <div className="space-y-2">
-                  <p className="font-display font-bold text-sm text-black">{t('historyTab.original')}</p>
-                  <div className="aspect-square bg-cream border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
-                    <OptimizedImage
-                      src={item.original_image_url}
-                      alt={t('common.originalClothingPhotoAlt')}
-                      bgColor="bg-cream"
-                    />
+                  <div className="flex items-center gap-2">
+                    <p className="font-display font-bold text-sm text-black">{t('historyTab.original')}</p>
+                    {item.vinted_article_url && (
+                      <ExternalLink className="w-3.5 h-3.5 text-vinted" />
+                    )}
                   </div>
+                  {item.vinted_article_url ? (
+                    <a
+                      href={item.vinted_article_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block aspect-square bg-cream border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden cursor-pointer hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                      title={t('historyTab.viewOnVinted', 'Voir sur Vinted')}
+                    >
+                      <OptimizedImage
+                        src={item.original_image_url}
+                        alt={t('common.originalClothingPhotoAlt')}
+                        bgColor="bg-cream"
+                      />
+                    </a>
+                  ) : (
+                    <div className="aspect-square bg-cream border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                      <OptimizedImage
+                        src={item.original_image_url}
+                        alt={t('common.originalClothingPhotoAlt')}
+                        bgColor="bg-cream"
+                      />
+                    </div>
+                  )}
                 </div>
 
-                {/* Image Générée */}
+                {/* Image Générée - Cliquable pour aperçu */}
                 <div className="space-y-2">
                   <p className="font-display font-bold text-sm text-black">{t('historyTab.generated')}</p>
-                  <div className="aspect-square bg-mint border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                  <button
+                    onClick={() => item.generated_image_url && onViewImage(item.generated_image_url)}
+                    disabled={!item.generated_image_url}
+                    className="w-full aspect-square bg-mint border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden cursor-pointer hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 disabled:cursor-default disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                  >
                     <OptimizedImage
                       src={item.generated_image_url}
                       alt="Avatar IA généré pour photo Vinted portée professionnelle"
                       bgColor="bg-mint"
                     />
-                  </div>
+                  </button>
                 </div>
               </div>
 

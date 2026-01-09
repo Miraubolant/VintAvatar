@@ -427,7 +427,8 @@ export const HeroSection: React.FC = () => {
           imageData: imageData,
           config: config,
           userId: user.id,
-          isUrl: isUrl // Indiquer si c'est une URL ou du base64
+          isUrl: isUrl, // Indiquer si c'est une URL ou du base64
+          vintedUrl: vintedUrl || null // URL de l'article Vinted pour historique
         }
       });
 

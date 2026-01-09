@@ -18,6 +18,7 @@ export interface GenerationHistoryItem {
   generation_config: any;
   model_used: string;
   vinted_listing: VintedListing | null;
+  vinted_article_url: string | null;
 }
 
 // Cache pour les URLs signées (évite de recréer les URLs à chaque render)
@@ -122,7 +123,8 @@ export const useGenerationHistory = () => {
         clothing_analysis: item.metadata?.clothing_analysis || {},
         generation_config: item.metadata?.generation_config || {},
         model_used: item.metadata?.model_used || 'unknown',
-        vinted_listing: item.metadata?.vinted_listing || null
+        vinted_listing: item.metadata?.vinted_listing || null,
+        vinted_article_url: item.metadata?.vinted_article_url || null
       }));
 
       // Afficher immédiatement
