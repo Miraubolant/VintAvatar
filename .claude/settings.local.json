@@ -65,7 +65,8 @@
       "Bash(git pull:*)",
       "Bash(ls:*)",
       "Bash(npm run images:optimize:*)",
-      "Bash(netstat:*)"
+      "Bash(netstat:*)",
+      "Bash(npm audit:*)"
     ],
     "deny": [],
     "ask": []
