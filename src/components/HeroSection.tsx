@@ -772,7 +772,7 @@ export const HeroSection: React.FC = () => {
                         <button
                           type="button"
                           onClick={handleValidateVintedUrl}
-                          className="absolute right-10 top-1/2 -translate-y-1/2 w-6 h-6 bg-mint border-2 border-black flex items-center justify-center hover:bg-green-300 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] z-10"
+                          className="absolute right-10 top-1/2 -translate-y-1/2 w-6 h-6 bg-mint border-2 border-black flex items-center justify-center hover:bg-green-300 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] z-10 animate-pulse"
                           title="Valider le lien Vinted"
                         >
                           <Check className="w-3 h-3" />
