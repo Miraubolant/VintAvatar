@@ -463,9 +463,8 @@ export const HeroSection: React.FC = () => {
 
     } catch (error) {
       console.error('Generation error:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Erreur lors de la génération';
-      setError(errorMessage);
-      alert(`Erreur: ${errorMessage}`);
+      setError('Une erreur est survenue');
+      alert('Une erreur est survenue lors de la génération. Veuillez réessayer plus tard ou contacter le support si le problème persiste.');
       setIsGenerating(false);
     }
   };

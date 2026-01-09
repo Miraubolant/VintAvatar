@@ -288,6 +288,7 @@ Style: professional fashion photography with sharp focus on the ${clothingType},
 
   if (result.status === 'failed') {
     const errorMessage = result.error || 'Unknown error'
+    console.error('Replicate failed result:', JSON.stringify(result, null, 2))
     // Detect sensitive content error (E005)
     if (errorMessage.includes('E005') || errorMessage.toLowerCase().includes('sensitive') || errorMessage.toLowerCase().includes('flagged')) {
       const sensitiveError = new Error('SENSITIVE_CONTENT')
