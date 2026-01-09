@@ -4,6 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { LanguageSelector } from './LanguageSelector';
 
+// TikTok icon from Bootstrap Icons
+const TikTokIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className}>
+    <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+  </svg>
+);
+
 export const Footer: React.FC = () => {
   const { t } = useTranslation('common');
 
@@ -94,6 +101,17 @@ export const Footer: React.FC = () => {
               >
                 <Mail className="w-3 h-3" />
                 {t('footer.links.contact')}
+              </a>
+
+              {/* TikTok Link */}
+              <a
+                href="https://www.tiktok.com/@vintdress.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-black text-white font-display font-bold text-[10px] sm:text-xs px-2 py-1.5 sm:px-3 sm:py-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-pink-pastel hover:text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center gap-1.5"
+              >
+                <TikTokIcon className="w-3 h-3" />
+                TIKTOK
               </a>
             </div>
           </div>

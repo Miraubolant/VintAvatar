@@ -4,6 +4,13 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { AuthButton } from './AuthButton';
 
+// TikTok icon from Bootstrap Icons
+const TikTokIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className}>
+    <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+  </svg>
+);
+
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -174,7 +181,7 @@ export const Header: React.FC = () => {
 
         {/* Menu Mobile */}
         <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileMenuOpen ? 'max-h-[500px] border-t-4 border-black' : 'max-h-0'
+          mobileMenuOpen ? 'max-h-[600px] border-t-4 border-black' : 'max-h-0'
         }`}>
           <div className="bg-white px-3 py-4 space-y-2">
             {allMobileLinks.map((link, index) => (
@@ -190,6 +197,22 @@ export const Header: React.FC = () => {
                 {link.label}
               </button>
             ))}
+
+            {/* TikTok Link - Mobile only */}
+            <a
+              href="https://www.tiktok.com/@vintdress.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-center gap-2 w-full px-3 py-2.5 bg-black text-white border-2 border-black font-display font-bold text-sm uppercase hover:bg-pink-pastel hover:text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform opacity-0 animate-fade-in"
+              style={{
+                animationDelay: `${allMobileLinks.length * 100}ms`,
+                animationFillMode: 'forwards'
+              }}
+            >
+              <TikTokIcon className="w-4 h-4" />
+              TIKTOK
+            </a>
           </div>
         </div>
       </div>
