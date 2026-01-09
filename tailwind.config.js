@@ -41,6 +41,7 @@ export default {
       },
       animation: {
         'pulse-3': 'pulse-attention 0.6s ease-in-out 3',
+        'pulse-validate': 'pulse-validate-inline 0.8s ease-in-out infinite',
       },
       keyframes: {
         'pulse-attention': {
@@ -51,6 +52,17 @@ export default {
           '50%': {
             transform: 'scale(1.05)',
             boxShadow: '5px 5px 0px 0px rgba(0,0,0,1)',
+          },
+        },
+        'pulse-validate-inline': {
+          '0%, 100%': {
+            transform: 'scale(1)',
+            boxShadow: '1px 1px 0px 0px rgba(0,0,0,1)',
+          },
+          '50%': {
+            transform: 'scale(1.15)',
+            boxShadow: '3px 3px 0px 0px rgba(0,0,0,1)',
+            backgroundColor: '#7EDBB5',
           },
         },
       },
