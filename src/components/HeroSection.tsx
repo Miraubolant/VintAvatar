@@ -103,6 +103,7 @@ export const HeroSection: React.FC = () => {
   } | null>(null);
   const [isScrapingVinted, setIsScrapingVinted] = useState(false);
   const [scrapingStep, setScrapingStep] = useState<'connecting' | 'fetching' | 'extracting' | 'complete'>('connecting');
+  const [vintedUrlError, setVintedUrlError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hasStoredConfig, setHasStoredConfig] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -199,6 +200,7 @@ export const HeroSection: React.FC = () => {
         setIsScrapingVinted(true);
         setScrapingStep('connecting');
         setError(null);
+        setVintedUrlError(null);
         lastExtractedUrlRef.current = vintedUrl;
 
         console.log('Auto-extracting Vinted image from:', vintedUrl);
@@ -217,6 +219,8 @@ export const HeroSection: React.FC = () => {
 
         if (scrapError || !scrapResult.success || scrapResult.images.length === 0) {
           console.error('Auto-extraction failed:', scrapResult?.error);
+          const errorMsg = scrapResult?.error || 'Impossible de récupérer l\'image depuis ce lien Vinted';
+          setVintedUrlError(errorMsg);
           lastExtractedUrlRef.current = null; // Reset so user can retry
           setIsScrapingVinted(false);
           setScrapingStep('connecting');
@@ -241,6 +245,8 @@ export const HeroSection: React.FC = () => {
 
       } catch (error) {
         console.error('Error auto-extracting Vinted image:', error);
+        const errorMsg = error instanceof Error ? error.message : 'Erreur lors de la récupération de l\'image Vinted';
+        setVintedUrlError(errorMsg);
         lastExtractedUrlRef.current = null; // Reset so user can retry
       } finally {
         setIsScrapingVinted(false);
@@ -320,7 +326,7 @@ export const HeroSection: React.FC = () => {
 
     // Check if it's a Vinted URL
     if (!isValidVintedUrl(vintedUrl)) {
-      alert('Veuillez entrer une URL Vinted valide (ex: https://www.vinted.fr/items/12345... ou https://www.vinted.fr/articles/12345...)');
+      setVintedUrlError('URL Vinted invalide. Exemple: vinted.fr/items/12345');
       return;
     }
 
@@ -328,6 +334,7 @@ export const HeroSection: React.FC = () => {
       setIsScrapingVinted(true);
       setScrapingStep('connecting');
       setError(null);
+      setVintedUrlError(null);
       setVintedImage(null);
 
       console.log('Scraping Vinted URL:', vintedUrl);
@@ -362,7 +369,9 @@ export const HeroSection: React.FC = () => {
 
     } catch (error) {
       console.error('Error processing Vinted URL:', error);
-      setError(error instanceof Error ? error.message : 'Erreur lors du traitement de l\'URL Vinted');
+      const errorMessage = error instanceof Error ? error.message : 'Erreur lors du traitement de l\'URL Vinted';
+      setVintedUrlError(errorMessage);
+      setError(errorMessage);
     } finally {
       setIsScrapingVinted(false);
       setScrapingStep('connecting');
@@ -749,9 +758,12 @@ export const HeroSection: React.FC = () => {
                         id="vinted-url-input"
                         type="text"
                         value={vintedUrl}
-                        onChange={(e) => setVintedUrl(e.target.value)}
+                        onChange={(e) => {
+                          setVintedUrl(e.target.value);
+                          setVintedUrlError(null);
+                        }}
                         placeholder={t('interface.placeholder')}
-                        className={`w-full px-3 py-2 sm:px-4 sm:py-3 pr-10 bg-transparent border-none font-body font-semibold text-sm sm:text-base placeholder-gray-500 focus:outline-none transition-opacity ${isScrapingVinted ? 'opacity-0' : 'opacity-100'}`}
+                        className={`w-full px-3 py-2 sm:px-4 sm:py-3 pr-10 bg-transparent border-none font-body font-semibold text-sm sm:text-base placeholder-gray-500 focus:outline-none transition-opacity ${isScrapingVinted || vintedUrlError ? 'opacity-0' : 'opacity-100'}`}
                         data-guide="vinted-url-input"
                         aria-describedby="vinted-url-help"
                         disabled={isScrapingVinted}
@@ -805,7 +817,16 @@ export const HeroSection: React.FC = () => {
                         </div>
                       )}
 
-                      {vintedUrl && !isScrapingVinted && (
+                      {/* Overlay d'erreur Vinted */}
+                      {vintedUrlError && !isScrapingVinted && (
+                        <div className="absolute inset-0 bg-pink-pastel/90 flex items-center justify-center px-8">
+                          <p className="font-body font-semibold text-xs sm:text-sm text-red-700 text-center line-clamp-2">
+                            {vintedUrlError}
+                          </p>
+                        </div>
+                      )}
+
+                      {(vintedUrl || vintedUrlError) && !isScrapingVinted && (
                         <button
                           type="button"
                           onClick={() => {
@@ -813,12 +834,13 @@ export const HeroSection: React.FC = () => {
                             setVintedImage(null);
                             setVintedArticleInfo(null);
                             setUploadedImage(null);
+                            setVintedUrlError(null);
                             lastExtractedUrlRef.current = null;
                             if (fileInputRef.current) {
                               fileInputRef.current.value = '';
                             }
                           }}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-pink-pastel border-2 border-black flex items-center justify-center hover:bg-pink-300 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+                          className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-pink-pastel border-2 border-black flex items-center justify-center hover:bg-pink-300 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] z-10"
                           title="Effacer l'URL"
                         >
                           <X className="w-3 h-3" />
