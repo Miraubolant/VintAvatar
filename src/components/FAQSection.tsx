@@ -77,11 +77,6 @@ export const FAQSection: React.FC = () => {
                   <IconComponent className="w-6 h-6 text-vinted" />
                 </div>
 
-                {/* Number badge */}
-                <div className="absolute -top-2 -left-2 w-8 h-8 bg-black text-white border-2 border-black flex items-center justify-center font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
-                  {index + 1}
-                </div>
-
                 <div className="pt-2">
                   <h3 className={`font-display font-bold text-lg sm:text-xl ${category.textColor} mb-2`}>
                     {category.title}
