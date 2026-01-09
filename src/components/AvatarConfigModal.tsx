@@ -106,35 +106,33 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black bg-opacity-50" style={{ touchAction: 'none' }}>
-      <div className="h-full overflow-y-auto">
-        <div className="flex items-start justify-center pt-32 pb-8 px-4">
-          <div className="relative w-full max-w-lg md:max-w-xl bg-cream border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+    <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4" style={{ touchAction: 'none' }}>
+      <div className="relative w-full max-w-md bg-cream border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-h-[90vh] overflow-y-auto">
         
             {/* Header avec bouton fermer */}
-            <div className="bg-vinted border-b-4 border-black p-3 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-mint border-2 border-black transform rotate-12 flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                  <Sparkles className="w-3 h-3 text-black" />
+            <div className="bg-vinted border-b-3 border-black p-2 sm:p-2 flex items-center justify-between">
+              <div className="flex items-center gap-1.5 sm:gap-1.5">
+                <div className="w-5 h-5 sm:w-5 sm:h-5 bg-mint border-2 border-black transform rotate-12 flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                  <Sparkles className="w-2.5 h-2.5 sm:w-2.5 sm:h-2.5 text-black" />
                 </div>
-                <h2 className="font-display font-bold text-lg text-white">{t('title')}</h2>
+                <h2 className="font-display font-bold text-sm sm:text-sm text-white">{t('title')}</h2>
               </div>
               <button
                 onClick={onClose}
                 aria-label="Fermer la configuration"
-                className="w-7 h-7 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform hover:rotate-90 transition-all duration-300"
+                className="w-6 h-6 sm:w-6 sm:h-6 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform hover:rotate-90 transition-all duration-300"
               >
                 <X className="w-3 h-3 text-black" />
               </button>
             </div>
 
-        <div className="p-2 sm:p-3 space-y-2 sm:space-y-3">
+        <div className="p-1.5 sm:p-1.5 md:p-2 space-y-1.5 sm:space-y-1.5">
 
           {/* Affichage des crédits */}
           {user && stats && !loading && (
             <div className="text-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-mint border-3 border-black text-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
-                <Sparkles className="w-3 h-3 text-vinted" />
+              <div className="inline-flex items-center gap-1.5 px-2 py-1 sm:px-2 sm:py-1 bg-mint border-2 sm:border-2 border-black text-black font-display font-bold text-[10px] sm:text-[10px] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+                <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-vinted" />
                 <div className="text-center">
                   {stats.total_credits_remaining > 0 && (
                     <span>{stats.total_credits_remaining} CRÉDITS</span>
@@ -151,33 +149,33 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
           )}
 
           {/* Onglets de navigation */}
-          <div className="flex gap-1 mb-2 sm:mb-3">
+          <div className="flex gap-0.5 sm:gap-0.5 mb-1.5 sm:mb-1.5">
             <button
               onClick={() => setActiveTab('modele')}
-              className={`flex-1 py-2 px-2 font-display font-bold text-[10px] sm:text-xs transition-all duration-200 border-2 sm:border-3 border-black ${
+              className={`flex-1 py-1.5 px-1.5 font-display font-bold text-[10px] sm:text-[10px] transition-all duration-200 border-2 sm:border-2 border-black ${
                 activeTab === 'modele'
-                  ? 'bg-vinted text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                  : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-cream'
+                  ? 'bg-vinted text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                  : 'bg-white text-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:bg-cream'
               }`}
             >
               {t('tabs.modele')}
             </button>
             <button
               onClick={() => setActiveTab('style')}
-              className={`flex-1 py-2 px-2 font-display font-bold text-[10px] sm:text-xs transition-all duration-200 border-2 sm:border-3 border-black ${
+              className={`flex-1 py-1.5 px-1.5 font-display font-bold text-[10px] sm:text-[10px] transition-all duration-200 border-2 sm:border-2 border-black ${
                 activeTab === 'style'
-                  ? 'bg-pink-pastel text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                  : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-cream'
+                  ? 'bg-pink-pastel text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                  : 'bg-white text-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:bg-cream'
               }`}
             >
               {t('tabs.style')}
             </button>
             <button
               onClick={() => setActiveTab('environnement')}
-              className={`flex-1 py-2 px-2 font-display font-bold text-[10px] sm:text-xs transition-all duration-200 border-2 sm:border-3 border-black ${
+              className={`flex-1 py-1.5 px-1.5 font-display font-bold text-[10px] sm:text-[10px] transition-all duration-200 border-2 sm:border-2 border-black ${
                 activeTab === 'environnement'
-                  ? 'bg-mint text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                  : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-cream'
+                  ? 'bg-mint text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                  : 'bg-white text-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:bg-cream'
               }`}
             >
               {t('tabs.environnement')}
@@ -185,17 +183,17 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
           </div>
 
           {/* Contenu des onglets */}
-          <div className="space-y-2 sm:space-y-3">
+          <div className="space-y-1.5 sm:space-y-1.5">
             {activeTab === 'modele' && (
-              <div className="space-y-2 sm:space-y-3">
+              <div className="space-y-1.5 sm:space-y-1.5">
 
                 {/* Type de mannequin */}
                 <div>
-                  <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('modele.mannequinType.title')}</h3>
-                  <div className="grid grid-cols-2 gap-1.5">
+                  <h3 className="font-display font-bold text-xs sm:text-[11px] text-black mb-1">{t('modele.mannequinType.title')}</h3>
+                  <div className="grid grid-cols-2 gap-1">
                     <button
                       onClick={() => updateConfig('mannequinType', 'humain')}
-                      className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                      className={`p-1 sm:p-1 border-2 sm:border-2 border-black font-display font-bold text-[10px] sm:text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                         config.mannequinType === 'humain'
                           ? 'bg-vinted text-white'
                           : 'bg-white text-black hover:bg-cream'
@@ -205,7 +203,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                     </button>
                     <button
                       onClick={() => updateConfig('mannequinType', 'mannequin-plastique')}
-                      className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                      className={`p-1 sm:p-1 border-2 sm:border-2 border-black font-display font-bold text-[10px] sm:text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                         config.mannequinType === 'mannequin-plastique'
                           ? 'bg-black text-white'
                           : 'bg-white text-black hover:bg-cream'
@@ -218,12 +216,12 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
 
                 {/* Genre */}
                 <div>
-                  <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">
+                  <h3 className="font-display font-bold text-xs sm:text-[11px] text-black mb-1">
                     {config.mannequinType === 'mannequin-plastique'
                       ? t('modele.genre.titleMannequin')
                       : t('modele.genre.title')}
                   </h3>
-                  <div className="grid grid-cols-2 gap-1.5">
+                  <div className="grid grid-cols-2 gap-1">
                     {[
                       { id: 'femme', label: t('modele.genre.options.femme') },
                       { id: 'homme', label: t('modele.genre.options.homme') }
@@ -231,7 +229,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                       <button
                         key={gender.id}
                         onClick={() => updateConfig('gender', gender.id)}
-                        className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                        className={`p-1 sm:p-1 border-2 sm:border-2 border-black font-display font-bold text-[10px] sm:text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                           config.gender === gender.id
                             ? config.mannequinType === 'mannequin-plastique'
                               ? 'bg-black text-white'
@@ -250,7 +248,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                   <>
                     {/* Carnation */}
                     <div>
-                      <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('modele.carnation.title')}</h3>
+                      <h3 className="font-display font-bold text-xs sm:text-[11px] text-black mb-1">{t('modele.carnation.title')}</h3>
                       <div className="grid grid-cols-4 gap-1">
                         {[
                           { id: 'claire', label: t('modele.carnation.options.claire'), color: '#F5DEB3' },
@@ -261,28 +259,28 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                           <button
                             key={carnation.id}
                             onClick={() => updateConfig('carnation', carnation.id)}
-                            className={`p-1 sm:p-1.5 border-2 border-black font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center gap-0.5 transition-all duration-200 ${
+                            className={`p-0.5 sm:p-0.5 border-2 border-black font-display font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center gap-0.5 transition-all duration-200 ${
                               config.carnation === carnation.id
                                 ? 'bg-pink-pastel text-black'
                                 : 'bg-white text-black hover:bg-cream'
                             }`}
                           >
                             <div
-                              className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-black"
+                              className="w-4 h-4 sm:w-4 sm:h-4 border-2 border-black"
                               style={{ backgroundColor: carnation.color }}
                             ></div>
-                            <span className="text-[8px] sm:text-[10px] leading-tight">{carnation.label}</span>
+                            <span className="text-[8px] sm:text-[8px] leading-tight">{carnation.label}</span>
                           </button>
                         ))}
                       </div>
                     </div>
 
                     {/* Morphologie + Âge sur la même ligne */}
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 gap-1.5">
                       {/* Morphologie */}
                       <div>
-                        <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('modele.morphology.title')}</h3>
-                        <div className="grid grid-cols-3 gap-1">
+                        <h3 className="font-display font-bold text-xs sm:text-[11px] text-black mb-1">{t('modele.morphology.title')}</h3>
+                        <div className="grid grid-cols-3 gap-0.5">
                           {[
                             { id: 'S', label: t('modele.morphology.options.s') },
                             { id: 'M', label: t('modele.morphology.options.m') },
@@ -291,7 +289,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                             <button
                               key={size.id}
                               onClick={() => updateConfig('morphology', size.id)}
-                              className={`p-1 sm:p-1.5 border-2 border-black font-display font-bold text-[10px] sm:text-xs shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                              className={`p-0.5 sm:p-0.5 border-2 border-black font-display font-bold text-[10px] sm:text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                                 config.morphology === size.id
                                   ? 'bg-mint text-black'
                                   : 'bg-white text-black hover:bg-cream'
@@ -305,12 +303,12 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
 
                       {/* Âge - Liste déroulante */}
                       <div>
-                        <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('modele.age.title')}</h3>
+                        <h3 className="font-display font-bold text-xs sm:text-[11px] text-black mb-1">{t('modele.age.title')}</h3>
                         <div className="relative">
                           <select
                             value={config.age}
                             onChange={(e) => updateConfig('age', e.target.value)}
-                            className="w-full p-1.5 sm:p-2 bg-white border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none transition-all duration-200 appearance-none cursor-pointer"
+                            className="w-full p-1 sm:p-1 bg-white border-2 sm:border-2 border-black font-display font-bold text-[10px] sm:text-[10px] text-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] focus:outline-none transition-all duration-200 appearance-none cursor-pointer"
                           >
                             <option value="auto">{t('modele.age.options.auto')}</option>
                             <option value="18-25">{t('modele.age.options.18-25')}</option>
@@ -326,8 +324,8 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
 
                     {/* Mode Visage */}
                     <div>
-                      <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('modele.faceMode.title')}</h3>
-                      <div className="grid grid-cols-3 gap-1.5">
+                      <h3 className="font-display font-bold text-xs sm:text-[11px] text-black mb-1">{t('modele.faceMode.title')}</h3>
+                      <div className="grid grid-cols-3 gap-1">
                         {[
                           { id: 'visible', label: t('modele.faceMode.options.visible') },
                           { id: 'blur', label: t('modele.faceMode.options.blur') },
@@ -336,7 +334,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                           <button
                             key={mode.id}
                             onClick={() => updateConfig('faceMode', mode.id)}
-                            className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                            className={`p-1 sm:p-1 border-2 sm:border-2 border-black font-display font-bold text-[10px] sm:text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                               config.faceMode === mode.id
                                 ? 'bg-vinted text-white'
                                 : 'bg-white text-black hover:bg-cream'
@@ -350,11 +348,11 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
 
                     {/* Découpage de la tête */}
                     <div>
-                      <h3 className="font-display font-bold text-xs sm:text-sm text-black mb-1.5">{t('modele.cropHead.title')}</h3>
-                      <div className="grid grid-cols-2 gap-1.5">
+                      <h3 className="font-display font-bold text-xs sm:text-[11px] text-black mb-1">{t('modele.cropHead.title')}</h3>
+                      <div className="grid grid-cols-2 gap-1">
                         <button
                           onClick={() => updateConfig('cropHead', false)}
-                          className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                          className={`p-1 sm:p-1 border-2 sm:border-2 border-black font-display font-bold text-[10px] sm:text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                             !config.cropHead
                               ? 'bg-mint text-black'
                               : 'bg-white text-black hover:bg-cream'
@@ -364,7 +362,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                         </button>
                         <button
                           onClick={() => updateConfig('cropHead', true)}
-                          className={`p-1.5 sm:p-2 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
+                          className={`p-1 sm:p-1 border-2 sm:border-2 border-black font-display font-bold text-[10px] sm:text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
                             config.cropHead
                               ? 'bg-pink-pastel text-black'
                               : 'bg-white text-black hover:bg-cream'
@@ -537,20 +535,18 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
           </div>
 
           {/* Bouton validation */}
-          <div className="pt-1 sm:pt-2">
+          <div className="pt-1 sm:pt-1">
             <button
               onClick={validateConfig}
-              className={`w-full flex items-center justify-center gap-1.5 px-3 py-1.5 sm:py-2 font-display font-bold border-2 sm:border-3 border-black text-xs sm:text-sm transition-all duration-200 ${
+              className={`w-full flex items-center justify-center gap-1 px-2 py-1 sm:py-1.5 font-display font-bold border-2 sm:border-2 border-black text-[10px] sm:text-xs transition-all duration-200 ${
                 isValidated
-                  ? 'bg-mint text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
-                  : 'bg-vinted text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                  ? 'bg-mint text-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]'
+                  : 'bg-vinted text-white shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
               }`}
             >
-              <Check className="w-3 h-3 sm:w-4 sm:h-4" />
+              <Check className="w-3 h-3 sm:w-3 sm:h-3" />
               {isValidated ? t('validation.validated') : t('validation.validate')}
             </button>
-          </div>
-        </div>
           </div>
         </div>
       </div>
