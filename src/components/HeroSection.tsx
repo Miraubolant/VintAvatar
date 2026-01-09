@@ -184,80 +184,79 @@ export const HeroSection: React.FC = () => {
   // Track the last extracted URL to avoid duplicate extractions
   const lastExtractedUrlRef = useRef<string | null>(null);
 
-  // Auto-extract Vinted image when a valid URL is pasted
-  useEffect(() => {
-    // Don't extract if: no URL, already have image, user not logged in
-    if (!vintedUrl || vintedImage || !user || !session) return;
+  // Fonction pour valider et extraire l'image Vinted (déclenchée manuellement)
+  const handleValidateVintedUrl = async () => {
+    if (!vintedUrl || isScrapingVinted) return;
 
-    // Don't extract if we already extracted this URL
-    if (lastExtractedUrlRef.current === vintedUrl) return;
+    // Vérifier si l'utilisateur est connecté
+    if (!user) {
+      setShowAuthRequiredModal(true);
+      return;
+    }
 
-    // Check if it's a valid Vinted URL
-    if (!isValidVintedUrl(vintedUrl)) return;
+    // Vérifier si l'URL est valide
+    if (!isValidVintedUrl(vintedUrl)) {
+      setVintedUrlError('URL Vinted invalide. Exemple: vinted.fr/items/12345');
+      return;
+    }
 
-    const extractVintedImage = async () => {
-      try {
-        setIsScrapingVinted(true);
-        setScrapingStep('connecting');
-        setError(null);
-        setVintedUrlError(null);
-        lastExtractedUrlRef.current = vintedUrl;
+    try {
+      setIsScrapingVinted(true);
+      setScrapingStep('connecting');
+      setError(null);
+      setVintedUrlError(null);
+      lastExtractedUrlRef.current = vintedUrl;
 
-        console.log('Auto-extracting Vinted image from:', vintedUrl);
+      console.log('Extracting Vinted image from:', vintedUrl);
 
-        // Simulate step progression for better UX
-        createTrackedTimeout(() => setScrapingStep('fetching'), 500);
+      // Simulate step progression for better UX
+      createTrackedTimeout(() => setScrapingStep('fetching'), 500);
 
-        const { data: scrapResult, error: scrapError } = await supabase.functions.invoke('vinted-scraper', {
-          body: { vintedUrl },
-          headers: {
-            Authorization: `Bearer ${session?.access_token}`,
-          },
-        });
+      const { data: scrapResult, error: scrapError } = await supabase.functions.invoke('vinted-scraper', {
+        body: { vintedUrl },
+        headers: {
+          Authorization: `Bearer ${session?.access_token}`,
+        },
+      });
 
-        setScrapingStep('extracting');
+      setScrapingStep('extracting');
 
-        if (scrapError || !scrapResult.success || scrapResult.images.length === 0) {
-          console.error('Auto-extraction failed:', scrapResult?.error);
-          const errorMsg = scrapResult?.error || 'Impossible de récupérer l\'image depuis ce lien Vinted';
-          setVintedUrlError(errorMsg);
-          lastExtractedUrlRef.current = null; // Reset so user can retry
-          setIsScrapingVinted(false);
-          setScrapingStep('connecting');
-          return;
-        }
-
-        setScrapingStep('complete');
-
-        // Clear uploaded image and set Vinted image
-        setUploadedImage(null);
-        if (fileInputRef.current) {
-          fileInputRef.current.value = '';
-        }
-        setVintedImage(scrapResult.images[0]);
-        if (scrapResult.article_info) {
-          setVintedArticleInfo(scrapResult.article_info);
-        }
-        console.log('Vinted image auto-extracted');
-
-        // Small delay to show complete state before hiding
-        await new Promise(resolve => setTimeout(resolve, 300));
-
-      } catch (error) {
-        console.error('Error auto-extracting Vinted image:', error);
-        const errorMsg = error instanceof Error ? error.message : 'Erreur lors de la récupération de l\'image Vinted';
+      if (scrapError || !scrapResult.success || scrapResult.images.length === 0) {
+        console.error('Extraction failed:', scrapResult?.error);
+        const errorMsg = scrapResult?.error || 'Impossible de récupérer l\'image depuis ce lien Vinted';
         setVintedUrlError(errorMsg);
-        lastExtractedUrlRef.current = null; // Reset so user can retry
-      } finally {
+        lastExtractedUrlRef.current = null;
         setIsScrapingVinted(false);
         setScrapingStep('connecting');
+        return;
       }
-    };
 
-    // Small delay to avoid extracting while user is still typing
-    const timeoutId = setTimeout(extractVintedImage, 500);
-    return () => clearTimeout(timeoutId);
-  }, [vintedUrl, user, session, vintedImage]);
+      setScrapingStep('complete');
+
+      // Clear uploaded image and set Vinted image
+      setUploadedImage(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+      setVintedImage(scrapResult.images[0]);
+      if (scrapResult.article_info) {
+        setVintedArticleInfo(scrapResult.article_info);
+      }
+      console.log('Vinted image extracted');
+
+      // Small delay to show complete state before hiding
+      await new Promise(resolve => setTimeout(resolve, 300));
+
+    } catch (error) {
+      console.error('Error extracting Vinted image:', error);
+      const errorMsg = error instanceof Error ? error.message : 'Erreur lors de la récupération de l\'image Vinted';
+      setVintedUrlError(errorMsg);
+      lastExtractedUrlRef.current = null;
+    } finally {
+      setIsScrapingVinted(false);
+      setScrapingStep('connecting');
+    }
+  };
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     // Vérifier si l'utilisateur est connecté
@@ -316,66 +315,8 @@ export const HeroSection: React.FC = () => {
 
   const handleUrlSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!vintedUrl) return;
-
-    // Vérifier si l'utilisateur est connecté
-    if (!user) {
-      setShowAuthRequiredModal(true);
-      return;
-    }
-
-    // Check if it's a Vinted URL
-    if (!isValidVintedUrl(vintedUrl)) {
-      setVintedUrlError('URL Vinted invalide. Exemple: vinted.fr/items/12345');
-      return;
-    }
-
-    try {
-      setIsScrapingVinted(true);
-      setScrapingStep('connecting');
-      setError(null);
-      setVintedUrlError(null);
-      setVintedImage(null);
-
-      console.log('Scraping Vinted URL:', vintedUrl);
-
-      // Simulate step progression for better UX
-      setTimeout(() => setScrapingStep('fetching'), 500);
-
-      const { data: scrapResult, error: scrapError } = await supabase.functions.invoke('vinted-scraper', {
-        body: { vintedUrl },
-        headers: {
-          Authorization: `Bearer ${session?.access_token}`,
-        },
-      });
-
-      setScrapingStep('extracting');
-
-      if (scrapError || !scrapResult.success || scrapResult.images.length === 0) {
-        throw new Error(scrapResult?.error || 'Impossible de récupérer les images depuis cette URL Vinted');
-      }
-
-      setScrapingStep('complete');
-
-      // Prendre automatiquement la première image
-      setVintedImage(scrapResult.images[0]);
-      if (scrapResult.article_info) {
-        setVintedArticleInfo(scrapResult.article_info);
-      }
-      console.log('Image Vinted récupérée');
-
-      // Small delay to show complete state
-      await new Promise(resolve => setTimeout(resolve, 300));
-
-    } catch (error) {
-      console.error('Error processing Vinted URL:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Erreur lors du traitement de l\'URL Vinted';
-      setVintedUrlError(errorMessage);
-      setError(errorMessage);
-    } finally {
-      setIsScrapingVinted(false);
-      setScrapingStep('connecting');
-    }
+    // Utilise la fonction de validation manuelle
+    await handleValidateVintedUrl();
   };
 
   const handleRemoveVintedImage = () => {
@@ -824,6 +765,18 @@ export const HeroSection: React.FC = () => {
                             {vintedUrlError}
                           </p>
                         </div>
+                      )}
+
+                      {/* Boutons Valider et Supprimer */}
+                      {vintedUrl && !isScrapingVinted && !vintedImage && !vintedUrlError && (
+                        <button
+                          type="button"
+                          onClick={handleValidateVintedUrl}
+                          className="absolute right-10 top-1/2 -translate-y-1/2 w-6 h-6 bg-mint border-2 border-black flex items-center justify-center hover:bg-green-300 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] z-10"
+                          title="Valider le lien Vinted"
+                        >
+                          <Check className="w-3 h-3" />
+                        </button>
                       )}
 
                       {(vintedUrl || vintedUrlError) && !isScrapingVinted && (
