@@ -1,6 +1,7 @@
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
-import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Tag, Search, Filter, X, ChevronDown, SortDesc, SortAsc } from 'lucide-react';
 import { getArticlesListByLanguage } from '../data/articles';
 import { useTranslation } from 'react-i18next';
 import { getArticleUrlBySlugAndLanguage } from '../lib/articleTranslations';
@@ -10,17 +11,64 @@ export default function BlogIndexPage() {
   const { t, i18n } = useTranslation('blog');
   const currentLanguage = (i18n.language || 'fr') as Language;
 
+  // Filter states
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
   useSEO({
     title: "Blog VintDress : Tous les Articles et Guides pour Vinted | Conseils, Astuces & Success Stories",
     description: "Découvre tous nos articles, guides et conseils pour réussir sur Vinted. Photos IA, stratégies de vente, témoignages et astuces pour booster tes ventes !",
     keywords: "blog vinted, articles vinted, guides vinted, conseils vente, astuces vinted, photos vinted, success stories, stratégie vente",
   });
 
-  // Trier les articles par date (plus récent d'abord)
   const articlesList = getArticlesListByLanguage(currentLanguage);
-  const sortedArticles = [...articlesList].sort((a, b) => {
-    return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
-  });
+
+  // Extract unique categories
+  const categories = useMemo(() => {
+    const cats = [...new Set(articlesList.map(article => article.category))];
+    return cats.sort();
+  }, [articlesList]);
+
+  // Filter and sort articles
+  const filteredArticles = useMemo(() => {
+    let result = [...articlesList];
+
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter(article =>
+        article.title.toLowerCase().includes(query) ||
+        article.excerpt.toLowerCase().includes(query) ||
+        article.tags.some(tag => tag.toLowerCase().includes(query)) ||
+        article.category.toLowerCase().includes(query)
+      );
+    }
+
+    // Filter by category
+    if (selectedCategory !== 'all') {
+      result = result.filter(article => article.category === selectedCategory);
+    }
+
+    // Sort by date
+    result.sort((a, b) => {
+      const dateA = new Date(a.publishedAt).getTime();
+      const dateB = new Date(b.publishedAt).getTime();
+      return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
+    });
+
+    return result;
+  }, [articlesList, searchQuery, selectedCategory, sortOrder]);
+
+  // Clear all filters
+  const clearFilters = () => {
+    setSearchQuery('');
+    setSelectedCategory('all');
+    setSortOrder('newest');
+  };
+
+  const hasActiveFilters = searchQuery || selectedCategory !== 'all' || sortOrder !== 'newest';
 
   return (
     <div className="min-h-screen bg-cream">
@@ -77,71 +125,258 @@ export default function BlogIndexPage() {
         </div>
       </section>
 
+      {/* Filters Section */}
+      <div className="max-w-6xl mx-auto px-6 py-6">
+        <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-4 sm:p-6">
+          {/* Filter Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-vinted border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <Filter className="w-5 h-5 text-white" />
+              </div>
+              <h2 className="font-display font-bold text-lg sm:text-xl text-black">
+                {t('filters.title', 'FILTRER LES ARTICLES')}
+              </h2>
+            </div>
+
+            {/* Mobile filter toggle */}
+            <button
+              onClick={() => setIsFilterOpen(!isFilterOpen)}
+              className="sm:hidden flex items-center gap-2 px-4 py-2 bg-cream border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-sm"
+            >
+              {isFilterOpen ? 'MASQUER' : 'AFFICHER'}
+              <ChevronDown className={`w-4 h-4 transition-transform ${isFilterOpen ? 'rotate-180' : ''}`} />
+            </button>
+          </div>
+
+          {/* Filters Content */}
+          <div className={`${isFilterOpen ? 'block' : 'hidden'} sm:block space-y-4`}>
+            {/* Search Bar */}
+            <div className="relative">
+              <div className="absolute left-3 top-1/2 -translate-y-1/2">
+                <Search className="w-5 h-5 text-gray-500" />
+              </div>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={t('filters.searchPlaceholder', 'Rechercher un article...')}
+                className="w-full pl-10 pr-10 py-3 bg-cream border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-body font-semibold text-sm focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-pink-pastel border-2 border-black flex items-center justify-center hover:bg-pink-300 transition-colors"
+                >
+                  <X className="w-3 h-3" />
+                </button>
+              )}
+            </div>
+
+            {/* Category and Sort Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Category Filter */}
+              <div>
+                <label className="block font-display font-bold text-sm text-black mb-2">
+                  {t('filters.category', 'CATÉGORIE')}
+                </label>
+                <div className="relative">
+                  <select
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    className="w-full px-4 py-3 bg-cream border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-body font-semibold text-sm appearance-none cursor-pointer focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow"
+                  >
+                    <option value="all">{t('filters.allCategories', 'Toutes les catégories')}</option>
+                    {categories.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                    <ChevronDown className="w-5 h-5 text-black" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Sort Order */}
+              <div>
+                <label className="block font-display font-bold text-sm text-black mb-2">
+                  {t('filters.sortBy', 'TRIER PAR DATE')}
+                </label>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setSortOrder('newest')}
+                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 border-3 border-black font-display font-bold text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all ${
+                      sortOrder === 'newest'
+                        ? 'bg-vinted text-white'
+                        : 'bg-cream text-black hover:bg-mint'
+                    }`}
+                  >
+                    <SortDesc className="w-4 h-4" />
+                    {t('filters.newest', 'RÉCENT')}
+                  </button>
+                  <button
+                    onClick={() => setSortOrder('oldest')}
+                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 border-3 border-black font-display font-bold text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all ${
+                      sortOrder === 'oldest'
+                        ? 'bg-vinted text-white'
+                        : 'bg-cream text-black hover:bg-mint'
+                    }`}
+                  >
+                    <SortAsc className="w-4 h-4" />
+                    {t('filters.oldest', 'ANCIEN')}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Active Filters & Clear */}
+            {hasActiveFilters && (
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <span className="font-display font-bold text-sm text-gray-600">
+                  {t('filters.activeFilters', 'Filtres actifs :')}
+                </span>
+
+                {searchQuery && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-mint border-2 border-black font-body font-semibold text-xs">
+                    <Search className="w-3 h-3" />
+                    "{searchQuery}"
+                    <button onClick={() => setSearchQuery('')} className="ml-1 hover:text-vinted">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+
+                {selectedCategory !== 'all' && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-pink-pastel border-2 border-black font-body font-semibold text-xs">
+                    <Tag className="w-3 h-3" />
+                    {selectedCategory}
+                    <button onClick={() => setSelectedCategory('all')} className="ml-1 hover:text-vinted">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+
+                {sortOrder !== 'newest' && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-cream border-2 border-black font-body font-semibold text-xs">
+                    <Calendar className="w-3 h-3" />
+                    {t('filters.oldestFirst', 'Plus ancien')}
+                    <button onClick={() => setSortOrder('newest')} className="ml-1 hover:text-vinted">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+
+                <button
+                  onClick={clearFilters}
+                  className="px-4 py-1 bg-black text-white border-2 border-black font-display font-bold text-xs hover:bg-gray-800 transition-colors"
+                >
+                  {t('filters.clearAll', 'TOUT EFFACER')}
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Results count */}
+          <div className="mt-4 pt-4 border-t-2 border-black">
+            <p className="font-body font-semibold text-sm text-gray-600">
+              {filteredArticles.length === 1
+                ? t('filters.resultsSingular', '1 article trouvé')
+                : t('filters.results', '{{count}} articles trouvés', { count: filteredArticles.length })
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Articles Grid */}
       <div className="max-w-6xl mx-auto px-6 py-8 lg:py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sortedArticles.map((article) => (
-            <Link
-              key={article.id}
-              to={getArticleUrlBySlugAndLanguage(article.slug, currentLanguage)}
-              className="group bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all"
-            >
-              {/* Image */}
-              <div className="relative aspect-[2/1] overflow-hidden border-b-4 border-black">
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  width={600}
-                  height={300}
-                  loading="lazy"
-                />
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="bg-vinted text-white px-3 py-1 border-2 border-black font-space-grotesk font-semibold text-sm">
-                    {article.category}
-                  </span>
-                </div>
+        {filteredArticles.length === 0 ? (
+          <div className="text-center py-16">
+            <div className="inline-block p-6 bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <div className="w-16 h-16 mx-auto mb-4 bg-cream border-3 border-black flex items-center justify-center">
+                <Search className="w-8 h-8 text-gray-400" />
               </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="font-space-grotesk font-bold text-xl mb-3 line-clamp-2 group-hover:text-vinted transition-colors">
-                  {article.title}
-                </h3>
-
-                <p className="text-gray-600 mb-4 line-clamp-3">
-                  {article.excerpt}
-                </p>
-
-                {/* Meta Info */}
-                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    <span>{article.date}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    <span>{article.readTime} {t('metadata.readTime')}</span>
-                  </div>
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {article.tags.slice(0, 3).map((tag, index) => (
-                    <span
-                      key={index}
-                      className="bg-vinted text-white px-2 py-1 border-2 border-black font-space-grotesk font-semibold text-xs flex items-center gap-1"
-                    >
-                      <Tag className="w-3 h-3" />
-                      {tag}
+              <h3 className="font-display font-bold text-xl text-black mb-2">
+                {t('filters.noResults', 'AUCUN ARTICLE TROUVÉ')}
+              </h3>
+              <p className="font-body text-gray-600 mb-4">
+                {t('filters.noResultsDescription', 'Essayez de modifier vos critères de recherche')}
+              </p>
+              <button
+                onClick={clearFilters}
+                className="px-6 py-2 bg-vinted text-white border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all"
+              >
+                {t('filters.resetFilters', 'RÉINITIALISER')}
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredArticles.map((article) => (
+              <Link
+                key={article.id}
+                to={getArticleUrlBySlugAndLanguage(article.slug, currentLanguage)}
+                className="group bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all"
+              >
+                {/* Image */}
+                <div className="relative aspect-[2/1] overflow-hidden border-b-4 border-black">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    width={600}
+                    height={300}
+                    loading="lazy"
+                  />
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-vinted text-white px-3 py-1 border-2 border-black font-space-grotesk font-semibold text-sm">
+                      {article.category}
                     </span>
-                  ))}
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="font-space-grotesk font-bold text-xl mb-3 line-clamp-2 group-hover:text-vinted transition-colors">
+                    {article.title}
+                  </h3>
+
+                  <p className="text-gray-600 mb-4 line-clamp-3">
+                    {article.excerpt}
+                  </p>
+
+                  {/* Meta Info */}
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      <span>{article.date}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      <span>{article.readTime} {t('metadata.readTime')}</span>
+                    </div>
+                  </div>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {article.tags.slice(0, 3).map((tag, index) => (
+                      <span
+                        key={index}
+                        className="bg-vinted text-white px-2 py-1 border-2 border-black font-space-grotesk font-semibold text-xs flex items-center gap-1"
+                      >
+                        <Tag className="w-3 h-3" />
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
 
         {/* CTA Section */}
         <div className="mt-16 bg-mint border-4 border-black p-8 lg:p-12 text-center">
