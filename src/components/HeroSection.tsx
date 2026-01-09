@@ -6,6 +6,7 @@ import { GenerationLoadingModal } from './GenerationLoadingModal';
 import { AuthModal } from './AuthModal';
 import { OnboardingGuide } from './OnboardingGuide';
 import { InvalidFileModal } from './InvalidFileModal';
+import { ErrorModal } from './ErrorModal';
 import { useAuth } from '../hooks/useAuth';
 import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
@@ -114,6 +115,7 @@ export const HeroSection: React.FC = () => {
   const [showAuthRequiredModal, setShowAuthRequiredModal] = useState(false);
   const [showInvalidFileModal, setShowInvalidFileModal] = useState(false);
   const [invalidFileName, setInvalidFileName] = useState<string>('');
+  const [showErrorModal, setShowErrorModal] = useState(false);
   const [showOnboardingGuide, setShowOnboardingGuide] = useState(false);
   const [shouldPulseGenerate, setShouldPulseGenerate] = useState(true);
   const [counterValue, setCounterValue] = useState(0);
@@ -464,7 +466,7 @@ export const HeroSection: React.FC = () => {
     } catch (error) {
       console.error('Generation error:', error);
       setError('Une erreur est survenue');
-      alert('Une erreur est survenue lors de la génération. Veuillez réessayer plus tard ou contacter le support si le problème persiste.');
+      setShowErrorModal(true);
       setIsGenerating(false);
     }
   };
@@ -1105,6 +1107,12 @@ export const HeroSection: React.FC = () => {
           setInvalidFileName('');
         }}
         fileName={invalidFileName}
+      />
+
+      {/* Error Modal */}
+      <ErrorModal
+        isOpen={showErrorModal}
+        onClose={() => setShowErrorModal(false)}
       />
 
       {/* Onboarding Guide */}

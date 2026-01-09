@@ -23,6 +23,11 @@
     "name": "Nome",
     "optional": "Opzionale"
   },
+  "error": {
+    "title": "ERRORE",
+    "defaultMessage": "Si è verificato un errore. Riprova più tardi o contatta il supporto se il problema persiste.",
+    "understood": "CAPITO"
+  },
   "footer": {
     "brand": {
       "title": "VINTDRESS",

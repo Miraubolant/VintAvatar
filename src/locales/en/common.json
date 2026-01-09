@@ -23,6 +23,11 @@
     "name": "Name",
     "optional": "Optional"
   },
+  "error": {
+    "title": "ERROR",
+    "defaultMessage": "An error occurred. Please try again later or contact support if the problem persists.",
+    "understood": "UNDERSTOOD"
+  },
   "footer": {
     "brand": {
       "title": "VINTDRESS",
