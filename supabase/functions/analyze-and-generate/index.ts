@@ -121,8 +121,44 @@ Réponds UNIQUEMENT avec le JSON:
   }
 }
 
-// Generate with Replicate FLUX Kontext Pro
+// Generate with Replicate FLUX Kontext Pro (with automatic retry)
 async function generateWithReplicate(imageUrl: string, config: GenerationConfig): Promise<string> {
+  const maxRetries = 3
+  let lastError: Error | null = null
+
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    console.log(`Replicate attempt ${attempt}/${maxRetries}`)
+
+    try {
+      const result = await executeReplicateGeneration(imageUrl, config)
+      return result
+    } catch (error) {
+      const err = error as Error & { name?: string }
+
+      // Don't retry on sensitive content errors - fail immediately
+      if (err.name === 'SensitiveContentError' || err.message === 'SENSITIVE_CONTENT') {
+        console.error(`Replicate attempt ${attempt} failed: Sensitive content detected (no retry)`)
+        throw error
+      }
+
+      lastError = err
+      console.error(`Replicate attempt ${attempt} failed:`, err.message)
+
+      // If not the last attempt, wait before retrying (progressive delay: 2s, 4s, 6s)
+      if (attempt < maxRetries) {
+        const delay = attempt * 2000
+        console.log(`Waiting ${delay}ms before retry...`)
+        await new Promise(resolve => setTimeout(resolve, delay))
+      }
+    }
+  }
+
+  // All attempts failed, throw the last error
+  throw lastError || new Error('All Replicate attempts failed')
+}
+
+// Core Replicate generation logic (called by retry wrapper)
+async function executeReplicateGeneration(imageUrl: string, config: GenerationConfig): Promise<string> {
   const replicateApiKey = Deno.env.get('REPLICATE_API_TOKEN')
   if (!replicateApiKey) {
     throw new Error('Replicate API key not configured')
