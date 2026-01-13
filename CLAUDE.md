@@ -32,41 +32,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `stripe customers list` - List customers
 - `stripe products list` - List products and prices
 
-### Blog Article Generation (Automated SEO)
-Automated article generation system using OpenAI GPT-4o-mini with GitHub API push.
-
-**Keyword Management:**
-- `npm run article:add-keyword "mot clé"` - Add a keyword to the queue
-- `npm run article:add-keyword "principal" "secondaire"` - Add with secondary keywords
-- `npm run article:list-keywords` - List all pending and processed keywords
-- `npm run article:clear-keywords` - Clear all pending keywords
-
-**Article Generation:**
-- `npm run article:generate` - Generate article from first pending keyword + push to GitHub
-- `npm run article:generate:dry` - Dry run (simulate without creating files)
-- `npm run article:generate:local` - Generate locally without pushing to GitHub
-
-**Environment Variables Required (Coolify):**
-- `OPENAI_API_KEY` - OpenAI API key for article generation
-- `GITHUB_TOKEN` - GitHub token with `repo` scope for pushing
-- `GITHUB_OWNER` - GitHub username (e.g., `Miraubolant`)
-- `GITHUB_REPO` - Repository name (e.g., `VintAvatar`)
-- `GITHUB_BRANCH` - Target branch (default: `main`)
-
-**Script Files:**
-- `scripts/generate-article.ts` - Main generation script (OpenAI + GitHub API)
-- `scripts/add-keyword.ts` - Keyword queue management CLI
-- `scripts/prompts.ts` - OpenAI prompt templates with VintDress context
-- `scripts/keywords.json` - Keyword queue storage (pending/processed)
-
-**Features:**
-- Generates articles in 4 languages (FR, EN, ES, IT)
-- Updates all index files automatically
-- Updates sitemap.xml with new article
-- Pushes directly to GitHub via API (no git CLI required)
-- Designed for Coolify cron jobs (1 article/week)
-- SEO-optimized with FAQ, meta descriptions, keywords
-
 ## Project Architecture
 
 This is a React TypeScript application built with Vite, focusing on a Vinted-related photo enhancement service. The architecture follows a component-based structure:
@@ -93,8 +58,9 @@ This is a React TypeScript application built with Vite, focusing on a Vinted-rel
   - `LeaderboardSection.tsx` - Monthly referral leaderboard with conditional CTA (auth/subscription/account)
   - `PricingSection.tsx` - Subscription pricing with Stripe integration
   - `BlogSection.tsx` - Article display
-  - `Footer.tsx` - Site footer
+  - `Footer.tsx` - Site footer with TikTok link
   - `ErrorBoundary.tsx` - Error handling component
+  - `ErrorModal.tsx` - Styled error modal for generation failures (replaces browser alerts)
   - `ScrollToTop.tsx` - Auto-scroll component for navigation
 - `pages/` - Route-specific pages:
   - `AccountPage.tsx` - User account management with tabbed interface (statistics + generation history + affiliate system)
@@ -109,15 +75,12 @@ This is a React TypeScript application built with Vite, focusing on a Vinted-rel
   - `useAffiliation.ts` - Referral system management with code generation and tracking
 - `lib/` - Utility libraries:
   - `supabase.ts` - Supabase client configuration and TypeScript types
-- `articles/` - Blog articles in TypeScript format:
-  - `index.ts` - French articles exports and list
-  - `en/`, `es/`, `it/` - Translated articles by language
-  - Generated automatically via `scripts/generate-article.ts`
-- `scripts/` - Automation scripts:
-  - `generate-article.ts` - OpenAI article generation + GitHub push
-  - `add-keyword.ts` - SEO keyword queue management
-  - `prompts.ts` - OpenAI prompt templates
-  - `keywords.json` - Keyword queue (pending/processed)
+  - `articleTranslations.ts` - Multi-language article URL mapping
+- `pages/articles/` - SEO blog articles (React components):
+  - Root folder contains French articles (`CommentVendreSurVintedPage.tsx`, etc.)
+  - `en/`, `es/`, `it/` subfolders contain translated versions
+  - 25+ articles covering Vinted guides, photo tips, vintage fashion
+- `data/articles.ts` - Article metadata and translations for all languages
 - `styles/` - Custom CSS including neo-brutalism design system and scrollbar styling
 - `supabase/functions/` - Supabase Edge Functions:
   - `analyze-and-generate/` - Complete AI image generation pipeline
@@ -167,9 +130,9 @@ The project uses a modern neo-brutalism design with a carefully curated 4-color 
 - **Credit system** with real-time usage tracking and remaining credits display
 - **Webhook integration** for automatic subscription updates and referral bonuses
 - **Optimized responsive design** with clean interface (no emojis, compact buttons)
-- **Automated blog/article system** with OpenAI generation and GitHub API push
-- **Multi-language article support** (FR, EN, ES, IT) with automatic translation
-- **Error handling** with comprehensive user feedback
+- **SEO blog system** with 25+ articles in 4 languages (FR, EN, ES, IT)
+- **Multi-language article support** with hreflang and URL mapping
+- **Error handling** with comprehensive user feedback and ErrorModal component
 
 ### Database Architecture (Supabase)
 - **`profiles`** - User profile information extending auth.users
@@ -210,11 +173,12 @@ The project uses a modern neo-brutalism design with a carefully curated 4-color 
 - `src/styles/neo-brutalism.css` - Custom CSS design system with variables
 
 ### Development Notes
-- **AI Integration**: 
+- **AI Integration**:
   - **Replicate FLUX Kontext Pro** for direct image-to-image transformation
   - **Simplified workflow** - no pre-analysis, direct generation based on user configuration
   - **Enhanced face privacy** - reinforced prompt instructions to ensure faces are hidden
   - **Clothing type selection** - user specifies clothing type to help AI generation
+  - **Automatic retry system** - 3 attempts with progressive delay (2s, 4s, 6s) for handling random Replicate errors
   - Robust error handling and timeout management
 - **User Experience**:
   - **Compact tabbed configuration** - "MODÈLE" and "PHOTO" tabs for better organization

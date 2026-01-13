@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, User, Tag, ArrowLeft, Sparkles, Star, TrendingUp, Heart, Shirt, Music, Palette } from 'lucide-react';
 import { useSEO } from '../../../hooks/useSEO';
-import ArticleNavigation from '../../../components/ArticleNavigation';
+import { ArticleNavigation } from '../../../components/ArticleNavigation';
 
 export default function AbbigliamentoVintageAnni90Page() {
   useSEO({
