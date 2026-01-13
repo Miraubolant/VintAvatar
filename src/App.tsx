@@ -148,6 +148,31 @@ const OptimiserVentesVintedPage = React.lazy(() => import('./pages/articles/Opti
 const OptimizeVintedSalesPageEN = React.lazy(() => import('./pages/articles/en/OptimizeVintedSalesPage').then(module => ({ default: module.default })));
 const OptimizarVentasVintedPageES = React.lazy(() => import('./pages/articles/es/OptimizarVentasVintedPage').then(module => ({ default: module.default })));
 const OttimizzareVenditeVintedPageIT = React.lazy(() => import('./pages/articles/it/OttimizzareVenditeVintedPage').then(module => ({ default: module.default })));
+// Article 9 - Friperie en Ligne
+const FriperieEnLignePage = React.lazy(() => import('./pages/articles/FriperieEnLignePage').then(module => ({ default: module.default })));
+const OnlineThriftStorePageEN = React.lazy(() => import('./pages/articles/en/OnlineThriftStorePage').then(module => ({ default: module.default })));
+const TiendaVintageOnlinePageES = React.lazy(() => import('./pages/articles/es/TiendaVintageOnlinePage').then(module => ({ default: module.default })));
+const NegozioVintageOnlinePageIT = React.lazy(() => import('./pages/articles/it/NegozioVintageOnlinePage').then(module => ({ default: module.default })));
+// Article 10 - Jean Levi's Vintage
+const JeanLevisVintagePage = React.lazy(() => import('./pages/articles/JeanLevisVintagePage').then(module => ({ default: module.default })));
+const VintageLevisJeansPageEN = React.lazy(() => import('./pages/articles/en/VintageLevisJeansPage').then(module => ({ default: module.default })));
+const VaqueroLevisVintagePageES = React.lazy(() => import('./pages/articles/es/VaqueroLevisVintagePage').then(module => ({ default: module.default })));
+const JeansLevisVintagePageIT = React.lazy(() => import('./pages/articles/it/JeansLevisVintagePage').then(module => ({ default: module.default })));
+// Article 11 - Vêtements Vintage Années 90
+const VetementsVintage90Page = React.lazy(() => import('./pages/articles/VetementsVintage90Page').then(module => ({ default: module.default })));
+const NinetiesVintageClothingPageEN = React.lazy(() => import('./pages/articles/en/90sVintageClothingPage').then(module => ({ default: module.default })));
+const RopaVintageAnos90PageES = React.lazy(() => import('./pages/articles/es/RopaVintageAnos90Page').then(module => ({ default: module.default })));
+const AbbigliamentoVintageAnni90PageIT = React.lazy(() => import('./pages/articles/it/AbbigliamentoVintageAnni90Page').then(module => ({ default: module.default })));
+// Article 12 - Robe Vintage Femme
+const RobeVintageFemmePage = React.lazy(() => import('./pages/articles/RobeVintageFemmePage').then(module => ({ default: module.default })));
+const VintageWomensDressPageEN = React.lazy(() => import('./pages/articles/en/VintageWomensDressPage').then(module => ({ default: module.default })));
+const VestidoVintageMujerPageES = React.lazy(() => import('./pages/articles/es/VestidoVintageMujerPage').then(module => ({ default: module.default })));
+const AbitoVintageDonnaPageIT = React.lazy(() => import('./pages/articles/it/AbitoVintageDonnaPage').then(module => ({ default: module.default })));
+// Article 13 - Veste Cuir Vintage
+const VesteCuirVintagePage = React.lazy(() => import('./pages/articles/VesteCuirVintagePage').then(module => ({ default: module.default })));
+const VintageLeatherJacketPageEN = React.lazy(() => import('./pages/articles/en/VintageLeatherJacketPage').then(module => ({ default: module.default })));
+const ChaquetaCueroVintagePageES = React.lazy(() => import('./pages/articles/es/ChaquetaCueroVintagePage').then(module => ({ default: module.default })));
+const GiaccaPelleVintagePageIT = React.lazy(() => import('./pages/articles/it/GiaccaPelleVintagePage').then(module => ({ default: module.default })));
 
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
@@ -768,6 +793,111 @@ function App() {
               <Route path="/it/articles/ottimizzare-vendite-vinted" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <OttimizzareVenditeVintedPageIT />
+                </Suspense>
+              } />
+              {/* Article 9 - Friperie en Ligne */}
+              <Route path="/articles/friperie-en-ligne" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <FriperieEnLignePage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/online-thrift-store" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <OnlineThriftStorePageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/tienda-vintage-online" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <TiendaVintageOnlinePageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/negozio-vintage-online" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <NegozioVintageOnlinePageIT />
+                </Suspense>
+              } />
+              {/* Article 10 - Jean Levi's Vintage */}
+              <Route path="/articles/jean-levis-vintage" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <JeanLevisVintagePage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/vintage-levis-jeans" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintageLevisJeansPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/vaquero-levis-vintage" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VaqueroLevisVintagePageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/jeans-levis-vintage" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <JeansLevisVintagePageIT />
+                </Suspense>
+              } />
+              {/* Article 11 - Vêtements Vintage Années 90 */}
+              <Route path="/articles/vetements-vintage-annees-90" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VetementsVintage90Page />
+                </Suspense>
+              } />
+              <Route path="/en/articles/90s-vintage-clothing" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <NinetiesVintageClothingPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/ropa-vintage-anos-90" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <RopaVintageAnos90PageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/abbigliamento-vintage-anni-90" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <AbbigliamentoVintageAnni90PageIT />
+                </Suspense>
+              } />
+              {/* Article 12 - Robe Vintage Femme */}
+              <Route path="/articles/robe-vintage-femme" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <RobeVintageFemmePage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/vintage-womens-dress" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintageWomensDressPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/vestido-vintage-mujer" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VestidoVintageMujerPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/abito-vintage-donna" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <AbitoVintageDonnaPageIT />
+                </Suspense>
+              } />
+              {/* Article 13 - Veste Cuir Vintage */}
+              <Route path="/articles/veste-cuir-vintage" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VesteCuirVintagePage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/vintage-leather-jacket" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintageLeatherJacketPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/chaqueta-cuero-vintage" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <ChaquetaCueroVintagePageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/giacca-pelle-vintage" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <GiaccaPelleVintagePageIT />
                 </Suspense>
               } />
               <Route path="/articles/:slug" element={

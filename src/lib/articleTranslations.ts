@@ -185,6 +185,41 @@ export const articleTranslations: ArticleTranslation[] = [
     es: '/es/articles/optimizar-ventas-vinted',
     it: '/it/articles/ottimizzare-vendite-vinted',
   },
+  {
+    id: 'friperie-en-ligne',
+    fr: '/articles/friperie-en-ligne',
+    en: '/en/articles/online-thrift-store',
+    es: '/es/articles/tienda-vintage-online',
+    it: '/it/articles/negozio-vintage-online',
+  },
+  {
+    id: 'jean-levis-vintage',
+    fr: '/articles/jean-levis-vintage',
+    en: '/en/articles/vintage-levis-jeans',
+    es: '/es/articles/vaquero-levis-vintage',
+    it: '/it/articles/jeans-levis-vintage',
+  },
+  {
+    id: 'vetements-vintage-annees-90',
+    fr: '/articles/vetements-vintage-annees-90',
+    en: '/en/articles/90s-vintage-clothing',
+    es: '/es/articles/ropa-vintage-anos-90',
+    it: '/it/articles/abbigliamento-vintage-anni-90',
+  },
+  {
+    id: 'robe-vintage-femme',
+    fr: '/articles/robe-vintage-femme',
+    en: '/en/articles/vintage-womens-dress',
+    es: '/es/articles/vestido-vintage-mujer',
+    it: '/it/articles/abito-vintage-donna',
+  },
+  {
+    id: 'veste-cuir-vintage',
+    fr: '/articles/veste-cuir-vintage',
+    en: '/en/articles/vintage-leather-jacket',
+    es: '/es/articles/chaqueta-cuero-vintage',
+    it: '/it/articles/giacca-pelle-vintage',
+  },
 ];
 
 // Fonction pour trouver la traduction d'un article à partir de son URL actuelle

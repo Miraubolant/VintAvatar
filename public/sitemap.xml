@@ -1479,4 +1479,284 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Friperie en Ligne - FR -->
+  <url>
+    <loc>https://vintdress.com/articles/friperie-en-ligne</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/friperie-en-ligne"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/online-thrift-store"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/tienda-vintage-online"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/negozio-vintage-online"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/friperie-en-ligne"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&amp;h=800&amp;fit=crop</image:loc>
+      <image:title>Friperie en Ligne : Guide des Meilleures Plateformes 2026</image:title>
+    </image:image>
+  </url>
+
+  <!-- Online Thrift Store - EN -->
+  <url>
+    <loc>https://vintdress.com/en/articles/online-thrift-store</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/friperie-en-ligne"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/online-thrift-store"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/tienda-vintage-online"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/negozio-vintage-online"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/friperie-en-ligne"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Tienda Vintage Online - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/tienda-vintage-online</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/friperie-en-ligne"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/online-thrift-store"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/tienda-vintage-online"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/negozio-vintage-online"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/friperie-en-ligne"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Negozio Vintage Online - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/negozio-vintage-online</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/friperie-en-ligne"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/online-thrift-store"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/tienda-vintage-online"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/negozio-vintage-online"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/friperie-en-ligne"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Jean Levi's Vintage - FR -->
+  <url>
+    <loc>https://vintdress.com/articles/jean-levis-vintage</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/jean-levis-vintage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintage-levis-jeans"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vaquero-levis-vintage"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/jeans-levis-vintage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/jean-levis-vintage"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1542272604-787c3835535d?w=1200&amp;h=800&amp;fit=crop</image:loc>
+      <image:title>Jean Levi's Vintage : Guide d'Achat et Authentification 2026</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vintage Levi's Jeans - EN -->
+  <url>
+    <loc>https://vintdress.com/en/articles/vintage-levis-jeans</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/jean-levis-vintage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintage-levis-jeans"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vaquero-levis-vintage"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/jeans-levis-vintage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/jean-levis-vintage"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Vaquero Levi's Vintage - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/vaquero-levis-vintage</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/jean-levis-vintage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintage-levis-jeans"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vaquero-levis-vintage"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/jeans-levis-vintage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/jean-levis-vintage"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Jeans Levi's Vintage - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/jeans-levis-vintage</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/jean-levis-vintage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintage-levis-jeans"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vaquero-levis-vintage"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/jeans-levis-vintage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/jean-levis-vintage"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Vêtements Vintage Années 90 - FR -->
+  <url>
+    <loc>https://vintdress.com/articles/vetements-vintage-annees-90</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vetements-vintage-annees-90"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/90s-vintage-clothing"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/ropa-vintage-anos-90"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/abbigliamento-vintage-anni-90"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vetements-vintage-annees-90"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1529720317453-c8da503f2051?w=1200&amp;h=800&amp;fit=crop</image:loc>
+      <image:title>Vêtements Vintage Années 90 : Guide Complet des Tendances Iconiques</image:title>
+    </image:image>
+  </url>
+
+  <!-- 90s Vintage Clothing - EN -->
+  <url>
+    <loc>https://vintdress.com/en/articles/90s-vintage-clothing</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vetements-vintage-annees-90"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/90s-vintage-clothing"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/ropa-vintage-anos-90"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/abbigliamento-vintage-anni-90"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vetements-vintage-annees-90"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Ropa Vintage Años 90 - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/ropa-vintage-anos-90</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vetements-vintage-annees-90"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/90s-vintage-clothing"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/ropa-vintage-anos-90"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/abbigliamento-vintage-anni-90"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vetements-vintage-annees-90"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Abbigliamento Vintage Anni 90 - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/abbigliamento-vintage-anni-90</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/vetements-vintage-annees-90"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/90s-vintage-clothing"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/ropa-vintage-anos-90"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/abbigliamento-vintage-anni-90"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/vetements-vintage-annees-90"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Robe Vintage Femme - FR -->
+  <url>
+    <loc>https://vintdress.com/articles/robe-vintage-femme</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/robe-vintage-femme"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintage-womens-dress"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vestido-vintage-mujer"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/abito-vintage-donna"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/robe-vintage-femme"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1200&amp;h=800&amp;fit=crop</image:loc>
+      <image:title>Robe Vintage Femme : Guide Complet pour Trouver la Pièce Parfaite</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vintage Women's Dress - EN -->
+  <url>
+    <loc>https://vintdress.com/en/articles/vintage-womens-dress</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/robe-vintage-femme"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintage-womens-dress"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vestido-vintage-mujer"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/abito-vintage-donna"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/robe-vintage-femme"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Vestido Vintage Mujer - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/vestido-vintage-mujer</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/robe-vintage-femme"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintage-womens-dress"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vestido-vintage-mujer"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/abito-vintage-donna"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/robe-vintage-femme"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Abito Vintage Donna - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/abito-vintage-donna</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/robe-vintage-femme"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintage-womens-dress"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/vestido-vintage-mujer"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/abito-vintage-donna"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/robe-vintage-femme"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Veste Cuir Vintage - FR -->
+  <url>
+    <loc>https://vintdress.com/articles/veste-cuir-vintage</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/veste-cuir-vintage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintage-leather-jacket"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/chaqueta-cuero-vintage"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/giacca-pelle-vintage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/veste-cuir-vintage"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1200&amp;h=800&amp;fit=crop</image:loc>
+      <image:title>Veste Cuir Vintage : Guide Complet pour Trouver la Pièce Parfaite</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vintage Leather Jacket - EN -->
+  <url>
+    <loc>https://vintdress.com/en/articles/vintage-leather-jacket</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/veste-cuir-vintage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintage-leather-jacket"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/chaqueta-cuero-vintage"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/giacca-pelle-vintage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/veste-cuir-vintage"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Chaqueta Cuero Vintage - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/chaqueta-cuero-vintage</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/veste-cuir-vintage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintage-leather-jacket"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/chaqueta-cuero-vintage"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/giacca-pelle-vintage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/veste-cuir-vintage"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Giacca Pelle Vintage - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/giacca-pelle-vintage</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/veste-cuir-vintage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/vintage-leather-jacket"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/chaqueta-cuero-vintage"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/giacca-pelle-vintage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/veste-cuir-vintage"/>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
