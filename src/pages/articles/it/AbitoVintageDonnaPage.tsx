@@ -22,7 +22,7 @@ export default function AbitoVintageDonnaPage() {
 
         <div className="container mx-auto px-4 relative z-10">
           <Link
-            to="/it/articles"
+            to="/it/blog"
             className="inline-flex items-center gap-2 text-gray-600 hover:text-vinted transition-colors mb-8 font-medium"
           >
             <ArrowLeft className="w-4 h-4" />
