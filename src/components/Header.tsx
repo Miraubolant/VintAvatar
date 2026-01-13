@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkles, Menu, X, ChevronDown } from 'lucide-react';
+import { Sparkles, Menu, X, ChevronDown, Home, Image, CreditCard, Star, Trophy, HelpCircle, BookOpen } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { AuthButton } from './AuthButton';
@@ -30,6 +30,18 @@ export const Header: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   const mainNavLinks = [
     { href: '#hero', label: t('navigation.features') },
     { href: '#avant-apres', label: t('navigation.beforeAfter') },
@@ -46,15 +58,15 @@ export const Header: React.FC = () => {
     { href: '/blog', label: t('navigation.blog'), isRoute: true },
   ];
 
-  // All links for mobile menu
+  // All links for mobile menu with icons
   const allMobileLinks = [
-    { href: '#hero', label: t('navigation.features') },
-    { href: '#avant-apres', label: t('navigation.beforeAfter') },
-    { href: '#tarifs', label: t('navigation.pricing') },
-    { href: '#avis', label: t('navigation.reviews') },
-    { href: '#leaderboard', label: t('navigation.leaderboard') },
-    { href: '/faq', label: t('navigation.faq'), isRoute: true },
-    { href: '/blog', label: t('navigation.blog'), isRoute: true },
+    { href: '#hero', label: t('navigation.features'), icon: Home },
+    { href: '#avant-apres', label: t('navigation.beforeAfter'), icon: Image },
+    { href: '#tarifs', label: t('navigation.pricing'), icon: CreditCard },
+    { href: '#avis', label: t('navigation.reviews'), icon: Star },
+    { href: '#leaderboard', label: t('navigation.leaderboard'), icon: Trophy },
+    { href: '/faq', label: t('navigation.faq'), isRoute: true, icon: HelpCircle },
+    { href: '/blog', label: t('navigation.blog'), isRoute: true, icon: BookOpen },
   ];
 
   const handleNavClick = (href: string, isRoute?: boolean) => {
@@ -179,40 +191,93 @@ export const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Menu Mobile */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileMenuOpen ? 'max-h-[600px] border-t-4 border-black' : 'max-h-0'
-        }`}>
-          <div className="bg-white px-3 py-4 space-y-2">
-            {allMobileLinks.map((link, index) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href, link.isRoute)}
-                className="block w-full text-left px-3 py-2.5 bg-cream border-2 border-black font-display font-bold text-sm uppercase hover:bg-vinted hover:text-white hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform opacity-0 animate-fade-in"
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                  animationFillMode: 'forwards'
-                }}
-              >
-                {link.label}
-              </button>
-            ))}
+      </div>
 
-            {/* TikTok Link - Mobile only */}
+      {/* Mobile Menu Overlay - Full Screen */}
+      <div
+        className={`lg:hidden fixed inset-0 z-[9998] transition-all duration-300 top-16 sm:top-20 ${
+          mobileMenuOpen ? 'visible' : 'invisible'
+        }`}
+      >
+        {/* Backdrop */}
+        <div
+          className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
+            mobileMenuOpen ? 'opacity-100' : 'opacity-0'
+          }`}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+
+        {/* Menu Panel */}
+        <div
+          className={`absolute top-0 right-0 w-full sm:w-80 h-full bg-white border-l-4 border-black shadow-[-8px_0px_0px_0px_rgba(0,0,0,0.1)] transform transition-transform duration-300 ease-out overflow-y-auto ${
+            mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          {/* Menu Header */}
+          <div className="sticky top-0 bg-vinted border-b-4 border-black px-4 py-4">
+            <div className="flex items-center justify-between">
+              <span className="font-display font-bold text-white text-lg uppercase tracking-wide">Menu</span>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2 bg-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-pink-pastel hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="p-4 pb-24 space-y-3">
+            {allMobileLinks.map((link, index) => {
+              const IconComponent = link.icon;
+              return (
+                <button
+                  key={link.href}
+                  onClick={() => handleNavClick(link.href, link.isRoute)}
+                  className={`flex items-center gap-4 w-full px-4 py-4 bg-cream border-3 border-black font-display font-bold text-base hover:bg-vinted hover:text-white active:scale-[0.98] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform ${
+                    mobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                  }`}
+                  style={{
+                    transitionDelay: mobileMenuOpen ? `${index * 50}ms` : '0ms'
+                  }}
+                >
+                  <div className="w-10 h-10 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
+                    <IconComponent className="w-5 h-5" />
+                  </div>
+                  <span className="uppercase tracking-wide text-left">{link.label}</span>
+                </button>
+              );
+            })}
+
+            {/* Divider */}
+            <div className="border-t-3 border-black my-4"></div>
+
+            {/* TikTok Link */}
             <a
               href="https://www.tiktok.com/@vintdress.com"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full px-3 py-2.5 bg-black text-white border-2 border-black font-display font-bold text-sm uppercase hover:bg-pink-pastel hover:text-black hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform opacity-0 animate-fade-in"
+              className={`flex items-center gap-4 w-full px-4 py-4 bg-black text-white border-3 border-black font-display font-bold text-base hover:bg-pink-pastel hover:text-black active:scale-[0.98] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform ${
+                mobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+              }`}
               style={{
-                animationDelay: `${allMobileLinks.length * 100}ms`,
-                animationFillMode: 'forwards'
+                transitionDelay: mobileMenuOpen ? `${allMobileLinks.length * 50}ms` : '0ms'
               }}
             >
-              <TikTokIcon className="w-4 h-4" />
-              TIKTOK
+              <div className="w-10 h-10 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
+                <TikTokIcon className="w-5 h-5 text-black" />
+              </div>
+              <span className="uppercase tracking-wide">TikTok</span>
             </a>
+          </div>
+
+          {/* Footer decoration */}
+          <div className="fixed bottom-0 right-0 w-full sm:w-80 p-4 bg-mint border-t-4 border-black">
+            <div className="flex items-center justify-center gap-2">
+              <Sparkles className="w-5 h-5 text-vinted" />
+              <span className="font-display font-bold text-sm">VintDress</span>
+            </div>
           </div>
         </div>
       </div>
