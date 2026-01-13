@@ -73,7 +73,7 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[9999] bg-cream border-b-4 border-black">
+    <header className="fixed top-0 left-0 right-0 z-[9999] bg-white border-b-4 border-black">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
 

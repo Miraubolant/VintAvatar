@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-cream border-t-4 border-black">
+    <footer className="bg-white border-t-4 border-black">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
 
         {/* Main Footer Content */}
