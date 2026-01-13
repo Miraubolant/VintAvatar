@@ -193,90 +193,97 @@ export const Header: React.FC = () => {
 
       </div>
 
-      {/* Mobile Menu Overlay - Full Screen */}
+      {/* Mobile Menu Overlay - Bottom Sheet */}
       <div
-        className={`lg:hidden fixed inset-0 z-[9998] transition-all duration-300 top-16 sm:top-20 ${
+        className={`lg:hidden fixed inset-0 z-[9998] transition-all duration-300 ${
           mobileMenuOpen ? 'visible' : 'invisible'
         }`}
       >
         {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
+          className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
             mobileMenuOpen ? 'opacity-100' : 'opacity-0'
           }`}
           onClick={() => setMobileMenuOpen(false)}
         />
 
-        {/* Menu Panel */}
+        {/* Bottom Sheet Panel */}
         <div
-          className={`absolute top-0 right-0 w-full sm:w-80 h-full bg-white border-l-4 border-black shadow-[-8px_0px_0px_0px_rgba(0,0,0,0.1)] transform transition-transform duration-300 ease-out overflow-y-auto ${
-            mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          className={`absolute bottom-0 left-0 right-0 bg-white border-t-4 border-black rounded-t-3xl transform transition-transform duration-300 ease-out overflow-hidden ${
+            mobileMenuOpen ? 'translate-y-0' : 'translate-y-full'
           }`}
+          style={{ maxHeight: '85vh' }}
         >
-          {/* Menu Header */}
-          <div className="sticky top-0 bg-vinted border-b-4 border-black px-4 py-4">
-            <div className="flex items-center justify-between">
-              <span className="font-display font-bold text-white text-lg uppercase tracking-wide">Menu</span>
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-2 bg-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-pink-pastel hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
+          {/* Handle Bar */}
+          <div className="flex justify-center pt-3 pb-2">
+            <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
           </div>
 
-          {/* Navigation Links */}
-          <div className="p-4 pb-24 space-y-3">
-            {allMobileLinks.map((link, index) => {
-              const IconComponent = link.icon;
-              return (
-                <button
-                  key={link.href}
-                  onClick={() => handleNavClick(link.href, link.isRoute)}
-                  className={`flex items-center gap-4 w-full px-4 py-4 bg-cream border-3 border-black font-display font-bold text-base hover:bg-vinted hover:text-white active:scale-[0.98] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform ${
-                    mobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-                  }`}
-                  style={{
-                    transitionDelay: mobileMenuOpen ? `${index * 50}ms` : '0ms'
-                  }}
-                >
-                  <div className="w-10 h-10 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
-                    <IconComponent className="w-5 h-5" />
-                  </div>
-                  <span className="uppercase tracking-wide text-left">{link.label}</span>
-                </button>
-              );
-            })}
+          {/* Menu Header */}
+          <div className="flex items-center justify-between px-5 pb-4 border-b-3 border-black">
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-vinted" />
+              <span className="font-display font-bold text-lg uppercase tracking-wide">Menu</span>
+            </div>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 bg-cream border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-pink-pastel active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
 
-            {/* Divider */}
-            <div className="border-t-3 border-black my-4"></div>
+          {/* Scrollable Content */}
+          <div className="overflow-y-auto px-4 py-5" style={{ maxHeight: 'calc(85vh - 100px)' }}>
+            {/* Navigation Grid */}
+            <div className="grid grid-cols-4 gap-3 mb-5">
+              {allMobileLinks.map((link, index) => {
+                const IconComponent = link.icon;
+                return (
+                  <button
+                    key={link.href}
+                    onClick={() => handleNavClick(link.href, link.isRoute)}
+                    className={`flex flex-col items-center gap-2 p-3 bg-cream border-3 border-black rounded-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-vinted hover:text-white active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 transform ${
+                      mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                    }`}
+                    style={{
+                      transitionDelay: mobileMenuOpen ? `${index * 40}ms` : '0ms'
+                    }}
+                  >
+                    <div className="w-10 h-10 bg-white border-2 border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                      <IconComponent className="w-5 h-5" />
+                    </div>
+                    <span className="font-display font-bold text-[10px] sm:text-xs uppercase tracking-wide text-center leading-tight">
+                      {link.label}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
 
-            {/* TikTok Link */}
+            {/* TikTok Section */}
             <a
               href="https://www.tiktok.com/@vintdress.com"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className={`flex items-center gap-4 w-full px-4 py-4 bg-black text-white border-3 border-black font-display font-bold text-base hover:bg-pink-pastel hover:text-black active:scale-[0.98] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform ${
-                mobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+              className={`flex items-center justify-center gap-3 w-full px-4 py-4 bg-black text-white border-3 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-vinted active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 transform ${
+                mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
               }`}
               style={{
-                transitionDelay: mobileMenuOpen ? `${allMobileLinks.length * 50}ms` : '0ms'
+                transitionDelay: mobileMenuOpen ? `${allMobileLinks.length * 40}ms` : '0ms'
               }}
             >
-              <div className="w-10 h-10 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
-                <TikTokIcon className="w-5 h-5 text-black" />
+              <div className="w-8 h-8 bg-white border-2 border-black rounded-lg flex items-center justify-center">
+                <TikTokIcon className="w-4 h-4 text-black" />
               </div>
-              <span className="uppercase tracking-wide">TikTok</span>
+              <span className="font-display font-bold text-sm uppercase tracking-wide">Suivez-nous sur TikTok</span>
             </a>
-          </div>
 
-          {/* Footer decoration */}
-          <div className="fixed bottom-0 right-0 w-full sm:w-80 p-4 bg-mint border-t-4 border-black">
-            <div className="flex items-center justify-center gap-2">
-              <Sparkles className="w-5 h-5 text-vinted" />
-              <span className="font-display font-bold text-sm">VintDress</span>
+            {/* Footer Branding */}
+            <div className="flex items-center justify-center gap-2 mt-6 pt-4 border-t-2 border-gray-200">
+              <Sparkles className="w-4 h-4 text-vinted" />
+              <span className="font-display font-bold text-xs text-gray-500 uppercase tracking-wider">VintDress</span>
             </div>
           </div>
         </div>
