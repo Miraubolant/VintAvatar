@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Sparkles, CheckCircle, Video, Zap, TrendingUp, ExternalLink } from 'lucide-react';
+import { Sparkles, CheckCircle, Video, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface GenerationLoadingModalProps {
@@ -193,7 +193,7 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
             </div>
 
             {/* ===== VINTBOOST SPONSORED SECTION (Beige background) ===== */}
-            <div className="p-2.5 sm:p-4 border-t-2 sm:border-t-0 sm:border-l-3 border-black sm:w-[340px]" style={{ backgroundColor: '#E8DFD5' }}>
+            <div className="p-2.5 sm:p-4 border-t-2 sm:border-t-0 sm:border-l-3 border-black sm:w-[320px]" style={{ backgroundColor: '#E8DFD5' }}>
               {/* Header + Badge */}
               <div className="flex items-center justify-between gap-2 mb-2">
                 <div className="flex items-center gap-1">
@@ -215,40 +215,21 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
                 Génère des vidéos promotionnelles de tes vêtements Vinted en 30s !
               </p>
 
-              {/* Images + Features side by side */}
-              <div className="flex gap-2">
-                {/* Images - 2 columns */}
-                <div className="flex-1 grid grid-cols-2 gap-1.5">
-                  <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
-                    <img
-                      src="https://i.imgur.com/dVJXIvo.png"
-                      alt="VintBoost - Coller le lien Vinted"
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                  <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
-                    <img
-                      src="https://i.imgur.com/2A2kfxz.png"
-                      alt="VintBoost - Sélection et génération"
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
+              {/* Images - 2 columns responsive */}
+              <div className="grid grid-cols-2 gap-2 mb-2">
+                <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white aspect-[4/3]">
+                  <img
+                    src="https://i.imgur.com/dVJXIvo.png"
+                    alt="VintBoost - Coller le lien Vinted"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
-
-                {/* Features - vertical */}
-                <div className="flex flex-col justify-center gap-1">
-                  <div className="flex items-center gap-1">
-                    <Sparkles className="w-3 h-3" style={{ color: '#1D3354' }} />
-                    <span className="font-display font-bold text-[9px]" style={{ color: '#1D3354' }}>HD</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Zap className="w-3 h-3" style={{ color: '#1D3354' }} />
-                    <span className="font-display font-bold text-[9px]" style={{ color: '#1D3354' }}>30s</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <TrendingUp className="w-3 h-3" style={{ color: '#1D3354' }} />
-                    <span className="font-display font-bold text-[9px]" style={{ color: '#1D3354' }}>+300%</span>
-                  </div>
+                <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white aspect-[4/3]">
+                  <img
+                    src="https://i.imgur.com/2A2kfxz.png"
+                    alt="VintBoost - Sélection et génération"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
               </div>
 
@@ -257,7 +238,7 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
                 href="https://vintboost.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5 w-full mt-2 py-2 border-2 border-black font-display font-bold text-[10px] sm:text-xs text-white uppercase tracking-wide shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+                className="flex items-center justify-center gap-1.5 w-full py-2 border-2 border-black font-display font-bold text-[10px] sm:text-xs text-white uppercase tracking-wide shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
                 style={{ backgroundColor: '#D64045' }}
               >
                 <span>Découvrir VintBoost.com</span>
