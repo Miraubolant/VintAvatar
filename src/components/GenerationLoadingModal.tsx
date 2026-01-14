@@ -107,171 +107,163 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
         <div className="absolute bottom-1/4 right-1/3 w-2 h-2 sm:w-3 sm:h-3 bg-mint border-2 border-black transform -rotate-12 animate-bounce" style={{ animationDelay: '0.7s', animationDuration: '1.8s' }} />
       </div>
 
-      <div className="w-full max-w-[95vw] sm:max-w-md relative my-2 sm:my-4">
-        {/* Unified card with loader + VintBoost ad */}
-        <div className={`border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden transition-all duration-300 ${isComplete ? 'scale-[1.02]' : ''}`}>
+      <div className="w-full max-w-[95vw] sm:max-w-3xl relative my-2 sm:my-4">
+        {/* Unified card - Horizontal layout on desktop */}
+        <div className={`border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden transition-all duration-300 ${isComplete ? 'scale-[1.01]' : ''}`}>
 
-          {/* Decorative corners - smaller on mobile */}
+          {/* Decorative corners */}
           <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-6 h-6 sm:w-8 sm:h-8 bg-pink-pastel border-2 sm:border-3 border-black transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-10" />
           <div className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 w-5 h-5 sm:w-6 sm:h-6 bg-mint border-2 sm:border-3 border-black transform -rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-10" />
 
-          {/* ===== LOADER SECTION (White background) - Horizontal layout on mobile ===== */}
-          <div className="bg-white p-3 sm:p-6">
-            {/* Mobile: Horizontal layout with icon on left */}
-            <div className="flex items-center gap-3 sm:block">
-              {/* Icon */}
-              <div className="flex-shrink-0 sm:flex sm:justify-center sm:mb-5">
-                <div className={`relative p-2 sm:p-4 border-2 sm:border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 ${
-                  isComplete ? 'bg-mint' : 'bg-vinted'
-                }`}>
-                  {isComplete ? (
-                    <CheckCircle className="w-6 h-6 sm:w-10 sm:h-10 text-black" />
-                  ) : (
-                    <>
-                      <Sparkles className="w-6 h-6 sm:w-10 sm:h-10 text-white animate-pulse" />
-                      <div className="absolute inset-0 border-2 sm:border-4 border-transparent border-t-white/30 rounded-sm animate-spin" style={{ animationDuration: '1.5s' }} />
-                    </>
-                  )}
-                </div>
-              </div>
+          {/* Main content - Flex row on desktop, column on mobile */}
+          <div className="flex flex-col sm:flex-row">
 
-              {/* Title + Progress on mobile */}
-              <div className="flex-1 min-w-0">
-                {/* Title */}
-                <h2 className="font-display font-bold text-sm sm:text-xl text-black sm:text-center mb-1 sm:mb-3">
-                  {isComplete ? t('stages.complete.title') : t('stages.generating.title')}
-                </h2>
-
-                {/* Waiting phrase */}
-                <p className={`font-body text-xs sm:text-base transition-all duration-500 sm:text-center sm:mb-5 sm:min-h-[48px] sm:flex sm:items-center sm:justify-center truncate ${
-                  isComplete ? 'text-black font-semibold' : 'text-gray-600'
-                }`}>
-                  {isComplete ? t('stages.complete.message') : waitingPhrases[currentPhraseIndex]}
-                </p>
-              </div>
-            </div>
-
-            {/* Progress bar - Full width */}
-            <div className="relative mt-3 sm:mt-0">
-              <div className="w-full h-2.5 sm:h-4 bg-cream border-2 sm:border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
-                <div
-                  className={`h-full transition-all duration-500 ease-out ${
+            {/* ===== LOADER SECTION (White background) ===== */}
+            <div className="bg-white p-3 sm:p-5 sm:flex-1 sm:flex sm:flex-col sm:justify-center">
+              {/* Horizontal layout */}
+              <div className="flex items-center gap-3 sm:gap-4">
+                {/* Icon */}
+                <div className="flex-shrink-0">
+                  <div className={`relative p-2 sm:p-3 border-2 sm:border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 ${
                     isComplete ? 'bg-mint' : 'bg-vinted'
-                  }`}
-                  style={{ width: `${progress}%` }}
-                >
-                  {!isComplete && (
-                    <div className="absolute inset-0 overflow-hidden">
-                      <div
-                        className="absolute inset-y-0 w-16 sm:w-20 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                        style={{ animation: 'shimmer 1.5s infinite' }}
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Status indicator */}
-            <div className="mt-2 sm:mt-4 text-center">
-              {isComplete ? (
-                <div className="inline-flex items-center gap-1 sm:gap-2 bg-mint border-2 sm:border-3 border-black px-2 sm:px-3 py-0.5 sm:py-1.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                  <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span className="font-display font-bold text-[10px] sm:text-sm">{t('stages.complete.short')}</span>
-                </div>
-              ) : (
-                <div className="inline-flex items-center gap-2 sm:gap-3">
-                  <div className="flex gap-0.5 sm:gap-1">
-                    <div className="w-1 h-1 sm:w-2 sm:h-2 bg-vinted rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
-                    <div className="w-1 h-1 sm:w-2 sm:h-2 bg-vinted rounded-full animate-bounce" style={{ animationDelay: '0.15s' }} />
-                    <div className="w-1 h-1 sm:w-2 sm:h-2 bg-vinted rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
+                  }`}>
+                    {isComplete ? (
+                      <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
+                    ) : (
+                      <>
+                        <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-white animate-pulse" />
+                        <div className="absolute inset-0 border-2 sm:border-3 border-transparent border-t-white/30 rounded-sm animate-spin" style={{ animationDuration: '1.5s' }} />
+                      </>
+                    )}
                   </div>
-                  <span className="font-body text-[10px] sm:text-sm text-gray-500">{t('stages.generating.short')}</span>
                 </div>
-              )}
-            </div>
-          </div>
 
-          {/* ===== VINTBOOST SPONSORED SECTION (Beige background) ===== */}
-          <div className="p-2.5 sm:p-4 border-t-2 sm:border-t-3 border-black" style={{ backgroundColor: '#E8DFD5' }}>
-            {/* Header + Badge inline on mobile */}
-            <div className="flex items-center justify-between gap-2 mb-2 sm:block sm:mb-3">
-              <div className="flex items-center gap-1 sm:justify-center sm:gap-2 sm:mb-3">
-                <Video className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: '#1D3354' }} />
-                <span className="font-display font-bold text-[9px] sm:text-xs uppercase tracking-wider" style={{ color: '#1D3354' }}>
-                  Sponsorisé par VintBoost.com
-                </span>
+                {/* Title + Phrase */}
+                <div className="flex-1 min-w-0">
+                  <h2 className="font-display font-bold text-sm sm:text-lg text-black mb-0.5 sm:mb-1">
+                    {isComplete ? t('stages.complete.title') : t('stages.generating.title')}
+                  </h2>
+                  <p className={`font-body text-xs sm:text-sm transition-all duration-500 truncate ${
+                    isComplete ? 'text-black font-semibold' : 'text-gray-600'
+                  }`}>
+                    {isComplete ? t('stages.complete.message') : waitingPhrases[currentPhraseIndex]}
+                  </p>
+                </div>
               </div>
-              <span
-                className="inline-block border-2 border-black px-1.5 sm:px-3 py-0.5 sm:py-1 font-display font-bold text-[9px] sm:text-xs text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:hidden"
-                style={{ backgroundColor: '#1D3354' }}
-              >
-                VIDÉOS IA
-              </span>
-              {/* Badge desktop only */}
-              <div className="hidden sm:flex sm:justify-center sm:mb-3">
+
+              {/* Progress bar */}
+              <div className="relative mt-3 sm:mt-4">
+                <div className="w-full h-2.5 sm:h-3 bg-cream border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                  <div
+                    className={`h-full transition-all duration-500 ease-out ${
+                      isComplete ? 'bg-mint' : 'bg-vinted'
+                    }`}
+                    style={{ width: `${progress}%` }}
+                  >
+                    {!isComplete && (
+                      <div className="absolute inset-0 overflow-hidden">
+                        <div
+                          className="absolute inset-y-0 w-16 sm:w-20 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                          style={{ animation: 'shimmer 1.5s infinite' }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Status indicator */}
+              <div className="mt-2 sm:mt-3 text-center sm:text-left">
+                {isComplete ? (
+                  <div className="inline-flex items-center gap-1 sm:gap-1.5 bg-mint border-2 border-black px-2 py-0.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <CheckCircle className="w-3 h-3" />
+                    <span className="font-display font-bold text-[10px] sm:text-xs">{t('stages.complete.short')}</span>
+                  </div>
+                ) : (
+                  <div className="inline-flex items-center gap-2">
+                    <div className="flex gap-0.5">
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-vinted rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-vinted rounded-full animate-bounce" style={{ animationDelay: '0.15s' }} />
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-vinted rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
+                    </div>
+                    <span className="font-body text-[10px] sm:text-xs text-gray-500">{t('stages.generating.short')}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* ===== VINTBOOST SPONSORED SECTION (Beige background) ===== */}
+            <div className="p-2.5 sm:p-4 border-t-2 sm:border-t-0 sm:border-l-3 border-black sm:w-[340px]" style={{ backgroundColor: '#E8DFD5' }}>
+              {/* Header + Badge */}
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <div className="flex items-center gap-1">
+                  <Video className="w-3 h-3" style={{ color: '#1D3354' }} />
+                  <span className="font-display font-bold text-[9px] sm:text-[10px] uppercase tracking-wider" style={{ color: '#1D3354' }}>
+                    Sponsorisé par VintBoost.com
+                  </span>
+                </div>
                 <span
-                  className="inline-block border-2 border-black px-3 py-1 font-display font-bold text-xs text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                  className="inline-block border-2 border-black px-1.5 py-0.5 font-display font-bold text-[9px] text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                   style={{ backgroundColor: '#1D3354' }}
                 >
                   VIDÉOS IA
                 </span>
               </div>
-            </div>
 
-            {/* Description */}
-            <p className="font-body text-[10px] sm:text-sm text-center mb-2 sm:mb-3" style={{ color: '#1D3354' }}>
-              Génère des vidéos promotionnelles de tes vêtements Vinted en 30s !
-            </p>
+              {/* Description */}
+              <p className="font-body text-[10px] sm:text-xs text-center mb-2" style={{ color: '#1D3354' }}>
+                Génère des vidéos promotionnelles de tes vêtements Vinted en 30s !
+              </p>
 
-            {/* Images + Features side by side on mobile */}
-            <div className="flex gap-2 sm:block">
-              {/* Images - 2 columns */}
-              <div className="flex-1 grid grid-cols-2 gap-1.5 sm:gap-3 sm:mb-3">
-                <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
-                  <img
-                    src="https://i.imgur.com/dVJXIvo.png"
-                    alt="VintBoost - Coller le lien Vinted"
-                    className="w-full h-auto object-cover"
-                  />
+              {/* Images + Features side by side */}
+              <div className="flex gap-2">
+                {/* Images - 2 columns */}
+                <div className="flex-1 grid grid-cols-2 gap-1.5">
+                  <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
+                    <img
+                      src="https://i.imgur.com/dVJXIvo.png"
+                      alt="VintBoost - Coller le lien Vinted"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                  <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
+                    <img
+                      src="https://i.imgur.com/2A2kfxz.png"
+                      alt="VintBoost - Sélection et génération"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
                 </div>
-                <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
-                  <img
-                    src="https://i.imgur.com/2A2kfxz.png"
-                    alt="VintBoost - Sélection et génération"
-                    className="w-full h-auto object-cover"
-                  />
+
+                {/* Features - vertical */}
+                <div className="flex flex-col justify-center gap-1">
+                  <div className="flex items-center gap-1">
+                    <Sparkles className="w-3 h-3" style={{ color: '#1D3354' }} />
+                    <span className="font-display font-bold text-[9px]" style={{ color: '#1D3354' }}>HD</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Zap className="w-3 h-3" style={{ color: '#1D3354' }} />
+                    <span className="font-display font-bold text-[9px]" style={{ color: '#1D3354' }}>30s</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <TrendingUp className="w-3 h-3" style={{ color: '#1D3354' }} />
+                    <span className="font-display font-bold text-[9px]" style={{ color: '#1D3354' }}>+300%</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Features - vertical on mobile, horizontal on desktop */}
-              <div className="flex flex-col justify-center gap-1 sm:flex-row sm:items-center sm:justify-center sm:gap-5 sm:mb-3">
-                <div className="flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: '#1D3354' }} />
-                  <span className="font-display font-bold text-[9px] sm:text-xs" style={{ color: '#1D3354' }}>HD</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Zap className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: '#1D3354' }} />
-                  <span className="font-display font-bold text-[9px] sm:text-xs" style={{ color: '#1D3354' }}>30s</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: '#1D3354' }} />
-                  <span className="font-display font-bold text-[9px] sm:text-xs" style={{ color: '#1D3354' }}>+300%</span>
-                </div>
-              </div>
+              {/* CTA Button */}
+              <a
+                href="https://vintboost.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-1.5 w-full mt-2 py-2 border-2 border-black font-display font-bold text-[10px] sm:text-xs text-white uppercase tracking-wide shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+                style={{ backgroundColor: '#D64045' }}
+              >
+                <span>Découvrir VintBoost.com</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
             </div>
-
-            {/* CTA Button */}
-            <a
-              href="https://vintboost.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 sm:gap-2 w-full mt-2 sm:mt-0 py-2 sm:py-3 border-2 sm:border-3 border-black font-display font-bold text-[10px] sm:text-sm text-white uppercase tracking-wide shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
-              style={{ backgroundColor: '#D64045' }}
-            >
-              <span>Découvrir VintBoost.com</span>
-              <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-            </a>
           </div>
         </div>
       </div>
