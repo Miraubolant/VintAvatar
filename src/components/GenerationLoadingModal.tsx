@@ -193,7 +193,7 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
             </div>
 
             {/* ===== VINTBOOST SPONSORED SECTION (Beige background) ===== */}
-            <div className="p-2.5 sm:p-4 border-t-2 sm:border-t-0 sm:border-l-3 border-black sm:w-[320px]" style={{ backgroundColor: '#E8DFD5' }}>
+            <div className="p-2.5 sm:p-4 border-t-2 sm:border-t-0 sm:border-l-3 border-black sm:w-[380px]" style={{ backgroundColor: '#E8DFD5' }}>
               {/* Header + Badge */}
               <div className="flex items-center justify-between gap-2 mb-2">
                 <div className="flex items-center gap-1">
@@ -215,21 +215,25 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
                 Génère des vidéos promotionnelles de tes vêtements Vinted en 30s !
               </p>
 
-              {/* Images - 2 columns responsive */}
-              <div className="grid grid-cols-2 gap-2 mb-2">
-                <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white aspect-[4/3]">
-                  <img
-                    src="https://i.imgur.com/dVJXIvo.png"
-                    alt="VintBoost - Coller le lien Vinted"
-                    className="w-full h-full object-cover object-top"
-                  />
+              {/* Images - Portrait format (1:2 ratio) */}
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-2">
+                <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
+                  <div className="aspect-[9/16] sm:aspect-[9/18]">
+                    <img
+                      src="https://i.imgur.com/dVJXIvo.png"
+                      alt="VintBoost - Coller le lien Vinted"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
                 </div>
-                <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white aspect-[4/3]">
-                  <img
-                    src="https://i.imgur.com/2A2kfxz.png"
-                    alt="VintBoost - Sélection et génération"
-                    className="w-full h-full object-cover object-top"
-                  />
+                <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
+                  <div className="aspect-[9/16] sm:aspect-[9/18]">
+                    <img
+                      src="https://i.imgur.com/2A2kfxz.png"
+                      alt="VintBoost - Sélection et génération"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
                 </div>
               </div>
 
