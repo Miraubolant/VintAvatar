@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, Filter, Sparkles, ArrowLeft, Loader2 } from 'lucide-react';
+import { Image, Sparkles, ArrowLeft, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useSEO } from '../hooks/useSEO';
@@ -16,28 +16,12 @@ interface GalleryItem {
   description: string;
 }
 
-const CLOTHING_TYPES = [
-  { value: 'all', label: 'Tous' },
-  { value: 't-shirt', label: 'T-shirts' },
-  { value: 'chemise', label: 'Chemises' },
-  { value: 'pull', label: 'Pulls' },
-  { value: 'sweat', label: 'Sweats' },
-  { value: 'veste', label: 'Vestes' },
-  { value: 'manteau', label: 'Manteaux' },
-  { value: 'robe', label: 'Robes' },
-  { value: 'jupe', label: 'Jupes' },
-  { value: 'pantalon', label: 'Pantalons' },
-  { value: 'short', label: 'Shorts' },
-  { value: 'accessoire', label: 'Accessoires' },
-];
-
 export const GalleryPage: React.FC = () => {
   const { t } = useTranslation('gallery');
   const navigate = useNavigate();
 
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState('all');
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
   // SEO
@@ -110,11 +94,6 @@ export const GalleryPage: React.FC = () => {
     };
   }, []);
 
-  // Filter items by clothing type
-  const filteredItems = filter === 'all'
-    ? items
-    : items.filter(item => item.clothing_type.toLowerCase().includes(filter.toLowerCase()));
-
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('fr-FR', {
       day: 'numeric',
@@ -156,73 +135,6 @@ export const GalleryPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Filter Section */}
-            <div className="bg-white border-4 border-black p-3 sm:p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-8">
-              {/* Mobile: Compact header with select */}
-              <div className="sm:hidden">
-                <div className="flex items-center justify-between gap-3 mb-3">
-                  <div className="flex items-center gap-2">
-                    <Filter className="w-4 h-4 text-vinted" />
-                    <span className="font-display font-bold text-xs">
-                      {t('filterBy', 'FILTRER')}
-                    </span>
-                  </div>
-                  {filter !== 'all' && (
-                    <button
-                      onClick={() => setFilter('all')}
-                      className="px-2 py-1 bg-pink-pastel border-2 border-black font-display font-bold text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
-                    >
-                      TOUT VOIR
-                    </button>
-                  )}
-                </div>
-                {/* Horizontal scroll filter buttons */}
-                <div className="overflow-x-auto -mx-3 px-3 pb-2 scrollbar-hide">
-                  <div className="flex gap-2 w-max">
-                    {CLOTHING_TYPES.map((type) => (
-                      <button
-                        key={type.value}
-                        onClick={() => setFilter(type.value)}
-                        className={`px-2.5 py-1 border-2 border-black font-display font-bold text-[10px] whitespace-nowrap shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 ${
-                          filter === type.value
-                            ? 'bg-vinted text-white translate-x-[1px] translate-y-[1px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]'
-                            : 'bg-cream'
-                        }`}
-                      >
-                        {type.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Desktop: Original layout */}
-              <div className="hidden sm:flex flex-row items-center gap-4">
-                <div className="flex items-center gap-2 flex-shrink-0">
-                  <Filter className="w-5 h-5 text-vinted" />
-                  <span className="font-display font-bold text-sm">
-                    {t('filterBy', 'FILTRER PAR TYPE')}
-                  </span>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {CLOTHING_TYPES.map((type) => (
-                    <button
-                      key={type.value}
-                      onClick={() => setFilter(type.value)}
-                      className={`px-3 py-1.5 border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 ${
-                        filter === type.value
-                          ? 'bg-vinted text-white translate-x-[1px] translate-y-[1px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]'
-                          : 'bg-cream hover:bg-mint hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
-                      }`}
-                    >
-                      {type.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
           </div>
 
           {/* Loading State */}
@@ -240,7 +152,7 @@ export const GalleryPage: React.FC = () => {
           )}
 
           {/* Empty State */}
-          {!loading && filteredItems.length === 0 && (
+          {!loading && items.length === 0 && (
             <div className="text-center py-20">
               <div className="bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] max-w-md mx-auto">
                 <Image className="w-16 h-16 text-gray-400 mx-auto mb-4" />
@@ -248,10 +160,7 @@ export const GalleryPage: React.FC = () => {
                   {t('empty.title', 'AUCUNE PHOTO')}
                 </h2>
                 <p className="font-body text-gray-600 mb-6">
-                  {filter !== 'all'
-                    ? t('empty.filtered', 'Aucune photo dans cette catégorie pour le moment.')
-                    : t('empty.noPhotos', 'La galerie est vide pour le moment. Soyez le premier à partager !')
-                  }
+                  {t('empty.noPhotos', 'La galerie est vide pour le moment. Soyez le premier à partager !')}
                 </p>
                 <button
                   onClick={() => navigate('/')}
@@ -264,9 +173,9 @@ export const GalleryPage: React.FC = () => {
           )}
 
           {/* Gallery Grid */}
-          {!loading && filteredItems.length > 0 && (
+          {!loading && items.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredItems.map((item) => (
+              {items.map((item) => (
                 <div
                   key={item.id}
                   onClick={() => setSelectedImage(item)}
