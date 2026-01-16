@@ -177,6 +177,7 @@ const GiaccaPelleVintagePageIT = React.lazy(() => import('./pages/articles/it/Gi
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 const ResultPage = React.lazy(() => import('./pages/ResultPage').then(module => ({ default: module.ResultPage })));
+const GalleryPage = React.lazy(() => import('./pages/GalleryPage').then(module => ({ default: module.GalleryPage })));
 
 // Loading component - Neo-brutalism style
 const LoadingComponent = () => {
@@ -264,6 +265,11 @@ function App() {
               <Route path="/result/:id" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <ResultPage />
+                </Suspense>
+              } />
+              <Route path="/galerie" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <GalleryPage />
                 </Suspense>
               } />
               <Route path="/account" element={

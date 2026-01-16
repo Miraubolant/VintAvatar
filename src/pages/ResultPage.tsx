@@ -16,6 +16,7 @@ import {
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../hooks/useAuth';
 import { cropHead } from '../utils/headCropper';
+import { ShareToGallerySection } from '../components/ShareToGallerySection';
 
 interface GenerationResult {
   id: string;
@@ -256,6 +257,9 @@ export const ResultPage: React.FC = () => {
               {isCropping ? t('cropping', 'DECOUPE...') : (showCropped ? t('showOriginal', 'VOIR ORIGINAL') : t('cropHead', 'COUPER LA TETE'))}
             </button>
           </div>
+
+          {/* Share to Gallery Section */}
+          <ShareToGallerySection generationId={result.id} />
 
           {/* Title & Description section */}
           {result.vinted_listing && (
