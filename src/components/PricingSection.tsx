@@ -261,13 +261,13 @@ export const PricingSection: React.FC = () => {
               {/* Logos de paiement */}
               <div className="flex items-center gap-2 sm:gap-3">
                 <div className="bg-white border-2 border-black p-1.5 sm:p-2 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                  <img src="https://js.stripe.com/v3/fingerprinted/img/visa-729c05c240c4bdb47b03ac81d9945bfe.svg" alt="Visa" className="h-5 sm:h-6 w-auto" />
+                  <img src="https://js.stripe.com/v3/fingerprinted/img/visa-729c05c240c4bdb47b03ac81d9945bfe.svg" alt="Visa" width="32" height="20" className="h-5 sm:h-6 w-auto" />
                 </div>
                 <div className="bg-white border-2 border-black p-1.5 sm:p-2 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                  <img src="https://js.stripe.com/v3/fingerprinted/img/mastercard-4d8844094130711885b5e41b28c9848f.svg" alt="Mastercard" className="h-5 sm:h-6 w-auto" />
+                  <img src="https://js.stripe.com/v3/fingerprinted/img/mastercard-4d8844094130711885b5e41b28c9848f.svg" alt="Mastercard" width="32" height="20" className="h-5 sm:h-6 w-auto" />
                 </div>
                 <div className="bg-white border-2 border-black p-1.5 sm:p-2 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                  <img src="https://js.stripe.com/v3/fingerprinted/img/amex-a49b82f46c5cd6a96a6e418a6ca1717c.svg" alt="American Express" className="h-5 sm:h-6 w-auto" />
+                  <img src="https://js.stripe.com/v3/fingerprinted/img/amex-a49b82f46c5cd6a96a6e418a6ca1717c.svg" alt="American Express" width="32" height="20" className="h-5 sm:h-6 w-auto" />
                 </div>
               </div>
             </div>

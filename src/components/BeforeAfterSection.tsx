@@ -81,6 +81,8 @@ export const BeforeAfterSection: React.FC = () => {
                     <img
                       src={item.before_image_url}
                       alt={`Photo Vinted avant transformation IA - ${item.category}`}
+                      width={400}
+                      height={500}
                       className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover object-top"
                       loading="lazy"
                     />
@@ -95,6 +97,8 @@ export const BeforeAfterSection: React.FC = () => {
                     <img
                       src={item.after_image_url}
                       alt={`Avatar IA après génération automatique - ${item.category} portée`}
+                      width={400}
+                      height={500}
                       className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover object-top"
                       loading="lazy"
                     />

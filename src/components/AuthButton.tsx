@@ -42,10 +42,9 @@ export const AuthButton: React.FC<AuthButtonProps> = ({ compact = false }) => {
           <button
             onClick={signOut}
             aria-label="Déconnexion"
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-pink-pastel border-2 border-black font-display font-bold text-[10px] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+            className="p-1.5 bg-pink-pastel border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
           >
             <LogOut className="w-3.5 h-3.5" />
-            <span>{t('authButton.logout')}</span>
           </button>
         </div>
       );
