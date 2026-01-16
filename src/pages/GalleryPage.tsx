@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useSEO } from '../hooks/useSEO';
 import { SITE_CONFIG } from '../constants';
+import { generateSlug } from '../utils/slugify';
 
 interface GalleryItem {
   id: string;
@@ -14,6 +15,7 @@ interface GalleryItem {
   clothing_type: string;
   title: string;
   description: string;
+  slug: string;
 }
 
 export const GalleryPage: React.FC = () => {
@@ -22,7 +24,6 @@ export const GalleryPage: React.FC = () => {
 
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
   // SEO
   useSEO({
@@ -66,6 +67,7 @@ export const GalleryPage: React.FC = () => {
         clothing_type: item.metadata?.generation_config?.clothingType || 'autre',
         title: item.metadata?.vinted_listing?.title || '',
         description: item.metadata?.vinted_listing?.description || '',
+        slug: item.metadata?.slug || '',
       })).filter(item => item.generated_image_url);
 
       setItems(galleryItems);
@@ -175,10 +177,13 @@ export const GalleryPage: React.FC = () => {
           {/* Gallery Grid */}
           {!loading && items.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {items.map((item) => (
+              {items.map((item) => {
+                // Generate slug if not present (for older photos)
+                const itemSlug = item.slug || generateSlug(item.title || item.clothing_type || 'photo', item.id);
+                return (
                 <div
                   key={item.id}
-                  onClick={() => setSelectedImage(item)}
+                  onClick={() => navigate(`/photos/${itemSlug}`)}
                   className="group cursor-pointer"
                 >
                   <div className="bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden group-hover:translate-x-[-2px] group-hover:translate-y-[-2px] group-hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">
@@ -233,7 +238,7 @@ export const GalleryPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              ))}
+              );})}
             </div>
           )}
 
@@ -265,85 +270,6 @@ export const GalleryPage: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Lightbox Modal */}
-        {selectedImage && (
-          <div
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-2 sm:p-4"
-            onClick={() => setSelectedImage(null)}
-          >
-            <div
-              className="bg-white border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] w-full max-w-[95vw] sm:max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-auto"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close button - Mobile */}
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-3 right-3 sm:hidden z-10 w-8 h-8 bg-black text-white border-2 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(255,255,255,0.3)] flex items-center justify-center"
-              >
-                ✕
-              </button>
-              {/* Before/After Images */}
-              <div className="flex flex-col sm:flex-row">
-                {/* Before - Original */}
-                {selectedImage.original_image_url && (
-                  <div className="sm:w-1/2 relative">
-                    <img
-                      src={selectedImage.original_image_url}
-                      alt={`Original - ${selectedImage.title || selectedImage.clothing_type}`}
-                      className="w-full h-auto max-h-[35vh] sm:max-h-[55vh] object-contain bg-gray-100"
-                    />
-                    <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-black text-white px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(255,255,255,0.3)]">
-                      AVANT
-                    </div>
-                  </div>
-                )}
-                {/* After - Generated */}
-                <div className={selectedImage.original_image_url ? "sm:w-1/2 relative sm:border-l-4 border-t-2 sm:border-t-0 border-black" : "w-full relative"}>
-                  <img
-                    src={selectedImage.generated_image_url}
-                    alt={`Avatar IA - ${selectedImage.title || selectedImage.clothing_type}`}
-                    className="w-full h-auto max-h-[35vh] sm:max-h-[55vh] object-contain bg-gray-50"
-                  />
-                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-vinted text-white px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
-                    APRÈS
-                  </div>
-                </div>
-              </div>
-              {/* Info Section */}
-              <div className="p-3 sm:p-6 border-t-2 sm:border-t-4 border-black bg-cream">
-                <div className="flex flex-col gap-3 sm:gap-4">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2">
-                      <span className="inline-block bg-vinted text-white px-2 py-0.5 sm:px-3 sm:py-1 font-display font-bold text-[10px] sm:text-xs border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        {selectedImage.clothing_type.toUpperCase()}
-                      </span>
-                      <span className="font-body text-[10px] sm:text-xs text-gray-500">
-                        {formatDate(selectedImage.created_at)}
-                      </span>
-                    </div>
-                    <button
-                      onClick={() => setSelectedImage(null)}
-                      className="hidden sm:block px-4 py-2 bg-vinted text-white border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-                    >
-                      {t('close', 'FERMER')}
-                    </button>
-                  </div>
-                  {selectedImage.title && (
-                    <h3 className="font-display font-bold text-sm sm:text-lg">
-                      {selectedImage.title}
-                    </h3>
-                  )}
-                  {selectedImage.description && (
-                    <p className="font-body text-xs sm:text-sm text-gray-700 line-clamp-3 sm:line-clamp-4">
-                      {selectedImage.description}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
   );
 };

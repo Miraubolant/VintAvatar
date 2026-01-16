@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from './useAuth';
 import confetti from 'canvas-confetti';
+import { generateSlug } from '../utils/slugify';
 
 const MAX_GALLERY_SHARES = 2;
 
@@ -126,10 +127,34 @@ export const useGalleryShare = (): UseGalleryShareResult => {
     setIsSharing(true);
 
     try {
-      // 1. Mark generation as public
+      // 1. Fetch the generation data to get the title for slug generation
+      const { data: generationData, error: fetchError } = await supabase
+        .from('usage_tracking')
+        .select('metadata')
+        .eq('id', generationId)
+        .eq('user_id', user.id)
+        .single();
+
+      if (fetchError) throw fetchError;
+
+      // 2. Generate slug from title
+      const title = generationData?.metadata?.vinted_listing?.title ||
+                    generationData?.metadata?.generation_config?.clothingType ||
+                    'photo';
+      const slug = generateSlug(title, generationId);
+
+      // 3. Update metadata with slug and mark as public
+      const updatedMetadata = {
+        ...generationData?.metadata,
+        slug
+      };
+
       const { error: updateError } = await supabase
         .from('usage_tracking')
-        .update({ is_public: true })
+        .update({
+          is_public: true,
+          metadata: updatedMetadata
+        })
         .eq('id', generationId)
         .eq('user_id', user.id);
 
@@ -140,13 +165,13 @@ export const useGalleryShare = (): UseGalleryShareResult => {
       // - Adding +1 credit to subscription
       // - Enforcing max 2 shares quota
 
-      // 2. Update local state
+      // 4. Update local state
       setSharesUsed(prev => prev + 1);
 
-      // 3. Trigger confetti celebration
+      // 5. Trigger confetti celebration
       triggerConfetti();
 
-      // 4. Dispatch events to refresh data
+      // 6. Dispatch events to refresh data
       window.dispatchEvent(new Event('subscription-updated'));
       window.dispatchEvent(new Event('gallery-updated'));
 

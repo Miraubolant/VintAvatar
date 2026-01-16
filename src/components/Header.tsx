@@ -84,10 +84,10 @@ export const Header: React.FC = () => {
   const dropdownLinks = [
     { href: '#avis', label: t('navigation.reviews') },
     { href: '/leaderboard', label: t('navigation.leaderboard'), isRoute: true },
-    { href: '/galerie', label: t('navigation.gallery'), isRoute: true },
   ];
 
   const afterDropdownLinks = [
+    { href: '/galerie', label: t('navigation.gallery'), isRoute: true },
     { href: '/faq', label: t('navigation.faq'), isRoute: true },
     { href: '/blog', label: t('navigation.blog'), isRoute: true },
   ];

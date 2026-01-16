@@ -10,6 +10,8 @@ export const ROUTES = {
   CGU: '/cgu',
   CONFIDENTIALITE: '/confidentialite',
   FAQ: '/faq',
+  GALLERY: '/galerie',
+  PHOTO_DETAIL: '/photos/:slug',
 } as const;
 
 // Account page tabs

@@ -177,6 +177,7 @@ const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 const ResultPage = React.lazy(() => import('./pages/ResultPage').then(module => ({ default: module.ResultPage })));
 const GalleryPage = React.lazy(() => import('./pages/GalleryPage').then(module => ({ default: module.GalleryPage })));
+const PhotoDetailPage = React.lazy(() => import('./pages/PhotoDetailPage').then(module => ({ default: module.PhotoDetailPage })));
 
 // Loading component - Neo-brutalism style
 const LoadingComponent = () => {
@@ -262,6 +263,11 @@ function App() {
               <Route path="/galerie" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <GalleryPage />
+                </Suspense>
+              } />
+              <Route path="/photos/:slug" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <PhotoDetailPage />
                 </Suspense>
               } />
               <Route path="/leaderboard" element={

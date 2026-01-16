@@ -54,6 +54,8 @@ This is a React TypeScript application built with Vite, focusing on a Vinted-rel
   - `GenerationLoadingModal.tsx` - Animated loading popup during AI generation (cartoon style)
   - `ImageGenerator.tsx` - Avatar generation interface with credit system integration
   - `BeforeAfterSection.tsx` - Photo comparison showcase
+  - `BeforeAfterComparison.tsx` - Reusable before/after image comparison component (h-auto for natural aspect ratio)
+  - `ImageUploadInterface.tsx` - Reusable upload interface with Vinted URL scraping (extracted from HeroSection)
   - `TestimonialsSection.tsx` - User testimonials
   - `LeaderboardSection.tsx` - Monthly referral leaderboard with conditional CTA (auth/subscription/account)
   - `PricingSection.tsx` - Subscription pricing with Stripe integration
@@ -67,12 +69,19 @@ This is a React TypeScript application built with Vite, focusing on a Vinted-rel
   - `AuthCallback.tsx` - OAuth callback handler
   - `SuccessPage.tsx` - Payment success page
   - `CancelPage.tsx` - Payment cancellation page
+  - `GalleryPage.tsx` - Public gallery of shared AI-generated photos
+  - `PhotoDetailPage.tsx` - SEO-friendly individual photo pages with slug-based URLs
+  - `ResultPage.tsx` - Generation result display with share-to-gallery functionality
 - `hooks/` - Custom React hooks:
   - `useAuth.ts` - Authentication state management
   - `useSubscription.ts` - Subscription data management
   - `useAccountStats.ts` - Account statistics aggregation
   - `useGenerationHistory.ts` - Complete generation history with images and metadata
   - `useAffiliation.ts` - Referral system management with code generation and tracking
+  - `useGalleryShare.ts` - Gallery sharing with slug generation and credit rewards
+  - `useSEO.ts` - Dynamic SEO management (meta tags, structured data, hreflang)
+- `utils/` - Utility functions:
+  - `slugify.ts` - SEO-friendly URL slug generation (title + ID suffix)
 - `lib/` - Utility libraries:
   - `supabase.ts` - Supabase client configuration and TypeScript types
   - `articleTranslations.ts` - Multi-language article URL mapping
@@ -139,6 +148,9 @@ The project uses a modern neo-brutalism design with a carefully curated 4-color 
 - **SEO blog system** with 25+ articles in 4 languages (FR, EN, ES, IT)
 - **Multi-language article support** with hreflang and URL mapping
 - **Error handling** with comprehensive user feedback and ErrorModal component
+- **Public gallery system** - Users can share generations to community gallery (max 2 shares, +1 credit reward)
+- **SEO-friendly photo pages** - Individual photo pages with slug-based URLs (title + ID suffix)
+- **Dynamic SEO management** - useSEO hook for meta tags, Open Graph, Twitter cards, and structured data
 
 ### Database Architecture (Supabase)
 - **`profiles`** - User profile information extending auth.users
@@ -152,6 +164,8 @@ The project uses a modern neo-brutalism design with a carefully curated 4-color 
   - Generation configuration (gender, skin tone, morphology, pose, background, clothing type)
   - Model used (FLUX Kontext Pro via Replicate)
   - Credits consumed and timestamp
+  - `is_public` flag for gallery sharing
+  - `slug` in metadata for SEO-friendly URLs (generated via `slugify.ts`)
 - **Storage Buckets**:
   - `original-images` - Private bucket for uploaded clothing photos
   - `generated-avatars` - Public bucket for AI-generated avatars
@@ -168,6 +182,15 @@ The project uses a modern neo-brutalism design with a carefully curated 4-color 
 - `/account` - User account management (protected route)
 - `/success` - Payment success confirmation
 - `/cancel` - Payment cancellation page
+- `/galerie` - Public gallery of community-shared photos
+- `/photos/:slug` - SEO-friendly individual photo detail pages
+- `/leaderboard` - Monthly referral leaderboard
+- `/result/:id` - Generation result page with sharing options
+- `/blog` - Blog listing page
+- `/blog/:slug` - Individual blog article pages
+- `/faq` - Frequently asked questions
+- `/cgu` - Terms of service
+- `/confidentialite` - Privacy policy
 
 ### Configuration Files
 - `vite.config.ts` - Vite bundler configuration with React plugin
