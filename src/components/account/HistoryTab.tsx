@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Image, Download, Eye, FileText, ExternalLink } from 'lucide-react';
+import { Image, Download, Eye, FileText, ExternalLink, Share2, Check, Gift } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useGalleryShare } from '../../hooks/useGalleryShare';
 
 // Composant d'image optimisé avec lazy loading et placeholder
 interface OptimizedImageProps {
@@ -99,6 +100,7 @@ interface HistoryItem {
   generation_config: GenerationConfig | null;
   vinted_listing: VintedListing | null;
   vinted_article_url: string | null;
+  is_public: boolean;
 }
 
 interface HistoryTabProps {
@@ -123,6 +125,28 @@ export const HistoryTab: React.FC<HistoryTabProps> = ({
   const { t } = useTranslation('account');
   const navigate = useNavigate();
   const [visibleCount, setVisibleCount] = useState(10);
+  const [sharingId, setSharingId] = useState<string | null>(null);
+  const [localSharedIds, setLocalSharedIds] = useState<Set<string>>(new Set());
+
+  const {
+    canShare,
+    sharesRemaining,
+    isSharing,
+    shareToGallery
+  } = useGalleryShare();
+
+  const handleShareToGallery = async (itemId: string) => {
+    setSharingId(itemId);
+    const success = await shareToGallery(itemId);
+    if (success) {
+      setLocalSharedIds(prev => new Set([...prev, itemId]));
+    }
+    setSharingId(null);
+  };
+
+  const isItemShared = (item: HistoryItem) => {
+    return item.is_public || localSharedIds.has(item.id);
+  };
 
   const visibleHistory = history.slice(0, visibleCount);
   const hasMore = visibleCount < history.length;
@@ -289,6 +313,48 @@ export const HistoryTab: React.FC<HistoryTabProps> = ({
                   </button>
                 )}
               </div>
+
+              {/* Share to Gallery */}
+              {item.generated_image_url && (
+                <div className="border-t-2 border-black pt-3 mt-1">
+                  {isItemShared(item) ? (
+                    <div className="flex items-center gap-2 px-3 py-2 bg-mint border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                      <Check className="w-4 h-4 text-black" />
+                      <span className="font-display font-bold text-sm text-black">
+                        {t('historyTab.sharedInGallery', 'PARTAGÉ DANS LA GALERIE')}
+                      </span>
+                    </div>
+                  ) : canShare ? (
+                    <button
+                      onClick={() => handleShareToGallery(item.id)}
+                      disabled={isSharing || sharingId === item.id}
+                      className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-r from-pink-pastel to-mint border-3 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {sharingId === item.id ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                          <span>{t('historyTab.sharing', 'PUBLICATION...')}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Gift className="w-4 h-4" />
+                          <span>{t('historyTab.shareToGallery', 'PARTAGER (+1 CRÉDIT)')}</span>
+                          <span className="text-[10px] bg-white/50 px-1.5 py-0.5 border border-black ml-1">
+                            {sharesRemaining}/2
+                          </span>
+                        </>
+                      )}
+                    </button>
+                  ) : (
+                    <div className="flex items-center gap-2 px-3 py-2 bg-gray-100 border-2 border-black text-gray-500 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                      <Share2 className="w-4 h-4" />
+                      <span className="font-display font-bold text-sm">
+                        {t('historyTab.shareQuotaReached', 'QUOTA ATTEINT (2/2)')}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         ))}

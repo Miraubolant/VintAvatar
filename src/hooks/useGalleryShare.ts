@@ -135,35 +135,18 @@ export const useGalleryShare = (): UseGalleryShareResult => {
 
       if (updateError) throw updateError;
 
-      // 2. Increment gallery_shares_used in profile
-      const { error: profileError } = await supabase
-        .from('profiles')
-        .update({ gallery_shares_used: sharesUsed + 1 })
-        .eq('id', user.id);
+      // Note: Server-side trigger handles:
+      // - Incrementing gallery_shares_used in profile
+      // - Adding +1 credit to subscription
+      // - Enforcing max 2 shares quota
 
-      if (profileError) throw profileError;
-
-      // 3. Add 1 credit to user's subscription
-      const { data: subscription } = await supabase
-        .from('subscriptions')
-        .select('credits_remaining')
-        .eq('user_id', user.id)
-        .single();
-
-      if (subscription) {
-        await supabase
-          .from('subscriptions')
-          .update({ credits_remaining: (subscription.credits_remaining || 0) + 1 })
-          .eq('user_id', user.id);
-      }
-
-      // 4. Update local state
+      // 2. Update local state
       setSharesUsed(prev => prev + 1);
 
-      // 5. Trigger confetti celebration
+      // 3. Trigger confetti celebration
       triggerConfetti();
 
-      // 6. Dispatch events to refresh data
+      // 4. Dispatch events to refresh data
       window.dispatchEvent(new Event('subscription-updated'));
       window.dispatchEvent(new Event('gallery-updated'));
 
