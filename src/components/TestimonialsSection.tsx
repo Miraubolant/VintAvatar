@@ -13,7 +13,7 @@ export const TestimonialsSection: React.FC = () => {
   }>;
 
   return (
-    <section id="avis" className="relative py-20 lg:py-24 bg-cream overflow-hidden">
+    <section id="avis" className="relative py-12 lg:py-16 bg-cream overflow-hidden">
       {/* Formes décoratives neo-brutalism - hidden on mobile to avoid overlap */}
       <div className="hidden md:block absolute top-20 left-12 w-12 h-12 bg-vinted border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-none"></div>
       <div className="hidden md:block absolute top-1/3 right-8 w-10 h-10 bg-mint border-3 border-black neo-shape-circle shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] pointer-events-none"></div>

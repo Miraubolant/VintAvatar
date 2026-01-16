@@ -1,11 +1,10 @@
 import React from 'react';
-import { Sparkles, RefreshCw, AlertCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useBeforeAfter } from '../hooks/useBeforeAfter';
 import { OptimizedImage } from './OptimizedImage';
 
 export const BeforeAfterSection: React.FC = () => {
-  const { items, loading, error, refetch } = useBeforeAfter();
+  const { items, loading } = useBeforeAfter();
   const { t } = useTranslation('beforeafter');
 
   return (
@@ -144,47 +143,28 @@ export const BeforeAfterSection: React.FC = () => {
           </div>
         )}
 
-        {/* Stats Grid - Mobile Responsive */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-16">
-          {[
-            { value: t('stats.0.value'), label: t('stats.0.label'), bg: "bg-mint" },
-            { value: t('stats.1.value'), label: t('stats.1.label'), bg: "bg-white" },
-            { value: t('stats.2.value'), label: t('stats.2.label'), bg: "bg-vinted", text: "text-white" },
-            { value: t('stats.3.value'), label: t('stats.3.label'), bg: "bg-cream" }
-          ].map((stat, idx) => (
-            <div key={idx} className="text-center h-full">
-              <div className={`${stat.bg} ${stat.text || 'text-black'} border-4 border-black p-4 sm:p-6 transform ${idx % 2 === 0 ? 'rotate-1' : '-rotate-1'} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 h-full min-h-[120px] sm:min-h-[140px] flex flex-col justify-center`}>
-                <div className="font-display font-bold text-2xl sm:text-3xl mb-1 sm:mb-2">
-                  {stat.value}
+        {/* Stats - Hero Style */}
+        <div className="flex justify-center mb-16">
+          <div className="inline-flex flex-row items-center gap-3 sm:gap-6 px-2 sm:px-4 py-2">
+            {[
+              { value: t('stats.0.value'), label: t('stats.0.label') },
+              { value: t('stats.1.value'), label: t('stats.1.label') },
+              { value: t('stats.2.value'), label: t('stats.2.label') },
+              { value: t('stats.3.value'), label: t('stats.3.label') }
+            ].map((stat, idx, arr) => (
+              <React.Fragment key={idx}>
+                <div className="flex flex-col items-center gap-0.5 sm:gap-1">
+                  <span className="font-display font-bold text-lg sm:text-3xl text-black">{stat.value}</span>
+                  <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">{stat.label}</span>
                 </div>
-                <div className="font-body font-semibold text-xs sm:text-sm leading-tight">
-                  {stat.label}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <div className="inline-block bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
-            <h3 className="font-display font-bold text-2xl text-black mb-4">
-              {t('cta.title')}
-            </h3>
-            <button
-              onClick={() => {
-                const heroSection = document.getElementById('hero');
-                if (heroSection) {
-                  heroSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-pink-pastel text-black border-3 border-black font-display font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-            >
-              <Sparkles className="w-5 h-5" />
-              {t('cta.button')}
-            </button>
+                {idx < arr.length - 1 && (
+                  <div className="w-px h-8 sm:h-10 bg-black opacity-20"></div>
+                )}
+              </React.Fragment>
+            ))}
           </div>
         </div>
+
       </div>
     </section>
   );

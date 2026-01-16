@@ -50,8 +50,8 @@ export const Header: React.FC = () => {
 
   const dropdownLinks = [
     { href: '#avis', label: t('navigation.reviews') },
-    { href: '#leaderboard', label: t('navigation.leaderboard') },
-    { href: '/galerie', label: t('navigation.gallery', 'Galerie'), isRoute: true },
+    { href: '/leaderboard', label: t('navigation.leaderboard'), isRoute: true },
+    { href: '/galerie', label: t('navigation.gallery'), isRoute: true },
   ];
 
   const afterDropdownLinks = [
@@ -65,8 +65,8 @@ export const Header: React.FC = () => {
     { href: '#avant-apres', label: t('navigation.beforeAfter'), icon: Image },
     { href: '#tarifs', label: t('navigation.pricing'), icon: CreditCard },
     { href: '#avis', label: t('navigation.reviews'), icon: Star },
-    { href: '#leaderboard', label: t('navigation.leaderboard'), icon: Trophy },
-    { href: '/galerie', label: t('navigation.gallery', 'Galerie'), isRoute: true, icon: Images },
+    { href: '/leaderboard', label: t('navigation.leaderboard'), isRoute: true, icon: Trophy },
+    { href: '/galerie', label: t('navigation.gallery'), isRoute: true, icon: Images },
     { href: '/faq', label: t('navigation.faq'), isRoute: true, icon: HelpCircle },
     { href: '/blog', label: t('navigation.blog'), isRoute: true, icon: BookOpen },
   ];

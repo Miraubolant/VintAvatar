@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Sparkles, Check } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import confetti from 'canvas-confetti';
 import { useAuth } from '../hooks/useAuth';
 import { useAccountStats } from '../hooks/useAccountStats';
 
@@ -92,6 +93,15 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
 
   const validateConfig = () => {
     setIsValidated(true);
+
+    // Animation confetti
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#09B1BA', '#FFB3BA', '#B3F2DD', '#FFF8E7']
+    });
+
     // Déclencher le callback pour montrer la bulle
     if (onConfigSaved) {
       onConfigSaved();

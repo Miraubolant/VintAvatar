@@ -113,7 +113,7 @@ export const PricingSection: React.FC = () => {
   ];
 
   return (
-    <section id="tarifs" className="relative py-20 lg:py-24 bg-cream overflow-hidden">
+    <section id="tarifs" className="relative py-12 lg:py-16 bg-cream overflow-hidden">
       {/* Formes décoratives neo-brutalism - hidden on mobile to avoid overlap */}
       <div className="hidden md:block absolute top-16 left-12 w-12 h-12 bg-vinted border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-none"></div>
       <div className="hidden md:block absolute top-1/3 right-8 w-10 h-10 bg-mint border-3 border-black neo-shape-circle shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] pointer-events-none"></div>
@@ -229,65 +229,35 @@ export const PricingSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-16">
-          {(t('stats', { returnObjects: true }) as Array<{ value: string; label: string }>).map((stat, idx) => {
-            const backgrounds = ["bg-mint", "bg-white", "bg-vinted", "bg-cream"];
-            const textColors = ["text-black", "text-black", "text-white", "text-black"];
-
-            // Carte spéciale pour les moyens de paiement (index 1)
-            if (idx === 1) {
-              return (
-                <div key={idx} className="text-center h-full">
-                  <div className={`${backgrounds[idx]} ${textColors[idx]} border-4 border-black p-3 sm:p-4 lg:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 h-full min-h-[120px] sm:min-h-[140px] flex flex-col justify-center`}>
-                    <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 mb-2">
-                      <img src="https://js.stripe.com/v3/fingerprinted/img/visa-729c05c240c4bdb47b03ac81d9945bfe.svg" alt="Visa" className="h-5 sm:h-6 lg:h-7" />
-                      <img src="https://js.stripe.com/v3/fingerprinted/img/mastercard-4d8844094130711885b5e41b28c9848f.svg" alt="Mastercard" className="h-5 sm:h-6 lg:h-7" />
-                      <img src="https://js.stripe.com/v3/fingerprinted/img/amex-a49b82f46c5cd6a96a6e418a6ca1717c.svg" alt="Amex" className="h-5 sm:h-6 lg:h-7" />
+        {/* Stats - Hero Style */}
+        <div className="flex justify-center mb-16">
+          <div className="inline-flex flex-row items-center gap-3 sm:gap-6 px-2 sm:px-4 py-2">
+            {(t('stats', { returnObjects: true }) as Array<{ value: string; label: string }>).map((stat, idx, arr) => (
+              <React.Fragment key={idx}>
+                {/* Carte spéciale pour les moyens de paiement (index 1) */}
+                {idx === 1 ? (
+                  <div className="flex flex-col items-center gap-0.5 sm:gap-1">
+                    <div className="flex items-center gap-1 sm:gap-2">
+                      <img src="https://js.stripe.com/v3/fingerprinted/img/visa-729c05c240c4bdb47b03ac81d9945bfe.svg" alt="Visa" className="h-4 sm:h-6" />
+                      <img src="https://js.stripe.com/v3/fingerprinted/img/mastercard-4d8844094130711885b5e41b28c9848f.svg" alt="Mastercard" className="h-4 sm:h-6" />
+                      <img src="https://js.stripe.com/v3/fingerprinted/img/amex-a49b82f46c5cd6a96a6e418a6ca1717c.svg" alt="Amex" className="h-4 sm:h-6" />
                     </div>
-                    <div className="font-body font-semibold text-xs sm:text-sm leading-tight">
-                      {stat.label}
-                    </div>
+                    <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">{stat.label}</span>
                   </div>
-                </div>
-              );
-            }
-
-            return (
-            <div key={idx} className="text-center h-full">
-              <div className={`${backgrounds[idx]} ${textColors[idx]} border-4 border-black p-3 sm:p-4 lg:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 h-full min-h-[120px] sm:min-h-[140px] flex flex-col justify-center`}>
-                <div className="font-display font-bold text-lg sm:text-2xl lg:text-3xl mb-1 sm:mb-2 leading-tight">
-                  {stat.value}
-                </div>
-                <div className="font-body font-semibold text-xs sm:text-sm leading-tight">
-                  {stat.label}
-                </div>
-              </div>
-            </div>
-            );
-          })}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <div className="inline-block bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-display font-bold text-2xl text-black mb-4">
-              {t('cta.title')}
-            </h3>
-            <button
-              onClick={() => {
-                const heroSection = document.getElementById('hero');
-                if (heroSection) {
-                  heroSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-pink-pastel text-black border-3 border-black font-display font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-            >
-              <Sparkles className="w-5 h-5" />
-              {t('cta.button')}
-            </button>
+                ) : (
+                  <div className="flex flex-col items-center gap-0.5 sm:gap-1">
+                    <span className="font-display font-bold text-lg sm:text-3xl text-black">{stat.value}</span>
+                    <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">{stat.label}</span>
+                  </div>
+                )}
+                {idx < arr.length - 1 && (
+                  <div className="w-px h-8 sm:h-10 bg-black opacity-20"></div>
+                )}
+              </React.Fragment>
+            ))}
           </div>
         </div>
+
       </div>
 
       {/* Modal de connexion requise */}

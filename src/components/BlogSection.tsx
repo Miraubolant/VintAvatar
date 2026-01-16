@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Calendar, User, ArrowRight, Tag, Lightbulb, ChevronDown, ChevronUp } from 'lucide-react';
+import React from 'react';
+import { Calendar, User, ArrowRight, Tag, Lightbulb } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { getArticlesListByLanguage } from '../data/articles';
 import { getArticleUrlBySlugAndLanguage } from '../lib/articleTranslations';
 import { Language } from '../lib/i18n';
 
-const ARTICLES_TO_SHOW = 7; // 1 featured + 6 in grid
+const ARTICLES_TO_SHOW = 4; // 1 featured + 3 in grid
 
 export const BlogSection: React.FC = () => {
   const { t, i18n } = useTranslation('blog');
@@ -16,17 +16,14 @@ export const BlogSection: React.FC = () => {
     ...article,
     featured: index === 0
   }));
-  const [showAllArticles, setShowAllArticles] = useState(false);
 
-  // Calculate visible articles (1 featured + 6 others = 7 total, or all if expanded)
-  const visiblePosts = showAllArticles
-    ? blogPosts
-    : blogPosts.slice(0, ARTICLES_TO_SHOW);
+  // Calculate visible articles (1 featured + 3 others = 4 total)
+  const visiblePosts = blogPosts.slice(0, ARTICLES_TO_SHOW);
 
   const hasMoreArticles = blogPosts.length > ARTICLES_TO_SHOW;
 
   return (
-    <section id="blog" className="relative py-20 lg:py-24 bg-cream overflow-hidden">
+    <section id="blog" className="relative py-12 lg:py-16 bg-cream overflow-hidden">
       {/* Formes décoratives neo-brutalism */}
       <div className="absolute top-20 right-16 w-14 h-14 bg-mint border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="absolute top-1/3 left-8 w-10 h-10 bg-pink-pastel border-3 border-black transform -rotate-45 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hidden lg:block"></div>
@@ -199,18 +196,6 @@ export const BlogSection: React.FC = () => {
             </Link>
           </div>
         )}
-
-        {/* Stats Banner */}
-        <div className="bg-vinted border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-16">
-          <div className="text-center">
-            <div className="font-display font-bold text-3xl text-white mb-2">
-              {t('stats.availableArticles').replace('{count}', blogPosts.length.toString())}
-            </div>
-            <div className="font-body font-semibold text-sm text-white opacity-90">
-              {t('stats.subtitle')}
-            </div>
-          </div>
-        </div>
 
         {/* CTA */}
         <div className="text-center">

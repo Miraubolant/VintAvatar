@@ -19,7 +19,7 @@ const TestimonialsSection = React.lazy(() => import('./components/TestimonialsSe
 const FAQSection = React.lazy(() => import('./components/FAQSection').then(module => ({ default: module.FAQSection })));
 const PricingSection = React.lazy(() => import('./components/PricingSection').then(module => ({ default: module.PricingSection })));
 const BlogSection = React.lazy(() => import('./components/BlogSection').then(module => ({ default: module.BlogSection })));
-const LeaderboardSection = React.lazy(() => import('./components/LeaderboardSection').then(module => ({ default: module.LeaderboardSection })));
+const LeaderboardPage = React.lazy(() => import('./pages/LeaderboardPage').then(module => ({ default: module.LeaderboardPage })));
 const AuthCallback = React.lazy(() => import('./pages/AuthCallback').then(module => ({ default: module.AuthCallback })));
 const SuccessPage = React.lazy(() => import('./pages/SuccessPage').then(module => ({ default: module.SuccessPage })));
 const CancelPage = React.lazy(() => import('./pages/CancelPage').then(module => ({ default: module.CancelPage })));
@@ -216,9 +216,6 @@ function HomePage() {
         <TestimonialsSection />
       </Suspense>
       <Suspense fallback={<LoadingComponent />}>
-        <LeaderboardSection />
-      </Suspense>
-      <Suspense fallback={<LoadingComponent />}>
         <FAQSection />
       </Suspense>
       <Suspense fallback={<LoadingComponent />}>
@@ -270,6 +267,11 @@ function App() {
               <Route path="/galerie" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <GalleryPage />
+                </Suspense>
+              } />
+              <Route path="/leaderboard" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <LeaderboardPage />
                 </Suspense>
               } />
               <Route path="/account" element={
