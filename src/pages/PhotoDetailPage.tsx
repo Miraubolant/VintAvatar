@@ -1018,9 +1018,9 @@ export const PhotoDetailPage: React.FC = () => {
             <div className="bg-vinted p-4 relative border-b-3 border-black">
               <button
                 onClick={() => setShowSubscriptionModal(false)}
-                className="absolute top-2 right-2 w-7 h-7 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                className="absolute top-2 right-2 w-7 h-7 bg-red-500 border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-red-600 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
-                <X className="w-3 h-3 text-black" />
+                <X className="w-3 h-3 text-white" />
               </button>
               <div className="flex items-center gap-3 pr-6">
                 <div className="w-10 h-10 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 flex-shrink-0">
@@ -1033,24 +1033,19 @@ export const PhotoDetailPage: React.FC = () => {
               </div>
             </div>
             <div className="p-4">
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center gap-2 p-2 bg-mint border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="w-6 h-6 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-3 h-3 text-black" />
-                  </div>
-                  <p className="font-body font-semibold text-xs text-black">{tHero('modals.subscriptionRequired.benefit1')}</p>
+              {/* Benefits - Simple list style */}
+              <div className="space-y-2.5 mb-4">
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-vinted flex-shrink-0" />
+                  <p className="font-body text-xs text-gray-700">{tHero('modals.subscriptionRequired.benefit1')}</p>
                 </div>
-                <div className="flex items-center gap-2 p-2 bg-pink-pastel border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="w-6 h-6 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <Star className="w-3 h-3 text-black" />
-                  </div>
-                  <p className="font-body font-semibold text-xs text-black">{tHero('modals.subscriptionRequired.benefit2')}</p>
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-vinted flex-shrink-0" />
+                  <p className="font-body text-xs text-gray-700">{tHero('modals.subscriptionRequired.benefit2')}</p>
                 </div>
-                <div className="flex items-center gap-2 p-2 bg-yellow-400 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="w-6 h-6 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <Users className="w-3 h-3 text-black" />
-                  </div>
-                  <p className="font-body font-semibold text-xs text-black">{tHero('modals.subscriptionRequired.benefit3')}</p>
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-vinted flex-shrink-0" />
+                  <p className="font-body text-xs text-gray-700">{tHero('modals.subscriptionRequired.benefit3')}</p>
                 </div>
               </div>
               <button

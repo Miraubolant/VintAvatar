@@ -588,9 +588,12 @@ export const HeroSection: React.FC = () => {
           {/* Interface d'upload compacte */}
           <div className="pt-4 sm:pt-6">
           <div className="max-w-3xl mx-auto">
-            <div className="bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+            <div className="bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden relative">
+              {/* Background decoration */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 sm:w-24 sm:h-24 bg-mint border-3 border-black transform rotate-12 opacity-30 pointer-events-none"></div>
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 sm:w-20 sm:h-20 bg-pink-pastel border-3 border-black transform -rotate-12 opacity-30 pointer-events-none"></div>
 
-              <div className="p-3 sm:p-5">
+              <div className="relative p-3 sm:p-5">
               {/* Aperçu de l'image avec infos Vinted */}
               {(vintedImage || uploadedImage) && (
                 <div className="bg-cream border-3 border-black p-3 sm:p-4 mb-3 sm:mb-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
@@ -938,9 +941,9 @@ export const HeroSection: React.FC = () => {
             <div className="bg-vinted p-3 sm:p-4 relative border-b-3 border-black">
               <button
                 onClick={() => setShowSubscriptionModal(false)}
-                className="absolute top-2 right-2 w-6 h-6 sm:w-7 sm:h-7 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                className="absolute top-2 right-2 w-6 h-6 sm:w-7 sm:h-7 bg-red-500 border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-red-600 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
-                <X className="w-3 h-3 text-black" />
+                <X className="w-3 h-3 text-white" />
               </button>
 
               <div className="flex items-center gap-2 sm:gap-3 pr-6">
@@ -957,25 +960,19 @@ export const HeroSection: React.FC = () => {
 
             {/* Content compact */}
             <div className="p-3 sm:p-4">
-              {/* Benefits */}
-              <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
-                <div className="flex items-center gap-2 p-2 bg-mint border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="w-6 h-6 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-3 h-3 text-black" />
-                  </div>
-                  <p className="font-body font-semibold text-[11px] sm:text-xs text-black">{t('modals.subscriptionRequired.benefit1')}</p>
+              {/* Benefits - Simple list style */}
+              <div className="space-y-2 sm:space-y-2.5 mb-3 sm:mb-4">
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-vinted flex-shrink-0" />
+                  <p className="font-body text-[11px] sm:text-xs text-gray-700">{t('modals.subscriptionRequired.benefit1')}</p>
                 </div>
-                <div className="flex items-center gap-2 p-2 bg-pink-pastel border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="w-6 h-6 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <Star className="w-3 h-3 text-black" />
-                  </div>
-                  <p className="font-body font-semibold text-[11px] sm:text-xs text-black">{t('modals.subscriptionRequired.benefit2')}</p>
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-vinted flex-shrink-0" />
+                  <p className="font-body text-[11px] sm:text-xs text-gray-700">{t('modals.subscriptionRequired.benefit2')}</p>
                 </div>
-                <div className="flex items-center gap-2 p-2 bg-yellow-400 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="w-6 h-6 bg-white border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <Users className="w-3 h-3 text-black" />
-                  </div>
-                  <p className="font-body font-semibold text-[11px] sm:text-xs text-black">{t('modals.subscriptionRequired.benefit3')}</p>
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-vinted flex-shrink-0" />
+                  <p className="font-body text-[11px] sm:text-xs text-gray-700">{t('modals.subscriptionRequired.benefit3')}</p>
                 </div>
               </div>
 
@@ -989,21 +986,13 @@ export const HeroSection: React.FC = () => {
               </div>
 
               {/* Actions compact */}
-              <div className="space-y-2">
-                <button
-                  onClick={handleSubscriptionRedirect}
-                  className="w-full px-3 py-2.5 sm:py-3 bg-vinted text-white border-2 sm:border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2"
-                >
-                  <Sparkles className="w-4 h-4" />
-                  {t('modals.subscriptionRequired.viewPlans')}
-                </button>
-                <button
-                  onClick={() => setShowSubscriptionModal(false)}
-                  className="w-full text-center font-body text-gray-500 hover:text-black transition-colors py-1 text-xs"
-                >
-                  {t('modals.subscriptionRequired.laterButton')}
-                </button>
-              </div>
+              <button
+                onClick={handleSubscriptionRedirect}
+                className="w-full px-3 py-2.5 sm:py-3 bg-vinted text-white border-2 sm:border-3 border-black font-display font-bold text-xs sm:text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 flex items-center justify-center gap-2"
+              >
+                <Sparkles className="w-4 h-4" />
+                {t('modals.subscriptionRequired.viewPlans')}
+              </button>
             </div>
           </div>
         </div>

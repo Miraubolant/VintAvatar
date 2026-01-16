@@ -14,6 +14,8 @@ import './lib/i18n';
 
 // Lazy loading pour améliorer les performances
 const BeforeAfterSection = React.lazy(() => import('./components/BeforeAfterSection').then(module => ({ default: module.BeforeAfterSection })));
+const GalleryCTA = React.lazy(() => import('./components/GalleryCTA').then(module => ({ default: module.GalleryCTA })));
+const GenerateCTA = React.lazy(() => import('./components/GenerateCTA').then(module => ({ default: module.GenerateCTA })));
 const TestimonialsSection = React.lazy(() => import('./components/TestimonialsSection').then(module => ({ default: module.TestimonialsSection })));
 const FAQSection = React.lazy(() => import('./components/FAQSection').then(module => ({ default: module.FAQSection })));
 const PricingSection = React.lazy(() => import('./components/PricingSection').then(module => ({ default: module.PricingSection })));
@@ -213,10 +215,16 @@ function HomePage() {
         <PricingSection />
       </Suspense>
       <Suspense fallback={<LoadingComponent />}>
+        <GalleryCTA />
+      </Suspense>
+      <Suspense fallback={<LoadingComponent />}>
         <TestimonialsSection />
       </Suspense>
       <Suspense fallback={<LoadingComponent />}>
         <BlogSection />
+      </Suspense>
+      <Suspense fallback={<LoadingComponent />}>
+        <GenerateCTA />
       </Suspense>
     </>
   );

@@ -298,12 +298,7 @@ export const Header: React.FC = () => {
                   <button
                     key={link.href}
                     onClick={() => handleNavClick(link.href, link.isRoute)}
-                    className={`group flex items-center gap-3 p-3 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 transform ${
-                      mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                    }`}
-                    style={{
-                      transitionDelay: mobileMenuOpen ? `${index * 50}ms` : '0ms'
-                    }}
+                    className="group flex items-center gap-3 p-3 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
                   >
                     <div className={`w-11 h-11 ${iconBgColor} border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-3 group-hover:rotate-0 transition-transform duration-200 flex-shrink-0`}>
                       <IconComponent className={`w-5 h-5 ${isVinted ? 'text-white' : 'text-black'}`} />
@@ -329,12 +324,7 @@ export const Header: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className={`group flex items-center gap-4 w-full p-4 bg-black text-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-gray-900 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 transform ${
-                mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-              }`}
-              style={{
-                transitionDelay: mobileMenuOpen ? `${allMobileLinks.length * 50 + 50}ms` : '0ms'
-              }}
+              className="group flex items-center gap-4 w-full p-4 bg-vinted text-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-vinted/90 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
             >
               <div className="w-12 h-12 bg-white border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-3 group-hover:rotate-0 transition-transform duration-200">
                 <TikTokIcon className="w-6 h-6 text-black" />
@@ -343,8 +333,8 @@ export const Header: React.FC = () => {
                 <span className="font-display font-bold text-base uppercase tracking-wide block">Suis-nous sur TikTok</span>
                 <span className="font-body text-white/70 text-xs">@vintdress.com</span>
               </div>
-              <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center transform rotate-12">
-                <ChevronDown className="w-4 h-4 text-white transform -rotate-90" />
+              <div className="w-8 h-8 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <ChevronDown className="w-4 h-4 text-black transform -rotate-90" />
               </div>
             </a>
 

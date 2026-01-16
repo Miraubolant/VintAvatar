@@ -193,59 +193,39 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
             </div>
 
             {/* ===== VINTBOOST SPONSORED SECTION (Beige background) ===== */}
-            <div className="p-2.5 sm:p-4 border-t-2 sm:border-t-0 sm:border-l-3 border-black sm:w-[380px]" style={{ backgroundColor: '#E8DFD5' }}>
-              {/* Header + Badge */}
-              <div className="flex items-center justify-between gap-2 mb-2">
-                <div className="flex items-center gap-1">
-                  <Video className="w-3 h-3" style={{ color: '#1D3354' }} />
-                  <span className="font-display font-bold text-[9px] sm:text-[10px] uppercase tracking-wider" style={{ color: '#1D3354' }}>
-                    Sponsorisé par VintBoost.com
-                  </span>
-                </div>
+            <div className="p-3 sm:p-4 border-t-2 sm:border-t-0 sm:border-l-3 border-black sm:w-[280px] flex flex-col justify-center" style={{ backgroundColor: '#E8DFD5' }}>
+              {/* Sponsored badge */}
+              <div className="flex items-center justify-center gap-1.5 mb-2">
+                <Video className="w-3 h-3 sm:w-3.5 sm:h-3.5" style={{ color: '#1D3354' }} />
+                <span className="font-body text-[9px] sm:text-[10px] uppercase tracking-wider" style={{ color: '#1D3354' }}>
+                  Sponsorisé
+                </span>
+              </div>
+
+              {/* Logo / Title */}
+              <div className="text-center mb-2">
                 <span
-                  className="inline-block border-2 border-black px-1.5 py-0.5 font-display font-bold text-[9px] text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                  className="inline-block border-2 border-black px-2.5 py-1 font-display font-bold text-sm sm:text-base text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
                   style={{ backgroundColor: '#1D3354' }}
                 >
-                  VIDÉOS IA
+                  VINTBOOST.COM
                 </span>
               </div>
 
               {/* Description */}
-              <p className="font-body text-[10px] sm:text-xs text-center mb-2" style={{ color: '#1D3354' }}>
-                Génère des vidéos promotionnelles de tes vêtements Vinted en 30s !
+              <p className="font-body text-[11px] sm:text-xs text-center mb-3 leading-relaxed" style={{ color: '#1D3354' }}>
+                Génère des <strong>vidéos IA</strong> de tes vêtements Vinted en 30 secondes !
               </p>
-
-              {/* Images - Portrait format (1:2 ratio) */}
-              <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-2">
-                <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
-                  <div className="aspect-[9/16] sm:aspect-[9/18]">
-                    <img
-                      src="https://i.imgur.com/dVJXIvo.png"
-                      alt="VintBoost - Coller le lien Vinted"
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                </div>
-                <div className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
-                  <div className="aspect-[9/16] sm:aspect-[9/18]">
-                    <img
-                      src="https://i.imgur.com/2A2kfxz.png"
-                      alt="VintBoost - Sélection et génération"
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                </div>
-              </div>
 
               {/* CTA Button */}
               <a
                 href="https://vintboost.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5 w-full py-2 border-2 border-black font-display font-bold text-[10px] sm:text-xs text-white uppercase tracking-wide shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+                className="flex items-center justify-center gap-1.5 w-full py-2 sm:py-2.5 border-2 border-black font-display font-bold text-[11px] sm:text-xs text-white uppercase tracking-wide shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
                 style={{ backgroundColor: '#D64045' }}
               >
-                <span>Découvrir VintBoost.com</span>
+                <span>Découvrir</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>

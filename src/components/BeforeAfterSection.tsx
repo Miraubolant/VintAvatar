@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBeforeAfter } from '../hooks/useBeforeAfter';
+import { Eye, TrendingUp, Clock } from 'lucide-react';
 
 export const BeforeAfterSection: React.FC = () => {
   const { items, loading } = useBeforeAfter();
@@ -119,25 +120,41 @@ export const BeforeAfterSection: React.FC = () => {
           </div>
         )}
 
-        {/* Stats - Simple inline */}
+        {/* Stats - With icons like HeroSection */}
         <div className="flex justify-center">
           <div className="flex items-center gap-4 sm:gap-8">
-            {[
-              { value: t('stats.0.value'), label: t('stats.0.label') },
-              { value: t('stats.1.value'), label: t('stats.1.label') },
-              { value: t('stats.2.value'), label: t('stats.2.label') },
-              { value: t('stats.3.value'), label: t('stats.3.label') }
-            ].map((stat, idx, arr) => (
-              <React.Fragment key={idx}>
-                <div className="flex flex-col items-center">
-                  <span className="font-display font-bold text-base sm:text-2xl lg:text-3xl text-black">{stat.value}</span>
-                  <span className="font-body text-[9px] sm:text-[10px] lg:text-xs text-gray-500 uppercase tracking-wide text-center">{stat.label}</span>
-                </div>
-                {idx < arr.length - 1 && (
-                  <div className="w-px h-6 sm:h-8 bg-black opacity-20"></div>
-                )}
-              </React.Fragment>
-            ))}
+            {/* Stat 1 - Vues */}
+            <div className="flex flex-col items-center gap-0.5 sm:gap-1">
+              <div className="flex items-center gap-1.5">
+                <Eye className="w-4 h-4 sm:w-5 sm:h-5 text-vinted" />
+                <span className="font-display font-bold text-base sm:text-2xl lg:text-3xl text-black">{t('stats.0.value')}</span>
+              </div>
+              <span className="font-body text-[9px] sm:text-[10px] lg:text-xs text-gray-600 uppercase tracking-wide text-center">{t('stats.0.label')}</span>
+            </div>
+
+            {/* Separator */}
+            <div className="w-px h-8 sm:h-10 bg-black"></div>
+
+            {/* Stat 2 - Ventes */}
+            <div className="flex flex-col items-center gap-0.5 sm:gap-1">
+              <div className="flex items-center gap-1.5">
+                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-vinted" />
+                <span className="font-display font-bold text-base sm:text-2xl lg:text-3xl text-black">{t('stats.1.value')}</span>
+              </div>
+              <span className="font-body text-[9px] sm:text-[10px] lg:text-xs text-gray-600 uppercase tracking-wide text-center">{t('stats.1.label')}</span>
+            </div>
+
+            {/* Separator */}
+            <div className="w-px h-8 sm:h-10 bg-black"></div>
+
+            {/* Stat 3 - Temps */}
+            <div className="flex flex-col items-center gap-0.5 sm:gap-1">
+              <div className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-vinted" />
+                <span className="font-display font-bold text-base sm:text-2xl lg:text-3xl text-black">{t('stats.2.value')}</span>
+              </div>
+              <span className="font-body text-[9px] sm:text-[10px] lg:text-xs text-gray-600 uppercase tracking-wide text-center">{t('stats.2.label')}</span>
+            </div>
           </div>
         </div>
 

@@ -162,59 +162,63 @@ export const PricingSection: React.FC = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative bg-white border-3 sm:border-4 border-black p-4 sm:p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${
-                plan.popular ? 'md:scale-105 mt-6 md:mt-0' : ''
-              } ${plan.popular ? 'border-pink-pastel border-4 sm:border-6' : ''}`}
+              className={`relative border-3 sm:border-4 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 overflow-hidden ${index === 0 ? 'bg-mint' : ''} ${index === 1 ? 'bg-pink-pastel' : ''} ${index === 2 ? 'bg-vinted' : ''}`}
             >
-              {/* Badge populaire */}
-              {plan.popular && (
-                <div className="absolute -top-4 sm:-top-6 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="bg-pink-pastel text-black px-3 sm:px-6 py-1 sm:py-2 border-2 sm:border-4 border-black font-display font-bold text-[10px] sm:text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-3">
-                    {t('plans.popular.badge')}
-                  </div>
-                </div>
+              {/* Background decoration - clipped inside card */}
+              {index === 0 && (
+                <>
+                  <div className="absolute -top-3 -right-3 w-12 h-12 sm:w-16 sm:h-16 bg-white border-2 sm:border-3 border-black transform rotate-12 opacity-40 pointer-events-none"></div>
+                  <div className="absolute -bottom-3 -left-2 w-8 h-8 sm:w-12 sm:h-12 bg-vinted border-2 sm:border-3 border-black transform -rotate-6 opacity-30 pointer-events-none rounded-full"></div>
+                </>
+              )}
+              {index === 1 && (
+                <>
+                  <div className="absolute -top-4 -left-3 w-14 h-14 sm:w-18 sm:h-18 bg-white border-2 sm:border-3 border-black transform -rotate-12 opacity-40 pointer-events-none"></div>
+                  <div className="absolute -bottom-3 -right-3 w-10 h-10 sm:w-14 sm:h-14 bg-mint border-2 sm:border-3 border-black transform rotate-45 opacity-35 pointer-events-none"></div>
+                </>
+              )}
+              {index === 2 && (
+                <>
+                  <div className="absolute -top-2 -right-3 w-10 h-10 sm:w-14 sm:h-14 bg-white border-2 sm:border-3 border-black transform rotate-6 opacity-30 pointer-events-none rounded-full"></div>
+                  <div className="absolute -bottom-3 -left-3 w-12 h-12 sm:w-16 sm:h-16 bg-mint border-2 sm:border-3 border-black transform -rotate-45 opacity-35 pointer-events-none"></div>
+                </>
               )}
 
+
+              {/* Card content with padding */}
+              <div className="p-4 sm:p-6">
+
               {/* Header avec icône et nom */}
-              <div className="text-center mb-4 sm:mb-6">
-                <div className={`w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-3 border-3 sm:border-4 border-black flex items-center justify-center transform ${plan.popular ? 'rotate-6' : 'rotate-12'} shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
-                  plan.popular ? 'bg-pink-pastel' : index === 2 ? 'bg-vinted' : 'bg-mint'
-                }`}>
-                  <plan.icon className={`w-5 h-5 sm:w-7 sm:h-7 ${index === 2 ? 'text-white' : 'text-black'}`} />
+              <div className="relative text-center mb-4 sm:mb-6">
+                <div className={`w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-3 border-3 sm:border-4 border-black flex items-center justify-center transform ${plan.popular ? 'rotate-6' : 'rotate-12'} shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white`}>
+                  <plan.icon className={`w-5 h-5 sm:w-7 sm:h-7 ${index === 0 ? 'text-green-600' : index === 1 ? 'text-pink-500' : 'text-vinted'}`} />
                 </div>
-                <h3 className="font-display font-bold text-base sm:text-xl text-black">{plan.name}</h3>
+                <h3 className={`font-display font-bold text-base sm:text-xl ${index === 2 ? 'text-white' : 'text-black'}`}>{plan.name}</h3>
               </div>
 
               {/* Prix en vedette */}
-              <div className={`mb-4 sm:mb-6 p-3 sm:p-5 border-3 sm:border-4 border-black bg-cream shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}>
+              <div className="relative mb-4 sm:mb-6 p-3 sm:p-5 border-3 sm:border-4 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <div className="text-center">
-                  <div className="font-display font-bold text-2xl sm:text-3xl text-black mb-1">
+                  <div className={`font-display font-bold text-2xl sm:text-3xl mb-1 ${index === 0 ? 'text-green-600' : index === 1 ? 'text-pink-500' : 'text-vinted'}`}>
                     {plan.price}
                   </div>
                   <div className="font-display font-bold text-[10px] sm:text-sm text-black uppercase">
                     {plan.period ? plan.period : t('common.oneTimePayment', 'Paiement unique')}
                   </div>
-                  {plan.popular && (
-                    <div className="mt-1.5 sm:mt-2 px-2 sm:px-3 py-0.5 sm:py-1 bg-pink-pastel text-black border-2 border-black font-display font-bold text-[9px] sm:text-xs inline-block transform rotate-2">
-                      {t('common.bestValue', 'MEILLEURE VALEUR')}
-                    </div>
-                  )}
                 </div>
               </div>
 
               {/* Fonctionnalités avec style amélioré */}
-              <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+              <ul className="relative space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                 {plan.features.map((feature, featureIndex) => (
                   <li
                     key={featureIndex}
                     className="flex items-start gap-2 sm:gap-3"
                   >
-                    <div className={`w-5 h-5 sm:w-6 sm:h-6 border-2 sm:border-3 border-black flex items-center justify-center flex-shrink-0 transform rotate-12 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] sm:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${
-                      plan.popular ? 'bg-pink-pastel' : index === 2 ? 'bg-vinted' : 'bg-mint'
-                    }`}>
-                      <Check className={`w-3 h-3 sm:w-4 sm:h-4 ${index === 2 ? 'text-white' : 'text-black'}`} />
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 sm:border-3 border-black flex items-center justify-center flex-shrink-0 transform rotate-12 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] sm:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-white">
+                      <Check className={`w-3 h-3 sm:w-4 sm:h-4 ${index === 0 ? 'text-green-600' : index === 1 ? 'text-pink-500' : 'text-vinted'}`} />
                     </div>
-                    <span className="font-body font-semibold text-xs sm:text-sm text-black leading-snug">{feature}</span>
+                    <span className={`font-body font-semibold text-xs sm:text-sm leading-snug ${index === 2 ? 'text-white' : 'text-black'}`}>{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -228,8 +232,8 @@ export const PricingSection: React.FC = () => {
                 onMouseEnter={() => {
                   if (plan.popular) handleStopPulsePopular();
                 }}
-                className={`w-full px-4 sm:px-6 py-2.5 sm:py-3 border-3 sm:border-4 border-black font-display font-bold text-sm sm:text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform ${
-                  plan.popular ? 'bg-pink-pastel text-black scale-105' : index === 2 ? 'bg-vinted text-white' : 'bg-mint text-black'
+                className={`relative w-full px-4 sm:px-6 py-2.5 sm:py-3 border-3 sm:border-4 border-black font-display font-bold text-sm sm:text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform bg-white ${
+                  index === 0 ? 'text-green-600' : index === 1 ? 'text-pink-500' : 'text-vinted'
                 } ${plan.popular && shouldPulsePopular ? 'animate-pulse-3' : ''}`}
               >
                 <span className="flex items-center justify-center gap-2 sm:gap-3">
@@ -237,6 +241,7 @@ export const PricingSection: React.FC = () => {
                   {plan.popular ? t('plans.popular.button') : plan.name.includes('ABONNEMENT') ? t('plans.unlimited.button') : t('plans.test.button')}
                 </span>
               </button>
+              </div>
             </div>
           ))}
         </div>
