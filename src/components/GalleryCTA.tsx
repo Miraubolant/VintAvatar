@@ -1,9 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Images, ArrowRight, Sparkles } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+
+interface GalleryPreviewItem {
+  id: string;
+  original_image_url: string;
+  generated_image_url: string;
+}
 
 export const GalleryCTA: React.FC = () => {
   const navigate = useNavigate();
+  const [previewImages, setPreviewImages] = useState<GalleryPreviewItem[]>([]);
+
+  // Fetch 5 latest public gallery images
+  useEffect(() => {
+    const fetchLatestImages = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('usage_tracking')
+          .select('id, metadata')
+          .eq('is_public', true)
+          .eq('generation_type', 'avatar')
+          .order('created_at', { ascending: false })
+          .limit(5);
+
+        if (error) throw error;
+
+        const images: GalleryPreviewItem[] = (data || [])
+          .map(item => ({
+            id: item.id,
+            original_image_url: item.metadata?.original_image_url || '',
+            generated_image_url: item.metadata?.generated_image_url || '',
+          }))
+          .filter(item => item.generated_image_url && item.original_image_url);
+
+        setPreviewImages(images);
+      } catch (err) {
+        console.error('Error fetching gallery preview:', err);
+      }
+    };
+
+    fetchLatestImages();
+  }, []);
 
   return (
     <section className="relative py-12 sm:py-16 bg-grain overflow-hidden">
@@ -49,23 +88,52 @@ export const GalleryCTA: React.FC = () => {
             </div>
           </div>
 
-          {/* Stats mini */}
-          <div className="relative mt-6 pt-6 border-t-2 border-black/20 flex justify-center gap-8 sm:gap-12">
-            <div className="text-center">
-              <span className="font-display font-bold text-lg sm:text-xl text-black">30 sec</span>
-              <span className="font-body text-[10px] sm:text-xs text-gray-500 uppercase tracking-wide block">Génération rapide</span>
+          {/* Latest Gallery Before/After Preview */}
+          {previewImages.length > 0 && (
+            <div className="relative mt-6 pt-6 border-t-2 border-black/20">
+              <div className="flex justify-center gap-3 sm:gap-4">
+                {previewImages.slice(0, 4).map((item, index) => (
+                  <div
+                    key={item.id}
+                    className={`relative border-2 border-black rounded-lg overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-white ${index >= 2 ? 'hidden sm:flex' : 'flex'}`}
+                  >
+                    <div className="flex w-40 h-32 sm:w-52 sm:h-40">
+                      {/* Before */}
+                      <div className="w-1/2 h-full relative">
+                        <img
+                          src={item.original_image_url}
+                          alt="Avant"
+                          width={80}
+                          height={112}
+                          className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                        />
+                        <span className="absolute bottom-1 left-1 px-2 py-0.5 bg-pink-pastel border border-black text-[8px] sm:text-[10px] font-display font-bold">
+                          Avant
+                        </span>
+                      </div>
+                      {/* Separator */}
+                      <div className="w-0.5 bg-black"></div>
+                      {/* After */}
+                      <div className="w-1/2 h-full relative">
+                        <img
+                          src={item.generated_image_url}
+                          alt="Après IA"
+                          width={80}
+                          height={112}
+                          className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                        />
+                        <span className="absolute bottom-1 right-1 px-2 py-0.5 bg-mint border border-black text-[8px] sm:text-[10px] font-display font-bold">
+                          Après
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="w-px h-10 bg-black"></div>
-            <div className="text-center">
-              <span className="font-display font-bold text-lg sm:text-xl text-black">100%</span>
-              <span className="font-body text-[10px] sm:text-xs text-gray-500 uppercase tracking-wide block">Gratuit à voir</span>
-            </div>
-            <div className="w-px h-10 bg-black"></div>
-            <div className="text-center">
-              <span className="font-display font-bold text-lg sm:text-xl text-black">+1</span>
-              <span className="font-body text-[10px] sm:text-xs text-gray-500 uppercase tracking-wide block">Crédit si tu partages</span>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </section>

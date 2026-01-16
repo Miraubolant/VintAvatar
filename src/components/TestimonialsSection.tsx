@@ -68,6 +68,73 @@ export const TestimonialsSection: React.FC = () => {
           ))}
         </div>
 
+        {/* Social Proof CTA */}
+        <div className="mt-6 sm:mt-8 flex justify-center">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 bg-white border-3 border-black px-4 sm:px-6 py-3 sm:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            {/* Profile Pictures */}
+            <div className="flex -space-x-3">
+              <img
+                src="https://randomuser.me/api/portraits/women/44.jpg"
+                alt="Vendeur Vinted"
+                width={40}
+                height={40}
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-black object-cover"
+                loading="lazy"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                alt="Vendeur Vinted"
+                width={40}
+                height={40}
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-black object-cover"
+                loading="lazy"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/women/68.jpg"
+                alt="Vendeur Vinted"
+                width={40}
+                height={40}
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-black object-cover"
+                loading="lazy"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/men/75.jpg"
+                alt="Vendeur Vinted"
+                width={40}
+                height={40}
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-black object-cover"
+                loading="lazy"
+              />
+              <img
+                src="https://randomuser.me/api/portraits/women/90.jpg"
+                alt="Vendeur Vinted"
+                width={40}
+                height={40}
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-black object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Rating and Text */}
+            <div className="flex flex-col items-center sm:items-start gap-0.5">
+              <div className="flex items-center gap-1.5">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${i < 4 ? 'text-vinted fill-vinted' : 'text-vinted fill-vinted/70'}`}
+                    />
+                  ))}
+                </div>
+                <span className="font-display font-bold text-sm sm:text-base text-black">4,7/5</span>
+              </div>
+              <span className="font-body font-semibold text-xs sm:text-sm text-gray-700">
+                {t('socialProof', { defaultValue: '+700 vendeurs Vinted satisfaits' })}
+              </span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

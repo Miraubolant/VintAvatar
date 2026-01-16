@@ -43,6 +43,7 @@ This is a React TypeScript application built with Vite, focusing on a Vinted-rel
 - **Backend Services**: Supabase integration (@supabase/supabase-js)
 - **Payments**: Stripe integration (@stripe/stripe-js)
 - **Routing**: React Router DOM
+- **Profile Pictures**: randomuser.me (free API for realistic avatars)
 
 ### Key Components Structure
 - `App.tsx` - Main application component with React Router setup
