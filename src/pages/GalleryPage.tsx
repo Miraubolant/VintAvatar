@@ -157,9 +157,48 @@ export const GalleryPage: React.FC = () => {
             </div>
 
             {/* Filter Section */}
-            <div className="bg-white border-4 border-black p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-8">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <div className="flex items-center gap-2">
+            <div className="bg-white border-4 border-black p-3 sm:p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-8">
+              {/* Mobile: Compact header with select */}
+              <div className="sm:hidden">
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <div className="flex items-center gap-2">
+                    <Filter className="w-4 h-4 text-vinted" />
+                    <span className="font-display font-bold text-xs">
+                      {t('filterBy', 'FILTRER')}
+                    </span>
+                  </div>
+                  {filter !== 'all' && (
+                    <button
+                      onClick={() => setFilter('all')}
+                      className="px-2 py-1 bg-pink-pastel border-2 border-black font-display font-bold text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+                    >
+                      TOUT VOIR
+                    </button>
+                  )}
+                </div>
+                {/* Horizontal scroll filter buttons */}
+                <div className="overflow-x-auto -mx-3 px-3 pb-2 scrollbar-hide">
+                  <div className="flex gap-2 w-max">
+                    {CLOTHING_TYPES.map((type) => (
+                      <button
+                        key={type.value}
+                        onClick={() => setFilter(type.value)}
+                        className={`px-2.5 py-1 border-2 border-black font-display font-bold text-[10px] whitespace-nowrap shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 ${
+                          filter === type.value
+                            ? 'bg-vinted text-white translate-x-[1px] translate-y-[1px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]'
+                            : 'bg-cream'
+                        }`}
+                      >
+                        {type.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop: Original layout */}
+              <div className="hidden sm:flex flex-row items-center gap-4">
+                <div className="flex items-center gap-2 flex-shrink-0">
                   <Filter className="w-5 h-5 text-vinted" />
                   <span className="font-display font-bold text-sm">
                     {t('filterBy', 'FILTRER PAR TYPE')}
