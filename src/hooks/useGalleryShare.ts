@@ -163,8 +163,9 @@ export const useGalleryShare = (): UseGalleryShareResult => {
       // 5. Trigger confetti celebration
       triggerConfetti();
 
-      // 6. Dispatch event to refresh subscription data
+      // 6. Dispatch events to refresh data
       window.dispatchEvent(new Event('subscription-updated'));
+      window.dispatchEvent(new Event('gallery-updated'));
 
       return true;
     } catch (err) {

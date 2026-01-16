@@ -39,12 +39,12 @@ export const GalleryPage: React.FC = () => {
 
   // SEO
   useSEO({
-    title: 'Galerie VintDress - Photos de vetements Vinted avec mannequin IA',
-    description: 'Decouvrez notre galerie de photos Vinted ameliorees par IA. Des centaines d\'exemples de vetements portes par des mannequins virtuels pour booster vos ventes.',
-    keywords: 'galerie vinted, photos vetements, mannequin IA, exemples photos vinted, vendre sur vinted, photos professionnelles vinted',
+    title: 'Galerie VintDress - Photos de vêtements Vinted avec mannequin IA',
+    description: 'Découvrez notre galerie de photos Vinted améliorées par IA. Des centaines d\'exemples de vêtements portés par des mannequins virtuels pour booster vos ventes.',
+    keywords: 'galerie vinted, photos vêtements, mannequin IA, exemples photos vinted, vendre sur vinted, photos professionnelles vinted',
     canonical: `${SITE_CONFIG.url}/galerie`,
     ogTitle: 'Galerie VintDress - Photos Vinted avec mannequin IA',
-    ogDescription: 'Explorez des centaines de photos de vetements Vinted transformees par notre IA. Inspirez-vous pour vos propres annonces !',
+    ogDescription: 'Explorez des centaines de photos de vêtements Vinted transformées par notre IA. Inspirez-vous pour vos propres annonces !',
     ogType: 'website',
     ogImage: SITE_CONFIG.defaultImage,
   });
@@ -54,40 +54,54 @@ export const GalleryPage: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Fetch gallery items
+  // Fetch gallery items function
+  const fetchGalleryItems = async () => {
+    try {
+      setLoading(true);
+
+      const query = supabase
+        .from('usage_tracking')
+        .select('id, created_at, metadata')
+        .eq('is_public', true)
+        .eq('generation_type', 'avatar')
+        .order('created_at', { ascending: false })
+        .limit(100);
+
+      const { data, error } = await query;
+
+      if (error) throw error;
+
+      const galleryItems: GalleryItem[] = (data || []).map(item => ({
+        id: item.id,
+        created_at: item.created_at,
+        generated_image_url: item.metadata?.generated_image_url || '',
+        clothing_type: item.metadata?.generation_config?.clothingType || 'autre',
+      })).filter(item => item.generated_image_url);
+
+      setItems(galleryItems);
+    } catch (err) {
+      console.error('Error fetching gallery:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Initial fetch
   useEffect(() => {
-    const fetchGalleryItems = async () => {
-      try {
-        setLoading(true);
+    fetchGalleryItems();
+  }, []);
 
-        let query = supabase
-          .from('usage_tracking')
-          .select('id, created_at, metadata')
-          .eq('is_public', true)
-          .eq('generation_type', 'avatar')
-          .order('created_at', { ascending: false })
-          .limit(100);
-
-        const { data, error } = await query;
-
-        if (error) throw error;
-
-        const galleryItems: GalleryItem[] = (data || []).map(item => ({
-          id: item.id,
-          created_at: item.created_at,
-          generated_image_url: item.metadata?.generated_image_url || '',
-          clothing_type: item.metadata?.generation_config?.clothingType || 'autre',
-        })).filter(item => item.generated_image_url);
-
-        setItems(galleryItems);
-      } catch (err) {
-        console.error('Error fetching gallery:', err);
-      } finally {
-        setLoading(false);
-      }
+  // Listen for gallery updates (when someone shares)
+  useEffect(() => {
+    const handleGalleryUpdate = () => {
+      fetchGalleryItems();
     };
 
-    fetchGalleryItems();
+    window.addEventListener('gallery-updated', handleGalleryUpdate);
+
+    return () => {
+      window.removeEventListener('gallery-updated', handleGalleryUpdate);
+    };
   }, []);
 
   // Filter items by clothing type
@@ -132,7 +146,7 @@ export const GalleryPage: React.FC = () => {
               </div>
 
               <p className="font-body text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
-                {t('subtitle', 'Decouvrez les creations de notre communaute ! Des centaines de photos de vetements Vinted transformees par notre IA.')}
+                {t('subtitle', 'Découvrez les créations de notre communauté ! Des centaines de photos de vêtements Vinted transformées par notre IA.')}
               </p>
             </div>
 
@@ -199,8 +213,8 @@ export const GalleryPage: React.FC = () => {
                 </h2>
                 <p className="font-body text-gray-600 mb-6">
                   {filter !== 'all'
-                    ? t('empty.filtered', 'Aucune photo dans cette categorie pour le moment.')
-                    : t('empty.noPhotos', 'La galerie est vide pour le moment. Soyez le premier a partager !')
+                    ? t('empty.filtered', 'Aucune photo dans cette catégorie pour le moment.')
+                    : t('empty.noPhotos', 'La galerie est vide pour le moment. Soyez le premier à partager !')
                   }
                 </p>
                 <button
@@ -245,17 +259,17 @@ export const GalleryPage: React.FC = () => {
           {/* SEO Content */}
           <div className="mt-16 bg-white border-4 border-black p-6 sm:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             <h2 className="font-display font-bold text-xl sm:text-2xl mb-4">
-              {t('seo.title', 'Photos de vetements Vinted avec mannequin IA')}
+              {t('seo.title', 'Photos de vêtements Vinted avec mannequin IA')}
             </h2>
             <div className="font-body text-gray-700 space-y-4 text-sm sm:text-base">
               <p>
-                {t('seo.p1', 'Bienvenue dans la galerie communautaire de VintDress ! Ici, vous pouvez decouvrir des centaines d\'exemples de photos de vetements Vinted transformees par notre intelligence artificielle.')}
+                {t('seo.p1', 'Bienvenue dans la galerie communautaire de VintDress ! Ici, vous pouvez découvrir des centaines d\'exemples de photos de vêtements Vinted transformées par notre intelligence artificielle.')}
               </p>
               <p>
-                {t('seo.p2', 'Chaque image montre un vetement porte par un mannequin virtuel genere par IA. Cette technique permet aux vendeurs Vinted d\'obtenir des photos professionnelles sans avoir besoin de mannequin reel, de photographe, ou de studio.')}
+                {t('seo.p2', 'Chaque image montre un vêtement porté par un mannequin virtuel généré par IA. Cette technique permet aux vendeurs Vinted d\'obtenir des photos professionnelles sans avoir besoin de mannequin réel, de photographe, ou de studio.')}
               </p>
               <p>
-                {t('seo.p3', 'Les photos avec mannequin augmentent significativement les ventes sur Vinted car elles permettent aux acheteurs de mieux visualiser comment le vetement tombe une fois porte. Inspirez-vous de ces exemples pour creer vos propres photos !')}
+                {t('seo.p3', 'Les photos avec mannequin augmentent significativement les ventes sur Vinted car elles permettent aux acheteurs de mieux visualiser comment le vêtement tombe une fois porté. Inspirez-vous de ces exemples pour créer vos propres photos !')}
               </p>
             </div>
 
