@@ -193,7 +193,7 @@ export const GenerationLoadingModal: React.FC<GenerationLoadingModalProps> = ({ 
             </div>
 
             {/* ===== VINTBOOST SPONSORED SECTION (Beige background) ===== */}
-            <div className="p-3 sm:p-4 border-t-2 sm:border-t-0 sm:border-l-3 border-black sm:w-[280px] flex flex-col justify-center" style={{ backgroundColor: '#E8DFD5' }}>
+            <div className="bg-white p-3 sm:p-4 border-t-2 sm:border-t-0 sm:border-l-3 border-black sm:w-[280px] flex flex-col justify-center">
               {/* Sponsored badge */}
               <div className="flex items-center justify-center gap-1.5 mb-2">
                 <Video className="w-3 h-3 sm:w-3.5 sm:h-3.5" style={{ color: '#1D3354' }} />
