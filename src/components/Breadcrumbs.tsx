@@ -147,7 +147,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ customItems }) => {
   }
 
   return (
-    <nav aria-label="Breadcrumbs" className="bg-white border-b-2 border-black">
+    <nav aria-label="Breadcrumbs" className="bg-transparent border-b-2 border-black/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <ol className="flex items-center space-x-2 text-sm font-body">
           {breadcrumbs.map((crumb, index) => {

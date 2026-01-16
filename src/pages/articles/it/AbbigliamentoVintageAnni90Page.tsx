@@ -13,7 +13,7 @@ export default function AbbigliamentoVintageAnni90Page() {
   });
 
   return (
-    <main className="min-h-screen bg-cream">
+    <main className="min-h-screen bg-grain">
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-pink-pastel/30 via-cream to-mint/30"></div>

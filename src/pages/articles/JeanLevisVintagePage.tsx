@@ -14,7 +14,7 @@ export default function JeanLevisVintagePage() {
   });
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-grain">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         {/* Breadcrumb */}
         <nav className="mb-8">

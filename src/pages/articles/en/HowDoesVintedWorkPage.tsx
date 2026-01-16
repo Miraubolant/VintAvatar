@@ -12,7 +12,7 @@ export const HowDoesVintedWorkPage: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-grain">
       {/* Hero Image */}
       <div className="relative h-[300px] md:h-[400px] border-b-4 border-black overflow-hidden">
         <img

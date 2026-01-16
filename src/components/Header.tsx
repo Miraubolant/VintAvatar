@@ -14,16 +14,49 @@ const TikTokIcon: React.FC<{ className?: string }> = ({ className }) => (
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [stickyDropdownOpen, setStickyDropdownOpen] = useState(false);
+  const [showDesktopHeader, setShowDesktopHeader] = useState(true);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const stickyDropdownRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation('header');
+
+  // Handle scroll for desktop header visibility
+  // Hide when scrolling up, show only when at top of page
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const isAtTop = currentScrollY < 50;
+      const isScrollingUp = currentScrollY < lastScrollY.current;
+
+      if (isAtTop) {
+        // At top of page: always show header
+        setShowDesktopHeader(true);
+      } else if (isScrollingUp) {
+        // Scrolling up but not at top: hide header
+        setShowDesktopHeader(false);
+      } else {
+        // Scrolling down: show header
+        setShowDesktopHeader(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setDropdownOpen(false);
+      }
+      if (stickyDropdownRef.current && !stickyDropdownRef.current.contains(event.target as Node)) {
+        setStickyDropdownOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -87,9 +120,13 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[9999] bg-white border-b-4 border-black">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
+    <>
+    {/* Mobile/Tablet Header - Only visible on mobile/tablet */}
+    <header className="fixed top-0 left-0 right-0 z-[9999] lg:hidden">
+      {/* Main Header Bar */}
+      <div className="bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
 
           {/* Logo Neo-Brutalism Pastel */}
           <button
@@ -192,7 +229,7 @@ export const Header: React.FC = () => {
             </button>
           </div>
         </div>
-
+        </div>
       </div>
 
       {/* Mobile Menu Overlay - Bottom Sheet Neo-Brutalism */}
@@ -203,7 +240,7 @@ export const Header: React.FC = () => {
       >
         {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${
+          className={`absolute inset-0 bg-black/60 transition-opacity duration-300 ${
             mobileMenuOpen ? 'opacity-100' : 'opacity-0'
           }`}
           onClick={() => setMobileMenuOpen(false)}
@@ -214,47 +251,64 @@ export const Header: React.FC = () => {
           className={`absolute bottom-0 left-0 right-0 bg-cream border-t-4 border-black transform transition-transform duration-300 ease-out overflow-hidden ${
             mobileMenuOpen ? 'translate-y-0' : 'translate-y-full'
           }`}
-          style={{ maxHeight: '80vh' }}
+          style={{ maxHeight: '85vh' }}
         >
-          {/* Menu Header - Vinted Style */}
-          <div className="bg-vinted border-b-4 border-black px-4 py-4">
-            <div className="flex items-center justify-between">
+          {/* Handle Bar */}
+          <div className="flex justify-center pt-3 pb-1">
+            <div className="w-12 h-1.5 bg-black/30 rounded-full"></div>
+          </div>
+
+          {/* Menu Header - Neo-Brutalism Style */}
+          <div className="relative bg-vinted border-b-4 border-black px-4 py-3 overflow-hidden">
+            {/* Decorative shapes */}
+            <div className="absolute -top-2 -right-2 w-12 h-12 bg-pink-pastel border-3 border-black transform rotate-12 opacity-60"></div>
+            <div className="absolute -bottom-3 right-16 w-8 h-8 bg-mint border-2 border-black transform -rotate-6 opacity-50"></div>
+
+            <div className="relative flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-white border-3 border-black flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                <div className="w-11 h-11 bg-white border-3 border-black flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-3">
                   <Sparkles className="w-5 h-5 text-vinted" />
                 </div>
-                <span className="font-display font-bold text-white text-xl uppercase tracking-wide">Menu</span>
+                <div>
+                  <span className="font-display font-bold text-white text-lg uppercase tracking-wide block">Navigation</span>
+                  <span className="font-body text-white/80 text-xs">Explore VintDress</span>
+                </div>
               </div>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2.5 bg-red-500 border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+                className="p-2 bg-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-pink-pastel active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
               >
-                <X className="w-5 h-5 text-white" />
+                <X className="w-5 h-5 text-black" />
               </button>
             </div>
           </div>
 
           {/* Scrollable Content */}
-          <div className="overflow-y-auto p-4" style={{ maxHeight: 'calc(80vh - 80px)' }}>
-            {/* Navigation Grid - 3 columns for better readability */}
-            <div className="grid grid-cols-3 gap-3 mb-4">
+          <div className="overflow-y-auto px-4 pt-4 pb-6" style={{ maxHeight: 'calc(85vh - 100px)' }}>
+            {/* Navigation Grid - 2x4 layout for better touch targets */}
+            <div className="grid grid-cols-2 gap-3 mb-5">
               {allMobileLinks.map((link, index) => {
                 const IconComponent = link.icon;
+                // Alternate colors for visual interest
+                const bgColors = ['bg-mint', 'bg-pink-pastel', 'bg-vinted', 'bg-white'];
+                const iconBgColor = bgColors[index % 4];
+                const isVinted = iconBgColor === 'bg-vinted';
+
                 return (
                   <button
                     key={link.href}
                     onClick={() => handleNavClick(link.href, link.isRoute)}
-                    className={`flex flex-col items-center gap-2 p-4 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-vinted hover:text-white active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 transform ${
+                    className={`group flex items-center gap-3 p-3 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 transform ${
                       mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                     }`}
                     style={{
-                      transitionDelay: mobileMenuOpen ? `${index * 40}ms` : '0ms'
+                      transitionDelay: mobileMenuOpen ? `${index * 50}ms` : '0ms'
                     }}
                   >
-                    <div className="w-12 h-12 bg-mint border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                      <IconComponent className="w-6 h-6" />
+                    <div className={`w-11 h-11 ${iconBgColor} border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-3 group-hover:rotate-0 transition-transform duration-200 flex-shrink-0`}>
+                      <IconComponent className={`w-5 h-5 ${isVinted ? 'text-white' : 'text-black'}`} />
                     </div>
-                    <span className="font-display font-bold text-xs uppercase tracking-wide text-center leading-tight">
+                    <span className="font-display font-bold text-sm uppercase tracking-wide text-left leading-tight text-black">
                       {link.label}
                     </span>
                   </button>
@@ -262,39 +316,156 @@ export const Header: React.FC = () => {
               })}
             </div>
 
-            {/* TikTok Section */}
+            {/* Separator with decoration */}
+            <div className="flex items-center gap-3 mb-5">
+              <div className="flex-1 h-0.5 bg-black/20"></div>
+              <div className="w-3 h-3 bg-vinted border-2 border-black transform rotate-45"></div>
+              <div className="flex-1 h-0.5 bg-black/20"></div>
+            </div>
+
+            {/* TikTok Section - Enhanced */}
             <a
               href="https://www.tiktok.com/@vintdress.com"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className={`flex items-center justify-center gap-3 w-full px-4 py-4 bg-black text-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-vinted active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 transform ${
+              className={`group flex items-center gap-4 w-full p-4 bg-black text-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-gray-900 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 transform ${
                 mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
               }`}
               style={{
-                transitionDelay: mobileMenuOpen ? `${allMobileLinks.length * 40}ms` : '0ms'
+                transitionDelay: mobileMenuOpen ? `${allMobileLinks.length * 50 + 50}ms` : '0ms'
               }}
             >
-              <div className="w-10 h-10 bg-white border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                <TikTokIcon className="w-5 h-5 text-black" />
+              <div className="w-12 h-12 bg-white border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-3 group-hover:rotate-0 transition-transform duration-200">
+                <TikTokIcon className="w-6 h-6 text-black" />
               </div>
-              <span className="font-display font-bold text-sm uppercase tracking-wide">TikTok</span>
+              <div className="flex-1">
+                <span className="font-display font-bold text-base uppercase tracking-wide block">Suis-nous sur TikTok</span>
+                <span className="font-body text-white/70 text-xs">@vintdress.com</span>
+              </div>
+              <div className="w-8 h-8 bg-vinted border-2 border-black flex items-center justify-center transform rotate-12">
+                <ChevronDown className="w-4 h-4 text-white transform -rotate-90" />
+              </div>
             </a>
 
             {/* Footer Branding */}
-            <div className="flex items-center justify-center gap-2 mt-5 pt-4 border-t-3 border-black">
+            <div className="flex items-center justify-center gap-3 mt-6 pt-4 border-t-2 border-black/20">
               <div className="flex items-center gap-1">
-                <span className="inline-block bg-white border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-xs text-black">
+                <span className="inline-block bg-white border-2 border-black px-2.5 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-xs text-black transform -rotate-2">
                   VINT
                 </span>
-                <span className="inline-block bg-vinted border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-xs text-white">
+                <span className="inline-block bg-vinted border-2 border-black px-2.5 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-xs text-white transform rotate-2">
                   DRESS
                 </span>
               </div>
+              <span className="font-body text-xs text-gray-500">Avatars IA pour Vinted</span>
             </div>
           </div>
         </div>
       </div>
+
     </header>
+
+    {/* Desktop Header - Floating style, separate from mobile header */}
+    <div
+      className={`hidden lg:block fixed top-4 left-1/2 -translate-x-1/2 z-[10000] transition-all duration-300 ${
+          showDesktopHeader
+            ? 'opacity-100 translate-y-0'
+            : 'opacity-0 -translate-y-full pointer-events-none'
+        }`}
+      >
+        <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] px-3 py-2">
+          <div className="flex items-center gap-3">
+            {/* Compact Logo */}
+            <button
+              onClick={() => {
+                if (location.pathname === '/') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  navigate('/');
+                }
+              }}
+              className="flex items-center gap-1.5 group shrink-0"
+            >
+              <div className="w-9 h-9 bg-vinted border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 group-hover:rotate-0 transition-transform duration-200">
+                <Sparkles className="text-white w-4 h-4" />
+              </div>
+              <div className="flex items-center gap-0.5">
+                <span className="bg-white border-2 border-black px-1.5 py-0.5 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-xs text-black transform -rotate-1">
+                  VINT
+                </span>
+                <span className="bg-vinted border-2 border-black px-1.5 py-0.5 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-xs text-white transform rotate-1">
+                  DRESS
+                </span>
+              </div>
+            </button>
+
+            {/* Separator */}
+            <div className="w-0.5 h-8 bg-black/20"></div>
+
+            {/* Compact Navigation */}
+            <nav className="flex items-center gap-0.5">
+              {mainNavLinks.map((link) => (
+                <button
+                  key={`sticky-${link.href}`}
+                  onClick={() => handleNavClick(link.href)}
+                  className="px-2.5 py-1.5 font-display font-bold text-xs uppercase border-2 border-transparent hover:bg-vinted hover:text-white hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+                >
+                  {link.label}
+                </button>
+              ))}
+
+              {/* Sticky Dropdown */}
+              <div className="relative" ref={stickyDropdownRef}>
+                <button
+                  onClick={() => setStickyDropdownOpen(!stickyDropdownOpen)}
+                  className={`px-2.5 py-1.5 font-display font-bold text-xs uppercase border-2 flex items-center gap-1 transition-all duration-150 ${
+                    stickyDropdownOpen
+                      ? 'bg-vinted text-white border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                      : 'border-transparent hover:bg-vinted hover:text-white hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                  }`}
+                >
+                  {t('navigation.reviews')}
+                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${stickyDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {stickyDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-2 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] min-w-[140px] z-50">
+                    {dropdownLinks.map((link) => (
+                      <button
+                        key={`sticky-${link.href}`}
+                        onClick={() => {
+                          handleNavClick(link.href, link.isRoute);
+                          setStickyDropdownOpen(false);
+                        }}
+                        className="w-full text-left px-3 py-2 font-display font-bold text-xs uppercase hover:bg-vinted hover:text-white border-b-2 border-black last:border-b-0 transition-colors duration-150"
+                      >
+                        {link.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {afterDropdownLinks.map((link) => (
+                <button
+                  key={`sticky-${link.href}`}
+                  onClick={() => handleNavClick(link.href, link.isRoute)}
+                  className="px-2.5 py-1.5 font-display font-bold text-xs uppercase border-2 border-transparent hover:bg-vinted hover:text-white hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+                >
+                  {link.label}
+                </button>
+              ))}
+            </nav>
+
+            {/* Separator */}
+            <div className="w-0.5 h-8 bg-black/20"></div>
+
+            {/* Auth Button */}
+            <AuthButton compact />
+          </div>
+        </div>
+      </div>
+    </>
   );
 };

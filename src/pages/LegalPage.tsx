@@ -25,7 +25,7 @@ export const LegalPage: React.FC = () => {
   useSEO(SEO_CONFIGS.cgu);
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-grain">
       {/* Header */}
       <div className="bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

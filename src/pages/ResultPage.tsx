@@ -158,7 +158,7 @@ export const ResultPage: React.FC = () => {
   // Loading state
   if (loading) {
     return (
-      <div className="min-h-screen bg-cream flex items-center justify-center">
+      <div className="min-h-screen bg-grain flex items-center justify-center">
         <div className="bg-white border-4 border-black px-8 py-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
           <div className="flex items-center gap-4">
             <div className="w-8 h-8 bg-vinted border-2 border-black animate-pulse"></div>
@@ -172,7 +172,7 @@ export const ResultPage: React.FC = () => {
   // Error state
   if (error || !result) {
     return (
-      <div className="min-h-screen bg-cream flex items-center justify-center p-4">
+      <div className="min-h-screen bg-grain flex items-center justify-center p-4">
         <div className="bg-white border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] max-w-md w-full text-center">
           <AlertTriangle className="w-16 h-16 text-amber-500 mx-auto mb-4" />
           <h1 className="font-display font-bold text-2xl mb-4">{t('errors.title', 'OUPS !')}</h1>
@@ -191,7 +191,7 @@ export const ResultPage: React.FC = () => {
   const displayedImage = showCropped && croppedImageUrl ? croppedImageUrl : result.generated_image_url;
 
   return (
-    <div className="min-h-screen bg-cream py-8 px-4">
+    <div className="min-h-screen bg-grain py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header with back button */}
         <div className="mb-6">

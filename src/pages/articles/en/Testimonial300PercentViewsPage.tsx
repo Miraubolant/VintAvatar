@@ -11,7 +11,7 @@ export default function Testimonial300PercentViewsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-grain">
       {/* Hero Image */}
       <div className="w-full h-[400px] relative overflow-hidden">
         <img

@@ -169,6 +169,15 @@ body {
   overflow-x: hidden;
 }
 
+/* Classe utilitaire pour le fond avec texture grain - facilement activable/désactivable */
+.bg-grain {
+  background-color: rgb(250, 249, 238);
+  background-image: url("https://cdn.prod.website-files.com/6134d4b1c1599d51e79c37a7/62891be8970e44279cd4b9f3_grain.svg");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: 0px 0px;
+}
+
 #root {
   flex: 1;
   width: 100%;

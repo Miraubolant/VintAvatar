@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, HelpCircle, ImagePlus, Sparkles, Gift, Loader2, Check, Link, ImageIcon, FileSearch } from 'lucide-react';
+import { Upload, Zap, Star, Shield, Cpu, Users, X, CreditCard, Trash2, HelpCircle, ImagePlus, Sparkles, Loader2, Check, Link, ImageIcon, FileSearch } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AvatarConfigModal } from './AvatarConfigModal';
 import { GenerationLoadingModal } from './GenerationLoadingModal';
@@ -546,7 +546,7 @@ export const HeroSection: React.FC = () => {
 
 
   return (
-    <section id="hero" className="relative bg-cream overflow-hidden -mt-16 sm:-mt-20 lg:-mt-24 pt-16 sm:pt-20 lg:pt-24">
+    <section id="hero" className="relative bg-grain overflow-hidden -mt-16 sm:-mt-20 lg:-mt-24 pt-16 sm:pt-20 lg:pt-24">
       {/* Formes décoratives neo-brutalism - cachées sur mobile pour éviter débordement */}
       <div className="hidden md:block absolute top-20 left-10 w-12 h-12 bg-pink-pastel border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="hidden md:block absolute top-32 right-20 w-16 h-16 bg-mint border-4 border-black transform -rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
@@ -560,26 +560,26 @@ export const HeroSection: React.FC = () => {
           {/* Titre sur plusieurs lignes */}
           <div className="space-y-2">
             <h1 className="font-display font-semibold text-[1.75rem] xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              <div className="mb-2">
-                <span className="inline-block bg-white text-black border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+              <div className="mb-2 transform -rotate-1">
+                <span className="inline-block bg-white text-black border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   {t('title.line1')}
                 </span>
               </div>
-              <div className="mb-2">
-                <span className="inline-block bg-vinted text-white border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+              <div className="mb-2 transform rotate-1">
+                <span className="inline-block bg-vinted text-white border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   {t('title.line2')}
                 </span>
               </div>
-              <div>
-                <span className="inline-block bg-mint text-black border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+              <div className="transform -rotate-1">
+                <span className="inline-block bg-mint text-black border-2 sm:border-3 border-black px-2 sm:px-4 py-1 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   {t('title.line3')}
                 </span>
               </div>
             </h1>
           </div>
 
-          {/* Description simple */}
-          <div className="pt-4 sm:pt-6">
+          {/* Description */}
+          <div className="pt-4 sm:pt-6 flex justify-center">
             <p className="font-body text-sm sm:text-base text-gray-600">
               {t('subtitle')} <span className="text-vinted font-bold">{t('description')}</span>
             </p>
@@ -589,21 +589,6 @@ export const HeroSection: React.FC = () => {
           <div className="pt-4 sm:pt-6">
           <div className="max-w-3xl mx-auto">
             <div className="bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
-
-              {/* Bandeau promo New Year */}
-              <div className="bg-vinted border-b-3 border-black py-2.5 sm:py-3">
-                <div className="flex items-center justify-center gap-3 sm:gap-4 px-3">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 bg-pink-pastel border-2 border-black flex items-center justify-center transform rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    <Gift className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 text-black" strokeWidth={2.5} />
-                  </div>
-                  <span className="font-display font-bold text-white text-sm sm:text-base md:text-lg tracking-wide uppercase">
-                    {t('promoBanner')}
-                  </span>
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 bg-pink-pastel border-2 border-black flex items-center justify-center transform -rotate-12 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    <Gift className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 text-black" strokeWidth={2.5} />
-                  </div>
-                </div>
-              </div>
 
               <div className="p-3 sm:p-5">
               {/* Aperçu de l'image avec infos Vinted */}
@@ -883,11 +868,11 @@ export const HeroSection: React.FC = () => {
           </div>
           </div>
 
-          {/* Badge social proof amélioré */}
+          {/* Badge social proof amélioré avec animation bounce */}
           <div className="flex justify-center pt-4 sm:pt-6">
             <div className="inline-flex flex-row items-center gap-3 sm:gap-6 px-2 sm:px-4 py-2">
               {/* Note et étoiles */}
-              <div className="flex flex-col items-center gap-0.5 sm:gap-1">
+              <div className="flex flex-col items-center gap-0.5 sm:gap-1 animate-bounce-in-delay-1">
                 <div className="flex items-center gap-1 sm:gap-2">
                   <span className="font-display font-bold text-lg sm:text-3xl text-black">4.7</span>
                   <div className="flex gap-0.5">
@@ -900,10 +885,10 @@ export const HeroSection: React.FC = () => {
               </div>
 
               {/* Séparateur */}
-              <div className="w-px h-8 sm:h-10 bg-black opacity-20"></div>
+              <div className="w-px h-8 sm:h-10 bg-black opacity-20 animate-bounce-in-delay-1"></div>
 
               {/* Compteur */}
-              <div className="flex flex-col items-center gap-0.5 sm:gap-1">
+              <div className="flex flex-col items-center gap-0.5 sm:gap-1 animate-bounce-in-delay-2">
                 <span className="font-display font-bold text-lg sm:text-3xl text-black">
                   +{counterValue.toLocaleString('fr-FR')}
                 </span>
@@ -911,10 +896,10 @@ export const HeroSection: React.FC = () => {
               </div>
 
               {/* Séparateur */}
-              <div className="w-px h-8 sm:h-10 bg-black opacity-20"></div>
+              <div className="w-px h-8 sm:h-10 bg-black opacity-20 animate-bounce-in-delay-2"></div>
 
               {/* Qualité HD */}
-              <div className="flex flex-col items-center gap-0.5 sm:gap-1">
+              <div className="flex flex-col items-center gap-0.5 sm:gap-1 animate-bounce-in-delay-3">
                 <span className="font-display font-bold text-lg sm:text-3xl text-black">HD</span>
                 <span className="font-body text-[10px] sm:text-xs text-gray-600 uppercase tracking-wide">{t('socialProof.photoQuality')}</span>
               </div>

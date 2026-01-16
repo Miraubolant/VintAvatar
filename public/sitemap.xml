@@ -48,6 +48,37 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- Page Galerie communautaire -->
+  <url>
+    <loc>https://vintdress.com/galerie</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/galerie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/galerie?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/galerie?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/galerie?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/galerie"/>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://vintdress.com/og-image.jpg</image:loc>
+      <image:title>Galerie VintDress - Photos Vinted avec mannequin IA</image:title>
+      <image:caption>Découvrez des centaines de photos de vêtements Vinted transformées par notre IA</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Page Classement / Leaderboard -->
+  <url>
+    <loc>https://vintdress.com/leaderboard</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/leaderboard"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/leaderboard?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/leaderboard?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/leaderboard?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/leaderboard"/>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Page Blog listing -->
   <url>
     <loc>https://vintdress.com/blog</loc>

@@ -90,9 +90,15 @@ The project uses a modern neo-brutalism design with a carefully curated 4-color 
 
 **Color Palette:**
 - **Primary**: Vinted Blue `#09B1BA` (`bg-vinted`) - Main brand color
-- **Background**: Cream `#FFF8E7` (`bg-cream`) - Primary background for all sections
+- **Background**: Cream with Grain Texture `rgb(250, 249, 238)` (`bg-grain`) - Primary background for all sections and pages
 - **Accent 1**: Pink Pastel `#FFB3BA` (`bg-pink-pastel`) - Soft contrast elements
 - **Accent 2**: Mint Green `#B3F2DD` (`bg-mint`) - Fresh accent color
+
+**Background Texture:**
+- **Grain texture** applied via `.bg-grain` class in `src/index.css`
+- Uses SVG pattern from CDN: `https://cdn.prod.website-files.com/6134d4b1c1599d51e79c37a7/62891be8970e44279cd4b9f3_grain.svg`
+- **Easily configurable** - modify the `.bg-grain` class to change/disable texture
+- Applied to all main sections and pages for consistent visual identity
 
 **Typography:**
 - **Display Font**: Space Grotesk (headings, buttons, important text)
@@ -106,7 +112,7 @@ The project uses a modern neo-brutalism design with a carefully curated 4-color 
 - **Hover Effects**: Translate animations `hover:translate-x-[-2px] hover:translate-y-[-2px]`
 
 **Layout Consistency:**
-- All main sections use `bg-cream` background except Footer (`bg-black`)
+- All main sections and pages use `bg-grain` background (cream color + grain texture) except Footer (`bg-black`)
 - White backgrounds (`bg-white`) reserved for cards and content containers
 - Consistent spacing with `py-20 lg:py-32` for sections
 - Mobile-first responsive approach

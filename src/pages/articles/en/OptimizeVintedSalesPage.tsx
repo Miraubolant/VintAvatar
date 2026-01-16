@@ -30,7 +30,7 @@ export default function OptimizeVintedSalesPage() {
   });
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-grain">
       <article className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         {/* Header */}
         <header className="mb-12">

@@ -217,3 +217,132 @@
   animation: pulse-validate-inline 0.8s ease-in-out infinite !important;
 }
 
+/* Typewriter effect for hero description text */
+@keyframes typewriter-reveal {
+  0% {
+    max-width: 0;
+  }
+  100% {
+    max-width: 600px;
+  }
+}
+
+@keyframes blink-cursor {
+  0%, 100% {
+    border-right-color: var(--color-vinted);
+  }
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes cursor-fade {
+  to {
+    border-right-color: transparent;
+  }
+}
+
+.animate-typewriter-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid var(--color-vinted);
+  padding-right: 4px;
+  max-width: 0;
+  animation:
+    typewriter-reveal 2s steps(40, end) 0.5s forwards,
+    blink-cursor 0.6s step-end 0.5s 6,
+    cursor-fade 0.3s ease-out 4s forwards;
+}
+
+/* Responsive: keep animation on mobile but slightly faster */
+@media (max-width: 640px) {
+  .animate-typewriter-text {
+    animation:
+      typewriter-reveal 1.6s steps(35, end) 0.3s forwards,
+      blink-cursor 0.5s step-end 0.3s 5,
+      cursor-fade 0.3s ease-out 3.3s forwards;
+  }
+}
+
+/* Bounce animation for badges */
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-bounce-in {
+  opacity: 0;
+  animation: bounce-in 0.6s ease-out forwards;
+}
+
+.animate-bounce-in-delay-1 {
+  opacity: 0;
+  animation: bounce-in 0.6s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+.animate-bounce-in-delay-2 {
+  opacity: 0;
+  animation: bounce-in 0.6s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.animate-bounce-in-delay-3 {
+  opacity: 0;
+  animation: bounce-in 0.6s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+/* Fade-in on scroll animation */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.is-visible {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-on-scroll-delay-1.is-visible {
+  animation: fade-in-up 0.6s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+.animate-on-scroll-delay-2.is-visible {
+  animation: fade-in-up 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.animate-on-scroll-delay-3.is-visible {
+  animation: fade-in-up 0.6s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.animate-on-scroll-delay-4.is-visible {
+  animation: fade-in-up 0.6s ease-out forwards;
+  animation-delay: 0.4s;
+}
+

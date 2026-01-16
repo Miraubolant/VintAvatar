@@ -6,7 +6,6 @@ import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { CookieConsent } from './components/CookieConsent';
-import { Breadcrumbs } from './components/Breadcrumbs';
 import { LanguageProvider } from './components/LanguageProvider';
 import { ScrollToTopOnMount } from './components/ScrollToTopOnMount';
 import { useSEO, getHomeConfig } from './hooks/useSEO';
@@ -216,9 +215,6 @@ function HomePage() {
         <TestimonialsSection />
       </Suspense>
       <Suspense fallback={<LoadingComponent />}>
-        <FAQSection />
-      </Suspense>
-      <Suspense fallback={<LoadingComponent />}>
         <BlogSection />
       </Suspense>
     </>
@@ -230,7 +226,7 @@ function App() {
     <ErrorBoundary>
       <Router>
         <LanguageProvider>
-          <div className="min-h-screen bg-cream">
+          <div className="min-h-screen bg-grain">
             {/* Skip to main content - Accessibility */}
             <a
               href="#main-content"
@@ -240,7 +236,6 @@ function App() {
             </a>
             <ScrollToTopOnMount />
             <Header />
-            <Breadcrumbs />
             <main id="main-content" role="main" className="pt-16 sm:pt-20 lg:pt-24">
               <Routes>
               <Route path="/" element={<HomePage />} />

@@ -103,7 +103,7 @@ export const GalleryPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cream py-8 px-4">
+    <div className="min-h-screen bg-grain py-8 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-8">
@@ -269,13 +269,20 @@ export const GalleryPage: React.FC = () => {
         {/* Lightbox Modal */}
         {selectedImage && (
           <div
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-2 sm:p-4"
             onClick={() => setSelectedImage(null)}
           >
             <div
-              className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-4xl w-full max-h-[90vh] overflow-auto"
+              className="bg-white border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] w-full max-w-[95vw] sm:max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-auto"
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Close button - Mobile */}
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-3 right-3 sm:hidden z-10 w-8 h-8 bg-black text-white border-2 border-black font-display font-bold text-sm shadow-[2px_2px_0px_0px_rgba(255,255,255,0.3)] flex items-center justify-center"
+              >
+                ✕
+              </button>
               {/* Before/After Images */}
               <div className="flex flex-col sm:flex-row">
                 {/* Before - Original */}
@@ -284,54 +291,54 @@ export const GalleryPage: React.FC = () => {
                     <img
                       src={selectedImage.original_image_url}
                       alt={`Original - ${selectedImage.title || selectedImage.clothing_type}`}
-                      className="w-full h-auto max-h-[50vh] sm:max-h-[60vh] object-contain bg-gray-100"
+                      className="w-full h-auto max-h-[35vh] sm:max-h-[55vh] object-contain bg-gray-100"
                     />
-                    <div className="absolute top-3 left-3 bg-black text-white px-3 py-1 text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(255,255,255,0.3)]">
+                    <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-black text-white px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(255,255,255,0.3)]">
                       AVANT
                     </div>
                   </div>
                 )}
                 {/* After - Generated */}
-                <div className={selectedImage.original_image_url ? "sm:w-1/2 relative sm:border-l-4 border-t-4 sm:border-t-0 border-black" : "w-full relative"}>
+                <div className={selectedImage.original_image_url ? "sm:w-1/2 relative sm:border-l-4 border-t-2 sm:border-t-0 border-black" : "w-full relative"}>
                   <img
                     src={selectedImage.generated_image_url}
                     alt={`Avatar IA - ${selectedImage.title || selectedImage.clothing_type}`}
-                    className="w-full h-auto max-h-[50vh] sm:max-h-[60vh] object-contain bg-gray-50"
+                    className="w-full h-auto max-h-[35vh] sm:max-h-[55vh] object-contain bg-gray-50"
                   />
-                  <div className="absolute top-3 right-3 bg-vinted text-white px-3 py-1 text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
+                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-vinted text-white px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     APRÈS
                   </div>
                 </div>
               </div>
               {/* Info Section */}
-              <div className="p-4 sm:p-6 border-t-4 border-black bg-cream">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="inline-block bg-vinted text-white px-3 py-1 font-display font-bold text-xs border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <div className="p-3 sm:p-6 border-t-2 sm:border-t-4 border-black bg-cream">
+                <div className="flex flex-col gap-3 sm:gap-4">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-block bg-vinted text-white px-2 py-0.5 sm:px-3 sm:py-1 font-display font-bold text-[10px] sm:text-xs border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                         {selectedImage.clothing_type.toUpperCase()}
                       </span>
-                      <span className="font-body text-xs text-gray-500">
+                      <span className="font-body text-[10px] sm:text-xs text-gray-500">
                         {formatDate(selectedImage.created_at)}
                       </span>
                     </div>
-                    {selectedImage.title && (
-                      <h3 className="font-display font-bold text-lg mb-2">
-                        {selectedImage.title}
-                      </h3>
-                    )}
-                    {selectedImage.description && (
-                      <p className="font-body text-sm text-gray-700 line-clamp-4">
-                        {selectedImage.description}
-                      </p>
-                    )}
+                    <button
+                      onClick={() => setSelectedImage(null)}
+                      className="hidden sm:block px-4 py-2 bg-vinted text-white border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                    >
+                      {t('close', 'FERMER')}
+                    </button>
                   </div>
-                  <button
-                    onClick={() => setSelectedImage(null)}
-                    className="px-4 py-2 bg-vinted text-white border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 self-start sm:self-center"
-                  >
-                    {t('close', 'FERMER')}
-                  </button>
+                  {selectedImage.title && (
+                    <h3 className="font-display font-bold text-sm sm:text-lg">
+                      {selectedImage.title}
+                    </h3>
+                  )}
+                  {selectedImage.description && (
+                    <p className="font-body text-xs sm:text-sm text-gray-700 line-clamp-3 sm:line-clamp-4">
+                      {selectedImage.description}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

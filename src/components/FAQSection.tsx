@@ -39,7 +39,7 @@ export const FAQSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-12 lg:py-16 bg-cream overflow-hidden">
+    <section className="relative py-12 lg:py-16 bg-grain overflow-hidden">
       {/* Formes decoratives neo-brutalism */}
       <div className="absolute top-20 right-16 w-16 h-16 bg-mint border-4 border-black transform rotate-45 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hidden lg:block"></div>
       <div className="absolute bottom-32 left-12 w-12 h-12 bg-vinted border-3 border-black neo-shape-circle shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hidden lg:block"></div>

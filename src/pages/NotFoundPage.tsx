@@ -16,7 +16,7 @@ export const NotFoundPage: React.FC = () => {
   });
 
   return (
-    <section className="min-h-[70vh] bg-cream flex items-center justify-center px-4 py-12">
+    <section className="min-h-[70vh] bg-grain flex items-center justify-center px-4 py-12">
       <div className="max-w-2xl w-full text-center">
         {/* 404 Number */}
         <div className="relative inline-block mb-8">

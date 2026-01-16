@@ -31,7 +31,7 @@ export default function IdentitaVisivaVintedPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-grain">
       {/* Header */}
       <header className="border-b-4 border-black bg-white sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

@@ -44,7 +44,7 @@ export const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section id="methode" className="relative py-20 lg:py-24 bg-cream overflow-hidden">
+    <section id="methode" className="relative py-20 lg:py-24 bg-grain overflow-hidden">
       {/* Éléments décoratifs flottants */}
       <div className="absolute top-10 left-10 w-16 h-16 bg-pink-pastel border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="absolute top-20 right-16 w-12 h-12 bg-mint border-3 border-black transform -rotate-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>

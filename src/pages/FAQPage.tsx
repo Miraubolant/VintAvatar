@@ -129,7 +129,7 @@ export const FAQPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cream py-20 lg:py-24 relative overflow-hidden">
+    <div className="min-h-screen bg-grain py-20 lg:py-24 relative overflow-hidden">
       {/* Formes décoratives neo-brutalism */}
       <div className="absolute top-32 left-4 sm:left-8 w-12 sm:w-16 h-12 sm:h-16 bg-mint border-3 sm:border-4 border-black transform rotate-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
       <div className="absolute top-1/4 right-6 sm:right-12 w-10 sm:w-12 h-10 sm:h-12 bg-pink-pastel border-3 border-black neo-shape-circle shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>

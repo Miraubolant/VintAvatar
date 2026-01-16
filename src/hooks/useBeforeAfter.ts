@@ -8,8 +8,8 @@ export interface BeforeAfterItem {
   tags: string[];
   before_image_url: string;
   after_image_url: string;
-  before_image_name: string; // For OptimizedImage component
-  after_image_name: string;  // For OptimizedImage component
+  before_image_name: string;
+  after_image_name: string;
   display_order: number;
   is_active: boolean;
   created_at: string;
@@ -24,26 +24,10 @@ export const useBeforeAfter = () => {
   const loadItems = () => {
     setLoading(true);
     setError(null);
-    
-    // Vos photos personnalisées
+
     const customData: BeforeAfterItem[] = [
       {
         id: 1,
-        category: "Blouson Cuir Marron",
-        description: "Photo amateur → Avatar IA professionnel",
-        improvement: "",
-        tags: ["Mode", "Blouson", "Cuir"],
-        before_image_url: "/images/before-after/1.jpg",
-        after_image_url: "/images/before-after/1_after.jpg",
-        before_image_name: "1",
-        after_image_name: "1_after",
-        display_order: 1,
-        is_active: true,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      },
-      {
-        id: 2,
         category: "Veste Motif Chic",
         description: "Transformation élégante avec IA",
         improvement: "",
@@ -52,6 +36,21 @@ export const useBeforeAfter = () => {
         after_image_url: "/images/before-after/chemisier_ia.jpg",
         before_image_name: "chemisier_fleur",
         after_image_name: "chemisier_ia",
+        display_order: 1,
+        is_active: true,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      },
+      {
+        id: 2,
+        category: "T-Shirt Reebok Logo",
+        description: "Avatar moderne et tendance",
+        improvement: "",
+        tags: ["Mode", "T-Shirt", "Logo"],
+        before_image_url: "/images/before-after/tee_shirt_reebook.jpeg",
+        after_image_url: "/images/before-after/tee_shirt_reebook_ia.jpg",
+        before_image_name: "tee_shirt_reebook",
+        after_image_name: "tee_shirt_reebook_ia",
         display_order: 2,
         is_active: true,
         created_at: new Date().toISOString(),
@@ -59,10 +58,10 @@ export const useBeforeAfter = () => {
       },
       {
         id: 3,
-        category: "Pull Rayé Confort",
-        description: "Mise en scène professionnelle",
+        category: "Pull Rayé Casual",
+        description: "Style décontracté sublimé",
         improvement: "",
-        tags: ["Mode", "Casual", "Pull"],
+        tags: ["Mode", "Pull", "Rayures"],
         before_image_url: "/images/before-after/pull_raye.jpeg",
         after_image_url: "/images/before-after/pull_raye_ia.jpg",
         before_image_name: "pull_raye",
@@ -74,21 +73,21 @@ export const useBeforeAfter = () => {
       },
       {
         id: 4,
-        category: "T-Shirt Reebok Logo",
-        description: "Avatar moderne et tendance",
+        category: "Blouson Cuir Marron",
+        description: "Style vintage sublimé",
         improvement: "",
-        tags: ["Mode", "T-Shirt", "Logo"],
-        before_image_url: "/images/before-after/tee_shirt_reebook.jpeg",
-        after_image_url: "/images/before-after/tee_shirt_reebook_ia.jpg",
-        before_image_name: "tee_shirt_reebook",
-        after_image_name: "tee_shirt_reebook_ia",
+        tags: ["Mode", "Blouson", "Cuir"],
+        before_image_url: "/images/before-after/1.jpg",
+        after_image_url: "/images/before-after/1_after.jpg",
+        before_image_name: "1",
+        after_image_name: "1_after",
         display_order: 4,
         is_active: true,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString()
       }
     ];
-    
+
     setItems(customData);
     setLoading(false);
   };
@@ -97,15 +96,14 @@ export const useBeforeAfter = () => {
     loadItems();
   }, []);
 
-  // Fonction pour rafraîchir les données (simple reload)
   const refetch = () => {
     loadItems();
   };
 
-  return { 
-    items, 
-    loading, 
-    error, 
-    refetch 
+  return {
+    items,
+    loading,
+    error,
+    refetch
   };
 };

@@ -5,12 +5,71 @@ import { useAuth } from '../hooks/useAuth';
 import { AuthModal } from './AuthModal';
 import { useTranslation } from 'react-i18next';
 
-export const AuthButton: React.FC = () => {
+interface AuthButtonProps {
+  compact?: boolean;
+}
+
+export const AuthButton: React.FC<AuthButtonProps> = ({ compact = false }) => {
   const { user, loading, signOut } = useAuth();
   const navigate = useNavigate();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { t } = useTranslation('auth');
 
+  // Compact version for sticky header
+  if (compact) {
+    if (loading) {
+      return (
+        <div className="px-2 py-1 bg-cream border-2 border-black font-display font-bold text-[10px] shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+          ...
+        </div>
+      );
+    }
+
+    if (user) {
+      return (
+        <div className="flex items-center gap-1.5">
+          <button
+            onClick={() => {
+              navigate('/account');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-mint border-2 border-black font-display font-bold text-[10px] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+            aria-label="Mon compte"
+          >
+            <User className="w-3.5 h-3.5" />
+            <span>{t('authButton.account')}</span>
+          </button>
+          <button
+            onClick={signOut}
+            aria-label="Déconnexion"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-pink-pastel border-2 border-black font-display font-bold text-[10px] text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            <span>{t('authButton.logout')}</span>
+          </button>
+        </div>
+      );
+    }
+
+    return (
+      <>
+        <button
+          onClick={() => setIsAuthModalOpen(true)}
+          className="flex items-center gap-1 px-2.5 py-1.5 bg-vinted text-white border-2 border-black font-display font-bold text-[10px] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+          aria-label="Connexion"
+        >
+          <User className="w-3 h-3" />
+          <span>{t('authButton.login')}</span>
+        </button>
+        <AuthModal
+          isOpen={isAuthModalOpen}
+          onClose={() => setIsAuthModalOpen(false)}
+        />
+      </>
+    );
+  }
+
+  // Standard version
   if (loading) {
     return (
       <div className="px-2 py-1 bg-cream border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">

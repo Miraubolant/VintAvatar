@@ -70,9 +70,9 @@ export default function BlogIndexPage() {
   const hasActiveFilters = searchQuery || selectedCategory !== 'all' || sortOrder !== 'newest';
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-grain">
       {/* Hero Section */}
-      <section className="relative bg-cream overflow-hidden">
+      <section className="relative overflow-hidden">
         {/* Formes décoratives neo-brutalism */}
         <div className="hidden md:block absolute top-20 left-10 w-12 h-12 bg-pink-pastel border-4 border-black transform rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
         <div className="hidden md:block absolute top-32 right-20 w-16 h-16 bg-mint border-4 border-black transform -rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>

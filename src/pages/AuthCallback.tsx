@@ -16,7 +16,7 @@ export const AuthCallback: React.FC = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-cream flex items-center justify-center">
+    <div className="min-h-screen bg-grain flex items-center justify-center">
       <div className="text-center">
         <div className="w-16 h-16 bg-vinted border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mx-auto mb-4 flex items-center justify-center animate-pulse">
           <div className="w-8 h-8 bg-mint border-2 border-black transform rotate-12"></div>

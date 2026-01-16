@@ -142,7 +142,7 @@ export const LeaderboardPage: React.FC = () => {
   );
 
   return (
-    <div className="relative min-h-screen bg-cream overflow-hidden py-8 sm:py-12 lg:py-16">
+    <div className="relative min-h-screen bg-grain overflow-hidden py-8 sm:py-12 lg:py-16">
       {/* Decorative shapes */}
       <div className="absolute top-20 left-16 w-10 h-10 bg-yellow-400 border-3 border-black transform rotate-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hidden lg:block"></div>
       <div className="absolute bottom-16 right-20 w-12 h-12 bg-mint border-3 border-black neo-shape-circle shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hidden lg:block"></div>
