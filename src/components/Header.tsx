@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkles, Menu, X, ChevronDown, Home, Image, Images, CreditCard, Star, Trophy, HelpCircle, BookOpen } from 'lucide-react';
+import { Sparkles, Menu, X, ChevronDown, Wand2, Image, Images, CreditCard, Star, Gift, HelpCircle, BookOpen } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { AuthButton } from './AuthButton';
@@ -94,14 +94,14 @@ export const Header: React.FC = () => {
 
   // All links for mobile menu with icons
   const allMobileLinks = [
-    { href: '#hero', label: t('navigation.features'), icon: Home },
-    { href: '#avant-apres', label: t('navigation.beforeAfter'), icon: Image },
-    { href: '#tarifs', label: t('navigation.pricing'), icon: CreditCard },
-    { href: '#avis', label: t('navigation.reviews'), icon: Star },
-    { href: '/leaderboard', label: t('navigation.leaderboard'), isRoute: true, icon: Trophy },
-    { href: '/galerie', label: t('navigation.gallery'), isRoute: true, icon: Images },
-    { href: '/faq', label: t('navigation.faq'), isRoute: true, icon: HelpCircle },
-    { href: '/blog', label: t('navigation.blog'), isRoute: true, icon: BookOpen },
+    { href: '#hero', label: t('navigation.features'), icon: Wand2, bgColor: 'bg-pink-pastel', iconColor: 'text-black' },
+    { href: '#avant-apres', label: t('navigation.beforeAfter'), icon: Image, bgColor: 'bg-vinted', iconColor: 'text-white' },
+    { href: '#tarifs', label: t('navigation.pricing'), icon: CreditCard, bgColor: 'bg-pink-pastel', iconColor: 'text-black' },
+    { href: '#avis', label: t('navigation.reviews'), icon: Star, bgColor: 'bg-vinted', iconColor: 'text-white' },
+    { href: '/leaderboard', label: t('navigation.leaderboard'), isRoute: true, icon: Gift, bgColor: 'bg-vinted', iconColor: 'text-white' },
+    { href: '/galerie', label: t('navigation.gallery'), isRoute: true, icon: Images, bgColor: 'bg-vinted', iconColor: 'text-white' },
+    { href: '/faq', label: t('navigation.faq'), isRoute: true, icon: HelpCircle, bgColor: 'bg-vinted', iconColor: 'text-white' },
+    { href: '/blog', label: t('navigation.blog'), isRoute: true, icon: BookOpen, bgColor: 'bg-vinted', iconColor: 'text-white' },
   ];
 
   const handleNavClick = (href: string, isRoute?: boolean) => {
@@ -276,7 +276,7 @@ export const Header: React.FC = () => {
               </div>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2 bg-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-pink-pastel active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+                className="p-2 bg-pink-pastel border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
               >
                 <X className="w-5 h-5 text-black" />
               </button>
@@ -287,12 +287,8 @@ export const Header: React.FC = () => {
           <div className="overflow-y-auto px-4 pt-4 pb-6" style={{ maxHeight: 'calc(85vh - 100px)' }}>
             {/* Navigation Grid - 2x4 layout for better touch targets */}
             <div className="grid grid-cols-2 gap-3 mb-5">
-              {allMobileLinks.map((link, index) => {
+              {allMobileLinks.map((link) => {
                 const IconComponent = link.icon;
-                // Alternate colors for visual interest
-                const bgColors = ['bg-mint', 'bg-pink-pastel', 'bg-vinted', 'bg-white'];
-                const iconBgColor = bgColors[index % 4];
-                const isVinted = iconBgColor === 'bg-vinted';
 
                 return (
                   <button
@@ -300,8 +296,8 @@ export const Header: React.FC = () => {
                     onClick={() => handleNavClick(link.href, link.isRoute)}
                     className="group flex items-center gap-3 p-3 bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
                   >
-                    <div className={`w-11 h-11 ${iconBgColor} border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-3 group-hover:rotate-0 transition-transform duration-200 flex-shrink-0`}>
-                      <IconComponent className={`w-5 h-5 ${isVinted ? 'text-white' : 'text-black'}`} />
+                    <div className={`w-11 h-11 ${link.bgColor} border-3 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-3 group-hover:rotate-0 transition-transform duration-200 flex-shrink-0`}>
+                      <IconComponent className={`w-5 h-5 ${link.iconColor}`} />
                     </div>
                     <span className="font-display font-bold text-sm uppercase tracking-wide text-left leading-tight text-black">
                       {link.label}
