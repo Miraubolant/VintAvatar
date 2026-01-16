@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Cookie, X, Shield, Eye } from 'lucide-react';
+import { Cookie, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export const CookieConsent: React.FC = () => {
@@ -8,13 +8,11 @@ export const CookieConsent: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Vérifier si l'utilisateur a déjà donné son consentement
     const consent = localStorage.getItem('cookie_consent');
     if (!consent) {
-      // Attendre un peu avant d'afficher la popup
       const timer = setTimeout(() => {
         setIsVisible(true);
-      }, 2000);
+      }, 1500);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -45,86 +43,57 @@ export const CookieConsent: React.FC = () => {
   if (!isVisible) return null;
 
   return (
-    <div className={`fixed inset-0 z-[9998] pointer-events-none ${isClosing ? 'animate-fade-out' : 'animate-fade-in'}`}>
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-      
-      {/* Cookie popup */}
-      <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-auto md:max-w-md lg:max-w-lg pointer-events-auto">
-        <div className={`bg-cream border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform ${isClosing ? 'translate-y-4 opacity-0' : 'translate-y-0 opacity-100'} transition-all duration-300`}>
-          {/* Header */}
-          <div className="bg-vinted border-b-4 border-black p-3 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-mint border-2 border-black transform rotate-12 flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                <Cookie className="w-3 h-3 text-black" />
-              </div>
-              <h3 className="font-display font-bold text-lg text-white">COOKIES & DONNÉES</h3>
+    <div
+      className={`fixed bottom-0 left-0 right-0 z-[9998] p-2 sm:p-3 transition-transform duration-300 ease-out ${
+        isClosing ? 'translate-y-full' : 'translate-y-0'
+      }`}
+    >
+      {/* Compact banner */}
+      <div className="max-w-4xl mx-auto bg-white border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-3 sm:p-4">
+
+          {/* Icon + Text */}
+          <div className="flex items-start sm:items-center gap-2 flex-1 min-w-0">
+            <div className="flex-shrink-0 w-8 h-8 bg-mint border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <Cookie className="w-4 h-4 text-black" />
             </div>
-            <button
-              onClick={handleClose}
-              aria-label="Fermer la popup cookies"
-              className="w-7 h-7 bg-pink-pastel border-2 border-black flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform hover:rotate-90 transition-all duration-300"
-            >
-              <X className="w-3 h-3 text-black" />
-            </button>
+            <p className="text-xs sm:text-sm text-black leading-snug">
+              <span className="font-display font-bold">Cookies</span>
+              <span className="hidden sm:inline"> – </span>
+              <br className="sm:hidden" />
+              <span className="text-gray-600">
+                Ce site utilise des cookies pour améliorer votre expérience.{' '}
+                <button
+                  onClick={handlePrivacyPolicy}
+                  className="underline hover:text-vinted transition-colors"
+                >
+                  En savoir plus
+                </button>
+              </span>
+            </p>
           </div>
 
-          {/* Content */}
-          <div className="p-4 space-y-4">
-            <div className="space-y-2">
-              <p className="font-display font-bold text-sm text-black">
-                Nous utilisons des cookies pour améliorer votre expérience !
-              </p>
-              <p className="text-xs text-black leading-relaxed">
-                Ce site utilise des cookies essentiels pour fonctionner et des cookies analytiques pour améliorer nos services. 
-                Nous respectons votre vie privée et ne partageons pas vos données personnelles.
-              </p>
-            </div>
-
-            {/* Types de cookies */}
-            <div className="grid grid-cols-1 gap-2">
-              <div className="flex items-center gap-2 p-2 bg-white border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                <Shield className="w-4 h-4 text-vinted" />
-                <div>
-                  <div className="font-display font-bold text-xs text-black">COOKIES ESSENTIELS</div>
-                  <div className="text-xs text-black opacity-75">Nécessaires au fonctionnement</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 p-2 bg-white border-2 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                <Eye className="w-4 h-4 text-vinted" />
-                <div>
-                  <div className="font-display font-bold text-xs text-black">COOKIES ANALYTIQUES</div>
-                  <div className="text-xs text-black opacity-75">Amélioration du service</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-2">
-              <button
-                onClick={handleAccept}
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-vinted text-white border-3 border-black font-display font-bold text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform hover:-rotate-1"
-              >
-                <Cookie className="w-4 h-4" />
-                ACCEPTER TOUT
-              </button>
-              <button
-                onClick={handleReject}
-                className="flex-1 px-4 py-2.5 bg-white text-black border-3 border-black font-display font-bold text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform hover:rotate-1"
-              >
-                ESSENTIEL SEULEMENT
-              </button>
-            </div>
-
-            {/* Privacy policy link */}
-            <div className="text-center">
-              <button 
-                onClick={handlePrivacyPolicy}
-                className="text-xs text-black underline hover:text-vinted transition-colors duration-200 font-display hover:transform hover:scale-105"
-              >
-                Politique de confidentialité
-              </button>
-            </div>
+          {/* Buttons */}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <button
+              onClick={handleReject}
+              className="px-3 py-1.5 sm:py-2 bg-cream text-black border-2 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+            >
+              REFUSER
+            </button>
+            <button
+              onClick={handleAccept}
+              className="px-3 py-1.5 sm:py-2 bg-vinted text-white border-2 border-black font-display font-bold text-[10px] sm:text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+            >
+              ACCEPTER
+            </button>
+            <button
+              onClick={handleClose}
+              aria-label="Fermer"
+              className="p-1.5 bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-pink-pastel hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
+            >
+              <X className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
+            </button>
           </div>
         </div>
       </div>
