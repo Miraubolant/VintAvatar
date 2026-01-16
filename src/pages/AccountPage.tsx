@@ -7,6 +7,7 @@ import { useAccountStats } from '../hooks/useAccountStats';
 import { useGenerationHistory } from '../hooks/useGenerationHistory';
 import { useSubscription } from '../hooks/useSubscription';
 import { useAffiliation } from '../hooks/useAffiliation';
+import { useGalleryShare } from '../hooks/useGalleryShare';
 import { DangerActionModal } from '../components/DangerActionModal';
 import { DangerZone } from '../components/account/DangerZone';
 import { ImageModal } from '../components/account/ImageModal';
@@ -53,20 +54,29 @@ export const AccountPage: React.FC = () => {
     totalCredits,
     monthlySubscription,
     creditPacks,
-    cancelMonthlySubscription
+    cancelMonthlySubscription,
+    forceRefresh: refreshSubscription
   } = useSubscription();
-  const { 
-    affiliation, 
-    referrals, 
-    loading: affiliationLoading, 
-    referralCode, 
-    referralLink, 
-    completedReferralsCount, 
-    copyReferralLink 
+  const {
+    affiliation,
+    referrals,
+    loading: affiliationLoading,
+    referralCode,
+    referralLink,
+    completedReferralsCount,
+    copyReferralLink
   } = useAffiliation();
+  const { sharesRemaining: gallerySharesRemaining } = useGalleryShare();
 
   // SEO optimization
   useSEO(SEO_CONFIGS.account);
+
+  // Refresh subscription data when page loads
+  React.useEffect(() => {
+    if (user) {
+      refreshSubscription();
+    }
+  }, []);
 
   // Redirect if not authenticated (but wait for auth to finish loading)
   React.useEffect(() => {
@@ -296,6 +306,9 @@ export const AccountPage: React.FC = () => {
             creditPacks={creditPacks}
             formatDate={formatDate}
             formatDateTime={formatDateTime}
+            completedReferralsCount={completedReferralsCount}
+            referralCode={referralCode}
+            gallerySharesRemaining={gallerySharesRemaining}
           />
         )}
 

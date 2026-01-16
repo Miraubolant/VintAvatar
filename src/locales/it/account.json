@@ -59,6 +59,16 @@
       "noSubscription": "Nessun abbonamento mensile attivo",
       "subscribeButton": "ABBONATI"
     },
+    "sharing": {
+      "title": "CONDIVISIONE",
+      "referrals": "REFERRAL RIUSCITI:",
+      "code": "IL MIO CODICE:"
+    },
+    "galleryShares": {
+      "title": "CONDIVISIONI GALLERIA",
+      "description": "Condividi le tue foto nella galleria pubblica e guadagna +1 credito per condivisione",
+      "remaining": "rimanenti"
+    },
     "usageHistory": {
       "title": "STORICO UTILIZZO",
       "generatedOn": "Generato il",

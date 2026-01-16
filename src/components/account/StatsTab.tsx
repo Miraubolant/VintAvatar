@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { User, CreditCard, TrendingUp, Zap, Clock, Target, BarChart3 } from 'lucide-react';
+import { User, CreditCard, TrendingUp, Zap, Clock, Target, BarChart3, Share2, Images } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 // Type definitions for strict typing
@@ -42,6 +42,9 @@ interface StatsTabProps {
   creditPacks: Subscription[];
   formatDate: (date: string) => string;
   formatDateTime: (date: string) => string;
+  completedReferralsCount?: number;
+  referralCode?: string;
+  gallerySharesRemaining?: number;
 }
 
 export const StatsTab: React.FC<StatsTabProps> = ({
@@ -50,7 +53,10 @@ export const StatsTab: React.FC<StatsTabProps> = ({
   monthlySubscription,
   creditPacks,
   formatDate,
-  formatDateTime
+  formatDateTime,
+  completedReferralsCount = 0,
+  referralCode,
+  gallerySharesRemaining = 0
 }) => {
   const { t } = useTranslation('account');
   const navigate = useNavigate();
@@ -143,6 +149,56 @@ export const StatsTab: React.FC<StatsTabProps> = ({
               <span className="font-display font-bold">{t('common.thisMonth')}:</span><br />
               <span className="text-2xl">{stats.this_month_generations}</span>
             </p>
+          </div>
+        </div>
+
+        {/* Sharing/Referral Card */}
+        <div className="bg-cream border-4 border-black p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-white border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <Share2 className="w-6 h-6 text-black" />
+            </div>
+            <h3 className="font-display font-bold text-xl text-black">{t('statsTab.sharing.title')}</h3>
+          </div>
+          <div className="space-y-2">
+            <p className="font-body font-semibold text-black">
+              <span className="font-display font-bold">{t('statsTab.sharing.referrals')}</span><br />
+              <span className="text-3xl text-vinted">{completedReferralsCount}</span>
+            </p>
+            {referralCode && (
+              <div className="bg-white border-2 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <p className="font-display font-bold text-xs text-black">{t('statsTab.sharing.code')}</p>
+                <p className="font-body font-semibold text-vinted text-sm">{referralCode}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Gallery Shares Card - Full width row */}
+      <div className="mb-8">
+        <div className="bg-white border-4 border-black p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-vinted border-3 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <Images className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="font-display font-bold text-xl text-black">{t('statsTab.galleryShares.title')}</h3>
+                <p className="font-body text-sm text-gray-600">{t('statsTab.galleryShares.description')}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="text-center">
+                <span className="font-display font-bold text-3xl text-vinted">{gallerySharesRemaining}</span>
+                <span className="font-body text-sm text-gray-600 block">{t('statsTab.galleryShares.remaining')}</span>
+              </div>
+              {gallerySharesRemaining > 0 && (
+                <div className="bg-mint border-2 border-black px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <p className="font-display font-bold text-xs text-black">+1 CRÉDIT/PARTAGE</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -201,6 +201,14 @@ export const useSubscription = () => {
     }
   };
 
+  // Force refresh - clears cache and refetches
+  const forceRefresh = async () => {
+    if (user) {
+      requestCache.clear(`subscriptions-${user.id}`);
+    }
+    await fetchSubscriptions();
+  };
+
   return {
     // Legacy support - returns first subscription for backward compatibility
     subscription: subscriptions[0] || null,
@@ -213,6 +221,7 @@ export const useSubscription = () => {
     canGenerate: canGenerate(),
     useCredit,
     refetch: fetchSubscriptions,
+    forceRefresh,
     cancelMonthlySubscription,
     // Utility methods
     getTotalCredits,
