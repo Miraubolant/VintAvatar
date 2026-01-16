@@ -122,13 +122,10 @@ export const BlogSection: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8">
           {visiblePosts
             .filter(post => !post.featured)
-            .map((post, index) => {
-              // Sur mobile, afficher seulement 2 articles sauf si showAllArticles est true
-              const isMobileHidden = !showAllArticles && index >= 2;
-              return (
+            .map((post) => (
             <div
               key={post.id}
-              className={`${isMobileHidden ? 'hidden sm:block' : ''} bg-white border-4 border-black p-4 sm:p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200`}
+              className="bg-white border-4 border-black p-4 sm:p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               <div className="aspect-[2/1] w-full mb-3 sm:mb-4">
                 <img
@@ -180,8 +177,7 @@ export const BlogSection: React.FC = () => {
                 {t('buttons.readMore')}
               </Link>
             </div>
-          );
-        })}
+          ))}
         </div>
 
         {/* View All Articles Button - All Screens */}
