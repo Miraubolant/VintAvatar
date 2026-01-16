@@ -223,15 +223,6 @@ export const GalleryPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Stats */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="inline-flex items-center gap-2 bg-mint border-3 border-black px-4 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                <Sparkles className="w-4 h-4" />
-                <span className="font-display font-bold text-sm">
-                  {filteredItems.length} {t('photos', 'photos')}
-                </span>
-              </div>
-            </div>
           </div>
 
           {/* Loading State */}
