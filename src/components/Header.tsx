@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkles, Menu, X, ChevronDown, Home, Image, CreditCard, Star, Trophy, HelpCircle, BookOpen } from 'lucide-react';
+import { Sparkles, Menu, X, ChevronDown, Home, Image, Images, CreditCard, Star, Trophy, HelpCircle, BookOpen } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { AuthButton } from './AuthButton';
@@ -51,6 +51,7 @@ export const Header: React.FC = () => {
   const dropdownLinks = [
     { href: '#avis', label: t('navigation.reviews') },
     { href: '#leaderboard', label: t('navigation.leaderboard') },
+    { href: '/galerie', label: t('navigation.gallery', 'Galerie'), isRoute: true },
   ];
 
   const afterDropdownLinks = [
@@ -65,6 +66,7 @@ export const Header: React.FC = () => {
     { href: '#tarifs', label: t('navigation.pricing'), icon: CreditCard },
     { href: '#avis', label: t('navigation.reviews'), icon: Star },
     { href: '#leaderboard', label: t('navigation.leaderboard'), icon: Trophy },
+    { href: '/galerie', label: t('navigation.gallery', 'Galerie'), isRoute: true, icon: Images },
     { href: '/faq', label: t('navigation.faq'), isRoute: true, icon: HelpCircle },
     { href: '/blog', label: t('navigation.blog'), isRoute: true, icon: BookOpen },
   ];
@@ -148,7 +150,7 @@ export const Header: React.FC = () => {
                   {dropdownLinks.map((link) => (
                     <button
                       key={link.href}
-                      onClick={() => handleNavClick(link.href)}
+                      onClick={() => handleNavClick(link.href, link.isRoute)}
                       className="w-full text-left px-4 py-3 font-display font-bold text-sm uppercase hover:bg-vinted hover:text-white border-b-2 border-black last:border-b-0 transition-colors duration-150"
                     >
                       {link.label}

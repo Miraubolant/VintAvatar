@@ -22,7 +22,7 @@ export const useGalleryShare = (): UseGalleryShareResult => {
   const [isSharing, setIsSharing] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Fetch user's gallery share status and purchase history
+  // Fetch user's gallery share status
   useEffect(() => {
     const fetchShareStatus = async () => {
       if (!user) {
@@ -42,15 +42,8 @@ export const useGalleryShare = (): UseGalleryShareResult => {
           setSharesUsed(profile.gallery_shares_used || 0);
         }
 
-        // Check if user has ever purchased credits
-        const { data: subscription } = await supabase
-          .from('subscriptions')
-          .select('stripe_customer_id')
-          .eq('user_id', user.id)
-          .single();
-
-        // User has purchased if they have a stripe_customer_id
-        setHasEverPurchased(!!subscription?.stripe_customer_id);
+        // Everyone can share (generating requires purchase anyway)
+        setHasEverPurchased(true);
       } catch (err) {
         console.error('Error fetching gallery share status:', err);
       } finally {
