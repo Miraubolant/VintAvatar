@@ -10,7 +10,10 @@ interface GalleryItem {
   id: string;
   created_at: string;
   generated_image_url: string;
+  original_image_url: string;
   clothing_type: string;
+  title: string;
+  description: string;
 }
 
 const CLOTHING_TYPES = [
@@ -75,7 +78,10 @@ export const GalleryPage: React.FC = () => {
         id: item.id,
         created_at: item.created_at,
         generated_image_url: item.metadata?.generated_image_url || '',
+        original_image_url: item.metadata?.original_image_url || '',
         clothing_type: item.metadata?.generation_config?.clothingType || 'autre',
+        title: item.metadata?.vinted_listing?.title || '',
+        description: item.metadata?.vinted_listing?.description || '',
       })).filter(item => item.generated_image_url);
 
       setItems(galleryItems);
@@ -229,7 +235,7 @@ export const GalleryPage: React.FC = () => {
 
           {/* Gallery Grid */}
           {!loading && filteredItems.length > 0 && (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredItems.map((item) => (
                 <div
                   key={item.id}
@@ -237,18 +243,54 @@ export const GalleryPage: React.FC = () => {
                   className="group cursor-pointer"
                 >
                   <div className="bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden group-hover:translate-x-[-2px] group-hover:translate-y-[-2px] group-hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">
-                    <div className="aspect-[3/4] overflow-hidden">
-                      <img
-                        src={item.generated_image_url}
-                        alt={`Avatar Vinted - ${item.clothing_type}`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                      />
+                    {/* Before/After Images */}
+                    <div className="flex">
+                      {/* Before - Original */}
+                      {item.original_image_url && (
+                        <div className="w-1/2 relative">
+                          <div className="aspect-[3/4] overflow-hidden border-r-2 border-black">
+                            <img
+                              src={item.original_image_url}
+                              alt={`Original - ${item.title || item.clothing_type}`}
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div className="absolute top-2 left-2 bg-black text-white px-2 py-0.5 text-[10px] font-display font-bold">
+                            AVANT
+                          </div>
+                        </div>
+                      )}
+                      {/* After - Generated */}
+                      <div className={item.original_image_url ? "w-1/2 relative" : "w-full relative"}>
+                        <div className="aspect-[3/4] overflow-hidden">
+                          <img
+                            src={item.generated_image_url}
+                            alt={`Avatar IA - ${item.title || item.clothing_type}`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div className="absolute top-2 right-2 bg-vinted text-white px-2 py-0.5 text-[10px] font-display font-bold">
+                          APRÈS
+                        </div>
+                      </div>
                     </div>
-                    <div className="p-2 border-t-2 border-black bg-cream">
-                      <span className="font-display font-bold text-[10px] sm:text-xs text-gray-600 truncate block">
-                        {item.clothing_type.toUpperCase()}
-                      </span>
+                    {/* Info */}
+                    <div className="p-3 border-t-2 border-black bg-cream">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-display font-bold text-xs text-vinted truncate">
+                          {item.clothing_type.toUpperCase()}
+                        </span>
+                        <span className="font-body text-[10px] text-gray-500 whitespace-nowrap">
+                          {formatDate(item.created_at)}
+                        </span>
+                      </div>
+                      {item.title && (
+                        <p className="font-body text-xs text-gray-700 mt-1 line-clamp-2">
+                          {item.title}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -292,31 +334,66 @@ export const GalleryPage: React.FC = () => {
             onClick={() => setSelectedImage(null)}
           >
             <div
-              className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-2xl w-full max-h-[90vh] overflow-hidden"
+              className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-4xl w-full max-h-[90vh] overflow-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative">
-                <img
-                  src={selectedImage.generated_image_url}
-                  alt={`Avatar Vinted - ${selectedImage.clothing_type}`}
-                  className="w-full h-auto max-h-[70vh] object-contain"
-                />
-              </div>
-              <div className="p-4 border-t-4 border-black bg-cream flex items-center justify-between">
-                <div>
-                  <span className="font-display font-bold text-sm">
-                    {selectedImage.clothing_type.toUpperCase()}
-                  </span>
-                  <span className="font-body text-xs text-gray-500 ml-3">
-                    {formatDate(selectedImage.created_at)}
-                  </span>
+              {/* Before/After Images */}
+              <div className="flex flex-col sm:flex-row">
+                {/* Before - Original */}
+                {selectedImage.original_image_url && (
+                  <div className="sm:w-1/2 relative">
+                    <img
+                      src={selectedImage.original_image_url}
+                      alt={`Original - ${selectedImage.title || selectedImage.clothing_type}`}
+                      className="w-full h-auto max-h-[50vh] sm:max-h-[60vh] object-contain bg-gray-100"
+                    />
+                    <div className="absolute top-3 left-3 bg-black text-white px-3 py-1 text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(255,255,255,0.3)]">
+                      AVANT
+                    </div>
+                  </div>
+                )}
+                {/* After - Generated */}
+                <div className={selectedImage.original_image_url ? "sm:w-1/2 relative sm:border-l-4 border-t-4 sm:border-t-0 border-black" : "w-full relative"}>
+                  <img
+                    src={selectedImage.generated_image_url}
+                    alt={`Avatar IA - ${selectedImage.title || selectedImage.clothing_type}`}
+                    className="w-full h-auto max-h-[50vh] sm:max-h-[60vh] object-contain bg-gray-50"
+                  />
+                  <div className="absolute top-3 right-3 bg-vinted text-white px-3 py-1 text-xs font-display font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
+                    APRÈS
+                  </div>
                 </div>
-                <button
-                  onClick={() => setSelectedImage(null)}
-                  className="px-4 py-2 bg-vinted text-white border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-                >
-                  {t('close', 'FERMER')}
-                </button>
+              </div>
+              {/* Info Section */}
+              <div className="p-4 sm:p-6 border-t-4 border-black bg-cream">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="inline-block bg-vinted text-white px-3 py-1 font-display font-bold text-xs border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        {selectedImage.clothing_type.toUpperCase()}
+                      </span>
+                      <span className="font-body text-xs text-gray-500">
+                        {formatDate(selectedImage.created_at)}
+                      </span>
+                    </div>
+                    {selectedImage.title && (
+                      <h3 className="font-display font-bold text-lg mb-2">
+                        {selectedImage.title}
+                      </h3>
+                    )}
+                    {selectedImage.description && (
+                      <p className="font-body text-sm text-gray-700 line-clamp-4">
+                        {selectedImage.description}
+                      </p>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => setSelectedImage(null)}
+                    className="px-4 py-2 bg-vinted text-white border-2 border-black font-display font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 self-start sm:self-center"
+                  >
+                    {t('close', 'FERMER')}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
