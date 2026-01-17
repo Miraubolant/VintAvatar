@@ -162,7 +162,7 @@ export const PricingSection: React.FC = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative border-3 sm:border-4 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 overflow-hidden ${index === 0 ? 'bg-mint' : ''} ${index === 1 ? 'bg-pink-pastel' : ''} ${index === 2 ? 'bg-vinted' : ''}`}
+              className="relative border-3 sm:border-4 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 overflow-hidden bg-white"
             >
               {/* Background decoration - clipped inside card */}
               {index === 0 && (
@@ -190,16 +190,16 @@ export const PricingSection: React.FC = () => {
 
               {/* Header avec icône et nom */}
               <div className="relative text-center mb-4 sm:mb-6">
-                <div className={`w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-3 border-3 sm:border-4 border-black flex items-center justify-center transform ${plan.popular ? 'rotate-6' : 'rotate-12'} shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white`}>
-                  <plan.icon className={`w-5 h-5 sm:w-7 sm:h-7 ${index === 0 ? 'text-green-600' : index === 1 ? 'text-pink-500' : 'text-vinted'}`} />
+                <div className={`w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-3 border-3 sm:border-4 border-black flex items-center justify-center transform ${plan.popular ? 'rotate-6' : 'rotate-12'} shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${index === 0 ? 'bg-mint' : index === 1 ? 'bg-pink-pastel' : 'bg-vinted'}`}>
+                  <plan.icon className={`w-5 h-5 sm:w-7 sm:h-7 ${index === 0 ? 'text-green-700' : index === 1 ? 'text-pink-700' : 'text-white'}`} />
                 </div>
-                <h3 className={`font-display font-bold text-base sm:text-xl ${index === 2 ? 'text-white' : 'text-black'}`}>{plan.name}</h3>
+                <h3 className="font-display font-bold text-base sm:text-xl text-black">{plan.name}</h3>
               </div>
 
               {/* Prix en vedette */}
-              <div className="relative mb-4 sm:mb-6 p-3 sm:p-5 border-3 sm:border-4 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <div className={`relative mb-4 sm:mb-6 p-3 sm:p-5 border-3 sm:border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${index === 0 ? 'bg-mint' : index === 1 ? 'bg-pink-pastel' : 'bg-vinted'}`}>
                 <div className="text-center">
-                  <div className={`font-display font-bold text-2xl sm:text-3xl mb-1 ${index === 0 ? 'text-green-600' : index === 1 ? 'text-pink-500' : 'text-vinted'}`}>
+                  <div className="font-display font-bold text-2xl sm:text-3xl mb-1 text-black">
                     {plan.price}
                   </div>
                   <div className="font-display font-bold text-[10px] sm:text-sm text-black uppercase">
@@ -215,10 +215,10 @@ export const PricingSection: React.FC = () => {
                     key={featureIndex}
                     className="flex items-start gap-2 sm:gap-3"
                   >
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 sm:border-3 border-black flex items-center justify-center flex-shrink-0 transform rotate-12 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] sm:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-white">
-                      <Check className={`w-3 h-3 sm:w-4 sm:h-4 ${index === 0 ? 'text-green-600' : index === 1 ? 'text-pink-500' : 'text-vinted'}`} />
+                    <div className={`w-5 h-5 sm:w-6 sm:h-6 border-2 sm:border-3 border-black flex items-center justify-center flex-shrink-0 transform rotate-12 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] sm:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${index === 0 ? 'bg-mint' : index === 1 ? 'bg-pink-pastel' : 'bg-vinted'}`}>
+                      <Check className={`w-3 h-3 sm:w-4 sm:h-4 ${index === 0 ? 'text-green-700' : index === 1 ? 'text-pink-700' : 'text-white'}`} />
                     </div>
-                    <span className={`font-body font-semibold text-xs sm:text-sm leading-snug ${index === 2 ? 'text-white' : 'text-black'}`}>{feature}</span>
+                    <span className="font-body font-semibold text-xs sm:text-sm leading-snug text-black">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -232,8 +232,8 @@ export const PricingSection: React.FC = () => {
                 onMouseEnter={() => {
                   if (plan.popular) handleStopPulsePopular();
                 }}
-                className={`relative w-full px-4 sm:px-6 py-2.5 sm:py-3 border-3 sm:border-4 border-black font-display font-bold text-sm sm:text-base shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform bg-white ${
-                  index === 0 ? 'text-green-600' : index === 1 ? 'text-pink-500' : 'text-vinted'
+                className={`relative w-full px-4 sm:px-6 py-2.5 sm:py-3 border-3 sm:border-4 border-black font-display font-bold text-sm sm:text-base text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 transform ${
+                  index === 0 ? 'bg-mint' : index === 1 ? 'bg-pink-pastel' : 'bg-vinted'
                 } ${plan.popular && shouldPulsePopular ? 'animate-pulse-3' : ''}`}
               >
                 <span className="flex items-center justify-center gap-2 sm:gap-3">
