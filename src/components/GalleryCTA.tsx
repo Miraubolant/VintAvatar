@@ -7,6 +7,7 @@ interface GalleryPreviewItem {
   id: string;
   original_image_url: string;
   generated_image_url: string;
+  slug: string;
 }
 
 export const GalleryCTA: React.FC = () => {
@@ -32,6 +33,7 @@ export const GalleryCTA: React.FC = () => {
             id: item.id,
             original_image_url: item.metadata?.original_image_url || '',
             generated_image_url: item.metadata?.generated_image_url || '',
+            slug: item.metadata?.slug || item.id,
           }))
           .filter(item => item.generated_image_url && item.original_image_url);
 
@@ -95,7 +97,8 @@ export const GalleryCTA: React.FC = () => {
                 {previewImages.slice(0, 4).map((item, index) => (
                   <div
                     key={item.id}
-                    className={`relative border-2 border-black rounded-lg overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-white ${index >= 2 ? 'hidden sm:flex' : 'flex'}`}
+                    onClick={() => navigate(`/photos/${item.slug}`)}
+                    className={`relative border-2 border-black rounded-lg overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-white cursor-pointer hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 ${index >= 2 ? 'hidden sm:flex' : 'flex'}`}
                   >
                     <div className="flex w-40 h-32 sm:w-52 sm:h-40">
                       {/* Before */}
