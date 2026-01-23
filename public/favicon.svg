@@ -1,30 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <!-- Background avec rotation -->
-  <g transform="rotate(-2 32 32)">
-    <!-- Fond bleu Vinted -->
-    <rect x="8" y="8" width="48" height="48" fill="#09B1BA" stroke="#000000" stroke-width="3"></rect>
-    
-    <!-- Ombre portée -->
-    <rect x="11" y="11" width="48" height="48" fill="#000000" opacity="0.3"></rect>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <rect x="24" y="24" width="488" height="488" rx="80" fill="#1F2937"/>
+  <!-- Background - Vintdress color -->
+  <rect x="0" y="0" width="488" height="488" rx="80" fill="#09B1BA"/>
+  <!-- Bolt icon (centered in the teal square) -->
+  <g transform="translate(100, 68) scale(12)">
+    <path
+      d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+      fill="none"
+      stroke="white"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
   </g>
-  
-  <!-- Icône Sparkles au centre -->
-  <g transform="translate(32, 32)">
-    <!-- Étoile principale -->
-    <path d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="white"></path>
-    
-    <!-- Petites étoiles -->
-    <path d="M-12 -12 L-10 -10 L-8 -12 L-10 -14 Z" fill="white"></path>
-    <path d="M12 -8 L14 -6 L16 -8 L14 -10 Z" fill="white"></path>
-    <path d="M-10 12 L-8 14 L-6 12 L-8 10 Z" fill="white"></path>
-    <path d="M14 10 L16 12 L18 10 L16 8 Z" fill="white"></path>
-    
-    <!-- Points scintillants -->
-    <circle cx="-6" cy="-6" r="1.5" fill="white"></circle>
-    <circle cx="8" cy="-4" r="1" fill="white"></circle>
-    <circle cx="-4" cy="6" r="1" fill="white"></circle>
-    <circle cx="6" cy="8" r="1.5" fill="white"></circle>
-  </g>
-</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
-@media (prefers-color-scheme: dark) { :root { filter: none; } }
-</style></svg>
+</svg>

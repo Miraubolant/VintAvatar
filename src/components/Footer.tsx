@@ -1,8 +1,21 @@
 import React from 'react';
-import { Sparkles, Mail, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { LanguageSelector } from './LanguageSelector';
+
+// VintDress Bolt Icon
+const VintDressIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path
+      d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 // TikTok icon from Bootstrap Icons
 const TikTokIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -41,8 +54,8 @@ export const Footer: React.FC = () => {
             {/* Brand Section - Mobile centered, Desktop left */}
             <div className="flex flex-col items-center lg:items-start gap-3">
               <a href="/#hero" className="flex items-center gap-2 sm:gap-3 group">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-vinted border-2 sm:border-3 border-black flex items-center justify-center transform -rotate-2 group-hover:rotate-0 transition-transform duration-300 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-vinted border-2 sm:border-3 border-black rounded-xl flex items-center justify-center transform -rotate-2 group-hover:rotate-0 transition-transform duration-300 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <VintDressIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <div className="flex items-center gap-0.5">
                   <span className="inline-block bg-white border-2 sm:border-3 border-black px-1.5 py-0.5 sm:py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-xs text-black transform -rotate-2 group-hover:rotate-0 transition-transform duration-300">

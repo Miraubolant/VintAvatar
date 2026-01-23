@@ -1,8 +1,21 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkles, Menu, X, ChevronDown, Wand2, Image, Images, CreditCard, Star, Gift, HelpCircle, BookOpen } from 'lucide-react';
+import { Menu, X, ChevronDown, Wand2, Image, Images, CreditCard, Star, Gift, HelpCircle, BookOpen } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { AuthButton } from './AuthButton';
+
+// VintDress Bolt Icon
+const VintDressIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path
+      d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 // TikTok icon from Bootstrap Icons
 const TikTokIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -139,8 +152,8 @@ export const Header: React.FC = () => {
             }}
             className="flex items-center gap-2 group shrink-0"
           >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-vinted border-3 border-black flex items-center justify-center transform -rotate-2 group-hover:rotate-0 transition-transform duration-300 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-              <Sparkles className="text-white w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-vinted border-3 border-black rounded-xl flex items-center justify-center transform -rotate-2 group-hover:rotate-0 transition-transform duration-300 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+              <VintDressIcon className="text-white w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
             </div>
 
             {/* Titre style Hero VintDress - Horizontal */}
@@ -266,8 +279,8 @@ export const Header: React.FC = () => {
 
             <div className="relative flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 bg-white border-3 border-black flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-3">
-                  <Sparkles className="w-5 h-5 text-vinted" />
+                <div className="w-11 h-11 bg-white border-3 border-black rounded-xl flex items-center justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-3">
+                  <VintDressIcon className="w-5 h-5 text-vinted" />
                 </div>
                 <div>
                   <span className="font-display font-bold text-white text-lg uppercase tracking-wide block">Navigation</span>
@@ -373,8 +386,8 @@ export const Header: React.FC = () => {
               }}
               className="flex items-center gap-1.5 group shrink-0"
             >
-              <div className="w-9 h-9 bg-vinted border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 group-hover:rotate-0 transition-transform duration-200">
-                <Sparkles className="text-white w-4 h-4" />
+              <div className="w-9 h-9 bg-vinted border-2 border-black rounded-xl flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 group-hover:rotate-0 transition-transform duration-200">
+                <VintDressIcon className="text-white w-4 h-4" />
               </div>
               <div className="flex items-center gap-0.5">
                 <span className="bg-white border-2 border-black px-1.5 py-0.5 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] font-display font-bold text-xs text-black transform -rotate-1">
