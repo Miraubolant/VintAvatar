@@ -8,12 +8,15 @@ Allow: /blog/
 Allow: /faq
 Allow: /cgu
 Allow: /confidentialite
+Allow: /galerie
+Allow: /photos/
 
 # Disallow private/auth pages
 Disallow: /account
 Disallow: /auth/
 Disallow: /success
 Disallow: /cancel
+Disallow: /result/
 
 # Allow AI bots (for visibility in AI search results)
 User-agent: GPTBot
@@ -42,3 +45,4 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://vintdress.com/sitemap.xml
+Sitemap: https://iroihdwursjjkadtbyye.supabase.co/functions/v1/generate-sitemap
