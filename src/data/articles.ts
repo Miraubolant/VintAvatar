@@ -472,6 +472,36 @@ export const articles: Article[] = [
     readTime: '18 min',
     category: 'Guide',
     image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1200&h=800&fit=crop'
+  },
+  {
+    id: 'se-demarquer-vinted-mannequin-ia',
+    slug: 'se-demarquer-vinted-mannequin-ia',
+    title: "Se Démarquer sur Vinted : Comment le Mannequin IA Booste vos Ventes",
+    description: "Découvrez comment le mannequin IA VintDress vous aide à vous démarquer parmi des milliers d'annonces Vinted et à vendre 3x plus vite.",
+    excerpt: "Tes annonces stagnent parmi des millions d'autres ? Découvre comment le mannequin IA VintDress te permet de te démarquer et vendre plus vite.",
+    publishedAt: '2026-02-01',
+    date: '1 févr. 2026',
+    author: 'VintDress',
+    tags: ['Mannequin IA', 'Visibilité', 'Photos', 'Vinted', 'Ventes'],
+    readingTime: '10 min',
+    readTime: '10 min',
+    category: 'Guide',
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=800&fit=crop'
+  },
+  {
+    id: 'description-vinted-optimisee-ia',
+    slug: 'description-vinted-optimisee-ia',
+    title: "Description Vinted : Comment l'IA Transforme tes Textes en Machines à Vendre",
+    description: "Transformez vos descriptions Vinted basiques en textes optimisés qui rassurent l'acheteur et accélèrent vos ventes grâce à l'intelligence artificielle.",
+    excerpt: "Tu négliges tes descriptions Vinted ? Grosse erreur. Découvre comment l'IA peut transformer tes textes basiques en machines à vendre.",
+    publishedAt: '2026-02-01',
+    date: '1 févr. 2026',
+    author: 'VintDress',
+    tags: ['Description', 'IA', 'Copywriting', 'Vinted', 'Optimisation'],
+    readingTime: '12 min',
+    readTime: '12 min',
+    category: 'Conseils',
+    image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&h=800&fit=crop'
   }
 ];
 
@@ -1165,6 +1195,52 @@ const articleTranslations: Record<string, Record<string, Partial<Article>>> = {
       description: "Scopri le giacche di pelle vintage più ricercate: perfecto, bomber, aviator. Guida esperta per autenticare, scegliere e prendersi cura della tua giacca di pelle.",
       date: '13 gen. 2026',
       category: 'Guida',
+    },
+  },
+  'se-demarquer-vinted-mannequin-ia': {
+    en: {
+      title: "Stand Out on Vinted: How AI Mannequin Boosts Your Sales",
+      excerpt: "Your listings invisible among millions? Discover how VintDress AI mannequin helps you stand out and sell faster.",
+      description: "Discover how VintDress AI mannequin helps you stand out among thousands of Vinted listings and sell 3x faster.",
+      date: 'Feb 1, 2026',
+      category: 'Guide',
+    },
+    es: {
+      title: "Destacar en Vinted: Cómo el Maniquí IA Impulsa tus Ventas",
+      excerpt: "¿Tus anuncios invisibles entre millones? Descubre cómo el maniquí IA de VintDress te ayuda a destacar y vender más rápido.",
+      description: "Descubre cómo el maniquí IA de VintDress te ayuda a destacar entre miles de anuncios de Vinted y vender 3 veces más rápido.",
+      date: '1 feb. 2026',
+      category: 'Guía',
+    },
+    it: {
+      title: "Distinguersi su Vinted: Come il Manichino IA Aumenta le Tue Vendite",
+      excerpt: "I tuoi annunci invisibili tra milioni? Scopri come il manichino IA di VintDress ti aiuta a distinguerti e vendere più velocemente.",
+      description: "Scopri come il manichino IA di VintDress ti aiuta a distinguerti tra migliaia di annunci Vinted e vendere 3 volte più velocemente.",
+      date: '1 feb. 2026',
+      category: 'Guida',
+    },
+  },
+  'description-vinted-optimisee-ia': {
+    en: {
+      title: "Vinted Description: How AI Transforms Your Texts into Selling Machines",
+      excerpt: "Neglecting your Vinted descriptions? Big mistake. Discover how AI can transform your basic texts into selling machines.",
+      description: "Transform your basic Vinted descriptions into optimized texts that reassure buyers and accelerate your sales with artificial intelligence.",
+      date: 'Feb 1, 2026',
+      category: 'Tips',
+    },
+    es: {
+      title: "Descripción Vinted: Cómo la IA Transforma tus Textos en Máquinas de Vender",
+      excerpt: "¿Descuidas tus descripciones de Vinted? Gran error. Descubre cómo la IA puede transformar tus textos básicos en máquinas de vender.",
+      description: "Transforma tus descripciones básicas de Vinted en textos optimizados que tranquilizan al comprador y aceleran tus ventas con inteligencia artificial.",
+      date: '1 feb. 2026',
+      category: 'Consejos',
+    },
+    it: {
+      title: "Descrizione Vinted: Come l'IA Trasforma i Tuoi Testi in Macchine da Vendita",
+      excerpt: "Trascuri le tue descrizioni Vinted? Grande errore. Scopri come l'IA può trasformare i tuoi testi basilari in macchine da vendita.",
+      description: "Trasforma le tue descrizioni Vinted basilari in testi ottimizzati che rassicurano l'acquirente e accelerano le tue vendite con l'intelligenza artificiale.",
+      date: '1 feb. 2026',
+      category: 'Consigli',
     },
   },
 };

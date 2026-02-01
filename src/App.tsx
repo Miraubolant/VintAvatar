@@ -174,6 +174,16 @@ const VesteCuirVintagePage = React.lazy(() => import('./pages/articles/VesteCuir
 const VintageLeatherJacketPageEN = React.lazy(() => import('./pages/articles/en/VintageLeatherJacketPage').then(module => ({ default: module.default })));
 const ChaquetaCueroVintagePageES = React.lazy(() => import('./pages/articles/es/ChaquetaCueroVintagePage').then(module => ({ default: module.default })));
 const GiaccaPelleVintagePageIT = React.lazy(() => import('./pages/articles/it/GiaccaPelleVintagePage').then(module => ({ default: module.default })));
+// Article 14 - Se Demarquer sur Vinted avec Mannequin IA
+const SeDemarquerVintedMannequinIAPage = React.lazy(() => import('./pages/articles/SeDemarquerVintedMannequinIAPage').then(module => ({ default: module.default })));
+const StandOutVintedAIMannequinPageEN = React.lazy(() => import('./pages/articles/en/StandOutVintedAIMannequinPage').then(module => ({ default: module.default })));
+const DestacarVintedManiquiIAPageES = React.lazy(() => import('./pages/articles/es/DestacarVintedManiquiIAPage').then(module => ({ default: module.default })));
+const DistinguerstiVintedManichinoIAPageIT = React.lazy(() => import('./pages/articles/it/DistinguerstiVintedManichinoIAPage').then(module => ({ default: module.default })));
+// Article 15 - Description Vinted Optimisee avec IA
+const DescriptionVintedOptimiseeIAPage = React.lazy(() => import('./pages/articles/DescriptionVintedOptimiseeIAPage').then(module => ({ default: module.default })));
+const VintedDescriptionOptimizedAIPageEN = React.lazy(() => import('./pages/articles/en/VintedDescriptionOptimizedAIPage').then(module => ({ default: module.default })));
+const DescripcionVintedOptimizadaIAPageES = React.lazy(() => import('./pages/articles/es/DescripcionVintedOptimizadaIAPage').then(module => ({ default: module.default })));
+const DescrizioneVintedOttimizzataIAPageIT = React.lazy(() => import('./pages/articles/it/DescrizioneVintedOttimizzataIAPage').then(module => ({ default: module.default })));
 
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
@@ -915,6 +925,48 @@ function App() {
               <Route path="/it/articles/giacca-pelle-vintage" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <GiaccaPelleVintagePageIT />
+                </Suspense>
+              } />
+              {/* Article 14 - Se Demarquer sur Vinted avec Mannequin IA */}
+              <Route path="/articles/se-demarquer-vinted-mannequin-ia" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <SeDemarquerVintedMannequinIAPage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/stand-out-vinted-ai-mannequin" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <StandOutVintedAIMannequinPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/destacar-vinted-maniqui-ia" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <DestacarVintedManiquiIAPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/distinguersti-vinted-manichino-ia" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <DistinguerstiVintedManichinoIAPageIT />
+                </Suspense>
+              } />
+              {/* Article 15 - Description Vinted Optimisee avec IA */}
+              <Route path="/articles/description-vinted-optimisee-ia" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <DescriptionVintedOptimiseeIAPage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/vinted-description-optimized-ai" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <VintedDescriptionOptimizedAIPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/descripcion-vinted-optimizada-ia" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <DescripcionVintedOptimizadaIAPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/descrizione-vinted-ottimizzata-ia" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <DescrizioneVintedOttimizzataIAPageIT />
                 </Suspense>
               } />
               <Route path="/articles/:slug" element={

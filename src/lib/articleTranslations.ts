@@ -220,6 +220,20 @@ export const articleTranslations: ArticleTranslation[] = [
     es: '/es/articles/chaqueta-cuero-vintage',
     it: '/it/articles/giacca-pelle-vintage',
   },
+  {
+    id: 'se-demarquer-vinted-mannequin-ia',
+    fr: '/articles/se-demarquer-vinted-mannequin-ia',
+    en: '/en/articles/stand-out-vinted-ai-mannequin',
+    es: '/es/articles/destacar-vinted-maniqui-ia',
+    it: '/it/articles/distinguersti-vinted-manichino-ia',
+  },
+  {
+    id: 'description-vinted-optimisee-ia',
+    fr: '/articles/description-vinted-optimisee-ia',
+    en: '/en/articles/vinted-description-optimized-ai',
+    es: '/es/articles/descripcion-vinted-optimizada-ia',
+    it: '/it/articles/descrizione-vinted-ottimizzata-ia',
+  },
 ];
 
 // Fonction pour trouver la traduction d'un article à partir de son URL actuelle

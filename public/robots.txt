@@ -4,6 +4,7 @@
 # All crawlers
 User-agent: *
 Allow: /
+Allow: /articles/
 Allow: /blog/
 Allow: /faq
 Allow: /cgu

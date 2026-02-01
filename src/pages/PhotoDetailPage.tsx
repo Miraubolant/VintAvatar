@@ -916,14 +916,14 @@ export const PhotoDetailPage: React.FC = () => {
           <div className="flex items-center gap-2 mb-4">
             <BookOpen className="w-5 h-5 text-vinted" />
             <h2 className="font-display font-bold text-lg sm:text-xl">
-              Articles qui pourraient vous interesser
+              Articles qui pourraient vous intéresser
             </h2>
           </div>
           <div className="space-y-3">
             {relatedArticles.map((article) => (
               <Link
                 key={article.id}
-                to={`/blog/${article.slug}`}
+                to={`/articles/${article.slug}`}
                 className="block bg-cream border-3 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
                 <h3 className="font-display font-bold text-sm sm:text-base text-black mb-1">
