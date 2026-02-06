@@ -6,6 +6,7 @@ import { supabase } from '../lib/supabase';
 import { useSEO } from '../hooks/useSEO';
 import { SITE_CONFIG } from '../constants';
 import { generateSlug } from '../utils/slugify';
+import { resolveOriginalImageUrl } from '../hooks/useOriginalImageUrl';
 
 interface GalleryItem {
   id: string;
@@ -70,7 +71,23 @@ export const GalleryPage: React.FC = () => {
         slug: item.metadata?.slug || '',
       })).filter(item => item.generated_image_url);
 
+      // Affichage rapide puis résolution des URLs originales en arrière-plan
       setItems(galleryItems);
+
+      // Résoudre les URLs des images originales (signed URLs fraîches)
+      const itemsWithOriginal = galleryItems.filter(item => item.original_image_url);
+      if (itemsWithOriginal.length > 0) {
+        const resolvedUrls = await Promise.all(
+          itemsWithOriginal.map(item => resolveOriginalImageUrl(item.original_image_url))
+        );
+        setItems(prev => prev.map(item => {
+          const idx = itemsWithOriginal.findIndex(o => o.id === item.id);
+          if (idx !== -1 && resolvedUrls[idx]) {
+            return { ...item, original_image_url: resolvedUrls[idx] };
+          }
+          return item;
+        }));
+      }
     } catch (err) {
       console.error('Error fetching gallery:', err);
     } finally {

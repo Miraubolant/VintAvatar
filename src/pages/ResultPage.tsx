@@ -17,6 +17,7 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../hooks/useAuth';
 import { cropHead } from '../utils/headCropper';
 import { ShareToGallerySection } from '../components/ShareToGallerySection';
+import { resolveOriginalImageUrl } from '../hooks/useOriginalImageUrl';
 
 interface GenerationResult {
   id: string;
@@ -78,12 +79,15 @@ export const ResultPage: React.FC = () => {
         return;
       }
 
-      // Transform the data
+      // Transform the data + résoudre l'URL de l'image originale
+      const rawOriginalUrl = data.metadata?.original_image_url || '';
+      const resolvedOriginalUrl = rawOriginalUrl ? await resolveOriginalImageUrl(rawOriginalUrl) : '';
+
       const generationResult: GenerationResult = {
         id: data.id,
         created_at: data.created_at,
         generated_image_url: data.metadata?.generated_image_url || '',
-        original_image_url: data.metadata?.original_image_url || '',
+        original_image_url: resolvedOriginalUrl,
         vinted_listing: data.metadata?.vinted_listing || null,
         generation_config: data.metadata?.generation_config || {}
       };

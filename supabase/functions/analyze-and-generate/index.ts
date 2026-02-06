@@ -578,12 +578,8 @@ async function uploadOriginalImage(supabase: any, imageData: string, userId: str
 
   if (error) throw error
 
-  const { data: { signedUrl }, error: signedUrlError } = await supabase.storage
-    .from('original-images')
-    .createSignedUrl(fileName, 3600)
-
-  if (signedUrlError) throw signedUrlError
-  return signedUrl
+  // Retourner le chemin permanent au lieu d'une signed URL temporaire
+  return `original-images/${fileName}`
 }
 
 async function saveGeneratedImage(supabase: any, imageUrl: string, userId: string): Promise<string> {

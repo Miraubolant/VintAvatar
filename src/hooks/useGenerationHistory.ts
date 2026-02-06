@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from './useAuth';
+import { resolveOriginalImageUrl } from './useOriginalImageUrl';
 
 export interface VintedListing {
   title: string;
@@ -21,10 +22,6 @@ export interface GenerationHistoryItem {
   vinted_article_url: string | null;
   is_public: boolean;
 }
-
-// Cache pour les URLs signées (évite de recréer les URLs à chaque render)
-const signedUrlCache = new Map<string, { url: string; expires: number }>();
-const CACHE_DURATION = 23 * 60 * 60 * 1000; // 23 heures en ms
 
 export const useGenerationHistory = () => {
   const { user } = useAuth();
@@ -57,43 +54,6 @@ export const useGenerationHistory = () => {
       window.removeEventListener('generation-history-updated', handleHistoryUpdate);
     };
   }, [user]);
-
-  // Fonction pour obtenir une URL signée avec cache
-  const getSignedUrl = async (originalUrl: string): Promise<string> => {
-    if (!originalUrl || !originalUrl.includes('original-images')) {
-      return originalUrl;
-    }
-
-    const pathMatch = originalUrl.match(/original-images\/(.+?)(\?|$)/);
-    if (!pathMatch) return originalUrl;
-
-    const filePath = pathMatch[1];
-    const cacheKey = filePath;
-
-    // Vérifier le cache
-    const cached = signedUrlCache.get(cacheKey);
-    if (cached && cached.expires > Date.now()) {
-      return cached.url;
-    }
-
-    try {
-      const { data: signedUrl } = await supabase.storage
-        .from('original-images')
-        .createSignedUrl(filePath, 86400); // 24 heures
-
-      if (signedUrl?.signedUrl) {
-        signedUrlCache.set(cacheKey, {
-          url: signedUrl.signedUrl,
-          expires: Date.now() + CACHE_DURATION
-        });
-        return signedUrl.signedUrl;
-      }
-    } catch (err) {
-      console.warn('Erreur création URL signée:', err);
-    }
-
-    return originalUrl;
-  };
 
   const fetchGenerationHistory = async () => {
     if (!user || fetchInProgressRef.current) return;
@@ -133,9 +93,9 @@ export const useGenerationHistory = () => {
       setHistory(quickHistoryItems);
       setLoading(false);
 
-      // Générer les URLs signées en arrière-plan par lots
+      // Résoudre les URLs des images originales en arrière-plan par lots
       const itemsNeedingSignedUrls = quickHistoryItems.filter(
-        item => item.original_image_url && item.original_image_url.includes('original-images')
+        item => item.original_image_url
       );
 
       if (itemsNeedingSignedUrls.length > 0) {
@@ -143,12 +103,12 @@ export const useGenerationHistory = () => {
         for (let i = 0; i < itemsNeedingSignedUrls.length; i += batchSize) {
           const batch = itemsNeedingSignedUrls.slice(i, i + batchSize);
           const signedUrls = await Promise.all(
-            batch.map(item => getSignedUrl(item.original_image_url))
+            batch.map(item => resolveOriginalImageUrl(item.original_image_url))
           );
 
           setHistory(prev => prev.map(item => {
             const batchIndex = batch.findIndex(b => b.id === item.id);
-            if (batchIndex !== -1) {
+            if (batchIndex !== -1 && signedUrls[batchIndex]) {
               return { ...item, original_image_url: signedUrls[batchIndex] };
             }
             return item;

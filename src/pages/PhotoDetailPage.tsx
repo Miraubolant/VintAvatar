@@ -28,6 +28,7 @@ import { InvalidFileModal } from '../components/InvalidFileModal';
 import { ErrorModal } from '../components/ErrorModal';
 import { BeforeAfterComparison } from '../components/BeforeAfterComparison';
 import { extractIdFromSlug, slugToTitle } from '../utils/slugify';
+import { resolveOriginalImageUrl } from '../hooks/useOriginalImageUrl';
 
 // Image compression function (same as HeroSection)
 const compressImage = (file: File, maxWidth = 2000, maxHeight = 2000): Promise<string> => {
@@ -239,11 +240,15 @@ export const PhotoDetailPage: React.FC = () => {
           return;
         }
 
+        // Résoudre l'URL de l'image originale (signed URL fraîche)
+        const rawOriginalUrl = matchingPhoto.metadata?.original_image_url || '';
+        const resolvedOriginalUrl = rawOriginalUrl ? await resolveOriginalImageUrl(rawOriginalUrl) : '';
+
         setPhotoData({
           id: matchingPhoto.id,
           created_at: matchingPhoto.created_at,
           generated_image_url: matchingPhoto.metadata?.generated_image_url || '',
-          original_image_url: matchingPhoto.metadata?.original_image_url || '',
+          original_image_url: resolvedOriginalUrl,
           clothing_type: matchingPhoto.metadata?.generation_config?.clothingType || 'autre',
           title: matchingPhoto.metadata?.vinted_listing?.title || slugToTitle(slug),
           description: matchingPhoto.metadata?.vinted_listing?.description || '',
