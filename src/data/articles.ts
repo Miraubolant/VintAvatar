@@ -36,7 +36,7 @@ export const articles: Article[] = [
     readingTime: '5 min',
     readTime: '5 min',
     category: 'Astuce',
-    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=800&fit=crop'
+    image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1200&h=800&fit=crop'
   },
   {
     id: 'photo-porte-vinted',
