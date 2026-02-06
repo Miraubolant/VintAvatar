@@ -31,12 +31,12 @@ export const Footer: React.FC = () => {
   const mainLinks = [
     { href: "/#hero", labelKey: "footer.navigation.home" },
     { href: "/#avant-apres", labelKey: "footer.navigation.beforeAfter" },
-    { href: "/#tarifs", labelKey: "footer.navigation.pricing" },
     { href: "/#avis", labelKey: "footer.navigation.reviews" },
   ];
 
   // Page links - routes
   const pageLinks = [
+    { to: "/tarifs", label: t('footer.navigation.pricing') },
     { to: "/galerie", label: "Galerie" },
     { to: "/leaderboard", label: "Classement" },
     { to: "/faq", label: "FAQ" },

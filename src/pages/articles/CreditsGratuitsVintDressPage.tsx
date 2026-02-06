@@ -322,7 +322,7 @@ export const CreditsGratuitsVintDressPage: React.FC = () => {
                 Envie de generer plus de photos ? Decouvre nos packs de credits a partir de 3,99 euros seulement.
               </p>
               <Link
-                to="/#tarifs"
+                to="/tarifs"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-vinted text-white border-3 border-black font-display font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
                 VOIR LES TARIFS

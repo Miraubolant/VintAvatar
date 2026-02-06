@@ -91,7 +91,7 @@ export const Header: React.FC = () => {
   const mainNavLinks = [
     { href: '#hero', label: t('navigation.features') },
     { href: '#avant-apres', label: t('navigation.beforeAfter') },
-    { href: '#tarifs', label: t('navigation.pricing') },
+    { href: '/tarifs', label: t('navigation.pricing'), isRoute: true },
   ];
 
   const dropdownLinks = [
@@ -109,7 +109,7 @@ export const Header: React.FC = () => {
   const allMobileLinks = [
     { href: '#hero', label: t('navigation.features'), icon: Wand2, bgColor: 'bg-pink-pastel', iconColor: 'text-black' },
     { href: '#avant-apres', label: t('navigation.beforeAfter'), icon: Image, bgColor: 'bg-vinted', iconColor: 'text-white' },
-    { href: '#tarifs', label: t('navigation.pricing'), icon: CreditCard, bgColor: 'bg-pink-pastel', iconColor: 'text-black' },
+    { href: '/tarifs', label: t('navigation.pricing'), isRoute: true, icon: CreditCard, bgColor: 'bg-pink-pastel', iconColor: 'text-black' },
     { href: '#avis', label: t('navigation.reviews'), icon: Star, bgColor: 'bg-vinted', iconColor: 'text-white' },
     { href: '/leaderboard', label: t('navigation.leaderboard'), isRoute: true, icon: Gift, bgColor: 'bg-vinted', iconColor: 'text-white' },
     { href: '/galerie', label: t('navigation.gallery'), isRoute: true, icon: Images, bgColor: 'bg-vinted', iconColor: 'text-white' },
@@ -173,7 +173,7 @@ export const Header: React.FC = () => {
             {mainNavLinks.map((link) => (
               <button
                 key={link.href}
-                onClick={() => handleNavClick(link.href)}
+                onClick={() => handleNavClick(link.href, link.isRoute)}
                 className="px-3 py-2.5 font-display font-bold text-sm uppercase border-2 border-transparent hover:bg-vinted hover:text-white hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
               >
                 {link.label}
@@ -407,7 +407,7 @@ export const Header: React.FC = () => {
               {mainNavLinks.map((link) => (
                 <button
                   key={`sticky-${link.href}`}
-                  onClick={() => handleNavClick(link.href)}
+                  onClick={() => handleNavClick(link.href, link.isRoute)}
                   className="px-2.5 py-1.5 font-display font-bold text-xs uppercase border-2 border-transparent hover:bg-vinted hover:text-white hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150"
                 >
                   {link.label}

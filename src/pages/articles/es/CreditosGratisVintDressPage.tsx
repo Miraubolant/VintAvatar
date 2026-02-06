@@ -429,7 +429,7 @@ export default function CreditosGratisVintDressPage() {
                 Ver Galeria Publica
               </Link>
               <Link
-                to="/#tarifs"
+                to="/tarifs"
                 className="bg-mint text-black px-8 py-4 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-bold font-space-grotesk hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all inline-flex items-center justify-center gap-2"
               >
                 <Gift className="w-5 h-5" />
@@ -451,7 +451,7 @@ export default function CreditosGratisVintDressPage() {
             La clave es <strong>combinar los dos metodos</strong>: usa tus 2 compartidos de galeria para comenzar, luego construye un flujo constante de creditos via referidos. Con una estrategia inteligente, puedes usar VintDress regularmente sin gastar nada.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Y cuando tus ventas Vinted despeguen, siempre puedes <Link to="/#tarifs" className="text-vinted hover:underline font-semibold">pasar a un plan de pago</Link> para generaciones ilimitadas. Pero para empezar, los creditos gratis son mas que suficientes para descubrir el poder de la IA para Vinted.
+            Y cuando tus ventas Vinted despeguen, siempre puedes <Link to="/tarifs" className="text-vinted hover:underline font-semibold">pasar a un plan de pago</Link> para generaciones ilimitadas. Pero para empezar, los creditos gratis son mas que suficientes para descubrir el poder de la IA para Vinted.
           </p>
         </section>
 

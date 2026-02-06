@@ -192,6 +192,7 @@ const FreeCreditsVintDressPageEN = React.lazy(() => import('./pages/articles/en/
 const CreditosGratisVintDressPageES = React.lazy(() => import('./pages/articles/es/CreditosGratisVintDressPage').then(module => ({ default: module.default })));
 const CreditiGratutiVintDressPageIT = React.lazy(() => import('./pages/articles/it/CreditiGratutiVintDressPage').then(module => ({ default: module.default })));
 
+const TarifsPage = React.lazy(() => import('./pages/TarifsPage').then(module => ({ default: module.TarifsPage })));
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 const ResultPage = React.lazy(() => import('./pages/ResultPage').then(module => ({ default: module.ResultPage })));
@@ -1018,6 +1019,11 @@ function App() {
               <Route path="/confidentialite" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <LegalPage />
+                </Suspense>
+              } />
+              <Route path="/tarifs" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <TarifsPage />
                 </Suspense>
               } />
               <Route path="/faq" element={

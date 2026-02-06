@@ -356,7 +356,7 @@ export default function FreeCreditsVintDressPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/#tarifs"
+                href="/tarifs"
                 className="px-8 py-4 bg-vinted text-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all font-space-grotesk font-bold text-lg inline-flex items-center justify-center gap-2"
               >
                 Get Started

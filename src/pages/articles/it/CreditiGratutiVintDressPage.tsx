@@ -389,7 +389,7 @@ export default function CreditiGratutiVintDressPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                to="/#tarifs"
+                to="/tarifs"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-vinted border-3 border-black font-space-grotesk font-bold text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"
               >
                 Scopri i Nostri Prezzi
