@@ -24,6 +24,21 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    id: 'credits-gratuits-vintdress',
+    slug: 'credits-gratuits-vintdress',
+    title: "Crédits Gratuits VintDress : 2 Méthodes pour Utiliser l'IA Vinted sans Payer",
+    description: "Découvrez comment obtenir des crédits gratuits sur VintDress : parrainage et partage en galerie. Utilisez l'IA mannequin Vinted sans payer.",
+    excerpt: "Obtenez des crédits gratuits VintDress grâce au parrainage (+1 crédit) et au partage en galerie (+1 crédit, max 2). Guide complet.",
+    publishedAt: '2026-02-06',
+    date: '6 févr. 2026',
+    author: 'VintDress',
+    tags: ['Gratuit', 'Crédits', 'Parrainage', 'IA Vinted'],
+    readingTime: '5 min',
+    readTime: '5 min',
+    category: 'Astuce',
+    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=800&fit=crop'
+  },
+  {
     id: 'photo-porte-vinted',
     slug: 'photo-porte-vinted',
     title: 'Photos Portées Vinted : Le Guide Complet 2025',
@@ -502,21 +517,6 @@ export const articles: Article[] = [
     readTime: '12 min',
     category: 'Conseils',
     image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&h=800&fit=crop'
-  },
-  {
-    id: 'credits-gratuits-vintdress',
-    slug: 'credits-gratuits-vintdress',
-    title: "Crédits Gratuits VintDress : 2 Méthodes pour Utiliser l'IA Vinted sans Payer",
-    description: "Découvrez comment obtenir des crédits gratuits sur VintDress : parrainage et partage en galerie. Utilisez l'IA mannequin Vinted sans payer.",
-    excerpt: "Obtenez des crédits gratuits VintDress grâce au parrainage (+1 crédit) et au partage en galerie (+1 crédit, max 2). Guide complet.",
-    publishedAt: '2026-02-06',
-    date: '6 févr. 2026',
-    author: 'VintDress',
-    tags: ['Gratuit', 'Crédits', 'Parrainage', 'IA Vinted'],
-    readingTime: '5 min',
-    readTime: '5 min',
-    category: 'Astuce',
-    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=800&fit=crop'
   }
 ];
 
