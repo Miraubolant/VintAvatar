@@ -185,6 +185,12 @@ const VintedDescriptionOptimizedAIPageEN = React.lazy(() => import('./pages/arti
 const DescripcionVintedOptimizadaIAPageES = React.lazy(() => import('./pages/articles/es/DescripcionVintedOptimizadaIAPage').then(module => ({ default: module.default })));
 const DescrizioneVintedOttimizzataIAPageIT = React.lazy(() => import('./pages/articles/it/DescrizioneVintedOttimizzataIAPage').then(module => ({ default: module.default })));
 
+// Article 16 - Credits Gratuits VintDress
+const CreditsGratuitsVintDressPage = React.lazy(() => import('./pages/articles/CreditsGratuitsVintDressPage').then(module => ({ default: module.default })));
+const FreeCreditsVintDressPageEN = React.lazy(() => import('./pages/articles/en/FreeCreditsVintDressPage').then(module => ({ default: module.default })));
+const CreditosGratisVintDressPageES = React.lazy(() => import('./pages/articles/es/CreditosGratisVintDressPage').then(module => ({ default: module.default })));
+const CreditiGratutiVintDressPageIT = React.lazy(() => import('./pages/articles/it/CreditiGratutiVintDressPage').then(module => ({ default: module.default })));
+
 const LegalPage = React.lazy(() => import('./pages/LegalPage').then(module => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 const ResultPage = React.lazy(() => import('./pages/ResultPage').then(module => ({ default: module.ResultPage })));
@@ -967,6 +973,27 @@ function App() {
               <Route path="/it/articles/descrizione-vinted-ottimizzata-ia" element={
                 <Suspense fallback={<LoadingComponent />}>
                   <DescrizioneVintedOttimizzataIAPageIT />
+                </Suspense>
+              } />
+              {/* Article 16 - Credits Gratuits VintDress */}
+              <Route path="/articles/credits-gratuits-vintdress" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <CreditsGratuitsVintDressPage />
+                </Suspense>
+              } />
+              <Route path="/en/articles/free-credits-vintdress" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <FreeCreditsVintDressPageEN />
+                </Suspense>
+              } />
+              <Route path="/es/articles/creditos-gratis-vintdress" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <CreditosGratisVintDressPageES />
+                </Suspense>
+              } />
+              <Route path="/it/articles/crediti-gratuiti-vintdress" element={
+                <Suspense fallback={<LoadingComponent />}>
+                  <CreditiGratutiVintDressPageIT />
                 </Suspense>
               } />
               <Route path="/articles/:slug" element={

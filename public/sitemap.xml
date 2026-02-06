@@ -1900,4 +1900,59 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Crédits Gratuits VintDress - FR -->
+  <url>
+    <loc>https://vintdress.com/articles/credits-gratuits-vintdress</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/credits-gratuits-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/free-credits-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/creditos-gratis-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/crediti-gratuiti-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/credits-gratuits-vintdress"/>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&amp;h=800&amp;fit=crop</image:loc>
+    </image:image>
+  </url>
+
+  <!-- Free Credits VintDress - EN -->
+  <url>
+    <loc>https://vintdress.com/en/articles/free-credits-vintdress</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/credits-gratuits-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/free-credits-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/creditos-gratis-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/crediti-gratuiti-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/credits-gratuits-vintdress"/>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Créditos Gratis VintDress - ES -->
+  <url>
+    <loc>https://vintdress.com/es/articles/creditos-gratis-vintdress</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/credits-gratuits-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/free-credits-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/creditos-gratis-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/crediti-gratuiti-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/credits-gratuits-vintdress"/>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Crediti Gratuiti VintDress - IT -->
+  <url>
+    <loc>https://vintdress.com/it/articles/crediti-gratuiti-vintdress</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://vintdress.com/articles/credits-gratuits-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vintdress.com/en/articles/free-credits-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://vintdress.com/es/articles/creditos-gratis-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://vintdress.com/it/articles/crediti-gratuiti-vintdress"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vintdress.com/articles/credits-gratuits-vintdress"/>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

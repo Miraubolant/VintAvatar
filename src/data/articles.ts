@@ -502,6 +502,21 @@ export const articles: Article[] = [
     readTime: '12 min',
     category: 'Conseils',
     image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&h=800&fit=crop'
+  },
+  {
+    id: 'credits-gratuits-vintdress',
+    slug: 'credits-gratuits-vintdress',
+    title: "Crédits Gratuits VintDress : 2 Méthodes pour Utiliser l'IA Vinted sans Payer",
+    description: "Découvrez comment obtenir des crédits gratuits sur VintDress : parrainage et partage en galerie. Utilisez l'IA mannequin Vinted sans payer.",
+    excerpt: "Obtenez des crédits gratuits VintDress grâce au parrainage (+1 crédit) et au partage en galerie (+1 crédit, max 2). Guide complet.",
+    publishedAt: '2026-02-06',
+    date: '6 févr. 2026',
+    author: 'VintDress',
+    tags: ['Gratuit', 'Crédits', 'Parrainage', 'IA Vinted'],
+    readingTime: '5 min',
+    readTime: '5 min',
+    category: 'Astuce',
+    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=800&fit=crop'
   }
 ];
 
@@ -1241,6 +1256,29 @@ const articleTranslations: Record<string, Record<string, Partial<Article>>> = {
       description: "Trasforma le tue descrizioni Vinted basilari in testi ottimizzati che rassicurano l'acquirente e accelerano le tue vendite con l'intelligenza artificiale.",
       date: '1 feb. 2026',
       category: 'Consigli',
+    },
+  },
+  'credits-gratuits-vintdress': {
+    en: {
+      title: "Free Credits VintDress: 2 Ways to Use Vinted AI Without Paying",
+      excerpt: "Get free VintDress credits through referral (+1 credit) and gallery sharing (+1 credit, max 2). Complete guide.",
+      description: "Discover how to get free credits on VintDress: referral program and gallery sharing. Use AI mannequin for Vinted without paying.",
+      date: 'Feb 6, 2026',
+      category: 'Tips',
+    },
+    es: {
+      title: "Créditos Gratis VintDress: 2 Métodos para Usar la IA de Vinted sin Pagar",
+      excerpt: "Obtén créditos gratis en VintDress con el programa de referidos (+1 crédito) y compartiendo en galería (+1 crédito, máx 2).",
+      description: "Descubre cómo obtener créditos gratis en VintDress: programa de referidos y compartir en galería. Usa el maniquí IA de Vinted sin pagar.",
+      date: '6 feb. 2026',
+      category: 'Consejo',
+    },
+    it: {
+      title: "Crediti Gratuiti VintDress: 2 Metodi per Usare l'IA di Vinted senza Pagare",
+      excerpt: "Ottieni crediti gratuiti su VintDress con il programma referral (+1 credito) e condivisione in galleria (+1 credito, max 2).",
+      description: "Scopri come ottenere crediti gratuiti su VintDress: programma referral e condivisione in galleria. Usa il manichino IA di Vinted senza pagare.",
+      date: '6 feb. 2026',
+      category: 'Consiglio',
     },
   },
 };

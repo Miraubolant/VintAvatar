@@ -234,6 +234,13 @@ export const articleTranslations: ArticleTranslation[] = [
     es: '/es/articles/descripcion-vinted-optimizada-ia',
     it: '/it/articles/descrizione-vinted-ottimizzata-ia',
   },
+  {
+    id: 'credits-gratuits-vintdress',
+    fr: '/articles/credits-gratuits-vintdress',
+    en: '/en/articles/free-credits-vintdress',
+    es: '/es/articles/creditos-gratis-vintdress',
+    it: '/it/articles/crediti-gratuiti-vintdress',
+  },
 ];
 
 // Fonction pour trouver la traduction d'un article à partir de son URL actuelle
