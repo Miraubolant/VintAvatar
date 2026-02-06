@@ -603,7 +603,7 @@ export const HeroSection: React.FC = () => {
                       <div className="relative w-20 h-28 sm:w-28 sm:h-36 md:w-32 md:h-44 lg:w-36 lg:h-48 border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
                         <img
                           src={vintedImage || uploadedImage || ''}
-                          alt="Photo sélectionnée"
+                          alt="Photo vêtement Vinted avant transformation par mannequin IA VintDress"
                           className="w-full h-full object-cover"
                         />
                       </div>

@@ -105,7 +105,7 @@ export const GalleryCTA: React.FC = () => {
                       <div className="w-1/2 h-full relative">
                         <img
                           src={item.original_image_url}
-                          alt="Avant"
+                          alt="Photo originale Vinted avant IA mannequin VintDress"
                           width={80}
                           height={112}
                           className="w-full h-full object-cover object-top"
@@ -121,7 +121,7 @@ export const GalleryCTA: React.FC = () => {
                       <div className="w-1/2 h-full relative">
                         <img
                           src={item.generated_image_url}
-                          alt="Après IA"
+                          alt="IA photo Vinted - mannequin IA gratuit VintDress résultat"
                           width={80}
                           height={112}
                           className="w-full h-full object-cover object-top"

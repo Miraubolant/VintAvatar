@@ -20,6 +20,7 @@ const TestimonialsSection = React.lazy(() => import('./components/TestimonialsSe
 const FAQSection = React.lazy(() => import('./components/FAQSection').then(module => ({ default: module.FAQSection })));
 const PricingSection = React.lazy(() => import('./components/PricingSection').then(module => ({ default: module.PricingSection })));
 const BlogSection = React.lazy(() => import('./components/BlogSection').then(module => ({ default: module.BlogSection })));
+const HomeFAQ = React.lazy(() => import('./components/HomeFAQ').then(module => ({ default: module.HomeFAQ })));
 const LeaderboardPage = React.lazy(() => import('./pages/LeaderboardPage').then(module => ({ default: module.LeaderboardPage })));
 const AuthCallback = React.lazy(() => import('./pages/AuthCallback').then(module => ({ default: module.AuthCallback })));
 const SuccessPage = React.lazy(() => import('./pages/SuccessPage').then(module => ({ default: module.SuccessPage })));
@@ -238,6 +239,9 @@ function HomePage() {
       </Suspense>
       <Suspense fallback={<LoadingComponent />}>
         <BlogSection />
+      </Suspense>
+      <Suspense fallback={<LoadingComponent />}>
+        <HomeFAQ />
       </Suspense>
       <Suspense fallback={<LoadingComponent />}>
         <GenerateCTA />

@@ -109,6 +109,13 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* SEO Description */}
+        <div className="border-t-2 border-black/10 pt-4 pb-2">
+          <p className="font-body text-[9px] sm:text-[10px] text-gray-400 leading-relaxed text-center max-w-4xl mx-auto">
+            VintDress est un générateur IA de photos portées pour Vinted. Notre mannequin IA Vinted transforme vos photos de vêtements à plat en photos portées réalistes en 30 secondes. Obtenez des crédits IA Vinted gratuits grâce au parrainage et au partage en galerie. L'IA photo Vinted la plus simple et rapide pour booster vos ventes.
+          </p>
+        </div>
+
         {/* Bottom Bar */}
         <div className="border-t-3 border-black py-3 sm:py-4">
           <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
