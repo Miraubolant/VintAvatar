@@ -34,7 +34,23 @@ const getStoredConfig = (): AvatarConfig => {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
-      return JSON.parse(stored);
+      const defaults: AvatarConfig = {
+        gender: 'femme',
+        mannequinType: 'humain',
+        carnation: 'claire',
+        morphology: 'S',
+        age: '18-25',
+        posture: 'debout',
+        angle: 'face',
+        framing: 'corps-entier',
+        decor: 'fond-blanc',
+        lighting: 'naturel',
+        clothingType: 'auto',
+        faceMode: 'visible',
+        cropHead: false,
+        customPrompt: ''
+      };
+      return { ...defaults, ...JSON.parse(stored) };
     }
   } catch (error) {
     console.error('Error reading stored config:', error);
