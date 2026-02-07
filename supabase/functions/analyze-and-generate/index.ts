@@ -34,6 +34,7 @@ interface GenerationConfig {
   clothingType: string;
   faceMode: 'visible' | 'blur' | 'phone';
   cropHead: boolean;
+  customPrompt?: string;
 }
 
 interface VintedListing {
@@ -252,7 +253,7 @@ Camera angle: ${angleMap[config.angle] || 'optimal angle for the clothing type'}
 Framing: ${framingMap[config.framing] || 'full body shot'}.
 Background: ${decorMap[config.decor] || 'professional studio setting'}.
 Lighting: ${lightingMap[config.lighting] || 'professional studio lighting'}.
-Style: professional fashion retail photography with sharp focus on the ${clothingType}, sleek ${mannequinGender} mannequin with reflective black plastic surface, optimized for e-commerce display.`
+Style: professional fashion retail photography with sharp focus on the ${clothingType}, sleek ${mannequinGender} mannequin with reflective black plastic surface, optimized for e-commerce display.${config.customPrompt ? `\nAdditional details: ${config.customPrompt}` : ''}`
   } else {
     // Human model prompt - face mode handling
     let faceInstruction = ''
@@ -272,7 +273,7 @@ Framing: ${framingMap[config.framing] || 'full body shot'}.
 ${faceInstruction}
 Background: ${decorMap[config.decor] || 'professional studio setting'}.
 Lighting: ${lightingMap[config.lighting] || 'professional studio lighting'}.
-Style: professional fashion photography with sharp focus on the ${clothingType}, optimized for e-commerce and Vinted listings.`
+Style: professional fashion photography with sharp focus on the ${clothingType}, optimized for e-commerce and Vinted listings.${config.customPrompt ? `\nAdditional details: ${config.customPrompt}` : ''}`
   }
 
   // Call Replicate API - FLUX.2 Pro
@@ -463,6 +464,24 @@ Deno.serve(async (req) => {
         JSON.stringify({ error: 'Invalid face mode' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
+    }
+
+    // Validate and sanitize customPrompt
+    if (config.customPrompt !== undefined && config.customPrompt !== null) {
+      if (typeof config.customPrompt !== 'string') {
+        config.customPrompt = ''
+      } else {
+        // Truncate to 250 characters
+        config.customPrompt = config.customPrompt.slice(0, 250)
+        // Strip HTML tags
+        config.customPrompt = config.customPrompt.replace(/<[^>]*>/g, '')
+        // Remove potential prompt injection patterns
+        const injectionPatterns = /ignore\s+(previous|all|above)|system\s*:|assistant\s*:|<\|im_start\|>|<\|im_end\|>|\[INST\]|\[\/INST\]/gi
+        config.customPrompt = config.customPrompt.replace(injectionPatterns, '')
+        // Keep only safe characters: letters, numbers, spaces, basic punctuation, accented chars
+        config.customPrompt = config.customPrompt.replace(/[^\p{L}\p{N}\s.,;:!?'"()\-\/+&%@]/gu, '')
+        config.customPrompt = config.customPrompt.trim()
+      }
     }
 
     let originalImageUrl: string

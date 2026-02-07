@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Sparkles, Check } from 'lucide-react';
+import { X, Sparkles, Check, MessageSquare } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import confetti from 'canvas-confetti';
 import { useAuth } from '../hooks/useAuth';
@@ -25,6 +25,7 @@ interface AvatarConfig {
   clothingType: string;
   faceMode: 'visible' | 'blur' | 'phone';
   cropHead: boolean;
+  customPrompt: string;
 }
 
 const STORAGE_KEY = 'avatar_config';
@@ -51,7 +52,8 @@ const getStoredConfig = (): AvatarConfig => {
     lighting: 'naturel',
     clothingType: 'auto',
     faceMode: 'visible',
-    cropHead: false
+    cropHead: false,
+    customPrompt: ''
   };
 };
 
@@ -67,7 +69,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
   const { t } = useTranslation('avatarConfig');
   const [config, setConfig] = useState<AvatarConfig>(getStoredConfig);
   const [isValidated, setIsValidated] = useState(false);
-  const [activeTab, setActiveTab] = useState<'modele' | 'style' | 'environnement'>('modele');
+  const [activeTab, setActiveTab] = useState<'modele' | 'style' | 'environnement' | 'instructions'>('modele');
 
   const { user } = useAuth();
   const { stats, loading } = useAccountStats();
@@ -189,6 +191,17 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
               }`}
             >
               {t('tabs.environnement')}
+            </button>
+            <button
+              onClick={() => setActiveTab('instructions')}
+              className={`flex-1 py-1.5 px-1.5 font-display font-bold text-[10px] sm:text-[10px] transition-all duration-200 border-2 sm:border-2 border-black ${
+                activeTab === 'instructions'
+                  ? 'bg-cream text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                  : 'bg-white text-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:bg-cream'
+              }`}
+            >
+              <MessageSquare className="w-2.5 h-2.5 inline-block mr-0.5" />
+              PROMPT
             </button>
           </div>
 
@@ -539,6 +552,96 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                     ))}
                   </div>
                 </div>
+
+              </div>
+            )}
+
+            {activeTab === 'instructions' && (
+              <div className="space-y-2 sm:space-y-3">
+
+                {/* Description */}
+                <div className="flex items-center gap-1.5 mb-1">
+                  <MessageSquare className="w-3.5 h-3.5 text-vinted" />
+                  <h3 className="font-display font-bold text-xs sm:text-[11px] text-black">Instructions personnalisees</h3>
+                </div>
+                <p className="font-body text-[9px] sm:text-[10px] text-gray-500 -mt-1">
+                  Ajoutez des details supplementaires pour personnaliser la generation IA.
+                </p>
+
+                {/* Textarea */}
+                <div>
+                  <textarea
+                    value={config.customPrompt}
+                    onChange={(e) => {
+                      if (e.target.value.length <= 250) {
+                        updateConfig('customPrompt', e.target.value);
+                      }
+                    }}
+                    placeholder="Ex: lunettes de soleil, sac a main noir, fond urbain moderne, cheveux longs..."
+                    className="w-full p-2 sm:p-2.5 bg-white border-2 border-black font-body text-[10px] sm:text-xs text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 resize-none"
+                    rows={3}
+                    maxLength={250}
+                  />
+                  <div className="flex justify-end mt-0.5">
+                    <span className={`font-display font-bold text-[9px] ${config.customPrompt.length >= 230 ? 'text-red-500' : 'text-gray-400'}`}>
+                      {config.customPrompt.length}/250
+                    </span>
+                  </div>
+                </div>
+
+                {/* Suggestions */}
+                <div>
+                  <h3 className="font-display font-bold text-[10px] sm:text-[11px] text-black mb-1.5">Suggestions</h3>
+                  <div className="flex flex-wrap gap-1">
+                    {[
+                      'lunettes de soleil',
+                      'sac a main',
+                      'sourire',
+                      'cheveux longs',
+                      'tatouage bras',
+                      'bijoux dores',
+                      'fond urbain',
+                      'pose dynamique',
+                      'eclairage doux',
+                      'style streetwear'
+                    ].map((suggestion) => {
+                      const currentPrompt = config.customPrompt;
+                      const newText = currentPrompt
+                        ? `${currentPrompt}, ${suggestion}`
+                        : suggestion;
+                      const wouldExceed = newText.length > 250;
+
+                      return (
+                        <button
+                          key={suggestion}
+                          onClick={() => {
+                            if (!wouldExceed) {
+                              updateConfig('customPrompt', newText);
+                            }
+                          }}
+                          disabled={wouldExceed}
+                          className={`px-1.5 py-0.5 border-2 border-black font-body font-semibold text-[9px] sm:text-[10px] transition-all duration-200 ${
+                            wouldExceed
+                              ? 'bg-gray-100 text-gray-300 border-gray-300 cursor-not-allowed'
+                              : 'bg-white text-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:bg-cream hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                          }`}
+                        >
+                          + {suggestion}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Clear button */}
+                {config.customPrompt && (
+                  <button
+                    onClick={() => updateConfig('customPrompt', '')}
+                    className="w-full p-1 border-2 border-black bg-pink-pastel font-display font-bold text-[10px] text-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+                  >
+                    Effacer les instructions
+                  </button>
+                )}
 
               </div>
             )}
