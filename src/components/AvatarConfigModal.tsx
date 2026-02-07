@@ -578,10 +578,10 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                 {/* Description */}
                 <div className="flex items-center gap-1.5 mb-1">
                   <MessageSquare className="w-3.5 h-3.5 text-vinted" />
-                  <h3 className="font-display font-bold text-xs sm:text-[11px] text-black">Instructions personnalisees</h3>
+                  <h3 className="font-display font-bold text-xs sm:text-[11px] text-black">Instructions personnalisées</h3>
                 </div>
                 <p className="font-body text-[9px] sm:text-[10px] text-gray-500 -mt-1">
-                  Ajoutez des details supplementaires pour personnaliser la generation IA.
+                  Ajoutez des détails supplémentaires pour personnaliser la génération IA.
                 </p>
 
                 {/* Textarea */}
@@ -593,7 +593,7 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                         updateConfig('customPrompt', e.target.value);
                       }
                     }}
-                    placeholder="Ex: lunettes de soleil, sac a main noir, fond urbain moderne, cheveux longs..."
+                    placeholder="Ex: lunettes de soleil, sac à main noir, fond urbain moderne, cheveux longs..."
                     className="w-full p-2 sm:p-2.5 bg-white border-2 border-black font-body text-[10px] sm:text-xs text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:outline-none focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 resize-none"
                     rows={3}
                     maxLength={250}
@@ -611,14 +611,14 @@ export const AvatarConfigModal: React.FC<AvatarConfigModalProps> = ({ isOpen, on
                   <div className="flex flex-wrap gap-1">
                     {[
                       'lunettes de soleil',
-                      'sac a main',
+                      'sac à main',
                       'sourire',
                       'cheveux longs',
                       'tatouage bras',
-                      'bijoux dores',
+                      'bijoux dorés',
                       'fond urbain',
                       'pose dynamique',
-                      'eclairage doux',
+                      'éclairage doux',
                       'style streetwear'
                     ].map((suggestion) => {
                       const currentPrompt = config.customPrompt;
